@@ -25,7 +25,19 @@ Things you may want to cover:
 
 # NOTES
 
+## DB
 - To start postgres run command:
-‘‘‘
+```
 brew services postgres start postgresql
-‘‘‘
+```
+
+## GIT
+- Revert changes to modified files.
+```
+git reset --hard
+```
+
+- Remove all untracked files and directories. (`-f` is `force`, `-d` is `remove directories`)
+```
+git clean -fd
+```
