@@ -23,4 +23,9 @@ Things you may want to cover:
 
 * ...
 
-Branch di Giorgio
+# NOTES
+
+- To start postgres run command:
+‘‘‘
+brew services postgres start postgresql
+‘‘‘
