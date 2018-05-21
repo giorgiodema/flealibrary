@@ -1,0 +1,6 @@
+
+<%= form_tag("/signin", method: "post") do %>
+  <%= label_tag(:username, "username:") %>
+  <%= text_field_tag(:username) %>
+  <%= submit_tag("SignIn") %>
+<% end %>

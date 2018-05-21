@@ -41,3 +41,5 @@ git reset --hard
 ```
 git clean -fd
 ```
+## TODO
+- _chat.html.erb
