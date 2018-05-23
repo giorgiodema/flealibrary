@@ -28,7 +28,7 @@ Things you may want to cover:
 ## DB
 - To start postgres run command:
 ```
-brew services postgres start postgresql
+brew services start postgresql
 ```
 
 ## GIT

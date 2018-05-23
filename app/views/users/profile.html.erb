@@ -1,1 +1,4 @@
 <h3> Hello <%= @user.username %> </h3>
+
+<%= render partial: "chats_index", locals: { chats: @chats } %>
+<%= render partial: "chat", locals: {c:@c} %>

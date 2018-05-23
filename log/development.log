@@ -1753,3 +1753,1235 @@ FOREIGN KEY ("chat_id")
   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "Vincenzo"], ["LIMIT", 1]]
   [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) AND "chats"."guest_id" = 2 ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+Started GET "/signin" for 127.0.0.1 at 2018-05-22 10:27:07 +0200
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  
+pg (1.0.0) lib/pg.rb:56:in `initialize'
+pg (1.0.0) lib/pg.rb:56:in `new'
+pg (1.0.0) lib/pg.rb:56:in `connect'
+activerecord (5.1.6) lib/active_record/connection_adapters/postgresql_adapter.rb:697:in `connect'
+activerecord (5.1.6) lib/active_record/connection_adapters/postgresql_adapter.rb:221:in `initialize'
+activerecord (5.1.6) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.6) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (50.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (30.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7461772034015038740)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20180517213151)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (31.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35mSQL (4.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180517213151"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChatMigration (20180517214147)
+  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "chats" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "owner_id" bigint, "guest_id" bigint)[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_owner_id" ON "chats"  ("owner_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_guest_id" ON "chats"  ("guest_id")[0m
+  [1m[35m (12.6ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_a229e37047"
+FOREIGN KEY ("owner_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_d21eee654c"
+FOREIGN KEY ("guest_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "text" character varying, "read" boolean, "from" integer DEFAULT 0, "chat_id" bigint)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_chat_id" ON "messages"  ("chat_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0f670de7ba"
+FOREIGN KEY ("chat_id")
+  REFERENCES "chats" ("id")
+[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180517214147"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-22 08:37:07.396353"], ["updated_at", "2018-05-22 08:37:07.396353"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7461772034015038740)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Giorgio"], ["created_at", "2018-05-22 08:37:10.502193"], ["updated_at", "2018-05-22 08:37:10.502193"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Vincenzo"], ["created_at", "2018-05-22 08:37:10.513641"], ["updated_at", "2018-05-22 08:37:10.513641"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Flavia"], ["created_at", "2018-05-22 08:37:10.516816"], ["updated_at", "2018-05-22 08:37:10.516816"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-05-22 08:37:10.552375"], ["updated_at", "2018-05-22 08:37:10.552375"], ["owner_id", 1], ["guest_id", 2]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-05-22 08:37:10.579413"], ["updated_at", "2018-05-22 08:37:10.579413"], ["text", "Ciao vincenzone porcone"], ["read", "t"], ["chat_id", 1]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-05-22 08:37:10.589390"], ["updated_at", "2018-05-22 08:37:10.589390"], ["text", "Ciao giorgio, sei bellissimo"], ["read", "t"], ["from", 1], ["chat_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-05-22 08:37:10.593509"], ["updated_at", "2018-05-22 08:37:10.593509"], ["owner_id", 1], ["guest_id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-05-22 08:37:10.597427"], ["updated_at", "2018-05-22 08:37:10.597427"], ["text", "Ciao Fla, come stai?"], ["read", "t"], ["chat_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-05-22 08:37:10.600538"], ["updated_at", "2018-05-22 08:37:10.600538"], ["text", "Ciao Gio, bene tu? stai studiando?"], ["read", "t"], ["from", 1], ["chat_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/signin" for 127.0.0.1 at 2018-05-22 10:37:22 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#sign_in as HTML
+  Rendering users/signin.html.erb within layouts/application
+  Rendered users/signin.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 801ms (Views: 786.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for 127.0.0.1 at 2018-05-22 10:37:33 +0200
+Processing by UsersController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8rQxfRvxfni7rkttnTYtfwhPS2HbGiAq/Yj3SJWKXETpf6aMt9NANgFwFQdBy01+0VuH+e36ewI0GKvNjLY91Q==", "username"=>"Giorgio", "commit"=>"SignIn"}
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/profile
+Completed 302 Found in 36ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 10:37:33 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  Rendered users/profile.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 22.0ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+  [1m[36mChat Load (1.2ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mChat Load (5.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/signin" for 127.0.0.1 at 2018-05-22 11:12:37 +0200
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#sign_in as HTML
+  Rendering users/signin.html.erb within layouts/application
+  Rendered users/signin.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 254ms (Views: 243.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for 127.0.0.1 at 2018-05-22 11:12:41 +0200
+Processing by UsersController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dvEHKJp0rMk6vXxpEJfaGLLdjErvMndk93w4NUhE/3xtOpDZNlaSh4BjIgPMaroZa8lA0tnSLEw+7GSwUXie7Q==", "username"=>"Giorgio", "commit"=>"SignIn"}
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/profile
+Completed 302 Found in 48ms (ActiveRecord: 21.2ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:12:41 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  Rendered users/_chats_index.html.erb (0.9ms)
+  Rendered users/profile.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/Users/giorgiodemagistris/Desktop/flealibrary/app/views/users/_chats_index.html.erb:11: syntax error, unexpected ')', expecting keyword_end
+ername else c.owner.username );@output_buffer.safe_append='
+                              ^
+/Users/giorgiodemagistris/Desktop/flealibrary/app/views/users/_chats_index.html.erb:18: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/giorgiodemagistris/Desktop/flealibrary/app/views/users/_chats_index.html.erb:20: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/users/_chats_index.html.erb:11: syntax error, unexpected ')', expecting keyword_end
+app/views/users/_chats_index.html.erb:18: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/users/_chats_index.html.erb:20: syntax error, unexpected keyword_end, expecting ')'
+app/views/users/profile.html.erb:3:in `_app_views_users_profile_html_erb__1487033083441740514_70278976610100'
+Started GET "/signin" for 127.0.0.1 at 2018-05-22 11:13:26 +0200
+Processing by UsersController#sign_in as HTML
+  Rendering users/signin.html.erb within layouts/application
+  Rendered users/signin.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 51ms (Views: 50.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for 127.0.0.1 at 2018-05-22 11:13:29 +0200
+Processing by UsersController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bgLLmfw/VNvTssZiMBo0myqal3Y1QFJrjD+zTNDrq5d1yVxoUB1qlWlsmAjs51Sa845b7gOgCUNFr+/JydfKBg==", "username"=>"Giorgio", "commit"=>"SignIn"}
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/profile
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:13:29 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (38.0ms)
+  Rendered users/profile.html.erb within layouts/application (41.8ms)
+Completed 200 OK in 83ms (Views: 54.3ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:34:26 +0200
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.0ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (32.3ms)
+  Rendered users/profile.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 542ms (Views: 483.1ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2018-05-22 11:34:29 +0200
+Processing by UsersController#sign_in as HTML
+  Rendering users/signin.html.erb within layouts/application
+  Rendered users/signin.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for 127.0.0.1 at 2018-05-22 11:34:33 +0200
+Processing by UsersController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LI9xtlvo6PbCo0J2F99xQZzCymJZknku1O2GHFDIiSI3ROZH98rWuHh9HBzLIhFARdYG+m9yIgYdfdqZSfTosw==", "username"=>"Giorgio", "commit"=>"SignIn"}
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/profile
+Completed 302 Found in 12ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:34:33 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.3ms)
+  Rendered users/profile.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 31ms (Views: 26.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:34:53 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.0ms)
+  Rendered users/profile.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 573ms (Views: 564.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:35:07 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.1ms)
+  Rendered users/profile.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 45ms (Views: 39.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:35:34 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.8ms)
+  Rendered users/profile.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 75ms (Views: 69.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:37:24 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.1ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (14.8ms)
+  Rendered users/profile.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 157ms (Views: 127.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:37:32 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (8.8ms)
+  Rendered users/profile.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 84ms (Views: 77.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:37:53 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.8ms)
+  Rendered users/profile.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 87ms (Views: 80.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:38:56 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (8.5ms)
+  Rendered users/profile.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 145ms (Views: 138.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:40:13 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.7ms)
+  Rendered users/profile.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 87ms (Views: 77.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:40:16 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.4ms)
+  Rendered users/profile.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 41ms (Views: 34.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:42:25 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.5ms)
+  Rendered users/profile.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 80ms (Views: 73.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:42:49 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.5ms)
+  Rendered users/profile.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 80ms (Views: 73.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:44:11 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.2ms)
+  Rendered users/profile.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 87ms (Views: 80.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:49:07 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.5ms)
+  Rendered users/profile.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 70ms (Views: 61.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:49:08 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.7ms)
+  Rendered users/profile.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 31ms (Views: 26.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:50:19 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.2ms)
+  Rendered users/profile.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 95ms (Views: 90.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2018-05-22 11:50:41 +0200
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#sign_in as HTML
+  Rendering users/signin.html.erb within layouts/application
+  Rendered users/signin.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 267ms (Views: 252.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for 127.0.0.1 at 2018-05-22 11:50:46 +0200
+Processing by UsersController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vWys8ftVFKBbJXi82Htho6leT3oxfQhE+J3zYKddifqmpzsAV3cq7uH7JtYEhgGicEqD4gedU2wxDa/lvmHoaw==", "username"=>"Giorgio", "commit"=>"SignIn"}
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/profile
+Completed 302 Found in 44ms (ActiveRecord: 16.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:50:46 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.0ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (31.4ms)
+  Rendered users/profile.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 72ms (Views: 48.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:55:03 +0200
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (31.0ms)
+  Rendered users/profile.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 414ms (Views: 354.1ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:55:21 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.1ms)
+  Rendered users/profile.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 136ms (Views: 130.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:56:52 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (15.1ms)
+  Rendered users/profile.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 142ms (Views: 115.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 11:59:32 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.9ms)
+  Rendered users/profile.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 86ms (Views: 78.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:07:45 +0200
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (34.4ms)
+  Rendered users/profile.html.erb within layouts/application (38.2ms)
+Completed 200 OK in 437ms (Views: 383.7ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:08:13 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.9ms)
+  Rendered users/profile.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 587ms (Views: 580.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:13:19 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.4ms)
+  Rendered users/profile.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 119ms (Views: 111.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:26:25 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (1.2ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (13.3ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 162ms (Views: 102.8ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:27:14 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.6ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 65ms (Views: 56.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:27:52 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.5ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 71ms (Views: 62.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:27:55 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.7ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 39ms (Views: 31.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:28:17 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (8.5ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 107ms (Views: 98.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:28:19 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.3ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 40ms (Views: 33.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:28:35 +0200
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (1.1ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (21.3ms)
+  Rendered users/_chat.html.erb (0.8ms)
+  Rendered users/profile.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 441ms (Views: 378.8ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:29:09 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.8ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 445ms (Views: 435.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:29:50 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.9ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 51ms (Views: 41.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:29:52 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.5ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 37ms (Views: 29.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:29:54 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.8ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 36ms (Views: 29.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:30:30 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.8ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 57ms (Views: 49.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:30:48 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (8.3ms)
+  Rendered users/_chat.html.erb (0.6ms)
+  Rendered users/profile.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 55ms (Views: 45.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:31:16 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.0ms)
+  Rendered users/_chat.html.erb (0.6ms)
+  Rendered users/profile.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 72ms (Views: 63.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:31:18 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (9.6ms)
+  Rendered users/_chat.html.erb (0.6ms)
+  Rendered users/profile.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 53ms (Views: 44.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:31:26 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.9ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 55ms (Views: 47.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:33:40 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  Rendered users/_chat.html.erb (0.5ms)
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.8ms)
+  Rendered users/profile.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 77ms (Views: 67.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:34:48 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.8ms)
+  Rendered users/_chat.html.erb (0.5ms)
+  Rendered users/profile.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 70ms (Views: 60.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:34:57 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.9ms)
+  Rendered users/_chat.html.erb (0.3ms)
+  Rendered users/profile.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 39ms (Views: 32.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:35:48 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (9.3ms)
+  Rendered users/_chat.html.erb (0.5ms)
+  Rendered users/profile.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 59ms (Views: 49.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:35:59 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.6ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 54ms (Views: 47.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:36:09 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.6ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 42ms (Views: 35.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-22 12:36:30 +0200
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/giorgiodemagistris/.rvm/gems/ruby-2.4.2/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/giorgiodemagistris/.rvm/gems/ruby-2.4.2/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 33ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-22 12:36:33 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/giorgiodemagistris/.rvm/gems/ruby-2.4.2/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/giorgiodemagistris/.rvm/gems/ruby-2.4.2/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2018-05-22 12:36:36 +0200
+Processing by UsersController#sign_in as HTML
+  Rendering users/signin.html.erb within layouts/application
+  Rendered users/signin.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 421ms (Views: 420.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for 127.0.0.1 at 2018-05-22 12:36:40 +0200
+Processing by UsersController#sign_in as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HIExOuy9G8QKh5elcsqMlKxytoog73Z4VVfqH4QbPjbCT1AYyrhWV6iIRKIL2vYgmgOMK9wt1VRP6/tlHq212w==", "username"=>"Giorgio", "commit"=>"SignIn"}
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "Giorgio"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/profile
+Completed 302 Found in 28ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:36:40 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (22.8ms)
+  Rendered users/_chat.html.erb (0.6ms)
+  Rendered users/profile.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 83ms (Views: 52.3ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:38:44 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (8.2ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 611ms (Views: 602.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:38:46 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.6ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 41ms (Views: 33.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:39:29 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.9ms)
+  Rendered users/_chat.html.erb (0.5ms)
+  Rendered users/profile.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 61ms (Views: 53.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:39:31 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.5ms)
+  Rendered users/_chat.html.erb (0.6ms)
+  Rendered users/profile.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 40ms (Views: 33.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:39:41 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.8ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 55ms (Views: 47.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:41:32 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.3ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 72ms (Views: 65.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:41:33 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (1.3ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.4ms)
+  Rendered users/_chat.html.erb (0.5ms)
+  Rendered users/profile.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 48ms (Views: 40.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:41:53 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.3ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 56ms (Views: 49.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:42:10 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (7.1ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 52ms (Views: 45.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:44:17 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.2ms)
+  Rendered users/_chat.html.erb (0.3ms)
+  Rendered users/profile.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 53ms (Views: 46.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:45:07 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (6.7ms)
+  Rendered users/_chat.html.erb (0.5ms)
+  Rendered users/profile.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 62ms (Views: 53.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:45:19 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (8.1ms)
+  Rendered users/_chat.html.erb (0.3ms)
+  Rendered users/profile.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 59ms (Views: 51.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:45:35 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (9.2ms)
+  Rendered users/_chat.html.erb (0.4ms)
+  Rendered users/profile.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 62ms (Views: 54.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2018-05-22 12:48:17 +0200
+Processing by UsersController#profile as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1) ORDER BY "chats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered users/_chats_index.html.erb (11.9ms)
+  Rendered users/_chat.html.erb (1.0ms)
+  Rendered users/profile.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 100ms (Views: 82.5ms | ActiveRecord: 4.1ms)
+
+

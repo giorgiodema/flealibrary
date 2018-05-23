@@ -26,6 +26,8 @@ class UsersController < ApplicationController
     # FAKE PROFILE used to render chat partial
     def profile
         @user = self.current_user
+        @chats = @user.chats
+        @c = @user.chats.first
     end
 
 end
