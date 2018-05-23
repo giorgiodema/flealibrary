@@ -14,13 +14,25 @@
  *= require_self
  */
 
+ p {
+    font-size: 1.5vw;
+}
+
+textarea{
+    font-size: 1.5vw;
+}
+
+ body, html {
+    height: 100%;
+}
+
  * {
     box-sizing: border-box;
 }
 .row::after {
     content: "";
     clear: both;
-    display: table;
+    display: block;
 }
 [class*="col-"] {
     float: left;
