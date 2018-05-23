@@ -13,3 +13,83 @@
  *= require_tree .
  *= require_self
  */
+
+ .container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 25% 25% auto;
+    grid-template-areas:
+      'header button'
+      '1 2'
+      'ads chat';
+    grid-gap: 10px;
+    background-color: white;
+    padding: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.item1 { 
+    grid-area: header; 
+    float: left;
+}
+.item2 { grid-area: button; float: right;}
+.item3 { 
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;}
+.item4 { grid-area: ads;}
+.item5 { grid-area: chat;}
+
+.button-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 90%;
+    grid-template-areas:
+      'signin signup signout'
+}
+
+.item6 {grid-area: signin}
+.item7 {grid-area: signup}
+.item8 {grid-area: signout}
+
+.notice {
+    color: green;
+    font-size: 14px;
+}
+
+.alert {
+    color: red;
+    font-size: 14px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+body {
+    background-color: white;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.title {
+    color: brown;
+    text-align: left;
+}
+
+button {
+    color: black;
+    text-align: center;
+}

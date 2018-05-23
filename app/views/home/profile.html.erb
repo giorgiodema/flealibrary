@@ -1,0 +1,13 @@
+<html>
+    <body class="center">
+
+        <%= @user.name %><br>
+        <%= @user.surname %><br>
+        <%= @user.username %><br>
+        <%= @user.email %><br>
+
+        <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+        <%= link_to "Home", root_path%>
+
+    </body>
+</html>
