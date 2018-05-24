@@ -1,13 +1,26 @@
-<html>
-    <body class="center">
+<div class="profile-container">
 
-        <%= @user.name %><br>
-        <%= @user.surname %><br>
-        <%= @user.username %><br>
-        <%= @user.email %><br>
+    <div class="item8">
+        <h3>Profile<br/></h3>
+        <p>
+            Name: <%= @user.name %><br>
+            Surname: <%= @user.surname %><br>
+            Username: <%= @user.username %><br>
+            Email: <%= @user.email %><br><br>
+            <%=link_to "Edit", edit_user_registration_path%>
+        </p>
+    </div>
 
-        <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
-        <%= link_to "Home", root_path%>
+    <div class="item9">
+        <p>
+            chat
+        </p>
+    </div>
 
-    </body>
-</html>
+</div>
+
+<div class="item4">
+    <p>
+        <%= link_to "Home", root_path %>
+    </p>
+</div>

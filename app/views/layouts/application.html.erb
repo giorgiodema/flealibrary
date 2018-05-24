@@ -8,16 +8,50 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if flash[:notice] %>
-     <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="alert"><%= flash[:alert] %></div>
-    <% end %>
-    <% if flash[:error] %>
-      <div class="error"><%= flash[:error] %></div>
-    <% end %>
+  <body class="container">
+    <div class="header-container">
+
+      <div class="item1">
+        <h1 class="title">
+          <%= link_to "FLEA LIBRARY", root_path, class:"title-home-link" %>
+        </h1>
+      </div>
+
+      <div class="button-container">
+        <%if user_signed_in?%>
+          <div class="item2">
+            Ciao
+            <%user = current_user%>
+            <%=link_to "#{user.username}", profile_path, :method => 'get'%>
+          </div>
+          <div class="item3">
+            <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+          </div>
+        <%else%>
+          <div class="item2">
+            <%= link_to "Sign in", new_user_session_path, :method => 'get' %>
+          </div>
+          <div class="item3">
+            <%= link_to "Sign up", new_user_registration_path, :method => 'get' %>
+          </div>
+        <%end%>
+      </div>
+
+    </div>
+
+    <div class="flash">
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert"><%= flash[:alert] %></div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="error"><%= flash[:error] %></div>
+      <% end %>
+    </div>
+
     <%= yield %>
+
   </body>
 </html>

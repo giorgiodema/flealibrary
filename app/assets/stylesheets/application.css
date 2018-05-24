@@ -16,55 +16,122 @@
 
  .container {
     display: grid;
-    grid-template-columns: 80% 20%;
-    grid-template-rows: 25% 25% auto;
+    grid-template-columns: 960px;
+    grid-template-rows: 20% 5% 60% 15%;
     grid-template-areas:
-      'header button'
-      '1 2'
-      'ads chat';
+      'header'
+      'flash'
+      'center'
+      'footer';
     grid-gap: 10px;
-    background-color: white;
-    padding: 10px;
+    padding: 1px;
     justify-content: center;
     align-content: center;
 }
 
-.item1 { 
-    grid-area: header; 
-    float: left;
+.header-container { 
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-areas: 'title button';
+    grid-gap: 10px;
 }
-.item2 { grid-area: button; float: right;}
-.item3 { 
+
+.button-container {
+    grid-area: button;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: 'uno due';
+    grid-gap: 10px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 20px;
+    color: blueviolet;
+    align-content: center;
+}
+
+.home-container {
+    grid-area: center;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+        'search search'
+        'ads homechat';
+    grid-gap: 10px;
+    align-content: center;
+}
+
+.profile-container{
+    grid-area: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 90%;
+    grid-template-areas: 'info profilechat';
+    grid-gap: 10px;
+    align-content: center;
+}
+
+.flash {
+    grid-area: flash;
+    position: relative;
+    text-align: center;
+}
+
+.sign-container {
+    grid-area: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.item1 {
+    grid-area: title;
+    text-align: left;
+}
+.item2 { 
+    grid-area: uno;
+}
+.item3 {
+    grid-area: due;
+}
+.item4 { 
+    grid-area: footer;
+    text-align: center;
+}
+.item5 {
+    grid-area: search;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
-    text-align: center;}
-.item4 { grid-area: ads;}
-.item5 { grid-area: chat;}
-
-.button-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: 90%;
-    grid-template-areas:
-      'signin signup signout'
+    text-align: center;
 }
-
-.item6 {grid-area: signin}
-.item7 {grid-area: signup}
-.item8 {grid-area: signout}
+.item6 { 
+    grid-area: ads;
+    text-align: left;
+}
+.item7 { 
+    grid-area: homechat;
+    text-align: right;
+}
+.item8 {
+    grid-area: info; 
+    position: relative;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.item9 {
+    grid-area: profilechat; 
+    position: relative;
+}
 
 .notice {
     color: green;
     font-size: 14px;
 }
-
 .alert {
-    color: red;
+    color: rgb(255, 94, 0);
     font-size: 14px;
 }
-
 .error {
     color: red;
     font-size: 14px;
@@ -73,15 +140,29 @@
 body {
     background-color: white;
 }
-
-h1 {
+button {
     color: black;
     text-align: center;
 }
-
-h2 {
-    color: black;
+h1 {
+    text-align: left;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+}
+h2 {
+    text-align: right;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+h3 {
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+p {
+    text-align: center;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 20px;
 }
 
 .title {
@@ -89,7 +170,37 @@ h2 {
     text-align: left;
 }
 
-button {
-    color: black;
+.title-home-link {
+    text-decoration: none;
+    text-transform: none;
+    color: brown;
+}
+.title-home-link:hover {
+    text-decoration: none;
+    color: brown;
+}
+.title-home-link:active {
+    color: brown;
+}
+.title-home-link:visited {
+    color: brown;
+}
+
+.link {
+    font-family: "Gill Sans", sans-serif;
+    font-size: 20px;
+    color: blueviolet;
+}
+
+.button {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(223, 117, 20);
+}
+
+.devise-message {
     text-align: center;
+    font-size: 14px;
+    color: red;
 }

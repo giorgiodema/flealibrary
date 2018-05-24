@@ -1,43 +1,15 @@
-<body>
-  <div class="container">
-		<div class="item1">
-			<h2 class="title"> FLEA LIBRARY </h2>
-		</div>
-
-		<div class="item2">
-			<div class="button-container">
-				<%if user_signed_in?%>
-					<div class="item6">
-						ciao
-          				<%= link_to "utente", profile_path, :method => 'get' %>
-					</div>
-					<div class="item8">
-						<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
-					</div>
-				<%else%>
-					<div class="item6">
-						<%= link_to "Sign in", new_user_session_path, :method => 'get' %>
-					</div>
-					<div class="item7">
-						<%= link_to "Sign up", new_user_registration_path, :method => 'get' %>
-					</div>
-				<%end%>
-				</div>
-			</div>
-		</div>
-
-		<div class="item3">
+<div class="home-container">
+	<p>
+		<div class="item5">
 			searchbar
 		</div>
 
-		<div class="item4">
+		<div class="item6">
 			listalibri
 		</div>
 
-		<div class="item5">
+		<div class="item7">
 			chat
 		</div>
-
-	</div>
-
-</body>
+	</p>
+</div>
