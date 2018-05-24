@@ -1,0 +1,22 @@
+I"Þ
+/*
+$("*").click ->
+    console.log("ciao")
+    return
+ */
+
+(function() {
+  $(document).ready(function() {
+    $("[name='close_chat']").click(function() {
+      $(this).parents(".chat_div").css("visibility", "hidden");
+    });
+    $(".chat_list_item").click(function() {
+      var id;
+      $(".chat_div").css("visibility", "hidden");
+      id = $(this).children("[name='chat_id']").attr("content");
+      $("#" + id).css("visibility", "visible");
+    });
+  });
+
+}).call(this);
+:ET

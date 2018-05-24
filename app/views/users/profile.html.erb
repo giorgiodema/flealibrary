@@ -2,5 +2,8 @@
 <div class="col-12 header">
 <h3> Hello <%= @user.username %> </h3>
 </div>
-<%= render partial: "chat", locals: {c:@c, user:@user} %>
+
+<div class="col-9 chat_container">
+    <%= render partial: "chat", locals: {user:@user, chats:@chats} %>
+</div>
 <%= render partial: "chats_index", locals: { chats: @chats } %>

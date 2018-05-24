@@ -1,0 +1,16 @@
+I"Ú
+/*
+$("*").click ->
+    console.log("ciao")
+    return
+ */
+
+(function() {
+  $(document).ready(function() {
+    $("[name='close_chat']").click(function() {
+      console.log("close chat");
+    });
+  });
+
+}).call(this);
+:ET

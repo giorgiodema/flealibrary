@@ -1,8 +1,8 @@
 
 .chat_div{
-
-    height:90%;
+    display:none;
     width:100%;
+    height:100%;
     background-color: rgb(230, 230, 230);
     .chat_top{
         width:100%;
@@ -17,7 +17,7 @@
             border:0;
             background-color: inherit;
             color:white;
-            font-size: 1.5vw;
+            font-size: 24px;
         }
         input:hover{
             background-color:white;

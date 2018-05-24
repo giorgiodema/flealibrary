@@ -1,0 +1,11 @@
+I"³(function() {
+  $("*").click(function() {
+    console.log("ciao");
+  });
+
+  $(".input[name='close_chat']").click(function() {
+    console.log("close chat");
+  });
+
+}).call(this);
+:ET

@@ -7,7 +7,7 @@
 
     <% @chats.each do |c| %>
     <li class=chat_list_item>
-        <meta name="chat_id" content= <%= c.id %>
+        <meta name="chat_id" content= <%= c.id %> >
         <p>
             <%= if @user.username == c.owner.username then c.guest.username else c.owner.username end%>
         </p>
