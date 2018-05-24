@@ -1,15 +1,13 @@
 <div class="home-container">
-	<p>
-		<div class="item5">
-			searchbar
-		</div>
 
-		<div class="item6">
-			listalibri
-		</div>
+	<%= form_tag(ads_list_path, :method => "get", id: "search-form") do %>
+	<%= text_field :search, params[:search], placeholder: "Search Book" %>
+	<%= submit_tag "Search" %>
+	<% end %>
 
-		<div class="item7">
-			chat
-		</div>
-	</p>
+	<%= form_tag(users_list_path, :method => "get", id: "search-form") do %>
+	<%= text_field :search, params[:search], placeholder: "Search User" %>
+	<%= submit_tag "Search" %>
+	<% end %>
+
 </div>
