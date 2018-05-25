@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   get 'profile', to: 'users#profile'
 
+  post 'send_message', to:'chats#receive'
+  get 'send_message', to:'chats#receive'
 
 end

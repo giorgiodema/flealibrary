@@ -1,0 +1,23 @@
+I"((function() {
+  var chat_controller;
+
+  chat_controller = {};
+
+  chat_controller.hide_chat = function() {
+    return $("[name='close_chat']").click(function() {
+      $(this).parents(".chat_div").css("display", "none");
+    });
+  };
+
+  $(document).ready(function() {
+    chat_controller.hide_chat();
+    $(".chat_list_item").click(function() {
+      var id;
+      $(".chat_div").css("display", "none");
+      id = $(this).children("[name='chat_id']").attr("content");
+      $("#" + id.toString()).css("display", "block");
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,33 @@
+I"(function() {
+  var chat_controller;
+
+  chat_controller = {};
+
+  chat_controller.hide_chat = function() {
+    return $("[name='close_chat']").click(function() {
+      $(this).parents(".chat_div").css("display", "none");
+    });
+  };
+
+  chat_controller.show_chat = function() {
+    return $(".chat_list_item").click(function() {
+      var id;
+      $(".chat_div").css("display", "none");
+      id = $(this).children("[name='chat_id']").attr("content");
+      $("#" + id.toString()).css("display", "block");
+    });
+  };
+
+  chat_controller.send_message = function() {
+    return $(document).keypress(function(data) {
+      return console.log("keypressed:" + data);
+    });
+  };
+
+  $(document).ready(function() {
+    chat_controller.show_chat();
+    chat_controller.hide_chat();
+  });
+
+}).call(this);
+:ET

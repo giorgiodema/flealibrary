@@ -37,7 +37,7 @@ textarea{
 
 [class*="col-"] {
     float: left;
-    /*padding: 15px;*/
+    padding: 5px;
 }
 
 /* For mobile phones: */
