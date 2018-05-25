@@ -1,15 +1,13 @@
-<div class="col-12">
-	<div class="col-12">
-		searchbar
-	</div>
-	
-	<div class="col-12">
-		<div class="col-8">
-			listalibri
-		</div>
+<div class="home-container">
 
-		<div class="col-4">
-			chat
-		</div>
-	</div>
+	<%= form_tag(ads_list_path, :method => "get", id: "search-form") do %>
+	<%= text_field :search, params[:search], placeholder: "Search Book" %>
+	<%= submit_tag "Search" %>
+	<% end %>
+
+	<%= form_tag(users_list_path, :method => "get", id: "search-form") do %>
+	<%= text_field :search, params[:search], placeholder: "Search User" %>
+	<%= submit_tag "Search" %>
+	<% end %>
+
 </div>

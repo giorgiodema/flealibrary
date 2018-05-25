@@ -1,0 +1,7 @@
+<h3> Books found </h3>
+
+<% books = JSON.parse(@res.body)['items']%>
+<% books.each do |book| %>
+    <%= book['volumeInfo']['title']%>
+    <br>
+<% end %>
