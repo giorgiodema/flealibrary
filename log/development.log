@@ -7733,3 +7733,4 @@ Processing by HomeController#welcome as HTML
 Completed 200 OK in 46ms (Views: 42.5ms | ActiveRecord: 0.5ms)
 
 
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
