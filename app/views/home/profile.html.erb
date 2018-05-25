@@ -11,8 +11,15 @@
         </p>
     </div>
 
-    <div class="col-6">
-        chat
+    <%= form_tag(books_results_path, :method => "get", id: "search-form") do %>
+	<%= text_field :search, params[:search], placeholder: "Search Books" %>
+	<%= submit_tag "Search" %>
+	<% end %>
+
+    <div class="item9">
+        <p>
+            chat
+        </p>
     </div>
 
 </div>
