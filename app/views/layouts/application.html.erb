@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag "https://bootswatch.com/4/sketchy/bootstrap.min.css" %>
   </head>
 
-  <body class="col-12 sfondo2">
+  <body class="col-12">
     <div class="col-12">
 
       <div class="col-8">
@@ -21,14 +21,7 @@
 
       <div class="col-4">
         <%if user_signed_in?%>
-          <!--
-          <div class="col-6 text-success">
-            <h5>
-              Ciao
-              <%user = current_user%>
-              <%=link_to "#{user.username}", profile_path, :method => 'get'%>
-            </h5>
-          </div>-->
+          <% user = current_user %>
           <%= button_to "#{user.username.upcase}", profile_path, :method => 'get', class: "col-6 btn btn-outline-success btn-sm"%>
           <%= button_to "Sign out", destroy_user_session_path, :method => 'delete', class: "col-6 btn btn-danger btn-sm" %>
         <%else%>

@@ -12,7 +12,7 @@ class HomeController < ApplicationController
         @ad = params[:search][0]
         @ads = Ad.where( "book_title like?", "%#{@ad}%")
         if @ads.size.zero?
-            flash[:notice] = "No result found"
+            flash[:alert] = "No result found"
             redirect_to root_path
         end
     end
@@ -21,7 +21,7 @@ class HomeController < ApplicationController
         @user = params[:search][0]
         @users = User.where( "username like?", "%#{@user}%")
         if @users.size.zero?
-            flash[:notice] = "No result found"
+            flash[:alert] = "No result found"
             redirect_to root_path
         end
     end
