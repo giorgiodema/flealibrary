@@ -20,26 +20,27 @@ chat_controller.show_chat = () ->
 chat_controller.send_message = () ->
     $(".chat_div").keypress (e) ->
         if e.keyCode == 13
-            loadDoc()
-            console.log("KeyCode:"+e.keyCode)
+            msg = {
+                chat_id: $(this).attr("id")
+                text: $(this).children(".input_box").val()
+            }
+            chat_controller.post_message(msg)
 
         
-loadDoc = () ->
-    xhttp = new XMLHttpRequest
-    ###
-    xhttp.onreadystatechange = () -> 
-    if this.readyState == 4 && this.status == 200) 
-        document.getElementById("demo").innerHTML = this.responseText;
-    ###
-    xhttp.open("POST", "send_message", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
+chat_controller.post_message = (msg) ->
 
-    body = {
-        msg:"ciao"
-    }
-
-    xhttp.send(body)
-
+    $.ajax '/send_message',
+        type: 'POST'
+        dataType: 'json'
+        data: { msg }
+        error: (jqXHR, textStatus, errorThrown) ->
+            alert textStatus
+        success: (data, textStatus, jqXHR) ->
+            console.log "Status:"+textStatus
+            console.log "Data:"+data["myanswer"]
+            $("#"+msg.chat_id).children(".input_box").val("")
+            $("#"+msg.chat_id).children(".message_box").append("<li class=sent_message><p class=message_text> "+msg.text+" </p></li>")
+            
 
 
 

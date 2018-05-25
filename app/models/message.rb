@@ -9,4 +9,12 @@ class Message < ApplicationRecord
             return self.chat.guest
         end
     end
+
+    def set_from (username)
+        if self.chat.owner.username == username
+            self.from = "o"
+        else
+            self.from = "g"
+        end
+    end
 end

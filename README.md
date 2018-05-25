@@ -42,4 +42,4 @@ git reset --hard
 git clean -fd
 ```
 ## TODO
-- _chat.html.erb
+- Input validation in chats_controller.rb
