@@ -1,4 +1,4 @@
-
+user = {}
 
 chat_controller = {}
 
@@ -46,6 +46,7 @@ chat_controller.post_message = (msg) ->
 
 $(document).ready ->
 
+    user.userid = $("[name='userid']").attr("content")
 
     chat_controller.show_chat()
     chat_controller.hide_chat()

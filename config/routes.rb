@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   post 'send_message', to:'chats#receive'
   get 'send_message', to:'chats#receive'
 
+  mount ActionCable.server, at: '/cable'
+
 end

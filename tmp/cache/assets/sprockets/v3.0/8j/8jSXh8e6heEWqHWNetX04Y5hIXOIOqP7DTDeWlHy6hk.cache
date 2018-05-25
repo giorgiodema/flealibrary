@@ -1,0 +1,14 @@
+I"(function() {
+  App.mailbox = App.cable.subscriptions.create({
+    channel: "MailboxChannel",
+    userid: user.userid
+  }, {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      return alert("received data");
+    }
+  });
+
+}).call(this);
+:ET
