@@ -3771,7 +3771,6 @@ Processing by Users::RegistrationsController#create as HTML
 Completed 200 OK in 61ms (Views: 34.2ms | ActiveRecord: 0.9ms)
 
 
-<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2018-05-24 13:47:07 +0200
   [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by HomeController#welcome as HTML
@@ -6214,7 +6213,6 @@ Processing by Users::SessionsController#new as HTML
   Rendered users/shared/_links.html.erb (0.7ms)
   Rendered users/sessions/new.html.erb within layouts/application (5.1ms)
 Completed 200 OK in 50ms (Views: 49.4ms | ActiveRecord: 0.0ms)
-=======
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7461772034015038740)[0m
   [1m[35m (20.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to ChangeUsernameTypeInUsers (20180524093400)
@@ -6976,7 +6974,6 @@ Processing by HomeController#books_results as HTML
   Rendering home/books_results.html.erb within layouts/application
   Rendered home/books_results.html.erb within layouts/application (2.0ms)
 Completed 200 OK in 11302ms (Views: 37.9ms | ActiveRecord: 0.6ms)
->>>>>>> 5f9d9d9e
 
 
 Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-25 09:41:36 +0200
@@ -7733,6 +7730,7 @@ Processing by HomeController#welcome as HTML
 Completed 200 OK in 46ms (Views: 42.5ms | ActiveRecord: 0.5ms)
 
 
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2018-05-25 15:56:38 +0200
   [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by HomeController#welcome as HTML
@@ -7924,3 +7922,6 @@ Processing by HomeController#welcome as HTML
 Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.0ms)
 
 
+=======
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+>>>>>>> origin/annunci2

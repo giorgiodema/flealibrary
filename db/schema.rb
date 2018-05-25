@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180524114701) do
   enable_extension "plpgsql"
 
   create_table "ads", force: :cascade do |t|
-    t.integer "list_type"
+    t.integer "list_type"  # 0 -> favourite, 1 -> wish, 2-> gift
     t.string "book_title"
     t.string "book_authors"
     t.string "link_to_coverbook"
