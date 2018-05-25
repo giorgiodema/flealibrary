@@ -1,6 +1,6 @@
-<div class="profile-container">
+<div class="col-12 center">
 
-    <div class="item8">
+    <div class="col-6 text-info">
         <h3>Profile<br/></h3>
         <p>
             Name: <%= @user.name %><br>
@@ -11,16 +11,10 @@
         </p>
     </div>
 
-    <div class="item9">
-        <p>
-            chat
-        </p>
+    <div class="col-6">
+        chat
     </div>
 
 </div>
 
-<div class="item4">
-    <p>
-        <%= link_to "Home", root_path %>
-    </p>
-</div>
+<%= render "users/shared/links" %>

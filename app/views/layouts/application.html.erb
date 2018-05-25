@@ -6,48 +6,46 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%= stylesheet_link_tag "https://bootswatch.com/4/sketchy/bootstrap.min.css" %>
   </head>
 
-  <body class="container">
-    <div class="header-container">
+  <body class="col-12 sfondo2">
+    <div class="col-12">
 
-      <div class="item1">
-        <h1 class="title">
-          <%= link_to "FLEA LIBRARY", root_path, class:"title-home-link" %>
+      <div class="col-8">
+        <h1>
+          <%= link_to "FLEA LIBRARY", root_path %>
         </h1>
       </div>
 
-      <div class="button-container">
+      <div class="col-4">
         <%if user_signed_in?%>
-          <div class="item2">
-            Ciao
-            <%user = current_user%>
-            <%=link_to "#{user.username}", profile_path, :method => 'get'%>
+          <div class="col-6 text-success">
+            <h5>
+              Ciao
+              <%user = current_user%>
+              <%=link_to "#{user.username}", profile_path, :method => 'get'%>
+            </h5>
           </div>
-          <div class="item3">
-            <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
-          </div>
+          <%= button_to "Sign out", destroy_user_session_path, :method => 'delete', class: "col-6 btn btn-outline-info" %>
         <%else%>
-          <div class="item2">
-            <%= link_to "Sign in", new_user_session_path, :method => 'get' %>
-          </div>
-          <div class="item3">
-            <%= link_to "Sign up", new_user_registration_path, :method => 'get' %>
-          </div>
+          <%= button_to "Sign in", new_user_session_path, :method => 'get', class: "col-6 btn btn-outline-success" %>
+          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "col-6 btn btn-outline-warning" %>
         <%end%>
       </div>
 
     </div>
 
-    <div class="flash">
+    <div class="col-12">
       <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
+        <div class="alert alert-dismissible alert-success"><%= flash[:notice] %></div>
       <% end %>
       <% if flash[:alert] %>
-        <div class="alert"><%= flash[:alert] %></div>
+        <div class="alert alert-dismissible alert-warning"><%= flash[:alert] %></div>
       <% end %>
       <% if flash[:error] %>
-        <div class="error"><%= flash[:error] %></div>
+        <div class="alert alert-dismissible alert-danger"><%= flash[:error] %></div>
       <% end %>
     </div>
 

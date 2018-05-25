@@ -14,193 +14,43 @@
  *= require_self
  */
 
- .container {
-    display: grid;
-    grid-template-columns: 960px;
-    grid-template-rows: 20% 5% 60% 15%;
-    grid-template-areas:
-      'header'
-      'flash'
-      'center'
-      'footer';
-    grid-gap: 10px;
-    padding: 1px;
+*{
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+.center {
+    align-content: center;
     justify-content: center;
-    align-content: center;
-}
-
-.header-container { 
-    display: grid;
-    grid-template-columns: 80% 20%;
-    grid-template-areas: 'title button';
-    grid-gap: 10px;
-}
-
-.button-container {
-    grid-area: button;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-areas: 'uno due';
-    grid-gap: 10px;
-    font-family: "Gill Sans", sans-serif;
-    font-size: 20px;
-    color: blueviolet;
-    align-content: center;
-}
-
-.home-container {
-    grid-area: center;
-    display: grid;
-    grid-template-columns: 70% 30%;
-    grid-template-rows: 20% 80%;
-    grid-template-areas: 
-        'search search'
-        'ads homechat';
-    grid-gap: 10px;
-    align-content: center;
-}
-
-.profile-container{
-    grid-area: center;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 90%;
-    grid-template-areas: 'info profilechat';
-    grid-gap: 10px;
-    align-content: center;
-}
-
-.flash {
-    grid-area: flash;
-    position: relative;
-    text-align: center;
-}
-
-.sign-container {
-    grid-area: center;
-    align-content: center;
     align-items: center;
     text-align: center;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
-
-.item1 {
-    grid-area: title;
-    text-align: left;
-}
-.item2 { 
-    grid-area: uno;
-}
-.item3 {
-    grid-area: due;
-}
-.item4 { 
-    grid-area: footer;
-    text-align: center;
-}
-.item5 {
-    grid-area: search;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    text-align: center;
-}
-.item6 { 
-    grid-area: ads;
-    text-align: left;
-}
-.item7 { 
-    grid-area: homechat;
-    text-align: right;
-}
-.item8 {
-    grid-area: info; 
-    position: relative;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.item9 {
-    grid-area: profilechat; 
-    position: relative;
-}
-
-.notice {
-    color: green;
-    font-size: 14px;
-}
-.alert {
-    color: rgb(255, 94, 0);
-    font-size: 14px;
-}
-.error {
-    color: red;
-    font-size: 14px;
-}
-
-body {
-    background-color: white;
-}
-button {
-    color: black;
-    text-align: center;
-}
-h1 {
-    text-align: left;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 40px;
-}
-h2 {
-    text-align: right;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 30px;
-}
-h3 {
-    text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 30px;
-}
-p {
-    text-align: center;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 20px;
-}
-
-.title {
-    color: brown;
-    text-align: left;
-}
-
-.title-home-link {
-    text-decoration: none;
-    text-transform: none;
-    color: brown;
-}
-.title-home-link:hover {
-    text-decoration: none;
-    color: brown;
-}
-.title-home-link:active {
-    color: brown;
-}
-.title-home-link:visited {
-    color: brown;
-}
-
-.link {
-    font-family: "Gill Sans", sans-serif;
-    font-size: 20px;
-    color: blueviolet;
-}
-
-.button {
-    color: white;
-    border-radius: 4px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    background: rgb(223, 117, 20);
-}
-
-.devise-message {
-    text-align: center;
-    font-size: 14px;
-    color: red;
+    align-self: center;
 }
