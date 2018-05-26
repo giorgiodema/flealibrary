@@ -20,18 +20,16 @@ class ChatsController < ApplicationController
         puts("        text: #{new_message.text}")
         @chat.messages.append(new_message)
 
-        receiver_id = 1 #new_message.to?.id
+        receiver_id = new_message.to?.id
         msg = {
             chat_id:new_message.chat_id,
             text:new_message.text
         }
         
-        # Somewhere in your app this is called, perhaps
-        # from a NewCommentJob.
+
         ActionCable.server.broadcast(
             "mailbox_#{receiver_id}",
-            sent_by: 'Paul',
-            body: 'This is a cool chat app.'
+            msg
         )
 
 
