@@ -2,7 +2,9 @@
 
 .chat_list{
 
-    color:rgb(0, 0, 0);
+    list-style-type:none;
+
+    /*color:rgb(0, 0, 0);
     list-style-type: none;
     margin:0;
     float:right;
@@ -30,10 +32,11 @@
             border-bottom: 2px solid black;
             background-color:  rgb(136, 136, 136);
         }
-        
-        /* Change the link color on hover */
+        */
+        /* Change the link color on hover 
         li:hover {
             background-color: rgb(31, 31, 31);
             color: white;
         }
+        */
 }

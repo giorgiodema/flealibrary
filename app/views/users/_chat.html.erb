@@ -2,24 +2,24 @@
 
 <% @chats.each do |c| %>
     <div class="chat_div" id=<%= c.id %> >
-        <div class=chat_top>
+        <div class="list-group-item list-group-item-action active chat_top">
             <input type=button name="close_chat"  value=close>
         </div>
-        <ul class="message_box">
+        <ul class="jumbotron message_box">
             <% c.messages.each do |m|%>
                 <% if m.from?.username == @user.username%>
-                    <li class=sent_message>
+                    <li class="sent_message">
 
                         <p class=message_text> <%= m.text%> </p>
                     </li>
                 <% else %>
-                    <li class=received_message>
+                    <li class="received_message">
 
                         <p class=message_text> <%= m.text%> </p>
                     </li>
                 <% end %>
             <% end %>
         </ul>
-        <textarea class="input_box"></textarea>
+        <textarea class="form-control input_box"></textarea>
     </div>
 <%end%>
