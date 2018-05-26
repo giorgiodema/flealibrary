@@ -1,7 +1,51 @@
 <h3> Books found </h3>
 
-<% books = JSON.parse(@res.body)['items']%>
+<% books = JSON.parse(@res.body)['items'] %>
 <% books.each do |book| %>
-    <%= book['volumeInfo']['title']%>
+    <% if book['volumeInfo']['imageLinks']%>
+        <% if book['volumeInfo']['imageLinks']['thumbnail']%>
+            <%= image_tag(book['volumeInfo']['imageLinks']['thumbnail']) %>
+        <% elsif book['volumeInfo']['imageLinks']['smallThumbnail'] %>
+            <%= image_tag(book['volumeInfo']['imageLinks']['smallThumbnail'])%>
+        <% end %>
+    <% end %>
+    <br>
+    <% if book['volumeInfo']['title'] %>
+        <h7> Title: </h7>
+        <%= book['volumeInfo']['title'] %>
+    <% else %>
+        <h7> Title: not specified </h7>
+    <% end %>
+    <br>
+    <% if book['volumeInfo']['authors'] %>
+        <h7> Authors: </h7>
+        <% book['volumeInfo']['authors'].each do |author| %>
+            <%= author %>
+        <% end %>
+    <% else %>
+        <h7> Author: not specified </h7>
+    <% end %>
+    <br>
+    <% if book['volumeInfo']['publisher'] %>
+        <h7> Publisher: </h7>
+        <%= book['volumeInfo']['publisher'] %>
+    <% else %>
+        <h7> Publisher: not specified </h7>
+    <% end %>
+    <br>
+    <% if book['volumeInfo']['industryIdentifiers']%>
+        <% if book['volumeInfo']['industryIdentifiers'][0]['type'] %>
+            <h7> Identifier: </h7>
+            <%= book['volumeInfo']['industryIdentifiers'][0]['type'] %>
+        <% end %>
+    <% end %>
+    <% if book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
+        <%= book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
+    <% else %>
+        <h7> Identifier: not specified </h7>
+    <% end %>
+    <br>      
+    <%= link_to "Aggiungi", ads_path(:book =>{:id => book}), :method => :post %>
+    <br>
     <br>
 <% end %>

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
                                     registrations: 'users/registrations'}
   get '/profile' => 'home#profile', :as =>'profile'
 
+  resources :ads
+
   get '/ads_list' => 'home#ads_list', :as => 'ads_list'
   get '/users_list' => 'home#users_list', :as => 'users_list'
   get '/books_results' => 'home#books_results', :as => 'books_results'
