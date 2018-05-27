@@ -39,16 +39,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def banned_user
+    user = User.find(params[:id_banned])
+    user.role = "banned"
+    user.save
+    redirect_to root_path
+  end
+
+  def admin_user
+    user = User.find(params[:id_admin])
+    user.role = "admin"
+    user.save
+    redirect_to root_path
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :name, :surname, :username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :name, :surname, :username, :role])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute, :name, :surname, :username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute, :name, :surname, :username, :role])
   end
 
   # The path used after sign up.

@@ -6,5 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :username, length: { minimum:2, message:"length >= 2"}
+  validates :name, presence: true
+  validates :surname, presence: true
+  validates :username, length: { minimum:2}, presence: true
+
+  ROLES = %i[booklover banned admin]
+
 end

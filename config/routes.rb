@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   get '/users_list' => 'home#users_list', :as => 'users_list'
   get '/books_results' => 'home#books_results', :as => 'books_results'
 
+  devise_scope :user do
+    post '/users_list/:id_banned', to: 'users/registrations#banned_user', :as => 'banned_user'
+    post '/user_list/:id_admin', to: 'users/registrations#admin_user', :as => 'admin_user'
+  end
+
   root :to => "home#welcome"
   #get '*path' => redirect('/') DA LASCIARE
 

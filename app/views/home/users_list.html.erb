@@ -1,6 +1,11 @@
 <h3>Users</h3> 
 <p>
 <% @users.each do |user|%>
-    <%= user.username %><br>
+    <%= user.username %>
+    <% if can? :bann_user, User %>
+        <%= link_to "bann user", banned_user_path(user.id), :method => 'post'%>
+        <%= link_to "admin user", admin_user_path(user.id), :method => 'post'%>
+    <% end %>
+    <br>
 <% end %>
 </p>
