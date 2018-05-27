@@ -1,0 +1,11 @@
+I"Ï(function() {
+  $(document).ready(function() {
+    $("input[name='close_chat']").click(function() {
+      return $(this).parents(".chat_div").css("display", "none");
+    });
+  });
+
+  return;
+
+}).call(this);
+:ET

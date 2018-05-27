@@ -28,6 +28,25 @@ ActiveRecord::Schema.define(version: 20180525165418) do
     t.index ["user_id"], name: "index_ads_on_user_id"
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "owner_id"
+    t.bigint "guest_id"
+    t.index ["guest_id"], name: "index_chats_on_guest_id"
+    t.index ["owner_id"], name: "index_chats_on_owner_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "text"
+    t.boolean "read"
+    t.integer "from", default: 0
+    t.bigint "chat_id"
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "surname"
@@ -49,4 +68,7 @@ ActiveRecord::Schema.define(version: 20180525165418) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chats", "users", column: "guest_id"
+  add_foreign_key "chats", "users", column: "owner_id"
+  add_foreign_key "messages", "chats"
 end

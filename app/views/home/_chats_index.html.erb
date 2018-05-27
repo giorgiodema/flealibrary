@@ -1,0 +1,17 @@
+
+<ul id=chats_list class="group-list col-3 chat_list">
+
+    <li class="list-group-item list-group-item-action active chat_list_title">
+        <h2> Chats </h2>
+    <li>
+
+    <% @chats.each do |c| %>
+    <li class="list-group-item list-group-item-action chat_list_item">
+        <meta name="chat_id" content= <%= c.id %> >
+        <p>
+            <%= if @user.username == c.owner.username then c.guest.username else c.owner.username end%>
+        </p>
+    </li>
+    <% end %>
+
+</ul>

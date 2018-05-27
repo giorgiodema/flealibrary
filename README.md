@@ -24,3 +24,26 @@ Things you may want to cover:
 * ...
 
 branch di Vincenzo
+branch di Flavia
+branch di Giorgio
+
+# NOTES
+
+## DB
+- To start postgres run command:
+```
+brew services start postgresql
+```
+
+## GIT
+- Revert changes to modified files.
+```
+git reset --hard
+```
+
+- Remove all untracked files and directories. (`-f` is `force`, `-d` is `remove directories`)
+```
+git clean -fd
+```
+## TODO
+- Input validation in chats_controller.rb

@@ -1,0 +1,20 @@
+I"H
+/*
+$("*").click ->
+    console.log("ciao")
+    return
+ */
+
+(function() {
+  $(document).ready(function() {
+    $(".chat_div").click(function() {
+      console.log("chat_div");
+    });
+    $("[name='close_chat']").click(function() {
+      var chat;
+      return chat = $(this).parents(".chat_div");
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,3 +1,5 @@
+<meta name=userid content=<%= @user.id%>
+
 <div class="col-12 center">
 
     <div class="col-6 text-info">
@@ -19,6 +21,12 @@
         <br>
         <p>chat</p>
     </div>
+
+    <div class="col-9 chat_container">
+        <%= render partial: "chat", locals: {user:@user, chats:@chats} %>
+    </div>
+    <%= render partial: "chats_index", locals: { chats: @chats } %>
+
 
 </div>
 

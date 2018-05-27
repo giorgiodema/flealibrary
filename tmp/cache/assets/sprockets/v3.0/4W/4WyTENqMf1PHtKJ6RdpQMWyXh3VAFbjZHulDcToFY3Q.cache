@@ -1,0 +1,14 @@
+I"ž
+/*
+$("*").click ->
+    console.log("ciao")
+    return
+ */
+
+(function() {
+  $("#123").click(function() {
+    console.log("close chat");
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,21 @@
+I"³(function() {
+  var user;
+
+  user = $("[name='userid']").attr("content");
+
+  App.mailbox = App.cable.subscriptions.create({
+    channel: "MailboxChannel",
+    userid: 1
+  }, {
+    connected: function() {
+      return console.log("FUCKKKKKK");
+    },
+    disconnected: function() {},
+    received: function(data) {
+      console.log("you received data through channel");
+      return alert("received data");
+    }
+  });
+
+}).call(this);
+:ET

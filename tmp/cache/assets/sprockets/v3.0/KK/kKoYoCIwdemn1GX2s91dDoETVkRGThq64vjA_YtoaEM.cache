@@ -1,0 +1,64 @@
+I"(function() {
+  var chat_controller, loadDoc;
+
+  chat_controller = {};
+
+  chat_controller.hide_chat = function() {
+    return $("[name='close_chat']").click(function() {
+      $(this).parents(".chat_div").css("display", "none");
+    });
+  };
+
+  chat_controller.show_chat = function() {
+    return $(".chat_list_item").click(function() {
+      var id;
+      $(".chat_div").css("display", "none");
+      id = $(this).children("[name='chat_id']").attr("content");
+      $("#" + id.toString()).css("display", "block");
+    });
+  };
+
+  chat_controller.send_message = function() {
+    return $(".chat_div").keypress(function(e) {
+      if (e.keyCode === 13) {
+        loadDoc();
+        return console.log("KeyCode:" + e.keyCode);
+      }
+    });
+  };
+
+  loadDoc = function() {
+
+    /*
+    xhttp.onreadystatechange = () -> 
+    if this.readyState == 4 && this.status == 200) 
+        document.getElementById("demo").innerHTML = this.responseText;
+     */
+    var body;
+    body = {
+      msg: "ciao"
+    };
+    return $.ajax('/send_message', {
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        body: body
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        return alert(textStatus);
+      },
+      success: function(data, textStatus, jqXHR) {
+        console.log("Status:" + textStatus);
+        return console.log("Data:" + data["myanswer"]);
+      }
+    });
+  };
+
+  $(document).ready(function() {
+    chat_controller.show_chat();
+    chat_controller.hide_chat();
+    chat_controller.send_message();
+  });
+
+}).call(this);
+:ET
