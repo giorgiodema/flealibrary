@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     def profile
         @user = current_user
         @chats = @user.chats
-        @c = @user.chats.first
+        #@c = @user.chats.first
     end
 
     def ads_list

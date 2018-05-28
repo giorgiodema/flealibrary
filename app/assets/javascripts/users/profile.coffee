@@ -28,12 +28,14 @@ chat_controller.send_message = () ->
         
 chat_controller.post_message = (msg) ->
 
+    token = $("[name='csrf-token']").attr("content")
     $.ajax '/send_message',
         type: 'POST'
         dataType: 'json'
         data: { msg }
+        headers: {"X-CSRF-Token":token}
         error: (jqXHR, textStatus, errorThrown) ->
-            alert textStatus
+            console.log "error:chat_controller.post_message"
         success: (data, textStatus, jqXHR) ->
             console.log "Status:"+textStatus
             console.log "Data:"+data["myanswer"]
