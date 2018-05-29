@@ -1,9 +1,0 @@
-I"Æ(function() {
-  App.mailbox = App.cable.subscriptions.create("MailboxChannel", {
-    connected: function() {},
-    disconnected: function() {},
-    received: function(data) {}
-  });
-
-}).call(this);
-:ET

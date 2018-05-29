@@ -1,7 +1,0 @@
-I"ê(function() {
-  $("input[name='close_chat']").click(function() {
-    $(this).parents(".chat_div").css("display", "none");
-  });
-
-}).call(this);
-:ET

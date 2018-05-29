@@ -1,7 +1,0 @@
-I"v(function() {
-  $("[name='close_chat']").click(function() {
-    console.log("close chat");
-  });
-
-}).call(this);
-:ET

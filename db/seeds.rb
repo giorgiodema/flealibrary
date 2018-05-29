@@ -27,3 +27,15 @@ c = Chat.create(:owner=>a,:guest=>b)
 
 m = Message.create(:chat=>c,:text=>"ciao a")
 =end
+
+giorgio = User.where(:username=>"giorgio").first
+vincenzo = User.where(:username=>"vincenzo").first
+flavia = User.where(:username=>"flavia").first
+
+c01 = Chat.create(:owner=>giorgio,:guest=>vincenzo)
+Message.create(:chat=>c01, :text=>"Ciao vincenzone porcone", :from=>:o, :read=>true)
+Message.create(:chat=>c01, :text=>"Ciao giorgio, sei bellissimo", :from=>:g, :read=>true)
+
+c02 = Chat.create(:owner=>giorgio,:guest=>flavia)
+Message.create(:chat=>c02, :text=>"Ciao Fla, come stai?", :from=>:o, :read=>true)
+Message.create(:chat=>c02, :text=>"Ciao Gio, bene tu? stai studiando?", :from=>:g, :read=>true)

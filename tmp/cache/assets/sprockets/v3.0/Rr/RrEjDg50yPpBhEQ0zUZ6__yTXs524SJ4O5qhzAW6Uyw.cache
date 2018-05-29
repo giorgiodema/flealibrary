@@ -1,7 +1,0 @@
-I"^(function() {
-  $("*").click(function() {
-    console.log("ciao");
-  });
-
-}).call(this);
-:ET

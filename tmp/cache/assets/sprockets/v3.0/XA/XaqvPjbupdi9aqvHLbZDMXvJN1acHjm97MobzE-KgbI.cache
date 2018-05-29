@@ -1,7 +1,0 @@
-I"u(function() {
-  $("input['name=close_chat']").click(function() {
-    console.log("ciao");
-  });
-
-}).call(this);
-:ET

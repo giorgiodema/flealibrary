@@ -1,6 +1,6 @@
 <div class="col-12 center">
   <h3>Edit <%= resource_name.to_s.humanize %></h3>
-  <div class="form-group row">
+  <div class="form-group row center">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
       <br>
@@ -61,4 +61,14 @@
   <%= link_to "Back to Profile", profile_path %>
 </div>
 
-<%= render "users/shared/links" %>
+<div class="col-12 center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse center" id="navbarColor03">
+        <ul class="navbar-center navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        <ul>
+      </div>
+    </nav>
+</div>

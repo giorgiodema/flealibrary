@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
 
 
     def receive
-
+        puts("ChatController#receive:::received a message")
         @answer = {}
         @chat = Chat.find(params["msg"]["chat_id"])
 

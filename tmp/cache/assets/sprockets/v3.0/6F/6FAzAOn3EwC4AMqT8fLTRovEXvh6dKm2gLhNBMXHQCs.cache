@@ -1,7 +1,0 @@
-I"P(function() {
-  $document.ready(function() {});
-
-  return;
-
-}).call(this);
-:ET
