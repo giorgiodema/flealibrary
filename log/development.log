@@ -29703,3 +29703,752 @@ Migrating to CreateAds (5)
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
 >>>>>>> a979da7d3a1839ad679ed09b66aa141840790708
 >>>>>>> chat_devise
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (152.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "flealibrary_development"[0m
+  [1m[35m (149.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "flealibrary_test"[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7461772034015038740)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (1)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "surname" character varying, "username" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "1"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeUsernameTypeInUsers (2)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ALTER "username" DROP NOT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUsers (3)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.1ms)[0m  [1m[35mALTER TABLE "users" ADD "role" character varying DEFAULT 'booklover'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "3"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChatMigration (4)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "chats" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "owner_id" bigint, "guest_id" bigint)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_owner_id" ON "chats"  ("owner_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_guest_id" ON "chats"  ("guest_id")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_a229e37047"
+FOREIGN KEY ("owner_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_d21eee654c"
+FOREIGN KEY ("guest_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "text" character varying, "read" boolean, "from" integer DEFAULT 0, "chat_id" bigint)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_chat_id" ON "messages"  ("chat_id")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0f670de7ba"
+FOREIGN KEY ("chat_id")
+  REFERENCES "chats" ("id")
+[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "4"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAds (5)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "ads" ("id" bigserial primary key, "list_type" integer, "book_title" character varying, "book_authors" character varying, "link_to_coverbook" character varying, "publisher" character varying, "identifier" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_ads_on_user_id" ON "ads"  ("user_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "5"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-30 13:57:55.248448"], ["updated_at", "2018-05-30 13:57:55.248448"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7461772034015038740)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "giorgio"], ["surname", "dema"], ["username", "giorgio"], ["email", "giorgio@gmail.com"], ["encrypted_password", "$2a$11$OZfVK46OKBqUMfEIV0Gx6.gjdXkGl2Y9v/if/wNdvgGEBDiUThbNK"], ["created_at", "2018-05-30 13:57:58.499140"], ["updated_at", "2018-05-30 13:57:58.499140"], ["role", "admin"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "vincenzo"], ["surname", "cas"], ["username", "vincenzo"], ["email", "vincenzo@gmail.com"], ["encrypted_password", "$2a$11$IkcGSq4qlaMc6kUVT.x.S.IPfYSOjmVh.reAlGahwJbmDLUuvOdOa"], ["created_at", "2018-05-30 13:57:58.626945"], ["updated_at", "2018-05-30 13:57:58.626945"], ["role", "admin"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "flavia"], ["surname", "mon"], ["username", "flavia"], ["email", "flavia@gmail.com"], ["encrypted_password", "$2a$11$TJfJAnuN.y0BkrsqTqBtvug76Xz4k9BxqRyLwkeNJM1cHWjYnb6R."], ["created_at", "2018-05-30 13:57:58.754185"], ["updated_at", "2018-05-30 13:57:58.754185"], ["role", "admin"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-05-30 13:57:58.786663"], ["updated_at", "2018-05-30 13:57:58.786663"], ["owner_id", 1], ["guest_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-05-30 13:57:58.804026"], ["updated_at", "2018-05-30 13:57:58.804026"], ["text", "Ciao vincenzone porcone"], ["read", "t"], ["chat_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-05-30 13:57:58.807340"], ["updated_at", "2018-05-30 13:57:58.807340"], ["text", "Ciao giorgio, sei bellissimo"], ["read", "t"], ["from", 1], ["chat_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-05-30 13:57:58.809916"], ["updated_at", "2018-05-30 13:57:58.809916"], ["owner_id", 1], ["guest_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-05-30 13:57:58.812326"], ["updated_at", "2018-05-30 13:57:58.812326"], ["text", "Ciao Fla, come stai?"], ["read", "t"], ["chat_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-05-30 13:57:58.814622"], ["updated_at", "2018-05-30 13:57:58.814622"], ["text", "Ciao Gio, bene tu? stai studiando?"], ["read", "t"], ["from", 1], ["chat_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7461772034015038740)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDetailsToUsers (20180530140027)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" timestamp[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" timestamp[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7461772034015038740)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7461772034015038740)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDetailsToUsers (20180530140027)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" timestamp[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" timestamp[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180530140027"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7461772034015038740)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-05-30 16:17:16 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 525ms (Views: 515.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:17:17 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:17:17 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-30 16:17:19 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 87ms (Views: 57.3ms | ActiveRecord: 7.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:17:19 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:17:19 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:17:19 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-05-30 16:17:34 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lMq7Tg8epQYqbhi2fO1Xs5thxXKfv1WiWmdTEB6SLmwiLSSAMIElglPec3LRJnvnbaijR4xCeAIN3bUuMYgN0w==", "user"=>{"name"=>"flavia", "surname"=>"monti", "username"=>"iaia", "email"=>"flavia.monti95@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia.monti95@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "flavia"], ["surname", "monti"], ["username", "iaia"], ["email", "flavia.monti95@gmail.com"], ["encrypted_password", "$2a$11$8bC3cz0ixfK2iuwzGDYop.HmADv3IaUH0M1ZUvSPQ8gPapReePxJm"], ["created_at", "2018-05-30 14:17:35.111481"], ["updated_at", "2018-05-30 14:17:35.111481"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-05-30 14:17:35.115724"], ["last_sign_in_at", "2018-05-30 14:17:35.115724"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-05-30 14:17:35.116352"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 174ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 16:17:35 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  Rendered home/_chat.html.erb (4.4ms)
+  Rendered home/_chats_index.html.erb (0.4ms)
+  Rendered home/profile.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 48ms (Views: 33.8ms | ActiveRecord: 3.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:17:35 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:17:35 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:17:35 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:24:53 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:24:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_4
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-30 16:24:56 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ynudeHXbKYRTQ4gHPsAHsCx1UfOPv4LMHbU0WmChwvV8nAK2SkSpACrz48OTCyvk2rw3xpxCr2xKD9JkT7vhSg=="}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 72ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 16:24:56 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 228ms (Views: 225.3ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:24:56 +0200
+MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:24:56 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:24:56 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-30 16:24:59 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:24:59 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:24:59 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:24:59 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-05-30 16:25:41 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h8ya8iMmHqpWW4mCXHPjdq7WKzNT5S+sI5ALJ/wC6gsdxgQOhEuO5mN1qKZL3+iDx7KYhgWPf5GECxsjYA5Q0g==", "user"=>{"name"=>"flavia", "surname"=>"monti", "username"=>"iaia", "email"=>"flavia.monti95@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia.monti95@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "flavia"], ["surname", "monti"], ["username", "iaia"], ["email", "flavia.monti95@gmail.com"], ["encrypted_password", "$2a$11$gXQ3RclNnolvPmMoLmXh9e6XKLLGsqhV2pW33NblecO5fyxQ9zP9G"], ["created_at", "2018-05-30 14:25:41.200165"], ["updated_at", "2018-05-30 14:25:41.200165"], ["confirmation_token", "Bqk2PKLrUL8_bq52esME"], ["confirmation_sent_at", "2018-05-30 14:25:41.200343"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (0.8ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 210.8ms
+Sent mail to flavia.monti95@gmail.com (7592.6ms)
+Date: Wed, 30 May 2018 16:25:41 +0200
+From: flealibrary@gmail.com
+Reply-To: flealibrary@gmail.com
+To: flavia.monti95@gmail.com
+Message-ID: <5b0eb46593a42_a993fdbc16b53a038652@MBPmiodiflavia.lan.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome flavia.monti95@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Bqk2PKLrUL8_bq52esME">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-05-30 14:25:49.194244"], ["last_sign_in_at", "2018-05-30 14:25:49.194244"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-05-30 14:25:49.195810"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 8161ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 16:25:49 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 5 OR guest_id = 5)[0m
+  Rendered home/_chat.html.erb (4.3ms)
+  Rendered home/_chats_index.html.erb (0.4ms)
+  Rendered home/profile.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 57ms (Views: 43.3ms | ActiveRecord: 3.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:25:49 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:25:49 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:25:49 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_5
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:28:09 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:10 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_5
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-30 16:28:11 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oaq96UOMGrYY+TU6Ifg5ox5LASm04B1UuEmWLzVQmo07oCMV5OGK+i3XFB42VDJWdy+ynOKKTWkf0oYrqVwgVA=="}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 16:28:11 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 241ms (Views: 238.0ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:11 +0200
+MailboxChannel stopped streaming from mailbox_5
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:28:11 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:11 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-30 16:28:12 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 65ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:12 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:28:12 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:12 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-30 16:28:13 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:13 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:28:13 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:13 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-05-30 16:28:22 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qALl1Nlf8Bl6eG3YlHBcnY3hGhjtOTCvnWRM65azZvEyCHsofjJgVU9WTPyD3Fdo5IWprbtTYJI6/1zvCr/cKA==", "user"=>{"name"=>"flavia", "surname"=>"monti", "username"=>"iaia", "email"=>"flavia.monti95@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia.monti95@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "flavia"], ["surname", "monti"], ["username", "iaia"], ["email", "flavia.monti95@gmail.com"], ["encrypted_password", "$2a$11$dOOiCbh/kgmsVqYcW1q3Nu61wUY6HRqxcOCzSw0Op5Xsd2VWUqoj2"], ["created_at", "2018-05-30 14:28:22.993889"], ["updated_at", "2018-05-30 14:28:22.993889"], ["confirmation_token", "r9b6M8-VR5ZuSBuRy_Y5"], ["confirmation_sent_at", "2018-05-30 14:28:22.994054"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (0.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 238.5ms
+Sent mail to flavia.monti95@gmail.com (1686.5ms)
+Date: Wed, 30 May 2018 16:28:23 +0200
+From: flealibrary@gmail.com
+Reply-To: flealibrary@gmail.com
+To: flavia.monti95@gmail.com
+Message-ID: <5b0eb50759c65_b5a3fdb18562fd8766c3@MBPmiodiflavia.lan.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome flavia.monti95@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=r9b6M8-VR5ZuSBuRy_Y5">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 2219ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-30 16:28:25 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:25 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:28:25 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:25 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-30 16:28:49 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:49 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:28:49 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:49 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-30 16:28:57 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wt9mKbu55T8dbEsBs7TDBoZdxBHN7HCBw1fV4Sav/3jA1fjVHNR1cyhCaiWkGMjz7zl3pJuGILxkzMXluqNFoQ==", "user"=>{"email"=>"flavia.monti95@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "flavia.monti95@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 401 Unauthorized in 133ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-30 16:28:57 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:57 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:28:57 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:28:57 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:29:21 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:29:21 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-30 16:29:22 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 299ms (Views: 239.0ms | ActiveRecord: 7.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:29:23 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:29:23 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:29:23 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-05-30 16:29:33 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1+49pn/XJFGGgU3HBHt7PBmWyoOGFZumU9atZS0b+sBN5KNa2Lq0HbOvbOMT13DJcPJ5NtB/y5v0Tb1hsRdAGQ==", "user"=>{"name"=>"flavia", "surname"=>"monti", "username"=>"iaia", "email"=>"flavia.monti95@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia.monti95@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "flavia"], ["surname", "monti"], ["username", "iaia"], ["email", "flavia.monti95@gmail.com"], ["encrypted_password", "$2a$11$cAidBX2z6reHwdde5vQrXOvoU5w8jgJ0S6bhDNYGNMIpGJYeSpufG"], ["created_at", "2018-05-30 14:29:33.905573"], ["updated_at", "2018-05-30 14:29:33.905573"], ["confirmation_token", "bdpMKgfAd-yUX7b8DL6c"], ["confirmation_sent_at", "2018-05-30 14:29:33.905726"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (0.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 183.0ms
+Sent mail to flavia.monti95@gmail.com (1374.7ms)
+Date: Wed, 30 May 2018 16:29:34 +0200
+From: flealibrary@gmail.com
+Reply-To: flealibrary@gmail.com
+To: flavia.monti95@gmail.com
+Message-ID: <5b0eb54e391e2_b913fd487632bd0437c4@MBPmiodiflavia.lan.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome flavia.monti95@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=bdpMKgfAd-yUX7b8DL6c">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-05-30 14:29:35.606246"], ["last_sign_in_at", "2018-05-30 14:29:35.606246"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-05-30 14:29:35.607371"], ["id", 7]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 1867ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 16:29:35 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 7 OR guest_id = 7)[0m
+  Rendered home/_chat.html.erb (5.0ms)
+  Rendered home/_chats_index.html.erb (0.4ms)
+  Rendered home/profile.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 65ms (Views: 48.4ms | ActiveRecord: 3.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:29:35 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:29:35 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:29:35 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_7
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 16:29:46 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 7 OR guest_id = 7)[0m
+  Rendered home/_chat.html.erb (2.0ms)
+  Rendered home/_chats_index.html.erb (0.4ms)
+  Rendered home/profile.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 49ms (Views: 43.5ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:29:46 +0200
+MailboxChannel stopped streaming from mailbox_7
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:29:46 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:29:46 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_7
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=onora+il+padre&commit=Search" for 127.0.0.1 at 2018-05-30 16:29:59 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["onora il padre"], "commit"=>"Search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 983ms (Views: 43.4ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:00 +0200
+MailboxChannel stopped streaming from mailbox_7
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:30:00 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:00 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=SAMPLE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BacsTokenLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%2Fdownload%2FOnora_il_padre-sample-epub.acsm%3Fid%3DCBu7DQAAQBAJ%26format%3Depub%26output%3Dacs4_fulfillment_token%26dl_type%3Dsample%26source%3Dgbs_api&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BacsTokenLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%2Fdownload%2FOnora_il_padre-sample-pdf.acsm%3Fid%3DCBu7DQAAQBAJ%26format%3Dpdf%26output%3Dacs4_fulfillment_token%26dl_type%3Dsample%26source%3Dgbs_api&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=PARTIAL&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3DCBu7DQAAQBAJ%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=T8c%2BFIaLiJs&book%5Bid%5D%5Bid%5D=CBu7DQAAQBAJ&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5BbuyLink%5D=https%3A%2F%2Fplay.google.com%2Fstore%2Fbooks%2Fdetails%3Fid%3DCBu7DQAAQBAJ%26rdid%3Dbook-CBu7DQAAQBAJ%26rdot%3D1%26source%3Dgbs_api&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=true&book%5Bid%5D%5BsaleInfo%5D%5BlistPrice%5D%5Bamount%5D=5.49&book%5Bid%5D%5BsaleInfo%5D%5BlistPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BfinskyOfferType%5D=1&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BlistPrice%5D%5BamountInMicros%5D=5490000.0&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BlistPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BretailPrice%5D%5BamountInMicros%5D=5490000.0&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BretailPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5BretailPrice%5D%5Bamount%5D=5.49&book%5Bid%5D%5BsaleInfo%5D%5BretailPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=FOR_SALE&book%5Bid%5D%5BsearchInfo%5D%5BtextSnippet%5D=Gay+Talese+all%26%2339%3Bepoca+ha+trentadue+anni+e+scrive+per+il+%26quot%3BNew+York+Times%26quot%3B.+Riesce+a+guadagnarsi+la+fiducia+di+Bill+Bonanno%2C+il+figlio+del+boss%2C+e+diventa+una+sorta+di+biografo+autorizzato+della+pi%C3%B9+potente+cosca+mafiosa+statunitense.&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2FCBu7DQAAQBAJ&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Gay+Talese&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fmarket.android.com%2Fdetails%3Fid%3Dbook-CBu7DQAAQBAJ&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Biography+%26+Autobiography&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=1.4.3.0.preview.3&book%5Bid%5D%5BvolumeInfo%5D%5Bdescription%5D=In+una+sera+piovosa+dell%27ottobre+1964%2C+Joseph+%22Bananas%22+Bonanno%2C+padrino+della+mafia+newyorkese%2C+viene+rapito+a+Park+Avenue.+La+sua+misteriosa+ricomparsa%2C+un+anno+e+mezzo+pi%C3%B9+tardi%2C+segna+l%27inizio+della+%22Banana+War%22%2C+uno+dei+pi%C3%B9+feroci+regolamenti+di+conti+nella+storia+americana+di+Cosa+Nostra.+Gay+Talese+all%27epoca+ha+trentadue+anni+e+scrive+per+il+%22New+York+Times%22.+Riesce+a+guadagnarsi+la+fiducia+di+Bill+Bonanno%2C+il+figlio+del+boss%2C+e+diventa+una+sorta+di+biografo+autorizzato+della+pi%C3%B9+potente+cosca+mafiosa+statunitense.+Un+classico+del+New+Journalism%2C+l%27unica+vera+saga+criminale+che+ha+anticipato+Il+Padrino%2C+rivelando+i+retroscena+e+gli+angoli+pi%C3%B9+intimi+di+una+storia+familiare+e+malavitosa+sullo+sfondo+della+lotta+di+potere+che+ha+sconvolto+la+Cupola+americana+tra+gli+anni+Sessanta+e+Settanta.&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DCBu7DQAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DCBu7DQAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9788858687529&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=8858687523&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=https%3A%2F%2Fplay.google.com%2Fstore%2Fbooks%2Fdetails%3Fid%3DCBu7DQAAQBAJ%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=it&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=200&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsEpubBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsImageBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DCBu7DQAAQBAJ%26printsec%3Dfrontcover%26dq%3Donora%2Bil%2Bpadre%26hl%3D%26cd%3D2%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=2017-01-19&book%5Bid%5D%5BvolumeInfo%5D%5Bpublisher%5D=Bur&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=true&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=true&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=Onora+il+padre" for 127.0.0.1 at 2018-05-30 16:30:05 +0200
+Processing by AdsController#create as HTML
+  Parameters: {"authenticity_token"=>"iNyElUGyBSATAgZgUzDB8wqcoqwr704SRps60Pz3gGwS1hpp5t+VbCYsJ0REnMoGY/gRGX2FHi/hACrUYPs6tQ==", "book"=>{"id"=>{"accessInfo"=>{"accessViewStatus"=>"SAMPLE", "country"=>"IT", "embeddable"=>"true", "epub"=>{"acsTokenLink"=>"http://books.google.it/books/download/Onora_il_padre-sample-epub.acsm?id=CBu7DQAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api", "isAvailable"=>"true"}, "pdf"=>{"acsTokenLink"=>"http://books.google.it/books/download/Onora_il_padre-sample-pdf.acsm?id=CBu7DQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api", "isAvailable"=>"true"}, "publicDomain"=>"false", "quoteSharingAllowed"=>"false", "textToSpeechPermission"=>"ALLOWED", "viewability"=>"PARTIAL", "webReaderLink"=>"http://play.google.com/books/reader?id=CBu7DQAAQBAJ&hl=&printsec=frontcover&source=gbs_api"}, "etag"=>"T8c+FIaLiJs", "id"=>"CBu7DQAAQBAJ", "kind"=>"books#volume", "saleInfo"=>{"buyLink"=>"https://play.google.com/store/books/details?id=CBu7DQAAQBAJ&rdid=book-CBu7DQAAQBAJ&rdot=1&source=gbs_api", "country"=>"IT", "isEbook"=>"true", "listPrice"=>{"amount"=>"5.49", "currencyCode"=>"EUR"}, "offers"=>[{"finskyOfferType"=>"1", "listPrice"=>{"amountInMicros"=>"5490000.0", "currencyCode"=>"EUR"}, "retailPrice"=>{"amountInMicros"=>"5490000.0", "currencyCode"=>"EUR"}}], "retailPrice"=>{"amount"=>"5.49", "currencyCode"=>"EUR"}, "saleability"=>"FOR_SALE"}, "searchInfo"=>{"textSnippet"=>"Gay Talese all&#39;epoca ha trentadue anni e scrive per il &quot;New York Times&quot;. Riesce a guadagnarsi la fiducia di Bill Bonanno, il figlio del boss, e diventa una sorta di biografo autorizzato della più potente cosca mafiosa statunitense."}, "selfLink"=>"https://www.googleapis.com/books/v1/volumes/CBu7DQAAQBAJ", "volumeInfo"=>{"allowAnonLogging"=>"false", "authors"=>["Gay Talese"], "canonicalVolumeLink"=>"https://market.android.com/details?id=book-CBu7DQAAQBAJ", "categories"=>["Biography & Autobiography"], "contentVersion"=>"1.4.3.0.preview.3", "description"=>"In una sera piovosa dell'ottobre 1964, Joseph \"Bananas\" Bonanno, padrino della mafia newyorkese, viene rapito a Park Avenue. La sua misteriosa ricomparsa, un anno e mezzo più tardi, segna l'inizio della \"Banana War\", uno dei più feroci regolamenti di conti nella storia americana di Cosa Nostra. Gay Talese all'epoca ha trentadue anni e scrive per il \"New York Times\". Riesce a guadagnarsi la fiducia di Bill Bonanno, il figlio del boss, e diventa una sorta di biografo autorizzato della più potente cosca mafiosa statunitense. Un classico del New Journalism, l'unica vera saga criminale che ha anticipato Il Padrino, rivelando i retroscena e gli angoli più intimi di una storia familiare e malavitosa sullo sfondo della lotta di potere che ha sconvolto la Cupola americana tra gli anni Sessanta e Settanta.", "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=CBu7DQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api", "thumbnail"=>"http://books.google.com/books/content?id=CBu7DQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}, "industryIdentifiers"=>[{"identifier"=>"9788858687529", "type"=>"ISBN_13"}, {"identifier"=>"8858687523", "type"=>"ISBN_10"}], "infoLink"=>"https://play.google.com/store/books/details?id=CBu7DQAAQBAJ&source=gbs_api", "language"=>"it", "maturityRating"=>"NOT_MATURE", "pageCount"=>"200", "panelizationSummary"=>{"containsEpubBubbles"=>"false", "containsImageBubbles"=>"false"}, "previewLink"=>"http://books.google.it/books?id=CBu7DQAAQBAJ&printsec=frontcover&dq=onora+il+padre&hl=&cd=2&source=gbs_api", "printType"=>"BOOK", "publishedDate"=>"2017-01-19", "publisher"=>"Bur", "readingModes"=>{"image"=>"true", "text"=>"true"}, "title"=>"Onora il padre"}}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "ads" ("list_type", "book_title", "book_authors", "link_to_coverbook", "publisher", "identifier", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["list_type", 0], ["book_title", "Onora il padre"], ["book_authors", "[\"Gay Talese\"]"], ["link_to_coverbook", "http://books.google.com/books/content?id=CBu7DQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"], ["publisher", "Bur"], ["identifier", "[\"ISBN_13\", \"9788858687529\"]"], ["user_id", 7], ["created_at", "2018-05-30 14:30:05.218865"], ["updated_at", "2018-05-30 14:30:05.218865"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 44ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 16:30:05 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 7 OR guest_id = 7)[0m
+  Rendered home/_chat.html.erb (1.8ms)
+  Rendered home/_chats_index.html.erb (0.8ms)
+  Rendered home/profile.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 54ms (Views: 49.0ms | ActiveRecord: 0.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:05 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:30:05 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:05 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_7
+Started GET "/" for 127.0.0.1 at 2018-05-30 16:30:06 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 43.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 16:30:08 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+Started GET "/" for 127.0.0.1 at 2018-05-30 16:30:08 +0200
+Processing by HomeController#welcome as HTML
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title like'%%')[0m
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.3ms)
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (12.2ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title like'%%')[0m
+  Rendered home/ads_list.html.erb within layouts/application (13.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 59.1ms | ActiveRecord: 16.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:09 +0200
+MailboxChannel stopped streaming from mailbox_7
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 108ms (Views: 81.7ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:30:09 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:09 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=flavia&commit=Search" for 127.0.0.1 at 2018-05-30 16:30:14 +0200
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["flavia"], "commit"=>"Search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username like'%flavia%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username like'%flavia%')[0m
+  Rendered home/users_list.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 35ms (Views: 28.7ms | ActiveRecord: 2.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:14 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:30:14 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:14 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 16:30:16 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 16:30:17 +0200
+Started GET "/" for 127.0.0.1 at 2018-05-30 16:30:17 +0200
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/welcome.html.erb within layouts/application (1.1ms)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username like'%%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username like'%%')[0m
+  Rendered home/users_list.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 73ms (Views: 69.6ms | ActiveRecord: 0.8ms)
+
+
+Completed 200 OK in 78ms (Views: 60.2ms | ActiveRecord: 10.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:17 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:30:17 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:17 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 16:30:20 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.0ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 7 OR guest_id = 7)[0m
+  Rendered home/_chat.html.erb (2.4ms)
+  Rendered home/_chats_index.html.erb (0.4ms)
+  Rendered home/profile.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 40ms (Views: 33.1ms | ActiveRecord: 1.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:20 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:30:20 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:20 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_7
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-30 16:30:21 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7tLfmSBmTUrvftOdC7uhpi+/o/5Q4/1d+Aqs8q8Cw6102EFlhwvdBtpQ8rkcF6pTRtsQSwaJrWBfkbz2Mw55dA=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 16:30:21 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:21 +0200
+MailboxChannel stopped streaming from mailbox_7
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:30:21 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:21 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-30 16:30:23 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:23 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:30:23 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:23 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-05-30 16:30:35 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WD9fke/nMRMF3To8kn6pPEFPK4TbXKhDkiYa1WInqReTgY1vW6uUkMYCsGb/bQ8y5e/L9Mm5+Ueh/upCD7QNfQ==", "user"=>{"name"=>"flavia", "surname"=>"monti", "username"=>"iaia", "email"=>"flaviaa@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flaviaa@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "flavia"], ["surname", "monti"], ["username", "iaia"], ["email", "flaviaa@gmail.com"], ["encrypted_password", "$2a$11$F2kiOsTHknq1Czuw.uV/DO1xMEuh5xS5/ebyHBxdzThRGS7hu3xqi"], ["created_at", "2018-05-30 14:30:35.651775"], ["updated_at", "2018-05-30 14:30:35.651775"], ["confirmation_token", "GNxP2LH12s4UHwTQwyJv"], ["confirmation_sent_at", "2018-05-30 14:30:35.651876"]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 2.5ms)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_username"
+DETAIL:  Key (username)=(iaia) already exists.
+: INSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"):
+  
+app/controllers/users/registrations_controller.rb:15:in `create'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:30:36 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-30 16:31:04 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 62ms (Views: 60.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:31:16 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:31:16 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:32:10 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:32:10 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-05-30 16:32:21 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FzWo2HgDo55BGZEbxNbQRQhRs28jWL18FlZKlYiSDfW+EgkEzEZku1tKjXR90vNMKrdJ1wqcZpBVk4kzk1bKvA==", "user"=>{"name"=>"flavia", "surname"=>"monti", "username"=>"iaia", "email"=>"flaviaa@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flaviaa@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "iaia"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 441ms (Views: 214.8ms | ActiveRecord: 8.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:32:22 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 16:32:22 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 16:32:22 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_

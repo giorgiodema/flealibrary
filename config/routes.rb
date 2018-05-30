@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions',
-                                    registrations: 'users/registrations'}
+                                    registrations: 'users/registrations',
+                                    confirmations: 'users/confirmations',
+                                    passwords: 'users/passwords'}
   get '/users/profile' => 'home#profile', :as =>'profile'
 
   resources :ads

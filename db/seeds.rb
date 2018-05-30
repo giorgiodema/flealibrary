@@ -28,9 +28,9 @@ c = Chat.create(:owner=>a,:guest=>b)
 m = Message.create(:chat=>c,:text=>"ciao a")
 =end
 
-giorgio = User.where(:username=>"giorgio").first
-vincenzo = User.where(:username=>"vincenzo").first
-flavia = User.where(:username=>"flavia").first
+giorgio = User.create(:name=>"giorgio", :surname=>"dema", :username=>"giorgio", :email=>"giorgio@gmail.com", :password=>"minimo", :role=>"admin")
+vincenzo = User.create(:name=>"vincenzo", :surname=>"cas", :username=>"vincenzo", :email=>"vincenzo@gmail.com", :password=>"minimo", :role=>"admin")
+flavia = User.create(:name=>"flavia", :surname=>"mon", :username=>"flavia", :email=>"flavia@gmail.com", :password=>"minimo", :role=>"admin")
 
 c01 = Chat.create(:owner=>giorgio,:guest=>vincenzo)
 Message.create(:chat=>c01, :text=>"Ciao vincenzone porcone", :from=>:o, :read=>true)
