@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :ads
 
+  get '/profile/favourite_list' => 'ads#favourite', :as => 'favourite_list'
+  get '/profile/wish_list' => 'ads#wish', :as => 'wish_list'
+  get '/profile/gift_list' => 'ads#gift', :as => 'gift_list'
+
   get '/ads_list' => 'home#ads_list', :as => 'ads_list'
   get '/books_results' => 'home#books_results', :as => 'books_results'
   get '/users_list' => 'home#users_list', :as => 'users_list'

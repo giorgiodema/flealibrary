@@ -44,8 +44,11 @@
     <% else %>
         <h7> Identifier: not specified </h7>
     <% end %>
-    <br>      
-    <%= link_to "Aggiungi", ads_path(:book =>{:id => book}), :method => :post %>
+    <br>
+    <h7> Aggiungi a:</h7>
+    <%= link_to "Favourite", ads_path(:book =>{:id => book, :list_type => 0}), :method => :post %>
+    <%= link_to "Wish", ads_path(:book =>{:id => book, :list_type => 1}), :method => :post %>
+    <%= link_to "Gift", ads_path(:book =>{:id => book, :list_type => 2}), :method => :post %>
     <br>
     <br>
 <% end %>

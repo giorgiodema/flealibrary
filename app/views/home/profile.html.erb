@@ -9,6 +9,7 @@
             Surname: <small class="text-success"><%= @user.surname %><br></small>
             Username: <small class="text-success"><%= @user.username %><br></small>
             Email: <small class="text-success"><%= @user.email %><br><br></small>
+            <%= link_to "Favourite list", favourite_list_path(:list_type => 0)%>
             <%= button_to "Edit profile", edit_user_registration_path, :method => 'get', class: "btn btn-secondary btn-sm"%>
         </h5>
     </div>
