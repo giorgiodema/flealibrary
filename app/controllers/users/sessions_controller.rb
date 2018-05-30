@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  # setto i parametri per la sign_in dell'utente
   before_action :configure_sign_in_params, only: [:create]
+  #se non sono registrato posso accedere alla pagina di sign_in
   skip_before_action :authenticate_user!, only: [:new]
 
   # GET /resource/sign_in

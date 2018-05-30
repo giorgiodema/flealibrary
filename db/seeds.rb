@@ -28,6 +28,7 @@ c = Chat.create(:owner=>a,:guest=>b)
 m = Message.create(:chat=>c,:text=>"ciao a")
 =end
 
+dante = User.create(:name=>"dante", :surname=>"alighieri", :username=>"dante", :email=>"dante@gmail.com", :password=>"minimo", :role=>"superadmin")
 giorgio = User.create(:name=>"giorgio", :surname=>"dema", :username=>"giorgio", :email=>"giorgio@gmail.com", :password=>"minimo", :role=>"admin")
 vincenzo = User.create(:name=>"vincenzo", :surname=>"cas", :username=>"vincenzo", :email=>"vincenzo@gmail.com", :password=>"minimo", :role=>"admin")
 flavia = User.create(:name=>"flavia", :surname=>"mon", :username=>"flavia", :email=>"flavia@gmail.com", :password=>"minimo", :role=>"admin")

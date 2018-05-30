@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  # setto parametri per sign_up e account_update
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  skip_before_action :authenticate_user!
+
+  # quando non sono registrato posso accedere alla pagina di registrazione e registrarmi
+  skip_before_action :authenticate_user!, only: [:new, :create]
 
   # GET /resource/sign_up
   def new
@@ -39,17 +42,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  #cancancan -> ability
   def banned_user
-    user = User.find(params[:id_banned])
-    user.role = "banned"
-    user.save
+    User.setRole(params[:id], User::ROLES[1])
+    redirect_to root_path
+  end
+  
+  def admin_user
+    User.setRole(params[:id], User::ROLES[2])
     redirect_to root_path
   end
 
-  def admin_user
-    user = User.find(params[:id_admin])
-    user.role = "admin"
-    user.save
+  def booklover_user
+    User.setRole(params[:id], User::ROLES[0])
     redirect_to root_path
   end
 
@@ -73,6 +78,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     #super(resource)
-    '/users/sign_up'
+    root_path
   end
 end

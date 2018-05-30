@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+    #utenti non registrati possono accedere alla pagina welcome e ads_list
     skip_before_action :authenticate_user!, :only => [:welcome, :ads_list]
 
     def welcome

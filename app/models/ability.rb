@@ -2,16 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    alias_action :banned_user, :admin_user, :booklover_user, :to => :manage_role
     if user.present?
-      #can :manage, :all
-      if user.role == "admin"
+      if user.role == "superadmin"
         can :manage, :all
-        can :bann_user, User
-        can :admin_user, User
-      elsif user.role == "booklover"
-        can [:create, :read], Ad
-      else 
-        cannot :read, Ad
+        cannot :manage_role, User, :id => user.id
+      elsif user.role == "admin"
+        #cannot :delete, User, :role => "superadmin"
+        can :manage_role, User
+        cannot :manage_role, User, :id => user.id
+        cannot :manage, User, :role => "superadmin"
       end
     end
     # Define abilities for the passed in user here. For example:

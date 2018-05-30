@@ -1,12 +1,15 @@
 <h3>Users</h3> 
 <p>
 <% @users.each do |user|%>
-    <%= user.username %>
-    <% if can? :bann_user, User %>
-        <%= link_to "bann user", banned_user_path(user.id), :method => 'post'%>
-        <%= link_to "admin user", admin_user_path(user.id), :method => 'post'%>
+    <%= user.username %><br>
+    <% if can? :manage_role, user %>
+      id: <%= user.id%><br>
+      role: <%= user.role%><br>
+      <%= link_to "bann user", banned_user_path(user.id), :method => 'post'%>
+      <%= link_to "admin user", admin_user_path(user.id), :method => 'post'%>
+      <%= link_to "booklover user", booklover_user_path(user.id), :method => 'post'%>
     <% end %>
-    <br>
+    <br><br>
 <% end %>
 </p>
 
