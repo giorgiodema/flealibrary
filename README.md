@@ -25,6 +25,7 @@ Things you may want to cover:
 
 branch di Vincenzo
 branch di Flavia
+    ATTENZIONE! app/models/user.rb -> modificare commento su :confirmable per l'invio delle mail
 branch di Giorgio
 
 # NOTES
