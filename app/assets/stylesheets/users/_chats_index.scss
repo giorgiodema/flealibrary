@@ -3,40 +3,32 @@
 .chat_list{
 
     list-style-type:none;
+    height:100%;
+    overflow:auto;
 
-    /*color:rgb(0, 0, 0);
-    list-style-type: none;
-    margin:0;
-    float:right;
-    padding:0;
+    li{
 
+        height:100px;
+        .user_img{
+            border-radius:90%;
+            background-color:black;
 
-        li {
-            display: block;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-
-        li.chat_list_title{
-
-            background-color:  rgb(0, 0, 0);
-            color: white;
-            text-align:center;
-            height:100px;
-
-        }
-
-        li.chat_list_item{
+            width:80px;
             height:80px;
-            border-bottom: 2px solid black;
-            background-color:  rgb(136, 136, 136);
+
+            float:left;
+            margin:0;
+            padding:0;
         }
-        */
-        /* Change the link color on hover 
-        li:hover {
-            background-color: rgb(31, 31, 31);
-            color: white;
+
+        p{
         }
-        */
+
+        input{
+            float:right;
+            margin:auto;
+        }
+    }
+
+
 }

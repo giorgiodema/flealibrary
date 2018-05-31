@@ -22,6 +22,7 @@ class ChatsController < ApplicationController
 
         receiver_id = new_message.to?.id
         msg = {
+            type:"message",
             chat_id:new_message.chat_id,
             text:new_message.text
         }
@@ -36,6 +37,35 @@ class ChatsController < ApplicationController
         @answer = {status:"saved"}
         render json: @answer
 
+    end
+
+
+    def delete_chat
+        @answer = {}
+        @chat = Chat.find(params["chat_id"])
+
+        owner_id = @chat.owner.id
+        guest_id = @chat.guest.id
+
+        msg = {
+            type:"delete_chat",
+            chat_id: @chat.id
+        }
+
+        ActionCable.server.broadcast(
+            "mailbox_#{owner_id}",
+            msg
+        )
+
+        ActionCable.server.broadcast(
+            "mailbox_#{guest_id}",
+            msg
+        )
+        
+        @chat.destroy
+
+        @answer = {status:"deleted"}
+        render json: @answer
     end
 
 

@@ -1,5 +1,6 @@
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
+=begin
     identified_by :current_user
 
     def connect
@@ -16,5 +17,6 @@ module ApplicationCable
         reject_unauthorized_connection
       end
     end
+=end
   end
 end

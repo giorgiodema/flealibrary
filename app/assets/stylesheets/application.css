@@ -14,6 +14,10 @@
  *= require_self
  */
 
+body {
+    height: 100vh;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -25,7 +29,7 @@
 
 [class*="col-"] {
     float: left;
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
 /* For desktop: */

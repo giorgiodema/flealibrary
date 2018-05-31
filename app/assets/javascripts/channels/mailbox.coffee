@@ -11,5 +11,14 @@ $(document).ready ->
     received: (data) ->
       # Called when there's incoming data on the websocket for this channel
       console.log("Received data through channel")
-      $("#"+data.chat_id).children(".input_box").val("")
-      $("#"+data.chat_id).children(".message_box").append("<li class=received_message><p class=message_text> "+data.text+" </p></li>")
+      
+      if data.type == "message"
+        console.log("Type = MESSAGE")
+        $("#"+data.chat_id).children(".input_box").val("")
+        $("#"+data.chat_id).children(".message_box").append("<li class=received_message><p class=message_text> "+data.text+" </p></li>")
+
+      if data.type == "delete_chat"
+        console.log("Type = DELETE_CHAT")
+        #console.log("deleting chat:"+"chat_item_"+data.chat_id)
+        $("#chat_item_"+data.chat_id).remove()
+        $("#"+data.chat_id).remove()

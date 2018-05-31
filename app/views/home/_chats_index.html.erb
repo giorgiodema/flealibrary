@@ -1,16 +1,20 @@
 
-<ul id=chats_list class="group-list col-3 chat_list">
+<ul id=chats_list class="col-12 group-list chat_list">
 
     <li class="list-group-item list-group-item-action active chat_list_title">
         <h2> Chats </h2>
-    <li>
+    </li>
 
     <% @chats.each do |c| %>
-    <li class="list-group-item list-group-item-action chat_list_item">
+    <li class="list-group-item list-group-item-action chat_list_item" id="chat_item_<%= c.id%>">
         <meta name="chat_id" content= <%= c.id %> >
+        <div class="user_img">
+        </div>
         <p>
             <%= if @user.username == c.owner.username then c.guest.username else c.owner.username end%>
         </p>
+
+        <input type="button" class="delete_chat btn-sm" value="delete">
     </li>
     <% end %>
 
