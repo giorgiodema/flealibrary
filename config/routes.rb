@@ -18,8 +18,9 @@ Rails.application.routes.draw do
     post '/users_list/booklover/:id', to: 'users/registrations#booklover_user', :as => 'booklover_user'
   end
 
+  # CHATS_CONTROLLER
   post 'send_message', to:'chats#receive'
-  get 'send_message', to:'chats#receive'
+  post 'delete_chat', to:'chats#delete_chat'
 
   mount ActionCable.server, at: '/cable'
 

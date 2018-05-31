@@ -13,26 +13,27 @@
   <body class="col-12">
     <div class="col-12">
 
-      <div class="col-8">
+      <div class="col-7">
         <h1>
           <%= link_to "FLEA LIBRARY", root_path %>
         </h1>
       </div>
 
-      <div class="col-4">
+      <div class="col-5">
+        <%= button_to "HOME", root_path, :method => 'get', class: "col-4 btn-sm btn-warning" %>
         <%if user_signed_in?%>
           <% user = current_user %>
-          <%= button_to "#{user.username.upcase}", profile_path, :method => 'get', class: "col-6 btn btn-outline-success btn-sm"%>
-          <%= button_to "Sign out", destroy_user_session_path, :method => 'delete', class: "col-6 btn btn-danger btn-sm" %>
+          <%= button_to "#{user.username.upcase}", profile_path, :method => 'get', class: "col-4 btn-sm btn-outline-success"%>
+          <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "col-4 btn-sm btn-danger" %>
         <%else%>
-          <%= button_to "Sign in", new_user_session_path, :method => 'get', class: "col-6 btn btn btn-success" %>
-          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "col-6 btn btn-info" %>
+          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "col-4 btn-sm btn-success" %>
+          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "col-4 btn-sm btn-info" %>
         <%end%>
       </div>
 
     </div>
 
-    <div class="col-12">
+    <div class="col-12 flash_container">
       <% if flash[:notice] %>
         <div class="alert alert-dismissible alert-success"><%= flash[:notice] %></div>
       <% end %>

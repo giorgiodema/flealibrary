@@ -41,7 +41,31 @@ chat_controller.post_message = (msg) ->
             console.log "Data:"+data["myanswer"]
             $("#"+msg.chat_id).children(".input_box").val("")
             $("#"+msg.chat_id).children(".message_box").append("<li class=sent_message><p class=message_text> "+msg.text+" </p></li>")
-            
+
+chat_controller.delete_chat = () ->
+    $(".chat_list_item input").click ->
+        chat_id = $(this).parent().children("meta[name='chat_id']").attr("content")
+        token = $("[name='csrf-token']").attr("content")
+
+        $.ajax '/delete_chat',
+            type: 'POST'
+            dataType: 'json'
+            data:{
+                "chat_id":chat_id
+            }  
+            headers: {"X-CSRF-Token":token}
+            error: (jqXHR, textStatus, errorThrown) ->
+                console.log "error:chat_controller.delete_chat"
+            success: (data, textStatus, jqXHR) ->
+                console.log "Status:"+textStatus
+                
+                $("#chats_list").children().each (index,element) ->
+                    id = $(element).children("meta[name='chat_id']").attr("content")
+                    if id == chat_id
+                        element.remove()
+
+                $("#"+chat_id).remove()
+                        
 
 
 
@@ -53,6 +77,7 @@ $(document).ready ->
     chat_controller.hide_chat()
 
     chat_controller.send_message()
+    chat_controller.delete_chat()
 
 
 
