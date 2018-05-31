@@ -51,12 +51,7 @@ $(document).ready ->
 
     chat_controller.show_chat()
     chat_controller.hide_chat()
-
     chat_controller.send_message()
-
-
-
-
 
 
     return
