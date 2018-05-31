@@ -33262,3 +33262,1658 @@ Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 17:43:22 +0200
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 MailboxChannel is transmitting the subscription confirmation
 MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 20:55:35 +0200
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (28.2ms)
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 859ms (Views: 817.6ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:55:37 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:55:37 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-30 20:55:45 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 72ms (Views: 68.6ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:55:45 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:55:45 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:55:45 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-30 20:55:54 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S/Vjv+Zx+NzO8HQ/R8xu/Ei6lJO0+B8DWBDGHPW8kXKt/XcRwEBwUuEmpg1nIqpWSS+6InxoieW7dxHTCFbUeQ==", "user"=>{"email"=>"flavia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2018-05-30 18:55:54.242257"], ["sign_in_count", 2], ["updated_at", "2018-05-30 18:55:54.243876"], ["id", 4]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 182ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 20:55:54 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.0ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (56.6ms)
+  Rendered home/_chats_index.html.erb (0.9ms)
+  Rendered home/profile.html.erb within layouts/application (65.4ms)
+Completed 200 OK in 132ms (Views: 106.5ms | ActiveRecord: 13.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:55:54 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:55:54 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:55:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_4
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=cent%27anni+di+solitudine&commit=Search" for 127.0.0.1 at 2018-05-30 20:56:18 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["cent'anni di solitudine"], "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 954ms (Views: 42.0ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:56:19 +0200
+MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:56:19 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:56:19 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=SAMPLE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BacsTokenLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%2Fdownload%2FCent_anni_di_solitudine-sample-epub.acsm%3Fid%3Dy6f3-R9YMsgC%26format%3Depub%26output%3Dacs4_fulfillment_token%26dl_type%3Dsample%26source%3Dgbs_api&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BacsTokenLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%2Fdownload%2FCent_anni_di_solitudine-sample-pdf.acsm%3Fid%3Dy6f3-R9YMsgC%26format%3Dpdf%26output%3Dacs4_fulfillment_token%26dl_type%3Dsample%26source%3Dgbs_api&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=PARTIAL&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3Dy6f3-R9YMsgC%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=324CUMiMaYM&book%5Bid%5D%5Bid%5D=y6f3-R9YMsgC&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5BbuyLink%5D=https%3A%2F%2Fplay.google.com%2Fstore%2Fbooks%2Fdetails%3Fid%3Dy6f3-R9YMsgC%26rdid%3Dbook-y6f3-R9YMsgC%26rdot%3D1%26source%3Dgbs_api&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=true&book%5Bid%5D%5BsaleInfo%5D%5BlistPrice%5D%5Bamount%5D=7.99&book%5Bid%5D%5BsaleInfo%5D%5BlistPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BfinskyOfferType%5D=1&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BlistPrice%5D%5BamountInMicros%5D=7990000.0&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BlistPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BretailPrice%5D%5BamountInMicros%5D=7990000.0&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BretailPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5BretailPrice%5D%5Bamount%5D=7.99&book%5Bid%5D%5BsaleInfo%5D%5BretailPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=FOR_SALE&book%5Bid%5D%5BsearchInfo%5D%5BtextSnippet%5D=Grandezza+e+decadenza+della+citt%C3%A0+di+Macondo+e+della+famiglia+Buendia%2C+in+una+successione+appassionante+di+avvenimenti+favolosi+e+grotteschi+tra+cronistoria+e+leggenda.&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2Fy6f3-R9YMsgC&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=true&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Gabriel+Garc%C3%ADa+M%C3%A1rquez&book%5Bid%5D%5BvolumeInfo%5D%5BaverageRating%5D=4.0&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fmarket.android.com%2Fdetails%3Fid%3Dbook-y6f3-R9YMsgC&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Fiction&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=2.27.29.0.preview.3&book%5Bid%5D%5BvolumeInfo%5D%5Bdescription%5D=Grandezza+e+decadenza+della+citt%C3%A0+di+Macondo+e+della+famiglia+Buendia%2C+in+una+successione+appassionante+di+avvenimenti+favolosi+e+grotteschi+tra+cronistoria+e+leggenda.&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3Dy6f3-R9YMsgC%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3Dy6f3-R9YMsgC%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9788852011498&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=8852011498&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=https%3A%2F%2Fplay.google.com%2Fstore%2Fbooks%2Fdetails%3Fid%3Dy6f3-R9YMsgC%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=it&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=420&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3Dy6f3-R9YMsgC%26printsec%3Dfrontcover%26dq%3Dcent%2527anni%2Bdi%2Bsolitudine%26hl%3D%26cd%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=2010-10-07&book%5Bid%5D%5BvolumeInfo%5D%5Bpublisher%5D=Edizioni+Mondadori&book%5Bid%5D%5BvolumeInfo%5D%5BratingsCount%5D=8&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=true&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=true&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=Cent%27anni+di+solitudine" for 127.0.0.1 at 2018-05-30 20:57:28 +0200
+Processing by AdsController#create as HTML
+  Parameters: {"authenticity_token"=>"PjPfqERbn+Ma+ma0kaiIyU9gSacnhkJyT2H1NgS0NX7xPITGrhzut38rqfIy9qEkc7Fd19C5cIuUfzLqSIWnTg==", "book"=>{"id"=>{"accessInfo"=>{"accessViewStatus"=>"SAMPLE", "country"=>"IT", "embeddable"=>"true", "epub"=>{"acsTokenLink"=>"http://books.google.it/books/download/Cent_anni_di_solitudine-sample-epub.acsm?id=y6f3-R9YMsgC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api", "isAvailable"=>"true"}, "pdf"=>{"acsTokenLink"=>"http://books.google.it/books/download/Cent_anni_di_solitudine-sample-pdf.acsm?id=y6f3-R9YMsgC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api", "isAvailable"=>"true"}, "publicDomain"=>"false", "quoteSharingAllowed"=>"false", "textToSpeechPermission"=>"ALLOWED", "viewability"=>"PARTIAL", "webReaderLink"=>"http://play.google.com/books/reader?id=y6f3-R9YMsgC&hl=&printsec=frontcover&source=gbs_api"}, "etag"=>"324CUMiMaYM", "id"=>"y6f3-R9YMsgC", "kind"=>"books#volume", "saleInfo"=>{"buyLink"=>"https://play.google.com/store/books/details?id=y6f3-R9YMsgC&rdid=book-y6f3-R9YMsgC&rdot=1&source=gbs_api", "country"=>"IT", "isEbook"=>"true", "listPrice"=>{"amount"=>"7.99", "currencyCode"=>"EUR"}, "offers"=>[{"finskyOfferType"=>"1", "listPrice"=>{"amountInMicros"=>"7990000.0", "currencyCode"=>"EUR"}, "retailPrice"=>{"amountInMicros"=>"7990000.0", "currencyCode"=>"EUR"}}], "retailPrice"=>{"amount"=>"7.99", "currencyCode"=>"EUR"}, "saleability"=>"FOR_SALE"}, "searchInfo"=>{"textSnippet"=>"Grandezza e decadenza della città di Macondo e della famiglia Buendia, in una successione appassionante di avvenimenti favolosi e grotteschi tra cronistoria e leggenda."}, "selfLink"=>"https://www.googleapis.com/books/v1/volumes/y6f3-R9YMsgC", "volumeInfo"=>{"allowAnonLogging"=>"true", "authors"=>["Gabriel García Márquez"], "averageRating"=>"4.0", "canonicalVolumeLink"=>"https://market.android.com/details?id=book-y6f3-R9YMsgC", "categories"=>["Fiction"], "contentVersion"=>"2.27.29.0.preview.3", "description"=>"Grandezza e decadenza della città di Macondo e della famiglia Buendia, in una successione appassionante di avvenimenti favolosi e grotteschi tra cronistoria e leggenda.", "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=y6f3-R9YMsgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api", "thumbnail"=>"http://books.google.com/books/content?id=y6f3-R9YMsgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}, "industryIdentifiers"=>[{"identifier"=>"9788852011498", "type"=>"ISBN_13"}, {"identifier"=>"8852011498", "type"=>"ISBN_10"}], "infoLink"=>"https://play.google.com/store/books/details?id=y6f3-R9YMsgC&source=gbs_api", "language"=>"it", "maturityRating"=>"NOT_MATURE", "pageCount"=>"420", "previewLink"=>"http://books.google.it/books?id=y6f3-R9YMsgC&printsec=frontcover&dq=cent%27anni+di+solitudine&hl=&cd=1&source=gbs_api", "printType"=>"BOOK", "publishedDate"=>"2010-10-07", "publisher"=>"Edizioni Mondadori", "ratingsCount"=>"8", "readingModes"=>{"image"=>"true", "text"=>"true"}, "title"=>"Cent'anni di solitudine"}}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "flavia"], ["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "ads" ("list_type", "book_title", "book_authors", "link_to_coverbook", "publisher", "identifier", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["list_type", 0], ["book_title", "Cent'anni di solitudine"], ["book_authors", "[\"Gabriel García Márquez\"]"], ["link_to_coverbook", "http://books.google.com/books/content?id=y6f3-R9YMsgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"], ["publisher", "Edizioni Mondadori"], ["identifier", "[\"ISBN_13\", \"9788852011498\"]"], ["user_id", 4], ["created_at", "2018-05-30 18:57:28.210309"], ["updated_at", "2018-05-30 18:57:28.210309"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 36ms (ActiveRecord: 10.4ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 20:57:28 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (6.2ms)
+  Rendered home/_chats_index.html.erb (0.5ms)
+  Rendered home/profile.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 46ms (Views: 39.0ms | ActiveRecord: 2.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:28 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:57:28 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:28 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_4
+Started GET "/" for 127.0.0.1 at 2018-05-30 20:57:29 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 45.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 20:57:30 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title like'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title like'%%')[0m
+  Rendered home/ads_list.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 44.9ms | ActiveRecord: 3.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:31 +0200
+MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:57:31 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:31 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 20:57:33 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 41.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-30 20:57:35 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"o8m8gYByCqflxSnzoCyZ9VmCIM8YCYquEe6sXp/73efTrfKZ3p0Nz+/ZM/Vveh9+cJNX7i/MNW6feLqR52kPyQ=="}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 20:57:35 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:35 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:57:35 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:35 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-30 20:57:36 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 49ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:36 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:57:37 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:37 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-30 20:57:41 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sduhV51GCU0z8rzlEeFaoYW6s/630YwVRSbrvZqV4WxcsMCWoBfhKY1b/NWJRjwwXHPR8YH55Ps4kxbstQ9JTg==", "user"=>{"email"=>"flavia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-05-30 18:57:41.657777"], ["last_sign_in_at", "2018-05-30 18:55:54.242257"], ["sign_in_count", 3], ["updated_at", "2018-05-30 18:57:41.658508"], ["id", 4]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 151ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 20:57:41 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (6.0ms)
+  Rendered home/_chats_index.html.erb (0.7ms)
+  Rendered home/profile.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 43ms (Views: 37.3ms | ActiveRecord: 2.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:41 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:57:41 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:41 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_4
+Started GET "/users/edit" for 127.0.0.1 at 2018-05-30 20:57:43 +0200
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 49ms (Views: 45.6ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:43 +0200
+MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:57:44 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:44 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 20:57:47 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (6.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 49.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 20:57:49 +0200
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username like'%%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username like'%%')[0m
+  Rendered home/users_list.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 48ms (Views: 34.8ms | ActiveRecord: 1.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:49 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 20:57:50 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 20:57:50 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:13:10 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (9.7ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 282ms (Views: 263.9ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:11 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:11 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:13:15 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 42.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:15 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:15 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-30 21:13:17 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Bg48ieCEtvUIN8Gy5n7qbyYohAUmxGVoTleqg4ir9kBloN9KRGzVuw9kFIkSLEfatAqJRCwQMsYl9LFYd2vz4A=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 27ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:13:17 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 41ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:17 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:17 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:17 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:17 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:17 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-30 21:13:18 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 77ms (Views: 75.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:19 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:19 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:19 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:19 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-30 21:13:23 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i3mdx3Nr0bLGaWJliVsJkkCiVCcAS6UOWldGat0QB6aK07rl+kgfJ0vpDRfgV8mJJTaDfLUtphwPkDqz6T65ow==", "user"=>{"email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-05-30 19:13:23.159873"], ["last_sign_in_at", "2018-05-30 19:13:23.159873"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2018-05-30 19:13:23.160761"], ["id", 2]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 169ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:13:23 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.9ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (48.8ms)
+  Rendered home/_chats_index.html.erb (0.5ms)
+  Rendered home/profile.html.erb within layouts/application (55.7ms)
+Completed 200 OK in 93ms (Views: 69.2ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:23 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:23 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActionCable] [2] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci8y)
+[ActionCable] [2] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [2] MailboxChannel is streaming from mailbox_2
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:13:28 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (17.0ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 67ms (Views: 56.0ms | ActiveRecord: 4.9ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:28 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:29 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:29 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActionCable] [2] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci8y)
+[ActionCable] [2] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [2] MailboxChannel is streaming from mailbox_2
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-30 21:13:44 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bQJeJo9rsQsBRRz9xrBK9B4ICIPzcjNLvMj0SLvf0/YopfpwWmBf/XHmoHOmyqloEnFpj7ihTURGV14xwwdaYw=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:13:44 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+[ActionCable] [2] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:44 +0200
+[ActionCable] [2] MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:45 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:45 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:45 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:45 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-30 21:13:46 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 60ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:46 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:46 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:46 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:46 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-30 21:13:52 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xaRKhtdif7KUvSqjWi+5zmhrQzIgp0euwkUXHlQLs0u+hBR0DZCB5mfYbgiMJhkkJBpYXW2e51sS+EDy8UsMdw==", "user"=>{"email"=>"flavia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-05-30 19:13:52.394211"], ["last_sign_in_at", "2018-05-30 18:57:41.657777"], ["sign_in_count", 4], ["updated_at", "2018-05-30 19:13:52.394996"], ["id", 4]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 151ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:13:52 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (6.1ms)
+  Rendered home/_chats_index.html.erb (0.9ms)
+  Rendered home/profile.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 43ms (Views: 36.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:52 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:52 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:13:54 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (5.9ms)
+  Rendered home/_chats_index.html.erb (0.7ms)
+  Rendered home/profile.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 48ms (Views: 41.7ms | ActiveRecord: 2.5ms)
+
+
+[ActionCable] [2] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:54 +0200
+[ActionCable] [2] MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:13:54 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:13:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:16:37 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 44.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:16:38 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (6.6ms)
+  Rendered home/_chats_index.html.erb (0.5ms)
+  Rendered home/profile.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 53ms (Views: 44.7ms | ActiveRecord: 2.9ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:16:38 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:16:39 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:16:39 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:17:35 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 49.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 21:17:36 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title like'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title like'%%')[0m
+  Rendered home/ads_list.html.erb within layouts/application (11.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 39.6ms | ActiveRecord: 10.8ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:17:36 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:17:37 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:17:37 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:17:42 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 42.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=cent%27anni+di+solitudine&commit=Search" for 127.0.0.1 at 2018-05-30 21:17:46 +0200
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["cent'anni di solitudine"], "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username like'%cent''anni di solitudine%')[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:17:46 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 36.4ms | ActiveRecord: 0.4ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:17:46 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:17:46 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:17:46 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:17:50 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (7.1ms)
+  Rendered home/_chats_index.html.erb (1.1ms)
+  Rendered home/profile.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 57ms (Views: 47.3ms | ActiveRecord: 2.8ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:17:50 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:17:50 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:17:50 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=garzia&commit=Search" for 127.0.0.1 at 2018-05-30 21:17:54 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["garzia"], "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 858ms (Views: 43.4ms | ActiveRecord: 0.6ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:17:55 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:17:55 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:17:55 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:18:00 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (6.4ms)
+  Rendered home/_chats_index.html.erb (0.7ms)
+  Rendered home/profile.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 53ms (Views: 43.5ms | ActiveRecord: 2.7ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:00 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:18:00 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:00 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=garzia+marquez&commit=Search" for 127.0.0.1 at 2018-05-30 21:18:05 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["garzia marquez"], "commit"=>"Search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 2237ms (Views: 39.9ms | ActiveRecord: 0.5ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:07 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:18:07 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:07 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:18:47 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 28.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 21:18:49 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title like'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title like'%%')[0m
+  Rendered home/ads_list.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 34.6ms | ActiveRecord: 1.9ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:49 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:18:49 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:49 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:18:50 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 56ms (Views: 49.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 21:18:52 +0200
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username like'%%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username like'%%')[0m
+  Rendered home/users_list.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 46ms (Views: 34.0ms | ActiveRecord: 2.8ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:52 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:18:52 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:52 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:18:53 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 43.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:18:54 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (9.9ms)
+  Rendered home/_chats_index.html.erb (0.4ms)
+  Rendered home/profile.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 53ms (Views: 45.2ms | ActiveRecord: 3.1ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:54 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:18:54 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:18:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=dante&commit=Search" for 127.0.0.1 at 2018-05-30 21:19:09 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["dante"], "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 569ms (Views: 38.4ms | ActiveRecord: 0.6ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:19:10 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:19:10 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:19:10 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:19:31 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 48.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:19:53 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 44.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:20:26 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (7.7ms)
+  Rendered home/_chats_index.html.erb (0.7ms)
+  Rendered home/profile.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 57ms (Views: 49.4ms | ActiveRecord: 3.0ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:20:26 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:20:26 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:20:26 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:20:35 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 43.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 21:20:45 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title like'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title like'%%')[0m
+  Rendered home/ads_list.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 34.3ms | ActiveRecord: 2.2ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:20:45 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:20:45 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:20:45 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:20:53 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (7.4ms)
+  Rendered home/_chats_index.html.erb (0.5ms)
+  Rendered home/profile.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 55ms (Views: 46.7ms | ActiveRecord: 2.9ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:20:53 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:20:53 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:20:53 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=cent%27anni+di+solitudine&commit=Search" for 127.0.0.1 at 2018-05-30 21:20:58 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["cent'anni di solitudine"], "commit"=>"Search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 629ms (Views: 44.3ms | ActiveRecord: 0.8ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:20:58 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:20:59 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:20:59 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:21:08 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (8.9ms)
+  Rendered home/_chats_index.html.erb (0.5ms)
+  Rendered home/profile.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 48ms (Views: 38.9ms | ActiveRecord: 2.9ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:08 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:21:08 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:08 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:21:18 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (5.8ms)
+  Rendered home/_chats_index.html.erb (0.4ms)
+  Rendered home/profile.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 48ms (Views: 41.2ms | ActiveRecord: 2.6ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:18 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:21:19 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:19 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:21:25 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 45.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-30 21:21:29 +0200
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username like'%%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username like'%%')[0m
+  Rendered home/users_list.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 53ms (Views: 40.9ms | ActiveRecord: 2.7ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:29 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:21:29 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:29 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:21:38 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 40.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-30 21:21:40 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (6.5ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 55ms (Views: 46.1ms | ActiveRecord: 2.9ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:40 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:21:40 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:40 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_4
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:21:42 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 45.4ms | ActiveRecord: 0.5ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:21:43 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_4
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:22:24 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-30 21:25:06 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 46.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-30 21:25:08 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:25:08 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-30 21:29:21 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:37:21 +0200
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (12.6ms)
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 300ms (Views: 274.6ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:37:22 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:22 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:37:24 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 46.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:37:25 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:25 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] [4] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci80)
+[ActionCable] [4] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [4] MailboxChannel is streaming from mailbox_
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-31 09:37:29 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sipga8DEZWCBjEghl8hX4FPN9nGf1+gxpHAUPugez1RMyHiVyZsQpktCLU0JZcFC5+YyL4AEo0p9hQansC8jmw=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:37:29 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:29 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:37:29 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:29 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:29 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:29 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-31 09:37:30 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 83ms (Views: 77.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:37:30 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:30 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:30 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:30 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-31 09:37:35 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PUwYJNXWhxBz4Oqdj1ZaWWGTaJHs0uCsJq1uX21zoCKY8MoqxRCKAf5MtJ2hd1p4Dl0qPFzCB5JKvgXR7UE9wg==", "user"=>{"email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2018-05-31 07:37:35.488657"], ["sign_in_count", 2], ["updated_at", "2018-05-31 07:37:35.489516"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 175ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-31 09:37:35 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (2.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (1.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (56.1ms)
+  Rendered home/_chats_index.html.erb (1.0ms)
+  Rendered home/profile.html.erb within layouts/application (63.5ms)
+Completed 200 OK in 102ms (Views: 76.0ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:37:35 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:35 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActionCable] [2] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci8y)
+[ActionCable] [2] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [2] MailboxChannel is streaming from mailbox_2
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-31 09:37:40 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (15.8ms)
+  Rendered home/_chats_index.html.erb (0.4ms)
+  Rendered home/profile.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 71ms (Views: 54.9ms | ActiveRecord: 5.4ms)
+
+
+[ActionCable] [4] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:40 +0200
+[ActionCable] [4] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:37:41 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:37:41 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActionCable] [2] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci8y)
+[ActionCable] [2] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [2] MailboxChannel is streaming from mailbox_2
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-31 09:38:14 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dpmCnby3h2LAec/rd7u0auxFvE38hc8AQhdJnrwvU9UNENbkd9RnZe66uMyxCUszrr6rgYfkKY1HdH+2KIJUkQ=="}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:38:14 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+[ActionCable] [2] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:14 +0200
+[ActionCable] [2] MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:38:15 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:15 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:15 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:15 +0200
+[ActionCable] [2] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:17 +0200
+[ActionCable] [2] MailboxChannel stopped streaming from mailbox_2
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-31 09:38:21 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 51ms (Views: 49.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:38:21 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:21 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:21 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:21 +0200
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-31 09:38:23 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:38:23 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:23 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:23 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:23 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:38:32 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:32 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:32 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:32 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:38:45 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:45 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:45 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:45 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:38:53 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:53 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:53 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:38:53 +0200
+Started POST "/users" for 127.0.0.1 at 2018-05-31 09:39:00 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sAlkSwXlGKnQTmMF/uE/iMUdwTspUkvijhtVsn76tNfC1m583cSlVWrfM8/BMd9HvggyD4BzIHE9EtpAHZAuhA==", "user"=>{"name"=>"giorgio", "surname"=>"dema", "username"=>"giodema", "email"=>"giorgiodema@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgiodema@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "giodema"], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "giorgio"], ["surname", "dema"], ["username", "giodema"], ["email", "giorgiodema@gmail.com"], ["encrypted_password", "$2a$11$w8pXOlcoio05FdJidUvqtOVMVyflVV4ce8rbgcuE1MXun/u41hNp2"], ["created_at", "2018-05-31 07:39:00.745174"], ["updated_at", "2018-05-31 07:39:00.745174"], ["confirmation_token", "2Z98x-sd2DfB-FkgGezN"], ["confirmation_sent_at", "2018-05-31 07:39:00.745558"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (0.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 202.1ms
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:39:02 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:02 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:02 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:02 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:39:11 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:11 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:11 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:11 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:39:22 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:22 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:22 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:22 +0200
+Sent mail to giorgiodema@gmail.com (30015.4ms)
+Date: Thu, 31 May 2018 09:39:01 +0200
+From: flealibrary@gmail.com
+Reply-To: flealibrary@gmail.com
+To: giorgiodema@gmail.com
+Message-ID: <5b0fa6951d8bd_1e2d3fc18a2053b065247@MacBook-Pro-mio-di-flavia.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome giorgiodema@gmail.com in FLEA LIBRARY!</p>
+
+<!--
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=2Z98x-sd2DfB-FkgGezN">Confirm my account</a></p>
+-->
+
+Completed 500 Internal Server Error in 30523ms (ActiveRecord: 4.6ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/controllers/users/registrations_controller.rb:18:in `create'
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:39:54 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:54 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:39:54 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:40:03 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:03 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:03 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:03 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:40:16 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:16 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:16 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:16 +0200
+Started POST "/users" for 127.0.0.1 at 2018-05-31 09:40:18 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sAlkSwXlGKnQTmMF/uE/iMUdwTspUkvijhtVsn76tNfC1m583cSlVWrfM8/BMd9HvggyD4BzIHE9EtpAHZAuhA==", "user"=>{"name"=>"giorgio", "surname"=>"dema", "username"=>"giodema", "email"=>"giorgiodema@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgiodema@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "giodema"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 213ms (Views: 51.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:40:18 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:18 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:18 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:18 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:40:28 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:28 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:28 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:28 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:40:34 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:34 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:34 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:34 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:40:42 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:42 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:42 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:42 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:40:54 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:54 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:40:54 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:41:04 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:04 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:04 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:04 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:41:15 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:15 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:15 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:15 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:41:26 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:26 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:26 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:26 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:41:32 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:32 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:32 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:32 +0200
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-31 09:41:34 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 59ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:41:34 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:34 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:34 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:34 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:41:44 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:44 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:44 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:44 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:41:56 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:56 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:56 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:41:56 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:42:04 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:04 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:04 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:04 +0200
+Started POST "/users" for 127.0.0.1 at 2018-05-31 09:42:06 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+wUo+0s4SmfFEItTeg9ORmRDgteSbWiIBvSR2xGsCY5Mx6UNQ1c1SWFEudyON32YoT9P/do3jGTEl21DywqdQ==", "user"=>{"name"=>"giorgio", "surname"=>"dema", "username"=>"giorgiodema", "email"=>"giorgiodema@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgiodema@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "giorgiodema"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "giorgio"], ["surname", "dema"], ["username", "giorgiodema"], ["email", "giorgiodema@gmail.com"], ["encrypted_password", "$2a$11$DbiiRfQHDswDU1xBynb0AepTnPwB2/qYTcdyL29kJp.ekvkEThBme"], ["created_at", "2018-05-31 07:42:06.343813"], ["updated_at", "2018-05-31 07:42:06.343813"], ["confirmation_token", "TZCjKoBGcw-zpgMnKw9-"], ["confirmation_sent_at", "2018-05-31 07:42:06.343922"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (0.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 35.6ms
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:42:13 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:13 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:13 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:13 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:42:23 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:23 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:23 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:23 +0200
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:42:33 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:33 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:33 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:42:33 +0200
+Sent mail to giorgiodema@gmail.com (30006.9ms)
+Date: Thu, 31 May 2018 09:42:06 +0200
+From: flealibrary@gmail.com
+Reply-To: flealibrary@gmail.com
+To: giorgiodema@gmail.com
+Message-ID: <5b0fa74e5df0a_1e2d3fc18a204064653f3@MacBook-Pro-mio-di-flavia.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome giorgiodema@gmail.com in FLEA LIBRARY!</p>
+
+<!--
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=TZCjKoBGcw-zpgMnKw9-">Confirm my account</a></p>
+-->
+
+Completed 500 Internal Server Error in 30179ms (ActiveRecord: 3.0ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/controllers/users/registrations_controller.rb:18:in `create'
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:45:16 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 30ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:45:16 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:16 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:16 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:16 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-31 09:45:18 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 54ms (Views: 52.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:45:18 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:18 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:18 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:18 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-31 09:45:23 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qVUeTIOC6rkZ1DWIvVSbyxTiPjke2vdDUjsXQ+EnhZjbihR7W6NXRaNFZUKChHsEb/fNDbf7nNDhMpixgk0fyw==", "user"=>{"email"=>"dante@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "dante@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2018-05-31 07:45:23.992181"], ["sign_in_count", 2], ["updated_at", "2018-05-31 07:45:23.992948"], ["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 151ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-31 09:45:24 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 1 OR guest_id = 1)[0m
+  Rendered home/_chat.html.erb (1.3ms)
+  Rendered home/_chats_index.html.erb (0.5ms)
+  Rendered home/profile.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 39ms (Views: 33.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:45:24 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:24 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActionCable] [1] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci8x)
+[ActionCable] [1] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [1] MailboxChannel is streaming from mailbox_1
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:45:26 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 42.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-31 09:45:27 +0200
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username like'%%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username like'%%')[0m
+  Rendered home/users_list.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 51ms (Views: 36.6ms | ActiveRecord: 6.7ms)
+
+
+[ActionCable] [1] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:27 +0200
+[ActionCable] [1] MailboxChannel stopped streaming from mailbox_1
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:45:27 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:27 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActionCable] [1] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci8x)
+[ActionCable] [1] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [1] MailboxChannel is streaming from mailbox_
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-05-31 09:45:36 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"22c4q6ePrrWxMONrr261Wtsar5ulndTzUlz2Zh+Vj5+FmebDQxnhSngOw25I9YPU8cpHFgiO+ap5VOoBKR7Swg=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:45:36 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 35ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+[ActionCable] [1] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:36 +0200
+[ActionCable] [1] MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:45:37 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:37 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:37 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:37 +0200
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-31 09:45:38 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 65ms (Views: 63.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:45:38 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:38 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:38 +0200
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:38 +0200
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-31 09:45:42 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FD2t15P4At1c7ut+mwR/WbMTQQUffkG2LyuOtMIzQ0W++6FmMZexEKN/6F2JWjqhRIanXSFGllml7COLCY82oQ==", "user"=>{"email"=>"vincenzo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-05-31 07:45:42.402432"], ["last_sign_in_at", "2018-05-31 07:45:42.402432"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2018-05-31 07:45:42.403114"], ["id", 3]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 151ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-05-31 09:45:42 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (6.4ms)
+  Rendered home/_chats_index.html.erb (0.5ms)
+  Rendered home/profile.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 42ms (Views: 35.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:45:42 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:42 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActionCable] [3] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci8z)
+[ActionCable] [3] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [3] MailboxChannel is streaming from mailbox_3
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:45:44 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-05-31 09:45:45 +0200
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username like'%%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username like'%%')[0m
+  Rendered home/users_list.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 53ms (Views: 31.9ms | ActiveRecord: 1.7ms)
+
+
+[ActionCable] [3] Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:45 +0200
+[ActionCable] [3] MailboxChannel stopped streaming from mailbox_3
+Started GET "/cable" for 127.0.0.1 at 2018-05-31 09:45:45 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-05-31 09:45:45 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActionCable] [3] Registered connection (Z2lkOi8vZmxlYWxpYnJhcnkvVXNlci8z)
+[ActionCable] [3] MailboxChannel is transmitting the subscription confirmation
+[ActionCable] [3] MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-05-31 09:48:22 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 40.0ms | ActiveRecord: 0.5ms)
+
+
