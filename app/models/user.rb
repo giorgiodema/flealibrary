@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  #upload user image using carrierwave
+  mount_uploader :image, ImageUploader
+  
   has_many :ads
 
   # Include default devise modules. Others available are:
@@ -7,11 +10,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          #:confirmable
 
-  #aggiunta di attributi
+  #validazione di attributi
   validates :name, presence: true
   validates :surname, presence: true
   validates :username, length: { minimum:2}, presence: true
   validates_uniqueness_of :username
+
+  validates_integrity_of  :image
+  validates_processing_of :image
 
   #ruoli utente
   ROLES = %i[booklover banned admin superadmin]
