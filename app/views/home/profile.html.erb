@@ -5,6 +5,7 @@
     <div class="col-6 text-info">
         <h3>Profile<br/></h3>
         <h5>
+            <%= image_tag(@user.image.url, alt: 'Image') %><br>
             Name: <small class="text-success"><%= @user.name %><br></small>
             Surname: <small class="text-success"><%= @user.surname %><br></small>
             Username: <small class="text-success"><%= @user.username %><br></small>
