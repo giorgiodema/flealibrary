@@ -11,6 +11,7 @@ $(document).ready ->
     received: (data) ->
       # Called when there's incoming data on the websocket for this channel
       console.log("Received data through channel")
+      
       if data.type == "message"
         console.log("Type = MESSAGE")
         $("#"+data.chat_id).children(".input_box").val("")
