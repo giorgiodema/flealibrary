@@ -7100,3 +7100,642 @@ Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.6ms)
 
 
 >>>>>>> liste
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (184.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "flealibrary_development"[0m
+  [1m[35m (146.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "flealibrary_test"[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7461772034015038740)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (1)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "surname" character varying, "username" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "1"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeUsernameTypeInUsers (2)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ALTER "username" DROP NOT NULL[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "2"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUsers (3)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.6ms)[0m  [1m[35mALTER TABLE "users" ADD "role" character varying DEFAULT 'booklover'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "3"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChatMigration (4)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "chats" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "owner_id" bigint, "guest_id" bigint)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_owner_id" ON "chats"  ("owner_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_guest_id" ON "chats"  ("guest_id")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_a229e37047"
+FOREIGN KEY ("owner_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_d21eee654c"
+FOREIGN KEY ("guest_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "text" character varying, "read" boolean, "from" integer DEFAULT 0, "chat_id" bigint)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_chat_id" ON "messages"  ("chat_id")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0f670de7ba"
+FOREIGN KEY ("chat_id")
+  REFERENCES "chats" ("id")
+[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "4"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAds (5)
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "ads" ("id" bigserial primary key, "list_type" integer, "book_title" character varying, "book_authors" character varying, "link_to_coverbook" character varying, "publisher" character varying, "identifier" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_ads_on_user_id" ON "ads"  ("user_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "5"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDetailsToUsers (6)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" character varying[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" timestamp[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" timestamp[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "6"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImageToUsers (7)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "users" ADD "image" character varying[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "7"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGoogleIdToAds (20180531154933)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "ads" ADD "google_id" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180531154933"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-01 17:33:38.300219"], ["updated_at", "2018-06-01 17:33:38.300219"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(7461772034015038740)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dante@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dante"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "dante"], ["surname", "alighieri"], ["username", "dante"], ["email", "dante@gmail.com"], ["encrypted_password", "$2a$11$.pnK/.lrtDIwGCAT/E3CIeo5QMaoIdz9mWARSnSkscSCTqtcuM.fO"], ["created_at", "2018-06-01 17:33:41.665143"], ["updated_at", "2018-06-01 17:33:41.665143"], ["role", "superadmin"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "giorgio"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "giorgio"], ["surname", "dema"], ["username", "giorgio"], ["email", "giorgio@gmail.com"], ["encrypted_password", "$2a$11$.pddZYroJg8X0dhwdeowjuuDETsIZ39XNFEfAJWvjIYPxzPwrUAIO"], ["created_at", "2018-06-01 17:33:41.793558"], ["updated_at", "2018-06-01 17:33:41.793558"], ["role", "admin"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "vincenzo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "vincenzo"], ["surname", "cas"], ["username", "vincenzo"], ["email", "vincenzo@gmail.com"], ["encrypted_password", "$2a$11$p6wsFnuKOdWuo2zuutBIuOsSSbULrvM4vP0sLPYGOTPk7TcCR1dS2"], ["created_at", "2018-06-01 17:33:41.920796"], ["updated_at", "2018-06-01 17:33:41.920796"], ["role", "admin"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "flavia"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "flavia"], ["surname", "mon"], ["username", "flavia"], ["email", "flavia@gmail.com"], ["encrypted_password", "$2a$11$BTaCRSJ28GiIZst0jE1uAekEhfDsAGqmnY3C10NFH/4kGrfKcQwfC"], ["created_at", "2018-06-01 17:33:42.048233"], ["updated_at", "2018-06-01 17:33:42.048233"], ["role", "admin"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-01 17:33:42.076392"], ["updated_at", "2018-06-01 17:33:42.076392"], ["owner_id", 2], ["guest_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-01 17:33:42.092838"], ["updated_at", "2018-06-01 17:33:42.092838"], ["text", "Ciao vincenzone porcone"], ["read", "t"], ["chat_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-06-01 17:33:42.095772"], ["updated_at", "2018-06-01 17:33:42.095772"], ["text", "Ciao giorgio, sei bellissimo"], ["read", "t"], ["from", 1], ["chat_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-01 17:33:42.098054"], ["updated_at", "2018-06-01 17:33:42.098054"], ["owner_id", 2], ["guest_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-01 17:33:42.100260"], ["updated_at", "2018-06-01 17:33:42.100260"], ["text", "Ciao Fla, come stai?"], ["read", "t"], ["chat_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-06-01 17:33:42.102365"], ["updated_at", "2018-06-01 17:33:42.102365"], ["text", "Ciao Gio, bene tu? stai studiando?"], ["read", "t"], ["from", 1], ["chat_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for 127.0.0.1 at 2018-06-01 19:34:02 +0200
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-06-01 19:34:12 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 819ms (Views: 815.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:13 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:13 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-01 19:34:15 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 111ms (Views: 70.6ms | ActiveRecord: 9.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:16 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:16 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:16 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-01 19:34:20 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bH5uPLuA3Sr7MiAvUHDFJE6ZZiA2A6Sd66J9LfG6e9NZKimeHYxOR9Scg6cR++QOcZGfNPvzmibgIm2qPyeAPA==", "user"=>{"email"=>"flavia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-06-01 17:34:21.140495"], ["last_sign_in_at", "2018-06-01 17:34:21.140495"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2018-06-01 17:34:21.141798"], ["id", 4]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 181ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-06-01 19:34:21 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.9ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (25.1ms)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (26.5ms)
+  Rendered home/profile.html.erb within layouts/application (59.7ms)
+Completed 200 OK in 96ms (Views: 73.3ms | ActiveRecord: 12.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:21 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:21 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:21 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_4
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=garzia+marquez&commit=Search" for 127.0.0.1 at 2018-06-01 19:34:29 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["garzia marquez"], "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 1027ms (Views: 61.0ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:30 +0200
+MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:31 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:31 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=SAMPLE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BacsTokenLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%2Fdownload%2FMemoria_delle_mie_puttane_tristi-sample-epub.acsm%3Fid%3DWILDmWiu4EQC%26format%3Depub%26output%3Dacs4_fulfillment_token%26dl_type%3Dsample%26source%3Dgbs_api&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BacsTokenLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%2Fdownload%2FMemoria_delle_mie_puttane_tristi-sample-pdf.acsm%3Fid%3DWILDmWiu4EQC%26format%3Dpdf%26output%3Dacs4_fulfillment_token%26dl_type%3Dsample%26source%3Dgbs_api&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=PARTIAL&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3DWILDmWiu4EQC%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=l57lGRPloMw&book%5Bid%5D%5Bid%5D=WILDmWiu4EQC&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5BbuyLink%5D=https%3A%2F%2Fplay.google.com%2Fstore%2Fbooks%2Fdetails%3Fid%3DWILDmWiu4EQC%26rdid%3Dbook-WILDmWiu4EQC%26rdot%3D1%26source%3Dgbs_api&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=true&book%5Bid%5D%5BsaleInfo%5D%5BlistPrice%5D%5Bamount%5D=7.99&book%5Bid%5D%5BsaleInfo%5D%5BlistPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BfinskyOfferType%5D=1&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BlistPrice%5D%5BamountInMicros%5D=7990000.0&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BlistPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BretailPrice%5D%5BamountInMicros%5D=7990000.0&book%5Bid%5D%5BsaleInfo%5D%5Boffers%5D%5B%5D%5BretailPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5BretailPrice%5D%5Bamount%5D=7.99&book%5Bid%5D%5BsaleInfo%5D%5BretailPrice%5D%5BcurrencyCode%5D=EUR&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=FOR_SALE&book%5Bid%5D%5BsearchInfo%5D%5BtextSnippet%5D=Memoria+delle+mie+puttane+tristi+%C3%A8+l%26%2339%3Bemozionante+riscoperta+dell%26%2339%3Buniverso+fantastico+e+inimitabile+di+uno+dei+massimi+e+pi%C3%B9+amati+scrittori+contemporanei%2C+un+atto+di+magia+narrativa+che+si+impossessa+dei+nostri+sentimenti.&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2FWILDmWiu4EQC&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=true&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Gabriel+Garc%C3%ADa+M%C3%A1rquez&book%5Bid%5D%5BvolumeInfo%5D%5BaverageRating%5D=5.0&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fmarket.android.com%2Fdetails%3Fid%3Dbook-WILDmWiu4EQC&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Fiction&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=2.7.5.0.preview.3&book%5Bid%5D%5BvolumeInfo%5D%5Bdescription%5D=Memoria+delle+mie+puttane+tristi+%C3%A8+l%27emozionante+riscoperta+dell%27universo+fantastico+e+inimitabile+di+uno+dei+massimi+e+pi%C3%B9+amati+scrittori+contemporanei%2C+un+atto+di+magia+narrativa+che+si+impossessa+dei+nostri+sentimenti.&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DWILDmWiu4EQC%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DWILDmWiu4EQC%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9788852011481&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=885201148X&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=https%3A%2F%2Fplay.google.com%2Fstore%2Fbooks%2Fdetails%3Fid%3DWILDmWiu4EQC%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=it&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=154&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DWILDmWiu4EQC%26printsec%3Dfrontcover%26dq%3Dgarzia%2Bmarquez%26hl%3D%26cd%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=2010-10-07&book%5Bid%5D%5BvolumeInfo%5D%5Bpublisher%5D=Edizioni+Mondadori&book%5Bid%5D%5BvolumeInfo%5D%5BratingsCount%5D=1&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=true&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=true&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=Memoria+delle+mie+puttane+tristi&book%5Blist_type%5D=2" for 127.0.0.1 at 2018-06-01 19:34:34 +0200
+Processing by AdsController#create as HTML
+  Parameters: {"authenticity_token"=>"dovgMsLUXANTjVqg5pH6r2jOs+eONL04q0Nj3gU2RiJIvlHDQHHnOpxgmsrDO3Rtq/cJuAYvdIZGdP8UkZnDow==", "book"=>{"id"=>{"accessInfo"=>{"accessViewStatus"=>"SAMPLE", "country"=>"IT", "embeddable"=>"true", "epub"=>{"acsTokenLink"=>"http://books.google.it/books/download/Memoria_delle_mie_puttane_tristi-sample-epub.acsm?id=WILDmWiu4EQC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api", "isAvailable"=>"true"}, "pdf"=>{"acsTokenLink"=>"http://books.google.it/books/download/Memoria_delle_mie_puttane_tristi-sample-pdf.acsm?id=WILDmWiu4EQC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api", "isAvailable"=>"true"}, "publicDomain"=>"false", "quoteSharingAllowed"=>"false", "textToSpeechPermission"=>"ALLOWED", "viewability"=>"PARTIAL", "webReaderLink"=>"http://play.google.com/books/reader?id=WILDmWiu4EQC&hl=&printsec=frontcover&source=gbs_api"}, "etag"=>"l57lGRPloMw", "id"=>"WILDmWiu4EQC", "kind"=>"books#volume", "saleInfo"=>{"buyLink"=>"https://play.google.com/store/books/details?id=WILDmWiu4EQC&rdid=book-WILDmWiu4EQC&rdot=1&source=gbs_api", "country"=>"IT", "isEbook"=>"true", "listPrice"=>{"amount"=>"7.99", "currencyCode"=>"EUR"}, "offers"=>[{"finskyOfferType"=>"1", "listPrice"=>{"amountInMicros"=>"7990000.0", "currencyCode"=>"EUR"}, "retailPrice"=>{"amountInMicros"=>"7990000.0", "currencyCode"=>"EUR"}}], "retailPrice"=>{"amount"=>"7.99", "currencyCode"=>"EUR"}, "saleability"=>"FOR_SALE"}, "searchInfo"=>{"textSnippet"=>"Memoria delle mie puttane tristi è l&#39;emozionante riscoperta dell&#39;universo fantastico e inimitabile di uno dei massimi e più amati scrittori contemporanei, un atto di magia narrativa che si impossessa dei nostri sentimenti."}, "selfLink"=>"https://www.googleapis.com/books/v1/volumes/WILDmWiu4EQC", "volumeInfo"=>{"allowAnonLogging"=>"true", "authors"=>["Gabriel García Márquez"], "averageRating"=>"5.0", "canonicalVolumeLink"=>"https://market.android.com/details?id=book-WILDmWiu4EQC", "categories"=>["Fiction"], "contentVersion"=>"2.7.5.0.preview.3", "description"=>"Memoria delle mie puttane tristi è l'emozionante riscoperta dell'universo fantastico e inimitabile di uno dei massimi e più amati scrittori contemporanei, un atto di magia narrativa che si impossessa dei nostri sentimenti.", "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=WILDmWiu4EQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api", "thumbnail"=>"http://books.google.com/books/content?id=WILDmWiu4EQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}, "industryIdentifiers"=>[{"identifier"=>"9788852011481", "type"=>"ISBN_13"}, {"identifier"=>"885201148X", "type"=>"ISBN_10"}], "infoLink"=>"https://play.google.com/store/books/details?id=WILDmWiu4EQC&source=gbs_api", "language"=>"it", "maturityRating"=>"NOT_MATURE", "pageCount"=>"154", "previewLink"=>"http://books.google.it/books?id=WILDmWiu4EQC&printsec=frontcover&dq=garzia+marquez&hl=&cd=1&source=gbs_api", "printType"=>"BOOK", "publishedDate"=>"2010-10-07", "publisher"=>"Edizioni Mondadori", "ratingsCount"=>"1", "readingModes"=>{"image"=>"true", "text"=>"true"}, "title"=>"Memoria delle mie puttane tristi"}}, "list_type"=>"2"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAd Load (0.9ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."google_id" = $2 AND "ads"."list_type" = $3[0m  [["user_id", 4], ["google_id", "WILDmWiu4EQC"], ["list_type", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "flavia"], ["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ads" ("list_type", "book_title", "book_authors", "link_to_coverbook", "publisher", "identifier", "user_id", "created_at", "updated_at", "google_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["list_type", 2], ["book_title", "Memoria delle mie puttane tristi"], ["book_authors", "[\"Gabriel García Márquez\"]"], ["link_to_coverbook", "http://books.google.com/books/content?id=WILDmWiu4EQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"], ["publisher", "Edizioni Mondadori"], ["identifier", "[\"ISBN_13\", \"9788852011481\"]"], ["user_id", 4], ["created_at", "2018-06-01 17:34:35.030875"], ["updated_at", "2018-06-01 17:34:35.030875"], ["google_id", "WILDmWiu4EQC"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 49ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-06-01 19:34:35 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 4 OR guest_id = 4)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (3.5ms)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (4.0ms)
+  Rendered home/profile.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 44ms (Views: 37.2ms | ActiveRecord: 2.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:35 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:35 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:35 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_4
+Started GET "/profile/gift_list?id=4&list_type=2" for 127.0.0.1 at 2018-06-01 19:34:37 +0200
+Processing by AdsController#gift as HTML
+  Parameters: {"id"=>"4", "list_type"=>"2"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering ads/gift.html.erb within layouts/application
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 4], ["list_type", 2]]
+  Rendered ads/gift.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 53ms (Views: 38.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-01 19:34:42 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:42 +0200
+MailboxChannel stopped streaming from mailbox_4
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:42 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:42 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-06-01 19:34:45 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title like'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title like'%%')[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/ads_list.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 33.3ms | ActiveRecord: 2.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:45 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:45 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:45 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile/4" for 127.0.0.1 at 2018-06-01 19:34:47 +0200
+Processing by HomeController#show_profile as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  Rendered home/_chats_index.html.erb (0.7ms)
+  Rendered home/_chat.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 56ms (Views: 46.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-01 19:34:48 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 41.9ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-06-01 19:34:50 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TA1wBeSxcafNJ7++Df+36YyS3C7eb7Dz4DEIBo0GKuFRYz8xsWYurKTXYTO6szcfBtu/jwxRENxl9zSnI51bFw=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-01 19:34:50 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:50 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:50 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:50 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-01 19:34:51 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 47ms (Views: 45.7ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:51 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:51 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:51 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-01 19:34:56 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZNoI8/nZ4GqrZhfYFDaGm5MQh5AJyOQ2yDMp8s+8LOtqcV21k/DQrC4D89yWmBLvtFTJydUHAuNm4CrQaBOeiQ==", "user"=>{"email"=>"vincenzo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-06-01 17:34:56.158020"], ["last_sign_in_at", "2018-06-01 17:34:56.158020"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2018-06-01 17:34:56.159303"], ["id", 3]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile
+Completed 302 Found in 152ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2018-06-01 19:34:56 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (3.0ms)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (4.4ms)
+  Rendered home/profile.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 44ms (Views: 37.7ms | ActiveRecord: 2.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:56 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:34:56 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:34:56 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/" for 127.0.0.1 at 2018-06-01 19:34:58 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 62ms (Views: 54.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-06-01 19:35:00 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title like'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title like'%%')[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/ads_list.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 62ms (Views: 50.4ms | ActiveRecord: 3.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:01 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:35:01 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:01 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile/4" for 127.0.0.1 at 2018-06-01 19:35:03 +0200
+Processing by HomeController#show_profile as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  Rendered home/_chats_index.html.erb (0.7ms)
+  Rendered home/_chat.html.erb (0.7ms)
+  Rendered home/profile.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 55ms (Views: 43.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/profile/gift_list?id=4&list_type=2" for 127.0.0.1 at 2018-06-01 19:35:04 +0200
+Processing by AdsController#gift as HTML
+  Parameters: {"id"=>"4", "list_type"=>"2"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/gift.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 4], ["list_type", 2]]
+  Rendered ads/gift.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 52ms (Views: 34.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-01 19:35:07 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 43.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-06-01 19:35:08 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title like'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title like'%%')[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/ads_list.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 47.0ms | ActiveRecord: 2.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:08 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:35:08 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:08 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile" for 127.0.0.1 at 2018-06-01 19:35:16 +0200
+Processing by HomeController#profile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (4.1ms)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (3.8ms)
+  Rendered home/profile.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 44ms (Views: 36.7ms | ActiveRecord: 3.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:16 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:35:16 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:16 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-06-01 19:35:17 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KBdhCvQ/xtVkFuXuCyrsQhqoXEcGDUiGF/BjaMpiqQdUORGOHC56Wrak7cOw3NavAEmxtRP4SkTeR3onpFMZAw=="}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-01 19:35:17 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 46ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:17 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/cable" for 127.0.0.1 at 2018-06-01 19:35:17 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:17 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-01 19:35:19 +0200
+MailboxChannel stopped streaming from mailbox_
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (143.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "flealibrary_development"[0m
+  [1m[35m (138.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "flealibrary_test"[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7461772034015038740)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (1)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "surname" character varying, "username" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "1"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeUsernameTypeInUsers (2)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ALTER "username" DROP NOT NULL[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "2"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUsers (3)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role" character varying DEFAULT 'booklover'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "3"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChatMigration (4)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "chats" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "owner_id" bigint, "guest_id" bigint)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_owner_id" ON "chats"  ("owner_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_guest_id" ON "chats"  ("guest_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_a229e37047"
+FOREIGN KEY ("owner_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_d21eee654c"
+FOREIGN KEY ("guest_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "text" character varying, "read" boolean, "from" integer DEFAULT 0, "chat_id" bigint)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_chat_id" ON "messages"  ("chat_id")[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0f670de7ba"
+FOREIGN KEY ("chat_id")
+  REFERENCES "chats" ("id")
+[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "4"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAds (5)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ads" ("id" bigserial primary key, "list_type" integer, "book_title" character varying, "book_authors" character varying, "link_to_coverbook" character varying, "publisher" character varying, "identifier" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_ads_on_user_id" ON "ads"  ("user_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "5"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDetailsToUsers (6)
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" timestamp[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" timestamp[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "6"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImageToUsers (7)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "image" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "7"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGoogleIdToAds (8)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "ads" ADD "google_id" character varying[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "8"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-01 17:36:35.145586"], ["updated_at", "2018-06-01 17:36:35.145586"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(7461772034015038740)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dante@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dante"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "dante"], ["surname", "alighieri"], ["username", "dante"], ["email", "dante@gmail.com"], ["encrypted_password", "$2a$11$SN9/tvST.aaQL/l000yie.vw6OYHFCOxaTugSKmbK3DgNoQztk75q"], ["created_at", "2018-06-01 17:36:38.528839"], ["updated_at", "2018-06-01 17:36:38.528839"], ["role", "superadmin"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "giorgio"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "giorgio"], ["surname", "dema"], ["username", "giorgio"], ["email", "giorgio@gmail.com"], ["encrypted_password", "$2a$11$xzE5XBmQxnFLc.2gshQ2B.DIDDbF8z.jVzu55V6NUhNrcy1s0fo9O"], ["created_at", "2018-06-01 17:36:38.657600"], ["updated_at", "2018-06-01 17:36:38.657600"], ["role", "admin"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "vincenzo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "vincenzo"], ["surname", "cas"], ["username", "vincenzo"], ["email", "vincenzo@gmail.com"], ["encrypted_password", "$2a$11$rHuzlogrhwdCGncGJEJUiuToW7zlVHLMkGeZ4ZGIA9wV.l.nM1PEu"], ["created_at", "2018-06-01 17:36:38.784909"], ["updated_at", "2018-06-01 17:36:38.784909"], ["role", "admin"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "flavia"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "flavia"], ["surname", "mon"], ["username", "flavia"], ["email", "flavia@gmail.com"], ["encrypted_password", "$2a$11$1wV9SuHxafWf8OHg9jSgC.Qudo12xmUkTMRTttgb4WJ6t2CYzZXq."], ["created_at", "2018-06-01 17:36:38.912244"], ["updated_at", "2018-06-01 17:36:38.912244"], ["role", "admin"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-01 17:36:38.933411"], ["updated_at", "2018-06-01 17:36:38.933411"], ["owner_id", 2], ["guest_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-01 17:36:38.949068"], ["updated_at", "2018-06-01 17:36:38.949068"], ["text", "Ciao vincenzone porcone"], ["read", "t"], ["chat_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-06-01 17:36:38.952118"], ["updated_at", "2018-06-01 17:36:38.952118"], ["text", "Ciao giorgio, sei bellissimo"], ["read", "t"], ["from", 1], ["chat_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-01 17:36:38.954418"], ["updated_at", "2018-06-01 17:36:38.954418"], ["owner_id", 2], ["guest_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-01 17:36:38.956807"], ["updated_at", "2018-06-01 17:36:38.956807"], ["text", "Ciao Fla, come stai?"], ["read", "t"], ["chat_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-06-01 17:36:38.959196"], ["updated_at", "2018-06-01 17:36:38.959196"], ["text", "Ciao Gio, bene tu? stai studiando?"], ["read", "t"], ["from", 1], ["chat_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
