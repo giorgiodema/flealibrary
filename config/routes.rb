@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions',
                                     registrations: 'users/registrations'}
   get '/users/profile' => 'home#profile', :as =>'profile'
-
+  get '/users/profile/:id' => 'home#show_profile', :as =>'show_profile' #serve l'id?
   resources :ads
 
   get '/profile/favourite_list' => 'ads#favourite', :as => 'favourite_list'
