@@ -1,3 +1,5 @@
+<!-- Mostra la lista di Libri trovati con google books -->
+
 <h3> Books found </h3>
 
 <% books = JSON.parse(@res.body)['items'] %>
@@ -38,14 +40,17 @@
             <h7> Identifier: </h7>
             <%= book['volumeInfo']['industryIdentifiers'][0]['type'] %>
         <% end %>
-    <% end %>
-    <% if book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
-        <%= book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
+        <% if book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
+            <%= book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
+        <% end %>
     <% else %>
         <h7> Identifier: not specified </h7>
     <% end %>
-    <br>      
-    <%= link_to "Aggiungi", ads_path(:book =>{:id => book}), :method => :post %>
+    <br>
+    <h7> Aggiungi a:</h7>
+    <!-- link per aggiungere il libro alle liste -->
+    <%= link_to "Wish", ads_path(:book =>{:id => book, :list_type => 1}), :method => :post %> 
+    <%= link_to "Gift", ads_path(:book =>{:id => book, :list_type => 2}), :method => :post %>
     <br>
     <br>
 <% end %>

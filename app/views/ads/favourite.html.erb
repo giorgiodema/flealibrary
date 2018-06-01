@@ -1,0 +1,17 @@
+<!-- Mostra la wish list dell'utente che gli passo dal profilo -->
+
+<% if @id == current_user.id.to_s %>    <!-- se l'id passato e lo user corrispondono -->
+    <h3> My Favourite List </h3>        <!-- , sono nel mio profilo -->
+<% else %>
+    <% owner = User.find(@id).username %>
+    <h3><%= owner %>'s Favourities List </h3>
+<% end %>
+
+<% @favourities.each do |book| %>
+    <%= image_tag(book.link_to_coverbook) %>
+    <%= book.book_title %>
+    <%= book.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+    <%= book.publisher %>
+    <%= book.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+    <br>
+<% end %>

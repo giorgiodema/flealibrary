@@ -1,7 +1,16 @@
+<!-- Mostro la lista di tutti gli Ads e il link al profilo del proprietario dell'annuncio -->
+
 <h3>Ads</h3> 
 <p>
 <% @ads.each do |ad|%>
-    <%= ad.book_title %><br>
+    <%= image_tag(ad.link_to_coverbook) %>
+    <%= ad.book_title %>
+    <%= ad.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+    <%= ad.publisher %>
+    <%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+    <% owner = User.find(ad.user_id).username %>
+    <%= link_to "#{owner}", show_profile_path(:id => ad.user_id)%>
+    <br>
 <% end %>
 </p>
 
