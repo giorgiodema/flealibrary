@@ -75,3 +75,10 @@
 .navbar-center>li {
     flex:1 1 auto;
 }
+
+/*per me, da cancellare dopo*/
+.user_img{
+    height:80px;
+    width:80px;
+    border-radius:90%;
+}
