@@ -5,8 +5,11 @@ Rails.application.routes.draw do
                                     confirmations: 'users/confirmations',
                                     passwords: 'users/passwords'}
 
-  get '/users/profile' => 'home#profile', :as =>'profile'
-  get '/users/profile/:id' => 'home#show_profile', :as =>'show_profile' #serve l'id?
+  get '/users/profile/:id' => 'home#profile', :as => 'profile'
+  #get '/users/profile/:id' => 'home#show_profile', :as => 'show_profile' #serve l'id?
+
+  get '/admin_panel' => 'home#admin_panel', :as => 'admin_panel'
+
   resources :ads
 
   get '/profile/favourite_list' => 'ads#favourite', :as => 'favourite_list'

@@ -24,6 +24,16 @@
         <%= f.text_field :username, autocomplete: "username" %>
       </div>
       <br/>
+      <div class="form-control" placeholder="Enter CAP">
+        <%= f.label :cap %><br />
+        <%= f.text_field :cap, autocomplete: "cap" %>
+      </div>
+      <br/>
+      <div class="form-control" placeholder="Enter search radius(km)">
+        <%= f.label :radius %><br />
+        <%= select_tag :radius, options_for_select((5..50).step(5)) %>
+      </div>
+      <br/>
       <div class="form-control" placeholder="Email">
         <%= f.label :email %><br />
         <%= f.email_field :email, autocomplete: "email" %>

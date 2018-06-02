@@ -23,7 +23,7 @@
         <%= button_to "HOME", root_path, :method => 'get', class: "col-4 btn-sm btn-warning" %>
         <%if user_signed_in?%>
           <% user = current_user %>
-          <%= button_to "#{user.username.upcase}", profile_path, :method => 'get', class: "col-4 btn-sm btn-outline-success"%>
+          <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "col-4 btn-sm btn-outline-success"%>
           <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "col-4 btn-sm btn-danger" %>
         <%else%>
           <%= button_to "Log in", new_user_session_path, :method => 'get', class: "col-4 btn-sm btn-success" %>

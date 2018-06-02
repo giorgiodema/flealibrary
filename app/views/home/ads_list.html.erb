@@ -9,7 +9,7 @@
     <%= ad.publisher %>
     <%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
     <% owner = User.find(ad.user_id).username %>
-    <%= link_to "#{owner}", show_profile_path(:id => ad.user_id)%>
+    <%= link_to "#{owner}", profile_path(:id => ad.user_id)%>
     <br>
 <% end %>
 </p>

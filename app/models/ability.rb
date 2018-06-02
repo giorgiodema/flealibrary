@@ -6,11 +6,10 @@ class Ability
     if user.present?
       if user.role == "superadmin"
         can :manage, :all
-        cannot :manage_role, User, :id => user.id
+        cannot :manage_role, user, :id => user.id
       elsif user.role == "admin"
-        #cannot :delete, User, :role => "superadmin"
-        can :manage_role, User
-        cannot :manage_role, User, :id => user.id
+        can :manage, User
+        cannot :manage_role, user, :id => user.id
         cannot :manage, User, :role => "superadmin"
       end
     end

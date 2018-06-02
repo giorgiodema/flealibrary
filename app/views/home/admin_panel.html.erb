@@ -1,0 +1,28 @@
+<div class="col-12 admin-panel">
+    <div class="col-6">
+        <h4>
+            All users
+        </h4>
+        <% User.all.order('id').each do |user| %>
+            <% if user.id != current_user.id %>
+                <%= link_to "#{user.username}", profile_path(user.id) %>
+                    <% if can? :manage_role, user %>
+                        <br>
+                        role: <%= user.role%><br>
+                        <%= link_to "admin user", admin_user_path(user.id), :method => 'post'%>
+                        <%= link_to "booklover user", booklover_user_path(user.id), :method => 'post'%>
+                        <%= link_to "bann user", banned_user_path(user.id), :method => 'post'%>
+                    <% end %>
+                <br><br>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="col-6 search-user">
+        search user
+    </div>
+</div>
+
+<div class="col-6">
+    suspend site
+</div>

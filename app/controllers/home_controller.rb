@@ -6,15 +6,19 @@ class HomeController < ApplicationController
     end
     
     def profile
-        @user = current_user
+        @user = User.find(params[:id])
         @chats = @user.chats
         #@c = @user.chats.first
     end
 
-    def show_profile  # serve per mostrare il profilo di alti utenti quindi non carico le chat
-        id = params[:id]
-        @user = User.find_by_id(id)
-        render 'home/profile.html.erb' #VEDERE SE ESISTE METODO MIGLIORE
+    #utilizziamo una sola route
+    #def show_profile  # serve per mostrare il profilo di alti utenti quindi non carico le chat
+    #    id = params[:id]
+    #   @user = User.find_by_id(id)
+    #    render 'home/profile.html.erb' #VEDERE SE ESISTE METODO MIGLIORE
+    #end
+
+    def admin_panel
     end
 
     def ads_list

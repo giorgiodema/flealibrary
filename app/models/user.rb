@@ -14,6 +14,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :surname, presence: true
   validates :username, length: { minimum:2}, presence: true
+  validates :cap, length: {is: 5, message: "needs 5 integer"}, presence: true, format: { with: /\d{5}/, message: "needs 5 integer" }
+  validates :radius, presence: true
+
   validates_uniqueness_of :username
 
   validates_integrity_of  :image
