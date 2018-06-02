@@ -10,10 +10,14 @@
             Username: <small class="text-success"><%= @user.username %><br></small>
             Email: <small class="text-success"><%= @user.email %><br><br></small>
             <!-- come argomento passo anche l'id dell'utente così sono sicuro di caricare le liste del profilo corrente -->
-            <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id)%>
+            <%if @user.id.to_s == current_user.id.to_s %>
+                <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id)%>
+            <% end %> <!--non voglio mostrare i favoriti e la modifica del profilo delgi altri utenti -->
             <%= link_to "Wish list", wish_list_path(:list_type => 1, :id => @user.id)%>
             <%= link_to "Gift list", gift_list_path(:list_type => 2, :id => @user.id)%>
-            <%= button_to "Edit profile", edit_user_registration_path, :method => 'get', class: "btn btn-secondary btn-sm"%>
+            <%if @user.id.to_s == current_user.id.to_s %>
+                <%= button_to "Edit profile", edit_user_registration_path, :method => 'get', class: "btn btn-secondary btn-sm"%>
+            <% end %>
         </h5>
     </div>
 

@@ -3,14 +3,29 @@
 <h3>Ads</h3> 
 <p>
 <% @ads.each do |ad|%>
-    <%= image_tag(ad.link_to_coverbook) %>
-    <%= ad.book_title %>
-    <%= ad.book_authors.tr('[', '').tr(']','').tr('"', '') %>
-    <%= ad.publisher %>
-    <%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
-    <% owner = User.find(ad.user_id).username %>
-    <%= link_to "#{owner}", show_profile_path(:id => ad.user_id)%>
-    <br>
+    <%tipo = ad.list_type.to_s %>
+    <% if ad.user_id.to_s != current_user.id.to_s && tipo != '0' %>
+      <h7> Tipo annuncio: </h7>
+      <% if tipo == '2'%>
+        <h7> Gift </h7>
+      <% elsif tipo == '1'%>
+        <h7> Wish </h7>
+      <% end %>
+      <br>
+      <%= image_tag(ad.link_to_coverbook) %>
+      <br>
+      <h7> Title: </h7> <%= ad.book_title %>
+      <br>
+      <h7> Authors: </h7><%= ad.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+      <br>
+      <h7> Publisher: </h7><%= ad.publisher %>
+      <br>
+      <h7> Identifier: </h7><%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+      <br>
+      <% owner = User.find(ad.user_id).username %>
+      <h7> Owner of the ad: </h7><%= link_to "#{owner}", show_profile_path(:id => ad.user_id)%>
+      <br><br>
+    <% end %>
 <% end %>
 </p>
 
