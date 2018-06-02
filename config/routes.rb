@@ -4,6 +4,7 @@ Rails.application.routes.draw do
                                     registrations: 'users/registrations',
                                     confirmations: 'users/confirmations',
                                     passwords: 'users/passwords'}
+
   get '/users/profile' => 'home#profile', :as =>'profile'
   get '/users/profile/:id' => 'home#show_profile', :as =>'show_profile' #serve l'id?
   resources :ads
