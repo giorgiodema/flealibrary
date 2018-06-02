@@ -21,30 +21,9 @@
         <% end %>
     </div>
 
-    <!--
-    <div class="col-6">
-        <%= form_tag(books_results_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
-        <%= text_field :search, params[:search], placeholder: "Search Books", class:"form-control mr-sm-2" %>
-        <%= submit_tag "Search", class:"btn btn-secondary my-2 my-sm-0"%>
-        <% end %>
-    </div>
-    -->
-
     <div class="col-9 chat_container">
         <%= render partial: "chat", locals: {user:@user, chats:@chats} %>
     </div>
     <%= render partial: "chats_index", locals: { chats: @chats } %>
 
-</div>
-
-<div class="col-12 center">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="collapse navbar-collapse center" id="navbarColor03">
-        <ul class="navbar-center navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-        <ul>
-      </div>
-    </nav>
 </div>
