@@ -17,7 +17,7 @@ class HomeController < ApplicationController
     end
 
     def ads_list
-        @ad = params[:search][0]#.downcase #uso il downcase per eliminare le ricerche case-sensitive
+        @ad = params[:search][0]
         @ads = Ad.where( "book_title iLIKE?", "%#{@ad}%") #ORDINARE?
         if @ads.size.zero?
             flash[:alert] = "No result found"
@@ -26,7 +26,7 @@ class HomeController < ApplicationController
     end
 
     def users_list
-        @user = params[:search][0].downcase #uso il downcase per eliminare le ricerche case-sensitive
+        @user = params[:search][0] 
         @users = User.where( "username iLIKE?", "%#{@user}%") #ORDINARE?
         if @users.size.zero?
             flash[:alert] = "No result found"
