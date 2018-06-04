@@ -2,14 +2,14 @@
 <meta name='userid' content="<%=current_user.id%>">
 <!-- ######################################## -->
 
-<div class="col-12 profile_info_panel">
+<div class="col-md-12 profile_info_panel">
 
-    <div class="col-3">
+    <div class="col-md-3">
         <%= image_tag(@user.image.url, alt: 'Image',class: 'user_img') %>
     </div>
     
     
-    <div class="col-3 text-info">
+    <div class="col-md-3 text-info">
         <h5>
                 Name: <small class="text-success"><%= @user.name %><br></small>
                 Surname: <small class="text-success"><%= @user.surname %><br></small>
@@ -23,7 +23,7 @@
         </h5>
     </div>
 
-    <div class="col-3 lists_links">
+    <div class="col-md-3 lists_links">
         <h5>
             <%if @user.id == current_user.id %>
                 <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id)%><br>
@@ -33,7 +33,7 @@
         </h5>
     </div>
 
-    <div class="col-3 search_books_container">
+    <div class="col-md-3 search_books_container">
         <%= form_tag(books_results_path, :method => "get", id: "search-form", class: "form-group") do %>
         <%= text_field :search, params[:search], placeholder: "Search Books" %>
         <%= submit_tag "Search" ,class:"btn-sm btn-secondary my-2 my-sm-0" %>
@@ -43,11 +43,11 @@
 </div>
 
 <%if @user.id == current_user.id %>
-    <div class="col-4 left_panel">
+    <div class="col-md-4 left_panel">
         <%= render partial: "chats_index", locals: { chats: @chats } %>
     </div>
 
-    <div class="col-8 right_panel">
+    <div class="col-md-8 right_panel">
         <%= render partial: "chat", locals: {user:@user, chats:@chats} %>
     </div>
 <%end%>

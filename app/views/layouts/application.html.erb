@@ -10,33 +10,33 @@
     <%= stylesheet_link_tag "https://bootswatch.com/4/sketchy/bootstrap.min.css" %>
   </head>
 
-  <body class="col-12">
-    <div class="col-12">
+  <body class="col-md-12">
+    <div class="col-md-12">
 
-      <div class="col-5">
+      <div class="col-md-5">
         <h1>
           <%= link_to "FLEA LIBRARY", root_path %>
         </h1>
       </div>
 
-      <div class="col-7">
-        <%= button_to "HOME", root_path, :method => 'get', class: "col-3 btn-sm btn-warning" %>
+      <div class="col-md-7">
+        <%= button_to "HOME", root_path, :method => 'get', class: "col-md-3 btn-sm btn-warning" %>
         <%if user_signed_in?%>
           <% user = current_user %>
-          <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "col-3 btn-sm btn-outline-success"%>
+          <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "col-md-3 btn-sm btn-outline-success"%>
           <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
-            <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "col-3 btn-sm btn-outline-danger"%>
+            <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "col-md-3 btn-sm btn-outline-danger"%>
           <% end %>
-          <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "col-3 btn-sm btn-danger" %>
+          <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "col-md-3 btn-sm btn-danger" %>
         <%else%>
-          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "col-3 btn-sm btn-success" %>
-          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "col-3 btn-sm btn-info" %>
+          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "col-md-3 btn-sm btn-success" %>
+          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "col-md-3 btn-sm btn-info" %>
         <%end%>
       </div>
 
     </div>
 
-    <div class="col-12 flash_container">
+    <div class="col-md-12 flash_container">
       <% if flash[:notice] %>
         <div class="alert alert-dismissible alert-success"><%= flash[:notice] %></div>
       <% end %>
