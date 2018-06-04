@@ -6,12 +6,13 @@
         <% User.all.order('id').each do |user| %>
             <% if user.id != current_user.id %>
                 <%= link_to "#{user.username}", profile_path(user.id) %>
-                    <% if can? :manage_role, user %>
+                    <% if can? :manage_user, user %>
                         <br>
                         role: <%= user.role%><br>
                         <%= link_to "admin user", admin_user_path(user.id), :method => 'post'%>
                         <%= link_to "booklover user", booklover_user_path(user.id), :method => 'post'%>
                         <%= link_to "bann user", banned_user_path(user.id), :method => 'post'%>
+                        <%= link_to "delete user", admin_destroy_user_path(user.id), :method => 'delete'%>
                     <% end %>
                 <br><br>
             <% end %>

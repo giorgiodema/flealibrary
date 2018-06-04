@@ -2,14 +2,14 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    alias_action :banned_user, :admin_user, :booklover_user, :to => :manage_role
+    alias_action :banned_user, :admin_user, :booklover_user, :admin_destroy_user, :to => :manage_user
     if user.present?
       if user.role == "superadmin"
         can :manage, :all
-        cannot :manage_role, user, :id => user.id
+        cannot :manage_user, user, :id => user.id
       elsif user.role == "admin"
         can :manage, User
-        cannot :manage_role, user, :id => user.id
+        cannot :manage_user, user, :id => user.id
         cannot :manage, User, :role => "superadmin"
       end
     end

@@ -19,6 +19,9 @@ class HomeController < ApplicationController
     #end
 
     def admin_panel
+        if current_user.role == 'booklover'
+            redirect_to root_path, :flash => { :error => "you haven't permission" }
+        end
     end
 
     def ads_list
