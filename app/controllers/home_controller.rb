@@ -8,7 +8,8 @@ class HomeController < ApplicationController
     def profile
         @user = User.find(params[:id])
         @chats = @user.chats
-        #@c = @user.chats.first
+        @aux = {} # serve per memorizzare l'altro utente della chat
+                  # all'interno della view
     end
 
     #utilizziamo una sola route

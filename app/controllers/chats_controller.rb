@@ -39,6 +39,27 @@ class ChatsController < ApplicationController
 
     end
 
+    def create_chat
+
+        owner = current_user
+        guest = User.find(params[:guest_id])
+
+        c = Chat.create(owner:owner,guest:guest)
+
+        msg = {
+            type:"create_chat"
+        }
+
+        ActionCable.server.broadcast(
+            "mailbox_#{guest.id}",
+            msg
+        )
+
+
+        @answer = {status:"created"}
+        render json: @answer
+    end
+
 
     def delete_chat
         @answer = {}

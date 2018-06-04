@@ -66,6 +66,28 @@ chat_controller.delete_chat = () ->
 
                 $("#"+chat_id).remove()
                         
+chat_controller.create_chat = () ->
+    $('#start_chat').click ->
+        console.log("chat_controller.create_chat")
+        guest_id = $(this).parent().children("[name='user_id']").attr('content')
+        console.log("guest_id:"+guest_id)
+        token = $("[name='csrf-token']").attr("content")
+        $.ajax '/create_chat',
+            type: 'POST'
+            dataType: 'json'
+            data: {
+                "guest_id":guest_id
+            }
+            headers: {"X-CSRF-Token":token}
+            error: (jqXHR, textStatus, errorThrown) ->
+                console.log "error:chat_controller.create_chat"
+                alert("Error: could not create chat")
+            success: (data, textStatus, jqXHR) ->
+                if data["status"]=="created"
+                    alert("Chat successfully created")
+                else
+                    alert("Error: could not create chat") 
+
 
 
 
@@ -78,6 +100,7 @@ $(document).ready ->
 
     chat_controller.send_message()
     chat_controller.delete_chat()
+    chat_controller.create_chat()
 
 
 

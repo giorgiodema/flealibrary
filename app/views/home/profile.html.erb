@@ -1,28 +1,39 @@
+<!-- IMPORTANTE per far funzionare i channels -->
+<meta name='userid' content="<%=current_user.id%>">
+<!-- ######################################## -->
+
 <div class="col-12 profile_info_panel">
-    <div class="col-6 text-info">
-        <h3>Profile</h3><br>
+
+    <div class="col-3">
+        <%= image_tag(@user.image.url, alt: 'Image',class: 'user_img') %>
+    </div>
+    
+    
+    <div class="col-3 text-info">
         <h5>
-            <%= image_tag(@user.image.url, alt: 'Image',class: 'user_img') %><br>
-            Name: <small class="text-success"><%= @user.name %><br></small>
-            Surname: <small class="text-success"><%= @user.surname %><br></small>
-            Username: <small class="text-success"><%= @user.username %><br></small>
-            Email: <small class="text-success"><%= @user.email %><br></small>
-            <!-- come argomento passo anche l'id dell'utente così sono sicuro di caricare le liste del profilo corrente -->
-            <%if @user.id == current_user.id %>
-                <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id)%>
-            <% end %> <!--non voglio mostrare i favoriti e la modifica del profilo delgi altri utenti -->
-            <%= link_to "Wish list", wish_list_path(:list_type => 1, :id => @user.id)%>
-            <%= link_to "Gift list", gift_list_path(:list_type => 2, :id => @user.id)%>
-            <%if @user.id == current_user.id %>
-                <%= button_to "Edit profile", edit_user_registration_path, :method => 'get', class: "btn-sm btn-warning"%>
-                <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
-                    <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "btn-sm btn-danger"%>
+                Name: <small class="text-success"><%= @user.name %><br></small>
+                Surname: <small class="text-success"><%= @user.surname %><br></small>
+                Username: <small class="text-success"><%= @user.username %><br></small>
+                Email: <small class="text-success"><%= @user.email %><br></small>
+                <%if @user.id == current_user.id %>
+                    <%= button_to "Edit profile", edit_user_registration_path, :method => 'get', class: "btn-sm btn-warning"%>
                 <% end %>
-            <% end %>
+            <!-- come argomento passo anche l'id dell'utente così sono sicuro di caricare le liste del profilo corrente -->
+
         </h5>
     </div>
 
-    <div class="col-6 search_books_container">
+    <div class="col-3 lists_links">
+        <h5>
+            <%if @user.id == current_user.id %>
+                <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id)%><br>
+            <% end %> <!--non voglio mostrare i favoriti e la modifica del profilo delgi altri utenti -->
+            <%= link_to "Wish list", wish_list_path(:list_type => 1, :id => @user.id)%><br>
+            <%= link_to "Gift list", gift_list_path(:list_type => 2, :id => @user.id)%><br>
+        </h5>
+    </div>
+
+    <div class="col-3 search_books_container">
         <%= form_tag(books_results_path, :method => "get", id: "search-form", class: "form-group") do %>
         <%= text_field :search, params[:search], placeholder: "Search Books" %>
         <%= submit_tag "Search" ,class:"btn-sm btn-secondary my-2 my-sm-0" %>

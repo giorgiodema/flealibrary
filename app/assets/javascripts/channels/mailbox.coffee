@@ -22,3 +22,6 @@ $(document).ready ->
         #console.log("deleting chat:"+"chat_item_"+data.chat_id)
         $("#chat_item_"+data.chat_id).remove()
         $("#"+data.chat_id).remove()
+
+      if data.type == "create_chat"
+        location.reload();

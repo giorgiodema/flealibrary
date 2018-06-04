@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   # CHATS_CONTROLLER
   post 'send_message', to:'chats#receive'
   post 'delete_chat', to:'chats#delete_chat'
+  post 'create_chat', to:'chats#create_chat'
 
   mount ActionCable.server, at: '/cable'
 
