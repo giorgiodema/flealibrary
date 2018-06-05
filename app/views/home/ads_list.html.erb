@@ -23,7 +23,8 @@
       <h7> Identifier: </h7><%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
       <br>
       <% owner = User.find(ad.user_id).username %>
-      <h7> Owner of the ad: </h7><%= link_to "#{owner}", show_profile_path(:id => ad.user_id)%>
+      <h7> Owner of the ad: </h7><%= link_to "#{owner}", profile_path(:id => ad.user_id)%>
+
       <br><br>
     <% end %>
 <% end %>

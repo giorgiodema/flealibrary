@@ -1,56 +1,61 @@
 <!-- Mostra la lista di Libri trovati con google books -->
 
-<h3> Books found </h3>
+<h3 class="results_title"> Books found </h3>
 
-<% books = JSON.parse(@res.body)['items'] %>
-<% books.each do |book| %>
-    <% if book['volumeInfo']['imageLinks']%>
-        <% if book['volumeInfo']['imageLinks']['thumbnail']%>
-            <%= image_tag(book['volumeInfo']['imageLinks']['thumbnail']) %>
-        <% elsif book['volumeInfo']['imageLinks']['smallThumbnail'] %>
-            <%= image_tag(book['volumeInfo']['imageLinks']['smallThumbnail'])%>
+<div class="book_container">
+    <% books = JSON.parse(@res.body)['items'] %>
+    <% books.each do |book| %>
+
+    <div class="book_info">
+        <% if book['volumeInfo']['imageLinks']%>
+            <% if book['volumeInfo']['imageLinks']['thumbnail']%>
+                <%= image_tag(book['volumeInfo']['imageLinks']['thumbnail']) %>
+            <% elsif book['volumeInfo']['imageLinks']['smallThumbnail'] %>
+                <%= image_tag(book['volumeInfo']['imageLinks']['smallThumbnail'])%>
+            <% end %>
         <% end %>
-    <% end %>
-    <br>
-    <% if book['volumeInfo']['title'] %>
-        <h7> Title: </h7>
-        <%= book['volumeInfo']['title'] %>
-    <% else %>
-        <h7> Title: not specified </h7>
-    <% end %>
-    <br>
-    <% if book['volumeInfo']['authors'] %>
-        <h7> Authors: </h7>
-        <% book['volumeInfo']['authors'].each do |author| %>
-            <%= author %>
+        <br>
+        <% if book['volumeInfo']['title'] %>
+            <h7> Title: </h7>
+            <%= book['volumeInfo']['title'] %>
+        <% else %>
+            <h7> Title: not specified </h7>
         <% end %>
-    <% else %>
-        <h7> Authors: not specified </h7>
-    <% end %>
-    <br>
-    <% if book['volumeInfo']['publisher'] %>
-        <h7> Publisher: </h7>
-        <%= book['volumeInfo']['publisher'] %>
-    <% else %>
-        <h7> Publisher: not specified </h7>
-    <% end %>
-    <br>
-    <% if book['volumeInfo']['industryIdentifiers']%>
-        <% if book['volumeInfo']['industryIdentifiers'][0]['type'] %>
-            <h7> Identifier: </h7>
-            <%= book['volumeInfo']['industryIdentifiers'][0]['type'] %>
+        <br>
+        <% if book['volumeInfo']['authors'] %>
+            <h7> Authors: </h7>
+            <% book['volumeInfo']['authors'].each do |author| %>
+                <%= author %>
+            <% end %>
+        <% else %>
+            <h7> Authors: not specified </h7>
         <% end %>
-        <% if book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
-            <%= book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
+        <br>
+        <% if book['volumeInfo']['publisher'] %>
+            <h7> Publisher: </h7>
+            <%= book['volumeInfo']['publisher'] %>
+        <% else %>
+            <h7> Publisher: not specified </h7>
         <% end %>
-    <% else %>
-        <h7> Identifier: not specified </h7>
+        <br>
+        <% if book['volumeInfo']['industryIdentifiers']%>
+            <% if book['volumeInfo']['industryIdentifiers'][0]['type'] %>
+                <h7> Identifier: </h7>
+                <%= book['volumeInfo']['industryIdentifiers'][0]['type'] %>
+            <% end %>
+            <% if book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
+                <%= book['volumeInfo']['industryIdentifiers'][0]['identifier'] %>
+            <% end %>
+        <% else %>
+            <h7> Identifier: not specified </h7>
+        <% end %>
+        <br>
+        <h7> Aggiungi a:</h7>
+        <!-- link per aggiungere il libro alle liste -->
+        <%= link_to "Wish", ads_path(:book =>{:id => book, :list_type => 1}), :method => :post %> 
+        <%= link_to "Gift", ads_path(:book =>{:id => book, :list_type => 2}), :method => :post %>
+        <br>
+        <br>
+    </div>
     <% end %>
-    <br>
-    <h7> Aggiungi a:</h7>
-    <!-- link per aggiungere il libro alle liste -->
-    <%= link_to "Wish", ads_path(:book =>{:id => book, :list_type => 1}), :method => :post %> 
-    <%= link_to "Gift", ads_path(:book =>{:id => book, :list_type => 2}), :method => :post %>
-    <br>
-    <br>
-<% end %>
+</div>

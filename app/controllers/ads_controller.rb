@@ -11,7 +11,7 @@ class AdsController < ApplicationController
                 :google_id => book.google_id)
             #FARE CONTROLLO PER VEDERE SE LA CREATE VA A BUON FINE
             flash[:notice] = "Book added to favourite list"
-            redirect_to profile_path
+            redirect_to profile_path(current_user.id)
         else
 
 
@@ -20,7 +20,7 @@ class AdsController < ApplicationController
             # se il libro (chiave: user_id, google_id e list_type) è già presente nella lista dell'utente
             if Ad.where(:user_id => current_user.id, :google_id => book['id'], :list_type => tipo_lista)[0]
                 flash[:alert] = 'Annuncio Già presente nella tua lista!'
-                redirect_to profile_path
+                redirect_to profile_path(current_user.id)
             else
             #creo un dizionario con tutti i campi che riempirò man mano con le info del libro,
             #controllando prima se le suddete info sono prsenti. In caso negativo assegno la stinga 'not specified'
@@ -89,7 +89,7 @@ class AdsController < ApplicationController
                                 :google_id => info['google_id'])
                 #FARE CONTROLLO PER VEDERE SE LA CREATE VA A BUON FINE
                 flash[:notice] = "Book added to the list"
-                redirect_to profile_path
+                redirect_to profile_path(current_user.id)
             end
         end
     end
