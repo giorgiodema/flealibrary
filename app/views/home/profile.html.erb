@@ -7,6 +7,11 @@
             Surname: <small class="text-success"><%= @user.surname %><br></small>
             Username: <small class="text-success"><%= @user.username %><br></small>
             Email: <small class="text-success"><%= @user.email %><br></small>
+            <% if @user.id == current_user.id %>
+                Cap: <small class="text-success"><%= @user.cap %><br></small>
+                Radius: <small class="text-success"><%= @user.radius %><br></small>
+            <% end %>
+            <%= image_tag(@uri) %><br>
             <!-- come argomento passo anche l'id dell'utente così sono sicuro di caricare le liste del profilo corrente -->
             <%if @user.id == current_user.id %>
                 <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id)%>

@@ -3,12 +3,25 @@ class HomeController < ApplicationController
     skip_before_action :authenticate_user!, :only => [:welcome, :ads_list]
 
     def welcome
+        #lista annunci 'vicini'
+        if current_user
+            user = current_user
+            @wish_ad = Ad.where(:user_id => user.id, :list_type => 1)
+
+            ad_not_user = Ad.where.not(:user_id => user.id)
+            @gift_ad = ad_not_user.where(:list_type => 2)
+        end
     end
     
     def profile
         @user = User.find(params[:id])
         @chats = @user.chats
         #@c = @user.chats.first
+
+        maps_key = "AIzaSyDGDP6T-EYABI8GMdbuujMJKaCm37fyBss"
+        @uri = URI("https://maps.googleapis.com/maps/api/staticmap")
+        params = {"center" => "#{@user.cap} italy", "size" => "200x200", "key" => "#{maps_key}"}
+        @uri.query = URI.encode_www_form(params)
     end
 
     #utilizziamo una sola route
@@ -50,7 +63,8 @@ class HomeController < ApplicationController
         @res = Net::HTTP.get_response(uri)
         if JSON.parse(@res.body)['error']  #controllo se l'utente prova a fare una ricerca senza passare parametri
             flash[:alert] = "You should enter something!"
-            redirect_to profile_path
+            redirect_to profile_path(current_user.id)
         end
     end
+
 end

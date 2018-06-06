@@ -14,4 +14,37 @@
 		<% end %>
 	</div>
 
+	<div class="col-12">
+		<% if current_user %>
+			<h3>Recent ad near me</h3><br>
+			<% @wish_ad.all.each do |ad_wish| %>
+				<% ad_match_title = @gift_ad.where(:book_title => ad_wish.book_title)%>
+				<% ad_match_title.all.each do |ad_gift| %>
+					<% if Ad.matches(ad_wish, ad_gift)%>
+						<%= image_tag(ad_gift.link_to_coverbook) %>
+						<%= ad_gift.book_title %>
+						<%= ad_gift.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+						<%= ad_gift.publisher %>
+						<%= ad_gift.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+						<% owner = User.find(ad_gift.user_id).username %>
+						<%= link_to "#{owner}", profile_path(:id => ad_gift.user_id)%>
+						<br>
+					<% end %>
+				<% end %>
+			<% end %>
+		<% else %>
+			<h3>Recent ad</h3><br>
+			<% Ad.where(:list_type => 2).order(:created_at).all.each do |ad| %>
+				<%= image_tag(ad.link_to_coverbook) %>
+				<%= ad.book_title %>
+				<%= ad.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+				<%= ad.publisher %>
+				<%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+				<% owner = User.find(ad.user_id).username %>
+				<%= link_to "#{owner}", profile_path(:id => ad.user_id)%>
+				<br>
+			<% end %>
+		<% end %>
+	</div>
+
 </div>
