@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9) do
+ActiveRecord::Schema.define(version: 20180605170639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 9) do
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ad_id"
+    t.index ["ad_id"], name: "index_notifications_on_ad_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "surname"
@@ -80,4 +87,6 @@ ActiveRecord::Schema.define(version: 9) do
   add_foreign_key "chats", "users", column: "guest_id"
   add_foreign_key "chats", "users", column: "owner_id"
   add_foreign_key "messages", "chats"
+  add_foreign_key "notifications", "ads"
+  add_foreign_key "notifications", "users"
 end

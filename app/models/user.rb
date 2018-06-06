@@ -2,7 +2,9 @@ class User < ApplicationRecord
   #upload user image using carrierwave
   mount_uploader :image, ImageUploader
   
-  has_many :ads
+  has_many :ads, dependent: :destroy
+  
+  has_many :notifications, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
