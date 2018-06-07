@@ -14,8 +14,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :surname, presence: true
   validates :username, length: { minimum:2}, presence: true
-  validates :cap, length: {is: 5, message: "needs 5 integer"}, presence: true, format: { with: /\d{5}/, message: "needs 5 integer" }
+  #validates :cap, length: {is: 5, message: "needs 5 integer"}, presence: true, format: { with: /\d{5}/, message: "needs 5 integer" }
   validates :radius, presence: true
+  validate :check_cap
 
   validates_uniqueness_of :username
 
@@ -33,6 +34,18 @@ class User < ApplicationRecord
     user = User.find(id)
     user.role = new_role
     user.save
+  end
+
+  def check_cap
+    regex = /#{cap}/
+    File.open "#{Rails.public_path}/cap_comuni_italiani.txt" do |f|
+      f.each_line do |line|
+        if line =~ regex
+          return
+        end
+      end
+    end
+    errors.add(:cap, "valid cap")
   end
 
 end

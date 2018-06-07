@@ -3,13 +3,24 @@ class HomeController < ApplicationController
     skip_before_action :authenticate_user!, :only => [:welcome, :ads_list]
 
     def welcome
-        #lista annunci 'vicini'
+        #@matches_ads = lista annunci 'vicini'
+        #@title = titolo da mostrare 
         if current_user
             user = current_user
-            @wish_ad = Ad.where(:user_id => user.id, :list_type => 1)
-
+            wish_ad = Ad.where(:user_id => user.id, :list_type => 1)
             ad_not_user = Ad.where.not(:user_id => user.id)
-            @gift_ad = ad_not_user.where(:list_type => 2)
+            gift_ad = ad_not_user.where(:list_type => 2)
+            #cerco i matches wish/gift da mostrare in home
+            @matches_ads = home_ads(wish_ad, gift_ad)
+            @title = "Recent ads close to me"
+            if @matches_ads.empty?
+                #se non risultano matches wish/gift passo tutti gli annunci e cambio titolo
+                @matches_ads = Ad.all
+                @title = "Recent ads"
+            end
+        else
+            @matches_ads = Ad.all
+            @title = "Recent ads"
         end
     end
     
@@ -65,6 +76,21 @@ class HomeController < ApplicationController
             flash[:alert] = "You should enter something!"
             redirect_to profile_path(current_user.id)
         end
+    end
+
+    private
+    #per costruire l'array di annunci vicini
+    def home_ads(wish_ad, gift_ad)
+        @matches_ads = Array.new
+        wish_ad.all.each do |ad_wish|
+            ad_match_title = gift_ad.where(:book_title => ad_wish.book_title)
+            ad_match_title.all.each do |ad_gift| 
+                if Ad.matches(ad_wish, ad_gift)
+                    @matches_ads.push(ad_gift)
+                end
+            end
+        end
+        return @matches_ads
     end
 
 end
