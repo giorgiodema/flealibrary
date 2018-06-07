@@ -72,16 +72,6 @@ class AdsController < ApplicationController
                 info['identifier'] = 'not specified'
             end 
 
-<<<<<<< HEAD
-                @ad = Ad.create!(:user_id => info['user_id'], :list_type => info['list_type'], :book_title => info['book_title'],
-                                :book_authors => info['book_authors'], :link_to_coverbook => info['link_to_coverbook'],
-                                :publisher => info['publisher'], :identifier => info['identifier'],
-                                :google_id => info['google_id'])
-                #FARE CONTROLLO PER VEDERE SE LA CREATE VA A BUON FINE
-                flash[:notice] = "Book added to the list"
-                redirect_to profile_path(current_user.id)
-            end
-=======
             @ad = Ad.create!(:user_id => info['user_id'], :list_type => info['list_type'], :book_title => info['book_title'],
                             :book_authors => info['book_authors'], :link_to_coverbook => info['link_to_coverbook'],
                             :publisher => info['publisher'], :identifier => info['identifier'],
@@ -89,7 +79,6 @@ class AdsController < ApplicationController
             #FARE CONTROLLO PER VEDERE SE LA CREATE VA A BUON FINE
             flash[:notice] = "Book added to the list"
             redirect_to profile_path(:id => info['user_id'])
->>>>>>> delete
         end
     end
     

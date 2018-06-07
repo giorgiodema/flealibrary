@@ -19,15 +19,34 @@
 		<h3>
 			<%= @title %><br>
 		</h3>
-		<% @matches_ads.each do |ad|%>
-			<%= image_tag(ad.link_to_coverbook) %>
-			<%= ad.book_title %>
-			<%= ad.book_authors.tr('[', '').tr(']','').tr('"', '') %>
-			<%= ad.publisher %>
-			<%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
-			<% owner = User.find(ad.user_id).username %>
-			<%= link_to "#{owner}", profile_path(:id => ad.user_id)%>
-			<br>
+		<% @matches_ads.each do |ad|%> 
+			<%tipo = ad.list_type.to_s %>
+			<% if !current_user || ad.user_id.to_s != current_user.id.to_s %>
+				<h7> Tipo annuncio: </h7>
+				<% if tipo == '1'%>
+					<h7> Gift </h7>
+				<% elsif tipo == '0'%>
+					<h7> Wish </h7>
+				<% end %>
+				<br>
+				<%= image_tag(ad.link_to_coverbook) %>
+				<br>
+				<h7> Title: </h7> <%= ad.book_title %>
+				<br>
+				<h7> Authors: </h7><%= ad.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+				<br>
+				<h7> Publisher: </h7><%= ad.publisher %>
+				<br>
+				<h7> Identifier: </h7><%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+				<br>
+				<% owner = User.find(ad.user_id).username %>
+				<h7> Owner of the ad: </h7><%= link_to "#{owner}", profile_path(:id => ad.user_id)%>
+				<br>
+				<h7> Aggiungi a: </h7>
+				<!-- link per aggiungere il libro alla lista favoriti -->
+				<%= link_to "Favourite", favourites_path(:id =>{:book => ad.id}), :method => :post %>
+				<br><br>
+			<% end %>
 		<% end %>
 	</div>
 

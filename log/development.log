@@ -37374,3 +37374,1218 @@ Processing by HomeController#welcome as HTML
 Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:09:13 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:09:50 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (28.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (254.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "flealibrary_development"[0m
+  [1m[35m (219.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "flealibrary_test"[0m
+  [1m[35m (108.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (108.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7461772034015038740)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (1)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (88.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "surname" character varying, "username" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (67.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (44.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "1"]]
+  [1m[35m (15.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeUsernameTypeInUsers (2)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ALTER "username" DROP NOT NULL[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "2"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUsers (3)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (201.7ms)[0m  [1m[35mALTER TABLE "users" ADD "role" character varying DEFAULT 'booklover'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "3"]]
+  [1m[35m (15.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChatMigration (4)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.6ms)[0m  [1m[35mCREATE TABLE "chats" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "owner_id" bigint, "guest_id" bigint)[0m
+  [1m[35m (31.7ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_owner_id" ON "chats"  ("owner_id")[0m
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE  INDEX  "index_chats_on_guest_id" ON "chats"  ("guest_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_a229e37047"
+FOREIGN KEY ("owner_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "chats" ADD CONSTRAINT "fk_rails_d21eee654c"
+FOREIGN KEY ("guest_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (105.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "text" character varying, "read" boolean, "from" integer DEFAULT 0, "chat_id" bigint)[0m
+  [1m[35m (42.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_chat_id" ON "messages"  ("chat_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_0f670de7ba"
+FOREIGN KEY ("chat_id")
+  REFERENCES "chats" ("id")
+[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "4"]]
+  [1m[35m (22.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAds (5)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (95.1ms)[0m  [1m[35mCREATE TABLE "ads" ("id" bigserial primary key, "list_type" integer, "book_title" character varying, "book_authors" character varying, "link_to_coverbook" character varying, "publisher" character varying, "identifier" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (53.6ms)[0m  [1m[35mCREATE  INDEX  "index_ads_on_user_id" ON "ads"  ("user_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "5"]]
+  [1m[35m (11.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDetailsToUsers (6)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" timestamp[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" timestamp[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users"  ("confirmation_token")[0m
+  [1m[35m (42.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "6"]]
+  [1m[35m (20.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImageToUsers (7)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "image" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "7"]]
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGoogleIdToAds (8)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "ads" ADD "google_id" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "8"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddLocateOptionToUsers (9)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "cap" character varying NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "radius" character varying NOT NULL[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "9"]]
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFavourites (20180605112913)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (43.0ms)[0m  [1m[35mCREATE TABLE "favourites" ("id" bigserial primary key, "user_id" bigint, "ad_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (42.6ms)[0m  [1m[35mCREATE  INDEX  "index_favourites_on_user_id" ON "favourites"  ("user_id")[0m
+  [1m[35m (42.6ms)[0m  [1m[35mCREATE  INDEX  "index_favourites_on_ad_id" ON "favourites"  ("ad_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180605112913"]]
+  [1m[35m (18.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20180605170639)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (43.4ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "user_id" bigint, "ad_id" bigint)[0m
+  [1m[35m (42.6ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (42.6ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_ad_id" ON "notifications"  ("ad_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_5b4eb0e1e4"
+FOREIGN KEY ("ad_id")
+  REFERENCES "ads" ("id")
+[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180605170639"]]
+  [1m[35m (12.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-07 20:10:31.433663"], ["updated_at", "2018-06-07 20:10:31.433663"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7461772034015038740)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dante@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dante"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role", "cap", "radius") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "dante"], ["surname", "alighieri"], ["username", "dante"], ["email", "dante@gmail.com"], ["encrypted_password", "$2a$11$gTgmSz4NLzg41xTetp0K8OFvwhZeDkTOV2usQmTNOiMMpaaB0vxJC"], ["created_at", "2018-06-07 20:10:34.444020"], ["updated_at", "2018-06-07 20:10:34.444020"], ["role", "superadmin"], ["cap", "00184"], ["radius", "0"]]
+  [1m[35m (14.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "giorgio"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role", "cap", "radius") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "giorgio"], ["surname", "dema"], ["username", "giorgio"], ["email", "giorgio@gmail.com"], ["encrypted_password", "$2a$11$9hoPZcDX9DZ1mTxLXiivMe4AkgBfSTgNhTWE0o1Qv4I48Pkx2BKmK"], ["created_at", "2018-06-07 20:10:34.662537"], ["updated_at", "2018-06-07 20:10:34.662537"], ["role", "admin"], ["cap", "00123"], ["radius", "0"]]
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "vincenzo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role", "cap", "radius") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "vincenzo"], ["surname", "cas"], ["username", "vincenzo"], ["email", "vincenzo@gmail.com"], ["encrypted_password", "$2a$11$a8kNqjiEqI5/axDkO..nVeUqvFroQT/Uzk896G.dFsifdqOwzLF52"], ["created_at", "2018-06-07 20:10:34.873841"], ["updated_at", "2018-06-07 20:10:34.873841"], ["role", "admin"], ["cap", "00015"], ["radius", "0"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "flavia"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "role", "cap", "radius") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "flavia"], ["surname", "mon"], ["username", "flavia"], ["email", "flavia@gmail.com"], ["encrypted_password", "$2a$11$f7wEBRrpqKpogH9GBDXlX.JUD9sksiRJqalBy/13rnJ8oV3ryEwBK"], ["created_at", "2018-06-07 20:10:35.084036"], ["updated_at", "2018-06-07 20:10:35.084036"], ["role", "admin"], ["cap", "00015"], ["radius", "0"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-07 20:10:35.110950"], ["updated_at", "2018-06-07 20:10:35.110950"], ["owner_id", 2], ["guest_id", 3]]
+  [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-07 20:10:35.140004"], ["updated_at", "2018-06-07 20:10:35.140004"], ["text", "Ciao vincenzone porcone"], ["read", "t"], ["chat_id", 1]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-06-07 20:10:35.148480"], ["updated_at", "2018-06-07 20:10:35.148480"], ["text", "Ciao giorgio, sei bellissimo"], ["read", "t"], ["from", 1], ["chat_id", 1]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-07 20:10:35.159676"], ["updated_at", "2018-06-07 20:10:35.159676"], ["owner_id", 2], ["guest_id", 4]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-07 20:10:35.170893"], ["updated_at", "2018-06-07 20:10:35.170893"], ["text", "Ciao Fla, come stai?"], ["read", "t"], ["chat_id", 2]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "read", "from", "chat_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-06-07 20:10:35.181678"], ["updated_at", "2018-06-07 20:10:35.181678"], ["text", "Ciao Gio, bene tu? stai studiando?"], ["read", "t"], ["from", 1], ["chat_id", 2]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:11:01 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 1868ms (Views: 1792.7ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:11:04 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:11:04 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:11:06 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 22:11:06 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 67ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:11:07 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:11:07 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:11:16 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-07 22:11:16 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z9b2xhUl25oRKtUK5Y69QJ7l5c+5pygPtmaBsjCJWFi79aoqrZVkzxaR2EiJokGM23h9Y8P3rXfVqWBuEEqalA==", "user"=>{"email"=>"vincenzo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-06-07 20:11:16.419869"], ["last_sign_in_at", "2018-06-07 20:11:16.419869"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2018-06-07 20:11:16.421709"], ["id", 3]]
+  [1m[35m (22.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/3
+Completed 302 Found in 252ms (ActiveRecord: 24.6ms)
+
+
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-07 22:11:16 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.9ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (35.9ms)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (40.9ms)
+  Rendered home/profile.html.erb within layouts/application (85.1ms)
+Completed 200 OK in 146ms (Views: 113.4ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:11:17 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:11:17 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:11:32 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=It&commit=Search" for 127.0.0.1 at 2018-06-07 22:11:32 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["It"], "commit"=>"Search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 771ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/home/vincenzo/Desktop/GitProjects/flealibrary/app/views/home/books_results.html.erb:64: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/home/books_results.html.erb:64: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=It&commit=Search" for 127.0.0.1 at 2018-06-07 22:12:24 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["It"], "commit"=>"Search"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (136.7ms)
+Completed 200 OK in 818ms (Views: 184.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:12:26 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:12:26 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:14:16 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=It&commit=Search" for 127.0.0.1 at 2018-06-07 22:14:16 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["It"], "commit"=>"Search"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (166.2ms)
+Completed 200 OK in 2225ms (Views: 219.5ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:14:19 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:14:19 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:14:34 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=SAMPLE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED_FOR_ACCESSIBILITY&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=PARTIAL&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3DS85NCwAAQBAJ%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=2TmIjgvM%2BzA&book%5Bid%5D%5Bid%5D=S85NCwAAQBAJ&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=false&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=NOT_FOR_SALE&book%5Bid%5D%5BsearchInfo%5D%5BtextSnippet%5D=In+1985%2C+six+men+and+one+woman+are+called+back+together+to+search+for+a+creature+of+unspeakable+evil+that+had+stalked+them+as+children.&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2FS85NCwAAQBAJ&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Stephen+King&book%5Bid%5D%5BvolumeInfo%5D%5BaverageRating%5D=4.0&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fbooks.google.com%2Fbooks%2Fabout%2FIt.html%3Fhl%3D%26id%3DS85NCwAAQBAJ&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Fiction&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=0.5.0.0.preview.0&book%5Bid%5D%5BvolumeInfo%5D%5Bdescription%5D=They+were+seven+teenagers+when+they+first+stumbled+upon+the+horror.+Now+they+were+grown-up+men+and+women+who+had+gone+out+into+the+big+world+to+gain+success+and+happiness.+But+none+of+them+could+withstand+the+force+that+drew+them+back+to+Derry%2C+Maine+to+face+the+nightmare+without+an+end%2C+and+the+evil+without+a+name.&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9781501142970&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=1501142976&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DS85NCwAAQBAJ%26dq%3Dit%26hl%3D%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=en&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=1168&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsEpubBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsImageBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26dq%3Dit%26hl%3D%26cd%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=2016-01-05&book%5Bid%5D%5BvolumeInfo%5D%5Bpublisher%5D=Simon+and+Schuster&book%5Bid%5D%5BvolumeInfo%5D%5BratingsCount%5D=236&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bsubtitle%5D=A+Novel&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=It&book%5Blist_type%5D=0" for 127.0.0.1 at 2018-06-07 22:14:34 +0200
+  
+SyntaxError (/home/vincenzo/Desktop/GitProjects/flealibrary/app/controllers/ads_controller.rb:75: syntax error, unexpected <<, expecting keyword_end
+<<<<<<< HEAD
+  ^
+/home/vincenzo/Desktop/GitProjects/flealibrary/app/controllers/ads_controller.rb:84: syntax error, unexpected ===, expecting keyword_end
+=======
+   ^
+/home/vincenzo/Desktop/GitProjects/flealibrary/app/controllers/ads_controller.rb:92: syntax error, unexpected >>, expecting keyword_end
+>>>>>>> delete
+  ^
+/home/vincenzo/Desktop/GitProjects/flealibrary/app/controllers/ads_controller.rb:125: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/ads_controller.rb:75: syntax error, unexpected <<, expecting keyword_end
+app/controllers/ads_controller.rb:84: syntax error, unexpected ===, expecting keyword_end
+app/controllers/ads_controller.rb:92: syntax error, unexpected >>, expecting keyword_end
+app/controllers/ads_controller.rb:125: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=SAMPLE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED_FOR_ACCESSIBILITY&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=PARTIAL&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3DS85NCwAAQBAJ%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=2TmIjgvM%2BzA&book%5Bid%5D%5Bid%5D=S85NCwAAQBAJ&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=false&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=NOT_FOR_SALE&book%5Bid%5D%5BsearchInfo%5D%5BtextSnippet%5D=In+1985%2C+six+men+and+one+woman+are+called+back+together+to+search+for+a+creature+of+unspeakable+evil+that+had+stalked+them+as+children.&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2FS85NCwAAQBAJ&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Stephen+King&book%5Bid%5D%5BvolumeInfo%5D%5BaverageRating%5D=4.0&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fbooks.google.com%2Fbooks%2Fabout%2FIt.html%3Fhl%3D%26id%3DS85NCwAAQBAJ&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Fiction&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=0.5.0.0.preview.0&book%5Bid%5D%5BvolumeInfo%5D%5Bdescription%5D=They+were+seven+teenagers+when+they+first+stumbled+upon+the+horror.+Now+they+were+grown-up+men+and+women+who+had+gone+out+into+the+big+world+to+gain+success+and+happiness.+But+none+of+them+could+withstand+the+force+that+drew+them+back+to+Derry%2C+Maine+to+face+the+nightmare+without+an+end%2C+and+the+evil+without+a+name.&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9781501142970&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=1501142976&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DS85NCwAAQBAJ%26dq%3Dit%26hl%3D%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=en&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=1168&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsEpubBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsImageBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26dq%3Dit%26hl%3D%26cd%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=2016-01-05&book%5Bid%5D%5BvolumeInfo%5D%5Bpublisher%5D=Simon+and+Schuster&book%5Bid%5D%5BvolumeInfo%5D%5BratingsCount%5D=236&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bsubtitle%5D=A+Novel&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=It&book%5Blist_type%5D=0" for 127.0.0.1 at 2018-06-07 22:15:46 +0200
+Processing by AdsController#create as HTML
+  Parameters: {"authenticity_token"=>"qH4CERA66U+C/9XBiGwD0VINtILe27Fo8YgQCz48EqKlEGqwPh6OQnpKfNXyd3q/YaZKxymmUav4eQcIqVT8Mg==", "book"=>{"id"=>{"accessInfo"=>{"accessViewStatus"=>"SAMPLE", "country"=>"IT", "embeddable"=>"true", "epub"=>{"isAvailable"=>"false"}, "pdf"=>{"isAvailable"=>"false"}, "publicDomain"=>"false", "quoteSharingAllowed"=>"false", "textToSpeechPermission"=>"ALLOWED_FOR_ACCESSIBILITY", "viewability"=>"PARTIAL", "webReaderLink"=>"http://play.google.com/books/reader?id=S85NCwAAQBAJ&hl=&printsec=frontcover&source=gbs_api"}, "etag"=>"2TmIjgvM+zA", "id"=>"S85NCwAAQBAJ", "kind"=>"books#volume", "saleInfo"=>{"country"=>"IT", "isEbook"=>"false", "saleability"=>"NOT_FOR_SALE"}, "searchInfo"=>{"textSnippet"=>"In 1985, six men and one woman are called back together to search for a creature of unspeakable evil that had stalked them as children."}, "selfLink"=>"https://www.googleapis.com/books/v1/volumes/S85NCwAAQBAJ", "volumeInfo"=>{"allowAnonLogging"=>"false", "authors"=>["Stephen King"], "averageRating"=>"4.0", "canonicalVolumeLink"=>"https://books.google.com/books/about/It.html?hl=&id=S85NCwAAQBAJ", "categories"=>["Fiction"], "contentVersion"=>"0.5.0.0.preview.0", "description"=>"They were seven teenagers when they first stumbled upon the horror. Now they were grown-up men and women who had gone out into the big world to gain success and happiness. But none of them could withstand the force that drew them back to Derry, Maine to face the nightmare without an end, and the evil without a name.", "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=S85NCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api", "thumbnail"=>"http://books.google.com/books/content?id=S85NCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}, "industryIdentifiers"=>[{"identifier"=>"9781501142970", "type"=>"ISBN_13"}, {"identifier"=>"1501142976", "type"=>"ISBN_10"}], "infoLink"=>"http://books.google.it/books?id=S85NCwAAQBAJ&dq=it&hl=&source=gbs_api", "language"=>"en", "maturityRating"=>"NOT_MATURE", "pageCount"=>"1168", "panelizationSummary"=>{"containsEpubBubbles"=>"false", "containsImageBubbles"=>"false"}, "previewLink"=>"http://books.google.it/books?id=S85NCwAAQBAJ&printsec=frontcover&dq=it&hl=&cd=1&source=gbs_api", "printType"=>"BOOK", "publishedDate"=>"2016-01-05", "publisher"=>"Simon and Schuster", "ratingsCount"=>"236", "readingModes"=>{"image"=>"false", "text"=>"false"}, "subtitle"=>"A Novel", "title"=>"It"}}, "list_type"=>"0"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."google_id" = $2 AND "ads"."list_type" = $3[0m  [["user_id", 3], ["google_id", "S85NCwAAQBAJ"], ["list_type", 0]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "vincenzo"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "ads" ("list_type", "book_title", "book_authors", "link_to_coverbook", "publisher", "identifier", "user_id", "created_at", "updated_at", "google_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["list_type", 0], ["book_title", "It"], ["book_authors", "[\"Stephen King\"]"], ["link_to_coverbook", "http://books.google.com/books/content?id=S85NCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"], ["publisher", "Simon and Schuster"], ["identifier", "[\"ISBN_13\", \"9781501142970\"]"], ["user_id", 3], ["created_at", "2018-06-07 20:15:46.446940"], ["updated_at", "2018-06-07 20:15:46.446940"], ["google_id", "S85NCwAAQBAJ"]]
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/3
+Completed 302 Found in 134ms (ActiveRecord: 35.2ms)
+
+
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-07 22:15:46 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (26.4ms)
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (41.7ms)
+  Rendered home/profile.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 153ms (Views: 118.6ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:15:47 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:15:47 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-07 22:15:50 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  Rendered ads/wish.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 67ms (Views: 61.0ms | ActiveRecord: 1.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:15:53 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started DELETE "/ads/1" for 127.0.0.1 at 2018-06-07 22:15:53 +0200
+Processing by AdsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"E4zEKZabk+xBXaD5+6xc/BXd7MDxz12pO40+JIMbfrAe4qyIuL/04bnoCe2BtyWSJnYShQayvWoyfCknFHOQIA==", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFavourite Load (0.7ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 1]]
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 1]]
+  [1m[35m (15.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/profile/wish_list?id=3&list_type=0
+Completed 302 Found in 59ms (ActiveRecord: 22.8ms)
+
+
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-07 22:15:53 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  Rendered ads/wish.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 60ms (Views: 54.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:15:54 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:15:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:15:56 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-07 22:15:56 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (7.1ms)
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (10.1ms)
+  Rendered home/profile.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 94ms (Views: 83.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:15:56 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:15:56 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-07 22:15:58 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  Rendered ads/wish.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 52ms (Views: 47.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:16:00 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `home_ads_new' for #<HomeController:0x007f85ee860328>
+Did you mean?  home_ads):
+  
+app/controllers/home_controller.rb:12:in `welcome'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:16:35 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-07 22:16:35 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  Rendered ads/wish.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 64ms (Views: 57.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:16:36 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:16:36 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:16:38 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:16:38 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `home_ads_new' for #<HomeController:0x007f85ece198c0>
+Did you mean?  home_ads):
+  
+app/controllers/home_controller.rb:12:in `welcome'
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-07 22:16:42 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  Rendered ads/wish.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 73ms (Views: 67.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:16:42 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:16:42 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:16:43 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-07 22:16:43 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (6.8ms)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (11.1ms)
+  Rendered home/profile.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 94ms (Views: 81.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:16:44 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:16:44 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:16:45 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:16:45 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `home_ads_new' for #<HomeController:0x007f85ee5a4850>
+Did you mean?  home_ads):
+  
+app/controllers/home_controller.rb:12:in `welcome'
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:16:49 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:16:49 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:17:07 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:07 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:17:10 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 8.4ms)
+
+
+  
+NoMethodError (undefined method `home_ads_new' for #<HomeController:0x007f7a20044b00>
+Did you mean?  home_ads):
+  
+app/controllers/home_controller.rb:12:in `welcome'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:12 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-07 22:17:12 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.1ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (42.3ms)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (61.5ms)
+  Rendered home/profile.html.erb within layouts/application (398.1ms)
+Completed 200 OK in 538ms (Views: 490.9ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:17:14 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:14 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:22 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=it&commit=Search" for 127.0.0.1 at 2018-06-07 22:17:22 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["it"], "commit"=>"Search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (142.6ms)
+Completed 200 OK in 989ms (Views: 181.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:17:24 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:24 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:31 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=SAMPLE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=true&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED_FOR_ACCESSIBILITY&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=PARTIAL&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3DS85NCwAAQBAJ%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=2TmIjgvM%2BzA&book%5Bid%5D%5Bid%5D=S85NCwAAQBAJ&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=false&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=NOT_FOR_SALE&book%5Bid%5D%5BsearchInfo%5D%5BtextSnippet%5D=In+1985%2C+six+men+and+one+woman+are+called+back+together+to+search+for+a+creature+of+unspeakable+evil+that+had+stalked+them+as+children.&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2FS85NCwAAQBAJ&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Stephen+King&book%5Bid%5D%5BvolumeInfo%5D%5BaverageRating%5D=4.0&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fbooks.google.com%2Fbooks%2Fabout%2FIt.html%3Fhl%3D%26id%3DS85NCwAAQBAJ&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Fiction&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=0.5.0.0.preview.0&book%5Bid%5D%5BvolumeInfo%5D%5Bdescription%5D=They+were+seven+teenagers+when+they+first+stumbled+upon+the+horror.+Now+they+were+grown-up+men+and+women+who+had+gone+out+into+the+big+world+to+gain+success+and+happiness.+But+none+of+them+could+withstand+the+force+that+drew+them+back+to+Derry%2C+Maine+to+face+the+nightmare+without+an+end%2C+and+the+evil+without+a+name.&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26edge%3Dcurl%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9781501142970&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=1501142976&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DS85NCwAAQBAJ%26dq%3Dit%26hl%3D%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=en&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=1168&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsEpubBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsImageBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DS85NCwAAQBAJ%26printsec%3Dfrontcover%26dq%3Dit%26hl%3D%26cd%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=2016-01-05&book%5Bid%5D%5BvolumeInfo%5D%5Bpublisher%5D=Simon+and+Schuster&book%5Bid%5D%5BvolumeInfo%5D%5BratingsCount%5D=236&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bsubtitle%5D=A+Novel&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=It&book%5Blist_type%5D=0" for 127.0.0.1 at 2018-06-07 22:17:31 +0200
+Processing by AdsController#create as HTML
+  Parameters: {"authenticity_token"=>"eguhBPlhMSRAHO+m5ZthzRxd24Tu+uInjidC/H9U2Kd3Zcml10VWKbipRrKfgBijL/YlwRmHAuSH1lX/6Dw2Nw==", "book"=>{"id"=>{"accessInfo"=>{"accessViewStatus"=>"SAMPLE", "country"=>"IT", "embeddable"=>"true", "epub"=>{"isAvailable"=>"false"}, "pdf"=>{"isAvailable"=>"false"}, "publicDomain"=>"false", "quoteSharingAllowed"=>"false", "textToSpeechPermission"=>"ALLOWED_FOR_ACCESSIBILITY", "viewability"=>"PARTIAL", "webReaderLink"=>"http://play.google.com/books/reader?id=S85NCwAAQBAJ&hl=&printsec=frontcover&source=gbs_api"}, "etag"=>"2TmIjgvM+zA", "id"=>"S85NCwAAQBAJ", "kind"=>"books#volume", "saleInfo"=>{"country"=>"IT", "isEbook"=>"false", "saleability"=>"NOT_FOR_SALE"}, "searchInfo"=>{"textSnippet"=>"In 1985, six men and one woman are called back together to search for a creature of unspeakable evil that had stalked them as children."}, "selfLink"=>"https://www.googleapis.com/books/v1/volumes/S85NCwAAQBAJ", "volumeInfo"=>{"allowAnonLogging"=>"false", "authors"=>["Stephen King"], "averageRating"=>"4.0", "canonicalVolumeLink"=>"https://books.google.com/books/about/It.html?hl=&id=S85NCwAAQBAJ", "categories"=>["Fiction"], "contentVersion"=>"0.5.0.0.preview.0", "description"=>"They were seven teenagers when they first stumbled upon the horror. Now they were grown-up men and women who had gone out into the big world to gain success and happiness. But none of them could withstand the force that drew them back to Derry, Maine to face the nightmare without an end, and the evil without a name.", "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=S85NCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api", "thumbnail"=>"http://books.google.com/books/content?id=S85NCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}, "industryIdentifiers"=>[{"identifier"=>"9781501142970", "type"=>"ISBN_13"}, {"identifier"=>"1501142976", "type"=>"ISBN_10"}], "infoLink"=>"http://books.google.it/books?id=S85NCwAAQBAJ&dq=it&hl=&source=gbs_api", "language"=>"en", "maturityRating"=>"NOT_MATURE", "pageCount"=>"1168", "panelizationSummary"=>{"containsEpubBubbles"=>"false", "containsImageBubbles"=>"false"}, "previewLink"=>"http://books.google.it/books?id=S85NCwAAQBAJ&printsec=frontcover&dq=it&hl=&cd=1&source=gbs_api", "printType"=>"BOOK", "publishedDate"=>"2016-01-05", "publisher"=>"Simon and Schuster", "ratingsCount"=>"236", "readingModes"=>{"image"=>"false", "text"=>"false"}, "subtitle"=>"A Novel", "title"=>"It"}}, "list_type"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (1.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."google_id" = $2 AND "ads"."list_type" = $3[0m  [["user_id", 3], ["google_id", "S85NCwAAQBAJ"], ["list_type", 0]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "vincenzo"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ads" ("list_type", "book_title", "book_authors", "link_to_coverbook", "publisher", "identifier", "user_id", "created_at", "updated_at", "google_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["list_type", 0], ["book_title", "It"], ["book_authors", "[\"Stephen King\"]"], ["link_to_coverbook", "http://books.google.com/books/content?id=S85NCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"], ["publisher", "Simon and Schuster"], ["identifier", "[\"ISBN_13\", \"9781501142970\"]"], ["user_id", 3], ["created_at", "2018-06-07 20:17:31.965440"], ["updated_at", "2018-06-07 20:17:31.965440"], ["google_id", "S85NCwAAQBAJ"]]
+  [1m[35m (11.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/3
+Completed 302 Found in 85ms (ActiveRecord: 18.9ms)
+
+
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-07 22:17:32 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (8.1ms)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (9.5ms)
+  Rendered home/profile.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 83ms (Views: 72.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:17:32 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:32 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:37 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:17:37 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `home_ads_new' for #<HomeController:0x007f7a21889620>
+Did you mean?  home_ads):
+  
+app/controllers/home_controller.rb:12:in `welcome'
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:17:40 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `home_ads_new' for #<HomeController:0x007f7a21b530e0>
+Did you mean?  home_ads):
+  
+app/controllers/home_controller.rb:12:in `welcome'
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:17:44 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:44 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:46 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-06-07 22:17:46 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cJnJxTWbOhvUTydbybjiyww6fYltRBVqLkCFfeClxwl996FkG79dFiz6jk+zo5ulP5GDzJo59aknsZJ+d80pmQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:17:47 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/welcome.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 83ms (Views: 73.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:17:47 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:17:47 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:23:08 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:23:08 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  Rendered home/welcome.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/vincenzo/Desktop/GitProjects/flealibrary/app/views/home/welcome.html.erb:54: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/vincenzo/Desktop/GitProjects/flealibrary/app/views/home/welcome.html.erb:56: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/home/welcome.html.erb:54: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/home/welcome.html.erb:56: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:25:38 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (13.4ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    21: 		</h3>
+    22: 		<% @matches_ads.each do |ad|%>
+    23: 			<%tipo = ad.list_type.to_s %>
+    24: 			<% if ad.user_id.to_s != current_user.id.to_s %>
+    25: 				<h7> Tipo annuncio: </h7>
+    26: 				<% if tipo == '1'%>
+    27: 					<h7> Gift </h7>
+  
+app/views/home/welcome.html.erb:24:in `block in _app_views_home_welcome_html_erb___1917099914670203366_70081217873620'
+app/views/home/welcome.html.erb:22:in `_app_views_home_welcome_html_erb___1917099914670203366_70081217873620'
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:29:35 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    21: 		</h3>
+    22: 		<% @matches_ads.each do |ad|%> 
+    23: 			<%tipo = ad.list_type.to_s %>
+    24: 			<% if current_user || ad.user_id.to_s != current_user.id.to_s %>
+    25: 				<h7> Tipo annuncio: </h7>
+    26: 				<% if tipo == '1'%>
+    27: 					<h7> Gift </h7>
+  
+app/views/home/welcome.html.erb:24:in `block in _app_views_home_welcome_html_erb___1917099914670203366_70081254450860'
+app/views/home/welcome.html.erb:22:in `_app_views_home_welcome_html_erb___1917099914670203366_70081254450860'
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:31:42 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/welcome.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 60ms (Views: 56.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:31:42 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:31:42 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:31:49 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 22:31:49 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 75ms (Views: 70.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:31:50 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:31:50 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:31:56 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-07 22:31:56 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m8hjJ/hN0QcCcHxapCv7o38MaElKmpUAVD0crBjdk1JhiDAlHgJC18/wxGQirgsA/QQMOh6rD8c47QCL7bsG7g==", "user"=>{"email"=>"vincenzo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2018-06-07 20:31:56.753869"], ["sign_in_count", 2], ["updated_at", "2018-06-07 20:31:56.755498"], ["id", 3]]
+  [1m[35m (15.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/3
+Completed 302 Found in 253ms (ActiveRecord: 16.9ms)
+
+
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-07 22:31:56 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (6.4ms)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (8.6ms)
+  Rendered home/profile.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 85ms (Views: 71.4ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:31:57 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:31:57 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:31:59 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:31:59 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `home_ads_new' for #<HomeController:0x007f7a209bdab0>
+Did you mean?  home_ads):
+  
+app/controllers/home_controller.rb:12:in `welcome'
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:36:32 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 3]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 141ms (Views: 74.2ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:36:33 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:33 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:38 +0200
+MailboxChannel stopped streaming from mailbox_
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-06-07 22:36:38 +0200
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wtXXq6B9Cjo0F/1IIteLtEOVZZ6B6+tnpCxcdW2jyCO3RunzPLCZVrzTclo6xTgKuk2QW/WaMRhk1z1UW/htDA=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:36:38 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/welcome.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 67ms (Views: 63.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:36:38 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:38 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:44 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 22:36:44 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 74ms (Views: 72.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:36:44 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:44 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:52 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-07 22:36:52 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/eahthwdnYiLDJKzQjRrROn2RoHq5KNIQ7+hCbVZOQO604B5T6erwLpq1tHLwFqRduBRCjb0S08hiHy+9Q1hBg==", "user"=>{"email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-06-07 20:36:52.852124"], ["last_sign_in_at", "2018-06-07 20:36:52.852124"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2018-06-07 20:36:52.853400"], ["id", 2]]
+  [1m[35m (20.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/2
+Completed 302 Found in 236ms (ActiveRecord: 22.1ms)
+
+
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-06-07 22:36:52 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (34.2ms)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  Rendered home/_chat.html.erb (28.4ms)
+  Rendered home/profile.html.erb within layouts/application (75.3ms)
+Completed 200 OK in 141ms (Views: 115.1ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:36:53 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:53 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:56 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:36:56 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (4.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/welcome.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 670ms (Views: 61.6ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:36:57 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:57 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:37:43 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-06-07 22:37:43 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title iLIKE'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title iLIKE'%%')[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/ads_list.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 77ms (Views: 70.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:37:44 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:37:44 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-07 22:37:46 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  Rendered home/profile.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 56ms (Views: 50.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-07 22:37:49 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (1.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  Rendered ads/wish.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 63ms (Views: 56.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/profile/gift_list?id=3&list_type=1" for 127.0.0.1 at 2018-06-07 22:37:52 +0200
+Processing by AdsController#gift as HTML
+  Parameters: {"id"=>"3", "list_type"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/gift.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (2.0ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 1]]
+  Rendered ads/gift.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 65ms (Views: 58.0ms | ActiveRecord: 2.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:37:56 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/favourites?id%5Bbook%5D=2" for 127.0.0.1 at 2018-06-07 22:37:56 +0200
+Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"B/zwOyQWG2Ebp6fnE0NngumMA/swXVcUbP9SNdSAj4tU5zAyzSJhFVmUNzPuQ1nU3yAC/LVnbDtJUSedyoDbHg==", "id"=>{"book"=>"2"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavourite Load (1.2ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1 AND "favourites"."ad_id" = $2[0m  [["user_id", 2], ["ad_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "giorgio"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "vincenzo"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "favourites" ("user_id", "ad_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["ad_id", 2], ["created_at", "2018-06-07 20:37:56.215612"], ["updated_at", "2018-06-07 20:37:56.215612"]]
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/2
+Completed 302 Found in 95ms (ActiveRecord: 24.2ms)
+
+
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-06-07 22:37:56 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (19.6ms)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  Rendered home/_chat.html.erb (8.2ms)
+  Rendered home/profile.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 101ms (Views: 89.2ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:37:56 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:37:57 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/favourites" for 127.0.0.1 at 2018-06-07 22:37:58 +0200
+Processing by FavouritesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering favourites/index.html.erb within layouts/application
+  [1m[36mFavourite Load (0.6ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mAd Load (0.8ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered favourites/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 73ms (Views: 66.5ms | ActiveRecord: 2.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:38:00 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started DELETE "/favourites/1" for 127.0.0.1 at 2018-06-07 22:38:00 +0200
+Processing by FavouritesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"brzRRzFPNKnQnKyoeiSWFWDlDdbRy76Gn6P8QCuf7H89pxFO2HtO3ZKvPHyHJKhDVkkM0VTxham6DYnoNZ+46g==", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavourite Load (0.6ms)[0m  [1m[34mSELECT  "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "favourites" WHERE "favourites"."id" = $1[0m  [["id", 1]]
+  [1m[35m (15.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/favourites
+Completed 302 Found in 29ms (ActiveRecord: 17.3ms)
+
+
+Started GET "/favourites" for 127.0.0.1 at 2018-06-07 22:38:00 +0200
+Processing by FavouritesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering favourites/index.html.erb within layouts/application
+  [1m[36mFavourite Load (0.5ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered favourites/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 66ms (Views: 59.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:38:01 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:38:01 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:38:02 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:38:02 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (1.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (2.0ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/welcome.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 262ms (Views: 63.7ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:38:03 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:38:03 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:38:13 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/favourites?id%5Bbook%5D=2" for 127.0.0.1 at 2018-06-07 22:38:13 +0200
+Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"RK3GT0gh/8xikyTmapuPpARUgS4eTXT/vAHJoX6lSfoXtgZGoRWFuCCgtDKXm7HyMviAKZt3T9CZr7wJYKUdbw==", "id"=>{"book"=>"2"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavourite Load (0.5ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1 AND "favourites"."ad_id" = $2[0m  [["user_id", 2], ["ad_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "giorgio"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (1.3ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "vincenzo"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "favourites" ("user_id", "ad_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["ad_id", 2], ["created_at", "2018-06-07 20:38:13.096879"], ["updated_at", "2018-06-07 20:38:13.096879"]]
+  [1m[35m (22.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/2
+Completed 302 Found in 70ms (ActiveRecord: 28.2ms)
+
+
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-06-07 22:38:13 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (16.8ms)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  Rendered home/_chat.html.erb (9.3ms)
+  Rendered home/profile.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 97ms (Views: 85.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:38:13 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:38:13 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/" for 127.0.0.1 at 2018-06-07 22:38:15 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (1.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/welcome.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 3357ms (Views: 62.5ms | ActiveRecord: 4.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:38:20 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started POST "/favourites?id%5Bbook%5D=2" for 127.0.0.1 at 2018-06-07 22:38:21 +0200
+Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"nygusQRRG+tQ2x2NaP31uStuWvpUKgcvHlQN2p/P8nXMM+647WVhnxLojVmV/cvvHcJb/dEQPAA7+nhygc+m4A==", "id"=>{"book"=>"2"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavourite Load (0.9ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1 AND "favourites"."ad_id" = $2[0m  [["user_id", 2], ["ad_id", 2]]
+Redirected to http://localhost:3000/users/profile/2
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-06-07 22:38:21 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (20.7ms)
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  Rendered home/_chat.html.erb (6.6ms)
+  Rendered home/profile.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 101ms (Views: 87.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:38:21 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:38:21 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/favourites" for 127.0.0.1 at 2018-06-07 22:38:23 +0200
+Processing by FavouritesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering favourites/index.html.erb within layouts/application
+  [1m[36mFavourite Load (0.5ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered favourites/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 58ms (Views: 51.4ms | ActiveRecord: 2.8ms)
+
+

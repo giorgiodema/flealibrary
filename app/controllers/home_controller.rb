@@ -9,7 +9,7 @@ class HomeController < ApplicationController
             user = current_user
             ads_not_user = Ad.where.not(:user_id => user.id)
             #cerco i matches cap/radius da mostrare in home
-            @matches_ads = home_ads_new(ads_not_user)
+            @matches_ads = home_ads(ads_not_user)
             @title = "Recent ads close to me"
             if @matches_ads.empty?
                 #se non risultano matches passo tutti gli annunci e cambio titolo
@@ -63,7 +63,7 @@ class HomeController < ApplicationController
     def books_results
         book = params[:search][0].downcase   #uso il downcase per eliminare le ricerche case-sensitive
         uri = URI('https://www.googleapis.com/books/v1/volumes')
-        params = {:q => book, :maxResults => 20}
+        params = {:q => book, :maxResults => 24}
         uri.query = URI.encode_www_form(params)
         @res = Net::HTTP.get_response(uri)
         if JSON.parse(@res.body)['error']  #controllo se l'utente prova a fare una ricerca senza passare parametri
