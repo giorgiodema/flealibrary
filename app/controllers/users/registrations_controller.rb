@@ -33,6 +33,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def admin_destroy_user
+    user = User.find(params[:id])
+    chats = user.chats
+    chats.each do |c|
+      c.destroy
+    end
+    user.destroy
+    if user.destroy
+        redirect_to admin_panel_path, notice: "User deleted"
+    end
+  end
+
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to

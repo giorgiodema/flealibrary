@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     post '/users_list/banned/:id', to: 'users/registrations#banned_user', :as => 'banned_user'
     post '/users_list/admin/:id', to: 'users/registrations#admin_user', :as => 'admin_user'
     post '/users_list/booklover/:id', to: 'users/registrations#booklover_user', :as => 'booklover_user'
+    match 'users/:id' => 'users/registrations#admin_destroy_user', :via => :delete, :as => :admin_destroy_user
   end
 
   # CHATS_CONTROLLER

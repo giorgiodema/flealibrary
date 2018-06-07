@@ -4,8 +4,8 @@ Feature: Login
 	so that I CAN ACCESS TO MY PROFILE
 
 Scenario: Successfull login
-	Given I am a booklover
-  And I am on the home page
-  When I login
-  Then I should be on the profile page
-	And I should be authenticate
+	Given I exist as a user
+	When I login with valid credentials
+	Then I see a successful sign in message
+	And I should be in profile
+	And I should be signed in

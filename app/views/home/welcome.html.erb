@@ -14,4 +14,21 @@
 		<% end %>
 	</div>
 
+	<!--GIORGIO VEDERE GRAFICA-->
+	<div class="col-12">
+		<h3>
+			<%= @title %><br>
+		</h3>
+		<% @matches_ads.each do |ad|%>
+			<%= image_tag(ad.link_to_coverbook) %>
+			<%= ad.book_title %>
+			<%= ad.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+			<%= ad.publisher %>
+			<%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+			<% owner = User.find(ad.user_id).username %>
+			<%= link_to "#{owner}", profile_path(:id => ad.user_id)%>
+			<br>
+		<% end %>
+	</div>
+
 </div>
