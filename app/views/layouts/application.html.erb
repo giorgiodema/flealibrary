@@ -24,14 +24,18 @@
         <%if user_signed_in?%>
           <% user = current_user %>
           <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "col-md-3 btn-sm btn-outline-success"%>
-          <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
-            <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "col-md-3 btn-sm btn-outline-danger"%>
-          <% end %>
+          <%= button_to "Notifications: 0", notifications_path, :method => 'get', class:"col-md-3 btn-sm btn-outline-success"%>
           <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "col-md-3 btn-sm btn-danger" %>
         <%else%>
           <%= button_to "Log in", new_user_session_path, :method => 'get', class: "col-md-3 btn-sm btn-success" %>
           <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "col-md-3 btn-sm btn-info" %>
         <%end%>
+      </div>
+
+      <div class="col-md-12">
+          <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 'superadmin') %>
+            <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "col-md-3 btn-sm btn-outline-danger"%>
+          <% end %>
       </div>
 
     </div>

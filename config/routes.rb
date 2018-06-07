@@ -37,4 +37,6 @@ Rails.application.routes.draw do
   root :to => "home#welcome"
   #get '*path' => redirect('/') DA LASCIARE
 
+  resources :notifications, only: [:index]
+
 end
