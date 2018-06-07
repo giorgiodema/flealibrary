@@ -2,13 +2,13 @@
 
 <h3>Ads</h3> 
 <p>
-<% @ads.each do |ad|%>
+<% @ads.each do |ad|%> <!-- ads è il risultato di una where -->
     <%tipo = ad.list_type.to_s %>
-    <% if ad.user_id.to_s != current_user.id.to_s && tipo != '0' %>
+    <% if ad.user_id.to_s != current_user.id.to_s %>
       <h7> Tipo annuncio: </h7>
-      <% if tipo == '2'%>
+      <% if tipo == '1'%>
         <h7> Gift </h7>
-      <% elsif tipo == '1'%>
+      <% elsif tipo == '0'%>
         <h7> Wish </h7>
       <% end %>
       <br>
@@ -24,7 +24,10 @@
       <br>
       <% owner = User.find(ad.user_id).username %>
       <h7> Owner of the ad: </h7><%= link_to "#{owner}", profile_path(:id => ad.user_id)%>
-
+      <br>
+      <h7> Aggiungi a: </h7>
+      <!-- link per aggiungere il libro alla lista favoriti -->
+      <%= link_to "Favourite", favourites_path(:id =>{:book => ad.id}), :method => :post %>
       <br><br>
     <% end %>
 <% end %>

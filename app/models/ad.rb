@@ -3,9 +3,12 @@ require 'uri'
 
 class Ad < ApplicationRecord
     belongs_to :user
+    has_many :favourites, dependent: :destroy
     validates :user_id, :presence => true
     validates_associated :user
-    validates_inclusion_of :list_type, in: 0..2
+    has_many :notifications, dependent: :destroy
+    validates_inclusion_of :list_type, in: 0..1
+
 
     #funzione per vedere se due annunci matchano per titiolo e vicinanza
     def self.matches_ad(ad_wish, ad_gift)
@@ -71,5 +74,4 @@ class Ad < ApplicationRecord
         end
     end
     
-    has_many :notifications, dependent: :destroy
 end

@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get '/admin_panel' => 'home#admin_panel', :as => 'admin_panel'
 
   resources :ads
+  resources :favourites
 
-  get '/profile/favourite_list' => 'ads#favourite', :as => 'favourite_list'
   get '/profile/wish_list' => 'ads#wish', :as => 'wish_list'
   get '/profile/gift_list' => 'ads#gift', :as => 'gift_list'
 

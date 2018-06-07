@@ -31,10 +31,10 @@
     <div class="col-md-3 lists_links">
         <h5>
             <%if @user.id == current_user.id %>
-                <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id)%><br>
+                <%= link_to "Favourite list", favourites_path %><br>
             <% end %> <!--non voglio mostrare i favoriti e la modifica del profilo delgi altri utenti -->
-            <%= link_to "Wish list", wish_list_path(:list_type => 1, :id => @user.id)%><br>
-            <%= link_to "Gift list", gift_list_path(:list_type => 2, :id => @user.id)%><br>
+            <%= link_to "Wish list", wish_list_path(:list_type => 0, :id => @user.id)%><br>
+            <%= link_to "Gift list", gift_list_path(:list_type => 1, :id => @user.id)%><br>
         </h5>
     </div>
 
