@@ -9,7 +9,7 @@ class HomeController < ApplicationController
             user = current_user
             ads_not_user = Ad.where.not(:user_id => user.id)
             #cerco i matches cap/radius da mostrare in home
-            @matches_ads = home_ads_new(ads_not_user)
+            @matches_ads = home_ads(ads_not_user)
             @title = "Recent ads close to me"
             if @matches_ads.empty?
                 #se non risultano matches passo tutti gli annunci e cambio titolo

@@ -1,4 +1,4 @@
-<div class="col-12 center">
+<div class="col-12 center", id="signuppage">
   <h3>Sign up</h3>
   <div class="form-group row center">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -52,7 +52,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
       <br>
-      <%= f.submit "Sign up", class:"btn btn-outline-primary" %>
+      <%= f.submit "Sign up", id:"signupbutton", class:"btn btn-outline-primary" %>
     <% end %>
   </div>
   <br/>

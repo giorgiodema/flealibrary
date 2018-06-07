@@ -35210,3 +35210,273 @@ Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 16:58:14 +0200
 MailboxChannel stopped streaming from mailbox_4
 Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 16:58:17 +0200
 MailboxChannel stopped streaming from mailbox_2
+Started GET "/" for 127.0.0.1 at 2018-06-07 21:41:17 +0200
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  
+pg (1.0.0) lib/pg.rb:56:in `initialize'
+pg (1.0.0) lib/pg.rb:56:in `new'
+pg (1.0.0) lib/pg.rb:56:in `connect'
+activerecord (5.1.6) lib/active_record/connection_adapters/postgresql_adapter.rb:697:in `connect'
+activerecord (5.1.6) lib/active_record/connection_adapters/postgresql_adapter.rb:221:in `initialize'
+activerecord (5.1.6) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.6) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-06-07 21:41:26 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.8ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 443ms (Views: 420.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 21:41:27 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 21:41:27 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 21:41:28 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 85ms (Views: 55.2ms | ActiveRecord: 7.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 21:41:28 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 21:41:29 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 21:41:29 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-07 21:41:45 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F1/6IZq38rmxYuAnGquSPDSqUwB6Ah1GAEkDYWOBNFNmNXBK0ESBikJs22sK4IW5oDfRgO8xBYasVssnSF8q1g==", "user"=>{"email"=>"iaia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "iaia@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (ActiveRecord: 1.6ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F1/6IZq38rmxYuAnGquSPDSqUwB6Ah1GAEkDYWOBNFNmNXBK0ESBikJs22sK4IW5oDfRgO8xBYasVssnSF8q1g==", "user"=>{"email"=>"iaia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 176ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 21:41:45 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 21:41:45 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 21:41:45 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-07 21:47:20 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 40ms (Views: 31.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 21:47:27 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 21:47:27 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/" for 127.0.0.1 at 2018-06-07 21:49:00 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 21:49:01 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-07 21:49:05 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/flavia/Desktop/PROGETTO/flealibrary/app/views/layouts/application.html.erb:32: syntax error, unexpected ',', expecting =>
+...button", new_user_session_path, :method => 'get', class: "co...
+...                              ^
+/Users/flavia/Desktop/PROGETTO/flealibrary/app/views/layouts/application.html.erb:32: syntax error, unexpected ',', expecting ')'
+...session_path, :method => 'get', class: "col-md-3 btn-sm btn-...
+...                              ^):
+  
+app/views/layouts/application.html.erb:32: syntax error, unexpected ',', expecting =>
+app/views/layouts/application.html.erb:32: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2018-06-07 21:52:34 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 41ms (Views: 37.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 21:52:35 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 21:52:35 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-07 22:30:13 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 8.6ms)
+
+
+  
+SyntaxError (/Users/flavia/Desktop/PROGETTO/flealibrary/app/views/users/registrations/new.html.erb:34: syntax error, unexpected ')', expecting =>
+...30 35 40 45 50 55 60 65 70 75]);@output_buffer.safe_append='
+...                              ^
+/Users/flavia/Desktop/PROGETTO/flealibrary/app/views/users/registrations/new.html.erb:56: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+              ^~~
+/Users/flavia/Desktop/PROGETTO/flealibrary/app/views/users/registrations/new.html.erb:63: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+          ^~~~~~
+/Users/flavia/Desktop/PROGETTO/flealibrary/app/views/users/registrations/new.html.erb:65: syntax error, unexpected keyword_end, expecting ')'
+          end
+          ^~~):
+  
+app/views/users/registrations/new.html.erb:34: syntax error, unexpected ')', expecting =>
+app/views/users/registrations/new.html.erb:56: syntax error, unexpected keyword_end, expecting ')'
+app/views/users/registrations/new.html.erb:63: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/users/registrations/new.html.erb:65: syntax error, unexpected keyword_end, expecting ')'
+app/controllers/users/registrations_controller.rb:13:in `new'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:30:13 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-07 22:35:35 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (15.5ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for #<Array:0x00007fbf721636c0>):
+    31:       <br/>
+    32:       <div class="form-control" placeholder="Enter radius(km)">
+    33:         <%= f.label :radius %>
+    34:         <%= f.select :radius, "select", %w[5 10 15 20 25 30 35 40 45 50 55 60 65 70 75]%>
+    35:       </div>
+    36:       <br/>
+    37:       <div class="form-control" placeholder="Enter email">
+  
+app/views/users/registrations/new.html.erb:34:in `block in _app_views_users_registrations_new_html_erb___1866661160105969618_70230106312700'
+app/views/users/registrations/new.html.erb:4:in `_app_views_users_registrations_new_html_erb___1866661160105969618_70230106312700'
+app/controllers/users/registrations_controller.rb:13:in `new'
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-07 22:36:30 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 51ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 22:36:30 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 22:36:30 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-06-07 23:01:12 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NhEVRf9I+Af4ynSG5oHeSPaVan8JX7uGk7uivVxG6aBHe58utbuLNAvET8r2ysnNYgjo/5xso0Y/pGr7d5j3JQ==", "user"=>{"name"=>"", "surname"=>"", "username"=>"", "cap"=>"", "radius"=>"5", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 80ms (Views: 48.5ms | ActiveRecord: 1.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 23:01:12 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-07 23:01:12 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 23:01:12 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-07 23:16:43 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered home/welcome.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 35ms (Views: 29.0ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-07 23:19:40 +0200
+MailboxChannel stopped streaming from mailbox_
