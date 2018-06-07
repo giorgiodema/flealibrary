@@ -15,5 +15,7 @@
     <h7> Publisher: </h7><%= book.publisher %>
     <br>
     <h7> Identifier: </h7><%= book.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+    <br>
+    <%= link_to "Delete",favourite_path(:id => relation.id) , :method => :delete %>
     <br><br>
 <% end %>

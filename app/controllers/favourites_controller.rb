@@ -22,4 +22,10 @@ class FavouritesController < ApplicationController
         @favourites = Favourite.where(:user_id => current_user.id)
     end
 
+    def destroy
+        id = params[:id]
+        Favourite.destroy(id)
+        flash[:notice] = 'Ad removed'
+        redirect_to favourites_path
+    end
 end

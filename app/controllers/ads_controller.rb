@@ -96,4 +96,19 @@ class AdsController < ApplicationController
         @wishes = Ad.where(:user_id => @id, :list_type => tipo_lista)
     end
 
+    def destroy
+        id = params[:id]
+        ad = Ad.find(id)
+        if ad.list_type == 0
+            flash[:notice] = 'Ad removed'
+            Ad.destroy(id)
+            redirect_to wish_list_path(:list_type => 0, :id => ad.user_id)
+        else
+            flash[:notice] = 'Ad removed'
+            Ad.destroy(id)
+            redirect_to gift_list_path(:list_type => 1, :id => ad.user_id)
+    
+        end
+    end
+
 end
