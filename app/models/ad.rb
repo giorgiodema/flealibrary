@@ -7,7 +7,6 @@ class Ad < ApplicationRecord
     validates_associated :user
     validates_inclusion_of :list_type, in: 0..2
 
-<<<<<<< HEAD
     #funzione per vedere se due annunci matchano per titiolo e vicinanza
     def self.matches_ad(ad_wish, ad_gift)
         if(ad_wish.title == ad_gift.title)
@@ -71,9 +70,6 @@ class Ad < ApplicationRecord
             return false
         end
     end
-
-end
-=======
+    
     has_many :notifications, dependent: :destroy
 end
->>>>>>> notifiche
