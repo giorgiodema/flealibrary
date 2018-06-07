@@ -31,7 +31,7 @@ class HomeController < ApplicationController
 
         maps_key = "AIzaSyDGDP6T-EYABI8GMdbuujMJKaCm37fyBss"
         @uri = URI("https://maps.googleapis.com/maps/api/staticmap")
-        params = {"center" => "#{@user.cap} italy", "size" => "200x200", "key" => "#{maps_key}"}
+        params = {"center" => "#{@user.cap} italy", "size" => "200x200", "zoom" => "11","key" => "#{maps_key}"}
         @uri.query = URI.encode_www_form(params)
     end
 
