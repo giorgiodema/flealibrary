@@ -7,14 +7,12 @@ class HomeController < ApplicationController
         #@title = titolo da mostrare 
         if current_user
             user = current_user
-            wish_ad = Ad.where(:user_id => user.id, :list_type => 1)
-            ad_not_user = Ad.where.not(:user_id => user.id)
-            gift_ad = ad_not_user.where(:list_type => 2)
-            #cerco i matches wish/gift da mostrare in home
-            @matches_ads = home_ads(wish_ad, gift_ad)
+            ads_not_user = Ad.where.not(:user_id => user.id)
+            #cerco i matches cap/radius da mostrare in home
+            @matches_ads = home_ads_new(ads_not_user)
             @title = "Recent ads close to me"
             if @matches_ads.empty?
-                #se non risultano matches wish/gift passo tutti gli annunci e cambio titolo
+                #se non risultano matches passo tutti gli annunci e cambio titolo
                 @matches_ads = Ad.all
                 @title = "Recent ads"
             end
@@ -34,13 +32,6 @@ class HomeController < ApplicationController
         params = {"center" => "#{@user.cap} italy", "size" => "200x200", "zoom" => "11","key" => "#{maps_key}"}
         @uri.query = URI.encode_www_form(params)
     end
-
-    #utilizziamo una sola route
-    #def show_profile  # serve per mostrare il profilo di alti utenti quindi non carico le chat
-    #    id = params[:id]
-    #   @user = User.find_by_id(id)
-    #    render 'home/profile.html.erb' #VEDERE SE ESISTE METODO MIGLIORE
-    #end
 
     def admin_panel
         if current_user.role == 'booklover'
@@ -80,14 +71,11 @@ class HomeController < ApplicationController
 
     private
     #per costruire l'array di annunci vicini
-    def home_ads(wish_ad, gift_ad)
+    def home_ads(ads_not_user)
         @matches_ads = Array.new
-        wish_ad.all.each do |ad_wish|
-            ad_match_title = gift_ad.where(:book_title => ad_wish.book_title)
-            ad_match_title.all.each do |ad_gift| 
-                if Ad.matches(ad_wish, ad_gift)
-                    @matches_ads.push(ad_gift)
-                end
+        ads_not_user.all.each  do |ad|
+            if Ad.matches_user(ad, current_user.id)
+                @matches_ads.push(ad)
             end
         end
         return @matches_ads
