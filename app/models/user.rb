@@ -3,7 +3,6 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   has_many :ads, dependent: :destroy
-  
   has_many :notifications, dependent: :destroy
 
   # Include default devise modules. Others available are:

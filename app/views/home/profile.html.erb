@@ -2,15 +2,20 @@
 <meta name='userid' content="<%=current_user.id%>">
 <!-- ######################################## -->
 
-<div class="col-md-12 profile_info_panel">
+<%if @user.id == current_user.id %>
+    <%= render partial: "chat", locals: {user:@user, chats:@chats} %>
+<%end%>
 
-    <div class="col-md-3">
+<div class="col-md-8 left_panel">
+
+    <div class="col-md-4 picture_box">
         <%= image_tag(@user.image.url, alt: 'Image',class: 'user_img') %>
     </div>
-    
-    
-    <div class="col-md-3 text-info">
-        <h5>
+
+
+
+    <div class="col-md-4 info_box">
+            <br><br>
             Name: <small class="text-success"><%= @user.name %><br></small>
             Surname: <small class="text-success"><%= @user.surname %><br></small>
             Username: <small class="text-success"><%= @user.username %><br></small>
@@ -19,44 +24,43 @@
                 Cap: <small class="text-success"><%= @user.cap %><br></small>
                 Radius: <small class="text-success"><%= @user.radius %><br></small>
             <% end %>
-            <%= image_tag(@uri) %><br>
+            
             <%if @user.id == current_user.id %>
                 <%= button_to "Edit profile", edit_user_registration_path, :method => 'get', class: "btn-sm btn-warning"%>
             <% end %>
-        </h5>
+  
     </div>
 
-<!-- come argomento passo anche l'id dell'utente così sono sicuro di caricare le liste del profilo corrente -->
+    <div class="col-md-4 map_box">
+        <%= image_tag(@uri,class:"map_img") %>
+    </div>
 
-    <div class="col-md-3 lists_links">
-        <h5>
+
+    <div class="col-md-12 actions">
+        <div class="list-group">
+            <p class="list-group-item list-group-item-action active">
+                MY LIBRARY
+            </p>
             <%if @user.id == current_user.id %>
-                <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id)%><br>
+                <%= link_to "Favourite list", favourite_list_path(:list_type => 0, :id => @user.id), class:"list-group-item list-group-item-action" %>
             <% end %> <!--non voglio mostrare i favoriti e la modifica del profilo delgi altri utenti -->
-            <%= link_to "Wish list", wish_list_path(:list_type => 1, :id => @user.id)%><br>
-            <%= link_to "Gift list", gift_list_path(:list_type => 2, :id => @user.id)%><br>
-        </h5>
-    </div>
-
-    <div class="col-md-3 search_books_container">
-        <%= form_tag(books_results_path, :method => "get", id: "search-form", class: "form-group") do %>
-        <%= text_field :search, params[:search], placeholder: "Search Books" %>
-        <%= submit_tag "Search" ,class:"btn-sm btn-secondary my-2 my-sm-0" %>
-        <% end %>
+            <%= link_to "Wish list", wish_list_path(:list_type => 1, :id => @user.id),class:"list-group-item list-group-item-action"%>
+            <%= link_to "Gift list", gift_list_path(:list_type => 2, :id => @user.id),class:"list-group-item list-group-item-action"%>
+            <%= form_tag(books_results_path, :method => "get", id: "search-form", class: "form-group") do %>
+            <%= text_field :search, params[:search], placeholder: "Search Books" %>
+            <%= submit_tag "Search" ,class:"btn-sm btn-secondary my-2 my-sm-0" %>
+            <% end %>
+        </div>
     </div>
 
 </div>
 
-<%if @user.id == current_user.id %>
-    <div class="col-md-4 left_panel">
+
+<div class="col-md-4 right_panel">
+    <%if @user.id == current_user.id %>
         <%= render partial: "chats_index", locals: { chats: @chats } %>
-    </div>
-
-    <div class="col-md-8 right_panel">
-        <%= render partial: "chat", locals: {user:@user, chats:@chats} %>
-    </div>
-<%end%>
-
+    <%end%>
+</div>
 
 
 

@@ -2,7 +2,7 @@
 
 <div class="ad_container">
     
-    <% @ads.each do |ad| %>
+    <% ads.each do |ad| %>
 
     <div class="ad_info">
 
@@ -29,8 +29,14 @@
 
 
         <% owner = User.find(ad.user_id) %>
-        <% unless owner == current_user do %>
-        <h7> Owner of the ad: </h7><%= link_to "#{owner}", profile_path(:id => owner.id)%>
+        <% unless owner == current_user%>
+            <h7> Owner of the ad: </h7><%= link_to "#{owner}", profile_path(:id => owner.id)%>
+            <br>
+            <% unless @view == 'favourite'%> 
+                <h7> Aggiungi a: </h7>
+                <!-- link per aggiungere il libro alla lista favoriti -->
+                <%= link_to "Favourite", ads_path(:book =>{:id => ad.id, :list_type => 0}), :method => :post %>
+            <%end%>
         <% end %>
 
 

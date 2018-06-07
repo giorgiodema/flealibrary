@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180607150535) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "ads", "users"
   add_foreign_key "chats", "users", column: "guest_id"
   add_foreign_key "chats", "users", column: "owner_id"
   add_foreign_key "messages", "chats"

@@ -1,0 +1,17 @@
+I"0(function() {
+  var hide_flash_container;
+
+  hide_flash_container = function() {
+    return $(".flash_container").hover(function() {
+      $(this).hide(slow, function() {
+        $(this).remove();
+      });
+    });
+  };
+
+  $(document).ready(function() {
+    hide_flash_container();
+  });
+
+}).call(this);
+:ET
