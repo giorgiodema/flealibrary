@@ -1,11 +1,13 @@
 <!-- Mostra la wish list dell'utente che gli passo dal profilo -->
 
 <% if @id == current_user.id.to_s %>    <!-- se l'id passato e lo user corrispondono -->
-    <h3> My Favourite List </h3>        <!-- , sono nel mio profilo -->
+    <h3 class="favourite_title"> My Favourite List </h3>        <!-- , sono nel mio profilo -->
 <% else %>                              <!--non è possibile vedere la lista dei favoriti degli altri utenti ma lascio comunque questo controllo -->
     <% owner = User.find(@id).username %>
-    <h3><%= owner %>'s Favourities List </h3>
+    <h3 class="favourite_title"><%= owner %>'s Favourities List </h3>
 <% end %>
+
+<%= render partial: "./ads_list", locals: { ads: @favourities, view: "favourities" } %>
 
 <% @favourities.each do |book| %>
     <%= image_tag(book.link_to_coverbook) %>

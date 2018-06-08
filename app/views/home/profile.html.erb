@@ -36,7 +36,7 @@
     </div>
 
 
-    <div class="col-md-12 actions">
+    <div class="col-md-4 actions">
         <div class="list-group">
             <p class="list-group-item list-group-item-action active">
                 MY LIBRARY
@@ -46,11 +46,17 @@
             <% end %> <!--non voglio mostrare i favoriti e la modifica del profilo delgi altri utenti -->
             <%= link_to "Wish list", wish_list_path(:list_type => 1, :id => @user.id),class:"list-group-item list-group-item-action"%>
             <%= link_to "Gift list", gift_list_path(:list_type => 2, :id => @user.id),class:"list-group-item list-group-item-action"%>
+
+        </div>
+    </div>
+
+    <div class="col-md-8 search_div">
+    <%if @user.id == current_user.id %>
             <%= form_tag(books_results_path, :method => "get", id: "search-form", class: "form-group") do %>
             <%= text_field :search, params[:search], placeholder: "Search Books" %>
             <%= submit_tag "Search" ,class:"btn-sm btn-secondary my-2 my-sm-0" %>
             <% end %>
-        </div>
+    <%end%>
     </div>
 
 </div>

@@ -13,7 +13,7 @@ skip_before_action :authenticate_user!
     def index
         @ads = Array.new
         current_user.notifications.each do |n|
-            ads.push(n.ad)
+            @ads.push(n.ad)
         end
     end
 end
