@@ -10,45 +10,55 @@
     <%= stylesheet_link_tag "https://bootswatch.com/4/sketchy/bootstrap.min.css" %>
   </head>
 
-  <body class="col-md-12">
-    <div class="col-md-12">
+  <body>
 
-      <div class="col-md-5">
-        <h1>
-          <%= link_to "FLEA LIBRARY", root_path %>
-        </h1>
-      </div>
 
-      <div class="col-md-7">
-        <%= button_to "HOME", root_path, :method => 'get', class: "col-md-3 btn-sm btn-warning" %>
+  <div class="col-md-12 flash_container">
+    <% if flash[:notice] %>
+      <div class="alert alert-dismissible alert-success"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-dismissible alert-warning"><%= flash[:alert] %></div>
+    <% end %>
+    <% if flash[:error] %>
+      <div class="alert alert-dismissible alert-danger"><%= flash[:error] %></div>
+    <% end %>
+  </div>
+
+  
+  <h1 class="display-3 title"><%= link_to "FLEA LIBRARY", root_path %></h1>
+
+
+
+
+  <div class="col-md-12 topnav">
+    <%= button_to "HOME", root_path, :method => 'get', class: "btn-lg btn-warning" %>
         <%if user_signed_in?%>
           <% user = current_user %>
-          <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "col-md-3 btn-sm btn-outline-success"%>
-          <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
-            <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "col-md-3 btn-sm btn-outline-danger"%>
-          <% end %>
-          <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "col-md-3 btn-sm btn-danger" %>
+          <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "btn-lg btn-outline-primary profile_btn"%>
+          <%= button_to "Notifications: 0", notifications_path, :method => 'get', class:"btn-lg btn-outline-primary notifications_btn"%>
+            <% if (current_user.role == 'admin' || current_user.role == 'superadmin') %>
+              <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "btn-lg btn-outline-danger admin_btn"%>
+            <% end %>
+          <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "btn-lg btn-danger logout_btn" %>
         <%else%>
-          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "col-md-3 btn-sm btn-success" %>
-          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "col-md-3 btn-sm btn-info" %>
+          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "btn-lg btn-outline-primary login_btn" %>
+          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "btn-lg btn-outline-primary signin_btn" %>
         <%end%>
-      </div>
+  </div>
 
-    </div>
 
-    <div class="col-md-12 flash_container">
-      <% if flash[:notice] %>
-        <div class="alert alert-dismissible alert-success"><%= flash[:notice] %></div>
-      <% end %>
-      <% if flash[:alert] %>
-        <div class="alert alert-dismissible alert-warning"><%= flash[:alert] %></div>
-      <% end %>
-      <% if flash[:error] %>
-        <div class="alert alert-dismissible alert-danger"><%= flash[:error] %></div>
-      <% end %>
-    </div>
 
-    <%= yield %>
-    
-  </body>
+
+
+  
+
+
+
+
+  <%= yield %>
+
+
+
+</body>
 </html>

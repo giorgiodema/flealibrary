@@ -1,29 +1,10 @@
 <!-- Mostra la gift list dell'utente che gli passo dal profilo -->
 
 <% if @id == current_user.id.to_s %>    <!-- se l'id passato e lo user corrispondono -->
-    <h3> My Gift List </h3>             <!-- , sono nel mio profilo -->
+    <h3 class="gift_title"> My Gift List </h3>             <!-- , sono nel mio profilo -->
 <% else %>
     <% owner = User.find(@id).username %>
-    <h3><%= owner %>'s Gift List </h3>
+    <h3 class="gift_title"><%= owner %>'s Gift List </h3>
 <% end %>
 
-<% @gifts.each do |book| %>
-    <%= image_tag(book.link_to_coverbook) %>
-    <br>
-    <h7> Title: </h7><%= book.book_title %>
-    <br>
-    <h7> Authors: </h7><%= book.book_authors.tr('[', '').tr(']','').tr('"', '') %>
-    <br>
-    <h7> Publisher: </h7><%= book.publisher %>
-    <br>
-    <h7> Identifier: </h7><%= book.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
-    <br>
-    <% if @id != current_user.id.to_s %>
-        <h7> Aggiungi a: </h7>
-        <!-- link per aggiungere il libro alla lista favoriti -->
-        <%= link_to "Favourite", favourites_path( :id => {:book => book}), :method => :post %>
-    <% else %>
-        <%= link_to "Delete",ad_path(:id => book.id) , :method => :delete %>
-    <% end %>
-    <br><br>
-<% end %>
+<%= render partial: "./ads_list", locals: { ads: @gifts, view: "gift" } %>

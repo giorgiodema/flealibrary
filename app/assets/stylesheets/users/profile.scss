@@ -1,18 +1,34 @@
-.header{
+.picture_box{
+    height:220px;
 }
 
+.info_box{
+    height:220px;
+    text-align:center;
+    padding-top:20px;
+}
 .user_img{
-    height:auto;
-    width:100%;
-    max-width:100px;
-    border-radius:100%;
+
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit: cover;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.left_panel{
-    height:100%;
+.map_img{
+    width:220px;
+    height:220px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.right_panel{
-    height:100%;
-}
+
+
+
 

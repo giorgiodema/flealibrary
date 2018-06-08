@@ -28,9 +28,9 @@ c = Chat.create(:owner=>a,:guest=>b)
 m = Message.create(:chat=>c,:text=>"ciao a")
 =end
 
-dante = User.create(:name=>"dante", :surname=>"alighieri", :username=>"dante", :email=>"dante@gmail.com", :password=>"minimo", :role=>"superadmin", :cap=>'00184', :radius=>'0')
-giorgio = User.create(:name=>"giorgio", :surname=>"dema", :username=>"giorgio", :email=>"giorgio@gmail.com", :password=>"minimo", :role=>"admin", :cap=>'00123', :radius=>'0')
-vincenzo = User.create(:name=>"vincenzo", :surname=>"cas", :username=>"vincenzo", :email=>"vincenzo@gmail.com", :password=>"minimo", :role=>"admin", :cap=>'00015', :radius=>'0')
+dante = User.create(:name=>"dante", :surname=>"alighieri", :username=>"dante", :email=>"dante@gmail.com", :password=>"minimo", :role=>"superadmin", :cap=>'00184', :radius=>'10')
+giorgio = User.create(:name=>"giorgio", :surname=>"dema", :username=>"giorgio", :email=>"giorgio@gmail.com", :password=>"minimo", :role=>"admin", :cap=>'00123', :radius=>'10')
+vincenzo = User.create(:name=>"vincenzo", :surname=>"cas", :username=>"vincenzo", :email=>"vincenzo@gmail.com", :password=>"minimo", :role=>"admin", :cap=>'00015', :radius=>'10')
 flavia = User.create(:name=>"flavia", :surname=>"mon", :username=>"flavia", :email=>"flavia@gmail.com", :password=>"minimo", :role=>"admin", :cap=>'00015', :radius=>'0')
 
 c01 = Chat.create(:owner=>giorgio,:guest=>vincenzo)

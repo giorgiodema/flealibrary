@@ -4,13 +4,15 @@ chat_controller = {}
 # Hides chat when close button is clicked
 chat_controller.hide_chat = () ->   
     $("[name='close_chat']").click ->
-        $(this).parents(".chat_div").css("display","none")
+        $(".chat_div").css("display","none")
+        $(".left_panel").css("display","block")
         return
 
 
 # View the selected chat from the chat index
 chat_controller.show_chat = () ->   
     $(".chat_list_item").click ->
+        $(".left_panel").css("display","none")
         $(".chat_div").css("display","none")
         id = $(this).children("[name='chat_id']").attr("content")
         $("#"+id.toString()).css("display","block")
@@ -65,6 +67,8 @@ chat_controller.delete_chat = () ->
                         element.remove()
 
                 $("#"+chat_id).remove()
+                $(".chat_div").css("display","none")
+                $(".left_panel").css("display","block")
                         
 chat_controller.create_chat = () ->
     $('#start_chat').click ->

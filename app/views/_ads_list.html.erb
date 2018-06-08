@@ -1,0 +1,48 @@
+
+
+<div class="ad_container">
+
+    <% ads.each do |ad| %>
+
+    <div class="ad_info">
+
+        <%tipo = ad.list_type.to_s %>
+
+        <h7 style="color:green"> Tipo annuncio: </h7>
+        <% if tipo == 1%>
+            <h7> Gift </h7>
+        <% elsif tipo == 0%>
+            <h7> Wish </h7>
+        <% end %>
+        <br><br>
+
+        <%= image_tag(ad.link_to_coverbook) %>
+        <br>
+        <h7 style="color:green"> Title: </h7> <%= ad.book_title %>
+        <br>
+        <h7 style="color:green"> Authors: </h7><%= ad.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+        <br>
+        <h7 style="color:green"> Publisher: </h7><%= ad.publisher %>
+        <br>
+        <h7 style="color:green"> Identifier: </h7><%= ad.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+        <br>
+
+        <% owner = User.find(ad.user_id) %>
+        <% unless owner == current_user%>
+            <% unless @view == 'favourite'%>
+                <hr> 
+                <h7 style="color:green"> Aggiungi a: </h7>
+                <!-- link per aggiungere il libro alla lista favoriti -->
+                <%= link_to "Favourite", ads_path(:book =>{:id => ad.id, :list_type => 0}), :method => :post %><br>
+            <%end%>
+            <hr>
+            <h7 style="color:green"> Owner of the ad: </h7><%= link_to "#{owner.username}", profile_path(:id => owner.id)%><br>
+
+            <meta name="user_id" content="<%= owner.id %>">
+            <button id="start_chat" type="button" class="btn btn-success">Chat</button>
+
+        <% end %>
+
+    </div>
+    <%end%>
+</div>

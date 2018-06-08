@@ -80,6 +80,10 @@ class AdsController < ApplicationController
             flash[:notice] = "Book added to the list"
             redirect_to profile_path(:id => info['user_id'])
         end
+        #NOTIFICHE
+        # Enqueue a job to be performed as soon as the queuing system is
+        # free.
+        CreateNotificationsJob.perform_later(@ad)
     end
     
     # Metodi per mostrare le liste

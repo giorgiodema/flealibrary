@@ -10,5 +10,7 @@ class CreateAds < ActiveRecord::Migration[5.1]
       t.references :user
       t.timestamps
     end
+
+    add_foreign_key :ads, :users
   end
 end
