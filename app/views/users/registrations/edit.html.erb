@@ -31,7 +31,7 @@
       <br/>
       <div class="form-control" placeholder="Enter search radius(km)">
         <%= f.label :radius %><br />
-        <%= select_tag :radius, options_for_select((5..50).step(5)) %>
+        <%= f.select :radius, %w[5 10 15 20 25 30 35 40 45 50 55 60 65 70 75]%>
       </div>
       <br/>
       <div class="form-control" placeholder="Email">
