@@ -5,6 +5,7 @@ class CreateNotifications < ActiveRecord::Migration[5.1]
       t.timestamps
       t.references :user
       t.references :ad
+      t.integer :displayed
     end
 
     add_foreign_key :notifications, :users

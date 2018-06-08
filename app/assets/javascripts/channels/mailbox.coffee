@@ -24,4 +24,8 @@ $(document).ready ->
         $("#"+data.chat_id).remove()
 
       if data.type == "create_chat"
-        location.reload();
+        location.reload()
+
+      if data.type == "new_notification"
+        console.log("Type = NEW_NOTIFICATION")
+        location.reload()

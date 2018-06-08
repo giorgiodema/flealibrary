@@ -1,3 +1,9 @@
-<h1>Notifications</h1>
+<h1 class="notifications_title">Notifications</h1>
 
-<%= render partial: "./ads_list", locals: {ads: @ads, view:'notifications#index'} %>
+<h3 class="new"> New </h3>
+<hr>
+<%= render partial: "./ads_list", locals: {ads: @sorted_new_ads, view:'notifications#index'} %>
+
+<h3 class="old"> Old </h3>
+<hr>
+<%= render partial: "./ads_list", locals: {ads: @sorted_old_ads, view:'notifications#index'} %>

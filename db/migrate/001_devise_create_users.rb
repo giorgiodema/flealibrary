@@ -39,6 +39,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
 
       t.timestamps null: false
+
+      # Conta le notifiche non lette
+      t.integer :notifications_counter, default:0
     end
 
     add_index :users, :email,                unique: true

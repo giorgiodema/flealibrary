@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20180607150535) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "ad_id"
+    t.integer "displayed"
     t.index ["ad_id"], name: "index_notifications_on_ad_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(version: 20180607150535) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "notifications_counter", default: 0
     t.string "role", default: "booklover"
     t.string "confirmation_token"
     t.datetime "confirmed_at"

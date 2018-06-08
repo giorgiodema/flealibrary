@@ -11,9 +11,24 @@ Se un annuncio in una notifica dovesse essere cancellato verrà automaticamente 
 skip_before_action :authenticate_user!
 
     def index
-        @ads = Array.new
-        current_user.notifications.each do |n|
-            @ads.push(n.ad)
+        new_ads = Array.new
+        old_ads = Array.new
+        unless current_user.notifications == nil
+            current_user.notifications.each do |n|
+                if n.displayed == 0
+                    new_ads.push(n.ad)
+                    n.displayed = 1
+                    n.save
+                else
+                    old_ads.push(n.ad)
+                end
+            end
         end
+
+        @sorted_new_ads = new_ads.sort_by { |obj| obj.created_at }
+        @sorted_old_ads = old_ads.sort_by { |obj| obj.created_at }
+
+        current_user.notifications_counter = 0
+        current_user.save
     end
 end
