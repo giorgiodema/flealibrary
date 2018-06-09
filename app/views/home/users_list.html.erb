@@ -1,24 +1,23 @@
-<!-- IMPORTANTE per far funzionare i channels -->
-<meta name='userid' content="<%=current_user.id%>">
-<!-- ######################################## -->
+<div class="center">
 
-<h3>Users</h3> 
+    <!-- IMPORTANTE per far funzionare i channels -->
+    <meta name='userid' content="<%=current_user.id%>">
+    <!-- ######################################## -->
 
-<ul class="list-group">
-    <% @users.each do |user|%>
-        <li class="list-group-item d-flex  align-items-center">
-            <meta name="user_id" content="<%= user.id %>">
-            <%= image_tag(user.image.url, alt: 'Image',class: 'list_user_img') %>
-            <%= link_to "#{user.username}",profile_path(user.id) %>
-            <button id="start_chat" type="button" class="btn btn-success">Chat</button>
-        </li>
+    <h3>Users</h3> 
 
-        
-    <% end %>
+    <ul class="list-group">
+        <% @users.each do |user|%>
+            <li class="list-group-item d-flex  align-items-center">
+                <meta name="user_id" content="<%= user.id %>">
+                <%= image_tag(user.image.url, alt: 'Image',class: 'list_user_img') %>
+                <%= link_to "#{user.username}",profile_path(user.id) %>
+                <button id="start_chat" type="button" class="btn btn-success">Chat</button>
+            </li>
 
-</ul>
+            
+        <% end %>
 
-    
-
-
-
+    </ul>
+  
+</div>

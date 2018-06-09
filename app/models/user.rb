@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :username, length: { minimum:2}, presence: true
   validates :radius, presence: true
   #inserito un validate per il cap, controllo tramite funzione
+  validates :cap, length: {is:5}, presence: true
   validate :check_cap
 
   validates_uniqueness_of :username

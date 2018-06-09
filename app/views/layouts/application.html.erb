@@ -12,7 +12,6 @@
 
   <body>
 
-
   <div class="col-md-12 flash_container">
     <% if flash[:notice] %>
       <div class="alert alert-dismissible alert-success"><%= flash[:notice] %></div>
@@ -38,23 +37,12 @@
             <% end %>
           <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "btn-lg btn-danger logout_btn" %>
         <%else%>
-          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "btn-lg btn-outline-primary login_btn" %>
-          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "btn-lg btn-outline-primary signin_btn" %>
+          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "btn-lg btn-success login_btn" %>
+          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "btn-lg btn-info signin_btn" %>
         <%end%>
   </div>
 
-
-
-
-
-  
-
-
-
-
   <%= yield %>
-
-
 
 </body>
 </html>

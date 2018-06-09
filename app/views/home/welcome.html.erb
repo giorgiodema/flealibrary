@@ -14,10 +14,9 @@
 		<% end %>
 	</div>
 
+	<h3>
+		<%= @title %><br>
+	</h3>
 
-		<h3>
-			<%= @title %><br>
-		</h3>
-
-		<%= render partial: "./ads_list", locals: { ads: @matches_ads, view: "welcome" } %>
+	<%= render partial: "./ads_list", locals: { ads: @matches_ads, view: "welcome" } %>
 </div>
