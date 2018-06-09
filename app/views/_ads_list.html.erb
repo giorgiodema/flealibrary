@@ -33,15 +33,18 @@
                     <hr> 
                     <h7 style="color:green"> Aggiungi a: </h7>
                     <!-- link per aggiungere il libro alla lista favoriti -->
-                    <%= link_to "Favourite", ads_path(:book =>{:id => ad.id, :list_type => 0}), :method => :post %><br>
+                    <%= link_to "Favourite", favourites_path(:id =>{:book => ad.id}), :method => :post %><br>
                 <%end%>
                 <hr>
                 <h7 style="color:green"> Owner of the ad: </h7><%= link_to "#{owner.username}", profile_path(:id => owner.id)%><br>
 
                 <meta name="user_id" content="<%= owner.id %>">
                 <button id="start_chat" type="button" class="btn btn-success">Chat</button>
-
             <% end %>
+
+            <% if view == "wish" || view == "gift" %>
+                <%= link_to "Delete" ,ad_path(:id => ad.id) , :method => :delete %><br>
+            <%end%>
 
         </div>
     <%end%>

@@ -25,17 +25,13 @@
     <% end %>
   </div>
 
-  
-  <h1 class="display-3 title"><%= link_to "FLEA LIBRARY", root_path %></h1>
-
-
-
+  <h1 class="display-3 title">FLEA LIBRARY</h1>
 
   <div class="col-md-12 topnav">
     <%= button_to "HOME", root_path, :method => 'get', class: "btn-lg btn-warning" %>
         <%if user_signed_in?%>
           <% user = current_user %>
-          <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "btn-lg btn-outline-primary profile_btn"%>
+          <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "btn-lg btn-success profile_btn"%>
           <%= button_to "Notifications: #{user.notifications_counter}", notifications_path, :method => 'get', class:"btn-lg btn-outline-primary notifications_btn", id:"notifications_btn"%>
             <% if (current_user.role == 'admin' || current_user.role == 'superadmin') %>
               <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "btn-lg btn-outline-danger admin_btn"%>
