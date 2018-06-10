@@ -1,4 +1,5 @@
 <!-- Mostra la wish list dell'utente che gli passo dal profilo -->
+<div class='center'>
 <h3> My Favourite List </h3>        <!-- , sono nel mio profilo -->
 
 <% @favourites.each do |relation| %>
@@ -19,3 +20,5 @@
     <%= link_to "Delete",favourite_path(:id => relation.id) , :method => :delete %>
     <br><br>
 <% end %>
+
+</div>

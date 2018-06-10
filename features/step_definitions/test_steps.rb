@@ -1,41 +1,70 @@
-def fill_element(name, value)
-    element = page.find(name)
-    element.set(value)
+def login(email, password)
+    visit new_user_session_path
+    fill_in "Email", :with => email
+    fill_in "Password", :with => password
+    click_button('loginbutton')
 end
 
-def login
-    visit '/users/sign_in'
-    fill_in "Email", :with => @user.email
-    fill_in "Password", :with => @user.password
-    click_button('Log in session')
+def signup(email, password)
+    visit new_user_registration_path
+    fill_in "Name", :with => "name_test"
+    fill_in "Surname", :with => "surname_test"
+    fill_in "Username", :with => "username_test"
+    fill_in "Email", :with => email
+    fill_in "Password", :with => password
+    fill_in "Password confirmation", :with => password
+    fill_in "Cap", :with => "00015"
+    select "30", :from => "Radius"
+    click_button("signupbutton")
 end
 
-def create_user
-    @user = User.create(:name=>'name_test', :surname=>'surname_test', :username=>'username_test', :email=>'email@test.it', :password=>'password', :cap=>'00000', :radius=>'0')
+def create_user(role)
+    User.new(:name=>'name_test', :surname=>'surname_test', :username=>'username_test', :email=>'email@test.it', :password=>'password', :cap=>'00015', :radius=>'30', :role=>role).save!
 end
 
 def find_user
-    @user = User.where(username: 'username_test').first
+    User.where(:email => "email@test.it").first
 end
 
 #GIVEN
-Given /^I exist as a user$/ do
-    create_user
+Given /^I exist as (.+)$/ do |role|
+    @user = create_user(role)
+end
+
+Given /^I don't exist as (.+)$/ do |role|
+    User.all.each do |user|
+        user.destroy
+    end
+    @user = nil
 end
 
 Given /^I am not logged in$/ do
-    page.has_content?('Log in')
+    #page.has_no_content?("Log in")
+    #page.find_button('Log in')[:value]
 end
 
 #WHEN
-When /^I login with valid credentials/ do
-    find_user
-    login
+When /^I login$/ do
+    @user = find_user
+    if @user == nil
+        login('mail@test.it', 'password')
+    else 
+        login(@user.email, @user.password)
+    end
+end
+
+When /^I register as (.+), (.+)$/ do |email, password|
+    signup(email, password)
+    @user = User.where(:email => email).first
 end
 
 #THEN
-Then /^I see a successful sign in message/ do
-    page.has_content?("Signed in successfully.")
+Then /^I should see (.+)$/ do |element|
+    page.has_content?(element)
+end
+
+Then /^I should not see (.+)$/ do |element|
+    page.has_no_content? element
 end
 
 Then /^I should be signed in$/ do
@@ -44,6 +73,6 @@ Then /^I should be signed in$/ do
     page.has_no_content? "Log in"
 end
 
-Then /^I should be in profile/ do
-    page.has_content? "Profile"
+Then /^I should be in (.+) page$/ do |name|
+    page.has_content? name+"page"
 end

@@ -33,12 +33,12 @@
           <%= button_to "#{user.username.upcase}", profile_path(user.id), :method => 'get', class: "btn-lg btn-success profile_btn"%>
           <%= button_to "Notifications: #{user.notifications_counter}", notifications_path, :method => 'get', class:"btn-lg btn-outline-primary notifications_btn", id:"notifications_btn"%>
             <% if (current_user.role == 'admin' || current_user.role == 'superadmin') %>
-              <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "btn-lg btn-outline-danger admin_btn"%>
+              <%= button_to "Admin panel", admin_panel_path, :method => 'get', class: "btn-lg btn-outline-danger admin_btn", id: "adminbutton"%>
             <% end %>
           <%= button_to "Log out", destroy_user_session_path, :method => 'delete', class: "btn-lg btn-danger logout_btn" %>
         <%else%>
-          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "btn-lg btn-success login_btn" %>
-          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "btn-lg btn-info signin_btn" %>
+          <%= button_to "Log in", new_user_session_path, :method => 'get', class: "btn-lg btn-success login_btn" , id: "loginbutton"%>
+          <%= button_to "Sign up", new_user_registration_path, :method => 'get', class: "btn-lg btn-info signin_btn", id: "signupbutton" %>
         <%end%>
   </div>
 
