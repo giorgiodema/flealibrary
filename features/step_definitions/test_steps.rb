@@ -18,12 +18,25 @@ def signup(email, password)
     click_button("signupbutton")
 end
 
+def searchuser(name)
+    fill_in "Search User", :with => name
+    click_button("searchbutton")
+end
+
 def create_user(role)
     User.new(:name=>'name_test', :surname=>'surname_test', :username=>'username_test', :email=>'email@test.it', :password=>'password', :cap=>'00015', :radius=>'30', :role=>role).save!
 end
 
+def create_another_user(role)
+    User.new(:name=>'name', :surname=>'surname', :username=>'username', :email=>'email@email.it', :password=>'password', :cap=>'00015', :radius=>'30', :role=>role).save!
+end
+
 def find_user
     User.where(:email => "email@test.it").first
+end
+
+def find_another_user
+    User.where(:email => "email@email.it").first
 end
 
 #GIVEN
@@ -43,8 +56,15 @@ Given /^I am not logged in$/ do
 end
 
 Given /^I am logged in$/ do
-    @user = create_user("booklover")
+    create_another_user("booklover")
+    @user = find_another_user
     login(@user.email, @user.password)
+end
+
+Given /^I am in (.+) page$/ do |page|
+    if page == "home"
+        visit root_path
+    end
 end
 
 #WHEN
@@ -62,6 +82,10 @@ When /^I register as (.+), (.+)$/ do |email, password|
     @user = User.where(:email => email).first
 end
 
+When /^I search (.+) user$/ do |name|
+    searchuser(name)
+end
+
 #THEN
 Then /^I should see admin button$/ do
     page.has_button?('Admin panel')
@@ -71,8 +95,12 @@ Then /^I should not see admin button$/ do
     page.has_no_button?('Admin panel')
 end 
 
-Then /^I should see (.+) message$/ do |element|
-    page.has_content?(element)
+Then /^I should see "name_test"$/ do
+    page.has_link?("name_test")
+end
+
+Then /^I should see "(.+)" message$/ do |element|
+    page.has_text?(element)
 end
 
 Then /^I should be signed in$/ do

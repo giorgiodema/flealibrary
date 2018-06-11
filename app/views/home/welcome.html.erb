@@ -1,4 +1,4 @@
-<div class="home-container center">
+<div class="home-container center", id="homepage">
 
 	<div class="col-md-6">
 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
@@ -10,7 +10,7 @@
 	<div class="col-md-6">
 		<%= form_tag(users_list_path, :method => "get", id: "search-form", class: "form-group") do %>
 		<%= text_field :search, params[:search], placeholder: "Search User" %>
-		<%= submit_tag "Search" %>
+		<%= submit_tag "Search" , id: "searchbutton"%>
 		<% end %>
 	</div>
 
