@@ -39,8 +39,7 @@ Given /^I don't exist as (.+)$/ do |role|
 end
 
 Given /^I am not logged in$/ do
-    #page.has_no_content?("Log in")
-    #page.find_button('Log in')[:value]
+    page.has_button?('Log in')
 end
 
 #WHEN
@@ -59,18 +58,22 @@ When /^I register as (.+), (.+)$/ do |email, password|
 end
 
 #THEN
-Then /^I should see (.+)$/ do |element|
+Then /^I should see admin button$/ do
+    page.has_button?('Admin panel')
+end 
+
+Then /^I should not see admin button$/ do
+    page.has_no_button?('Admin panel')
+end 
+
+Then /^I should see (.+) message$/ do |element|
     page.has_content?(element)
 end
 
-Then /^I should not see (.+)$/ do |element|
-    page.has_no_content? element
-end
-
 Then /^I should be signed in$/ do
-    page.has_content? "Log out"
-    page.has_no_content? "Sign up"
-    page.has_no_content? "Log in"
+    page.has_button? "Log out"
+    page.has_no_button? "Sign up"
+    page.has_no_button? "Log in"
 end
 
 Then /^I should be in (.+) page$/ do |name|
