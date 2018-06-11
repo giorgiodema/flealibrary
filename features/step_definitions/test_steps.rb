@@ -2,7 +2,7 @@ def login(email, password)
     visit new_user_session_path
     fill_in "Email", :with => email
     fill_in "Password", :with => password
-    click_button('loginbutton')
+    click_button('Log in session')
 end
 
 def signup(email, password)
@@ -15,7 +15,7 @@ def signup(email, password)
     fill_in "Password confirmation", :with => password
     fill_in "Cap", :with => "00015"
     select "30", :from => "Radius"
-    click_button("signupbutton")
+    click_button('Sign up registration')
 end
 
 def searchuser(name)
@@ -52,10 +52,10 @@ Given /^I don't exist as (.+)$/ do |role|
 end
 
 Given /^I am not logged in$/ do
-    page.has_button?('Log in')
+    page.has_button?('loginbutton')
 end
 
-Given /^I am logged in$/ do
+Given /^I am logged in as other user$/ do
     create_another_user("booklover")
     @user = find_another_user
     login(@user.email, @user.password)
@@ -88,11 +88,11 @@ end
 
 #THEN
 Then /^I should see admin button$/ do
-    page.has_button?('Admin panel')
+    page.has_button?('adminbutton')
 end 
 
 Then /^I should not see admin button$/ do
-    page.has_no_button?('Admin panel')
+    page.has_no_button?('adminbutton')
 end 
 
 Then /^I should see "name_test"$/ do
@@ -104,9 +104,7 @@ Then /^I should see "(.+)" message$/ do |element|
 end
 
 Then /^I should be signed in$/ do
-    page.has_button? "Log out"
-    page.has_no_button? "Sign up"
-    page.has_no_button? "Log in"
+    page.has_button?("logoutbutton") && page.has_no_button?("signupbutton") && page.has_no_button?("loginbutton")
 end
 
 Then /^I should be in (.+) page$/ do |name|
