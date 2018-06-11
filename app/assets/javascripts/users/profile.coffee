@@ -71,7 +71,7 @@ chat_controller.delete_chat = () ->
                 $(".left_panel").css("display","block")
                         
 chat_controller.create_chat = () ->
-    $('#start_chat').click ->
+    $('.start_chat').click ->
         console.log("chat_controller.create_chat")
         guest_id = $(this).parent().children("[name='user_id']").attr('content')
         console.log("guest_id:"+guest_id)
