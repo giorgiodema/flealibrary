@@ -1,0 +1,28 @@
+I"²(function() {
+  var admin_search_users;
+
+  admin_search_users = function() {
+    return $("#users_searchbar").keyup(function() {
+      var a, filter, i, input, item, len, ref, ul;
+      input = $('#users_searchbar');
+      filter = input.text();
+      ul = $("#admin_users_list");
+      ref = ul.children();
+      for (i = 0, len = ref.length; i < len; i++) {
+        item = ref[i];
+        a = $(item).children("a");
+        if ($(a).html().toUpperCase().indexOf(filter) > -1) {
+          $(item).css("display", "none");
+        } else {
+          $(item).css("display", "");
+        }
+      }
+    });
+  };
+
+  $(document).ready(function() {
+    admin_search_users();
+  });
+
+}).call(this);
+:ET

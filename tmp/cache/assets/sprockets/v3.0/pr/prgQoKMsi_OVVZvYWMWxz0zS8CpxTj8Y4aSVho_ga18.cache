@@ -1,0 +1,9 @@
+I"‡(function() {
+  var admin_search_users;
+
+  admin_search_users = function() {
+    return console.log("ciao ciao");
+  };
+
+}).call(this);
+:ET

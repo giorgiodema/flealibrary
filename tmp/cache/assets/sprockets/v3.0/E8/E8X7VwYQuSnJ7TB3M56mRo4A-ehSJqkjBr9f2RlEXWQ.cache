@@ -1,0 +1,29 @@
+I""(function() {
+  var admin_search_users;
+
+  admin_search_users = function() {
+    return console.log("ciao ciao");
+  };
+
+
+  /*
+      input = $('#users_searchbar')
+      filter = input.text()
+  
+      ul = $("#admin_users_list")
+  
+      for item in ul.children()
+          a = item.children("a")
+          if a.html().toUpperCase().indexOf(filter) > -1
+              item.css("display","none")
+          else
+              item.css("display","")
+      return
+   */
+
+  $(document).ready(function() {
+    admin_search_users();
+  });
+
+}).call(this);
+:ET
