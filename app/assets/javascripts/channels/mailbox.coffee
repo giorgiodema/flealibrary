@@ -16,6 +16,7 @@ $(document).ready ->
         console.log("Type = MESSAGE")
         $("#"+data.chat_id).children(".input_box").val("")
         $("#"+data.chat_id).children(".message_box").append("<li class=received_message><p class=message_text> "+data.text+" </p></li>")
+        $("#"+data.chat_id).children(".message_box").animate({scrollTop: $("#"+data.chat_id).children(".message_box").prop("scrollHeight")}, 500);
 
       if data.type == "delete_chat"
         console.log("Type = DELETE_CHAT")

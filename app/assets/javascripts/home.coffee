@@ -7,9 +7,7 @@
 
 hide_flash_container = () ->   
     $(".flash_container").hover ->
-        $(this).hide "slow",() -> 
-            $(this).remove()
-            return
+        $(this).css("visibility", "hidden");
         return
 
 

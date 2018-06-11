@@ -16,6 +16,7 @@ chat_controller.show_chat = () ->
         $(".chat_div").css("display","none")
         id = $(this).children("[name='chat_id']").attr("content")
         $("#"+id.toString()).css("display","block")
+        $("#"+id).children(".message_box").animate({scrollTop: $("#"+id).children(".message_box").prop("scrollHeight")}, 500);
         return
 
 chat_controller.send_message = () ->
@@ -26,6 +27,7 @@ chat_controller.send_message = () ->
                 text: $(this).children(".input_box").val()
             }
             chat_controller.post_message(msg)
+            
 
         
 chat_controller.post_message = (msg) ->
@@ -43,6 +45,7 @@ chat_controller.post_message = (msg) ->
             console.log "Data:"+data["myanswer"]
             $("#"+msg.chat_id).children(".input_box").val("")
             $("#"+msg.chat_id).children(".message_box").append("<li class=sent_message><p class=message_text> "+msg.text+" </p></li>")
+            $("#"+msg.chat_id).children(".message_box").animate({scrollTop: $("#"+msg.chat_id).children(".message_box").prop("scrollHeight")}, 500);
 
 chat_controller.delete_chat = () ->
     $(".chat_list_item input").click ->
@@ -71,7 +74,7 @@ chat_controller.delete_chat = () ->
                 $(".left_panel").css("display","block")
                         
 chat_controller.create_chat = () ->
-    $('#start_chat').click ->
+    $('.start_chat').click ->
         console.log("chat_controller.create_chat")
         guest_id = $(this).parent().children("[name='user_id']").attr('content')
         console.log("guest_id:"+guest_id)

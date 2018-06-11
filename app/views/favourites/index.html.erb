@@ -1,24 +1,26 @@
 <!-- Mostra la wish list dell'utente che gli passo dal profilo -->
-<div class='center'>
-<h3> My Favourite List </h3>        <!-- , sono nel mio profilo -->
 
+<h3 style="text-align:center"> My Favourite List </h3>        <!-- , sono nel mio profilo -->
+
+<div class="ad_container">
 <% @favourites.each do |relation| %>
-    <% book = Ad.find(relation.ad_id) %>
-    <% owner = User.find(book.user_id) %>
-    <%= image_tag(book.link_to_coverbook) %>
-    <br>
-    <h7> Owner of the ad: </h7><%= link_to "#{owner.username}", profile_path(:id => owner.id)%>
-    <br>
-    <h7> Title: </h7><%= book.book_title %>
-    <br>
-    <h7> Authors: </h7><%= book.book_authors.tr('[', '').tr(']','').tr('"', '') %>
-    <br>
-    <h7> Publisher: </h7><%= book.publisher %>
-    <br>
-    <h7> Identifier: </h7><%= book.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
-    <br>
-    <%= link_to "Delete",favourite_path(:id => relation.id) , :method => :delete %>
-    <br><br>
+    <div class="ad_info">
+        <% book = Ad.find(relation.ad_id) %>
+        <% owner = User.find(book.user_id) %>
+        <%= image_tag(book.link_to_coverbook) %>
+        <br>
+        <h7 style="color:green"> Owner of the ad: </h7><%= link_to "#{owner.username}", profile_path(:id => owner.id)%>
+        <br>
+        <h7 style="color:green"> Title: </h7><%= book.book_title %>
+        <br>
+        <h7 style="color:green"> Authors: </h7><%= book.book_authors.tr('[', '').tr(']','').tr('"', '') %>
+        <br>
+        <h7 style="color:green"> Publisher: </h7><%= book.publisher %>
+        <br>
+        <h7 style="color:green"> Identifier: </h7><%= book.identifier.tr('[', '').tr(']','').tr('"', '').tr(',','') %>
+        <br>
+        <%= link_to "Delete",favourite_path(:id => relation.id) , :method => :delete %>
+        <br><br>
+    </div>
 <% end %>
-
 </div>
