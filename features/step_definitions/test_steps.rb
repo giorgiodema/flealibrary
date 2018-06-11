@@ -42,6 +42,11 @@ Given /^I am not logged in$/ do
     page.has_button?('Log in')
 end
 
+Given /^I am logged in$/ do
+    @user = create_user("booklover")
+    login(@user.email, @user.password)
+end
+
 #WHEN
 When /^I login$/ do
     @user = find_user
