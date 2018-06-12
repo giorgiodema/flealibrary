@@ -1,49 +1,19 @@
-# README
+# FleaLibrary
+## Descrizione
+Applicazione web per la condivisione di libri. Ogni utente registrato fornisce informazioni riguardanti:
+- La città in cui si trova
+- Una lista di libri che vuole cedere “gift list”
+- Una lista di libri che desidera “wish list”
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+L'applicazione per ogni utente "A":
+- Trova gli utenti che hanno nella loro "gift list" i libri desiderati da A
+- Trova gli utenti che hanno nella loro "wish list" i libri ceduti da A
+L’applicazione effettua 2 tipi di ricerca, per esempio per un utente A:
 
-Things you may want to cover:
+Sarà inoltre possibile specificare una posizione e un raggio entro il quale effettuare le ricerche sopra indicate.
 
-* Ruby version
+## Info
 
-* System dependencies
+* Ruby version:     2.4.2
+* Rails version:    5.1.6 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-branch di Vincenzo
-branch di Flavia
-branch di Giorgio
-
-# NOTES
-
-## DB
-- To start postgres run command:
-```
-brew services start postgresql
-```
-
-## GIT
-- Revert changes to modified files.
-```
-git reset --hard
-```
-
-- Remove all untracked files and directories. (`-f` is `force`, `-d` is `remove directories`)
-```
-git clean -fd
-```
-## TODO
-- Input validation in chats_controller.rb
