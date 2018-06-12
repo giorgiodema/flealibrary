@@ -1,4 +1,4 @@
-Feature: Add a 
+Feature: Add a book to favourite
     As a BOOKLOVER
     I want to ADD AN AD TO MY FAVORITES
     so that I CAN FIND IT SIMPLY

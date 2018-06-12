@@ -40,8 +40,9 @@
                 
                 <%if current_user%>
                     <meta name="user_id" content="<%= owner.id %>">
-                    <button id="start_chat" type="button" class="btn btn-success">Chat</button>
+                    <button type="button" class="btn btn-success start_chat">Chat</button>
                 <%end%>
+                
             <% end %>
 
             <% if owner == current_user && (view == "wish" || view == "gift") %>

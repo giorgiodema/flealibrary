@@ -11,18 +11,18 @@
             <% if user.role != "superadmin" %>
                 <% if user.id != current_user.id %>
                     <li class="list-group-item list-group-item-action">
-                    <%= link_to "#{user.username}".capitalize, profile_path(user.id) %>
-                        <% if can? :manage_user, user %>
-                            <br>
-                            Role: <%= user.role.capitalize%><br>
-                            <%= link_to "Admin user", admin_user_path(user.id), :method => 'post'%>
-                            <%= link_to "Booklover user", booklover_user_path(user.id), :method => 'post'%>
-                            <%= link_to "Bann user", banned_user_path(user.id), :method => 'post'%>
-                        <% end %>
-                        <% if can? :admin_destroy_user, user %>
-                            <%= link_to "Delete user", admin_destroy_user_path(user.id), :method => 'delete'%>
-                        <% end %>
-                    <br><br>
+                        <%= link_to "#{user.username}".capitalize, profile_path(user.id) %>
+                            <% if can? :manage_user, user %>
+                                <br>
+                                Role: <%= user.role.capitalize%><br>
+                                <%= link_to "Admin user", admin_user_path(user.id), :method => 'post', class:"btn btn-warning"%>
+                                <%= link_to "Booklover user", booklover_user_path(user.id), :method => 'post', class:"btn btn-success"%>
+                                <%= link_to "Bann user", banned_user_path(user.id), :method => 'post', class:"btn btn-danger"%>
+                            <% end %>
+                            <% if can? :admin_destroy_user, user %>
+                                <%= link_to "Delete user", admin_destroy_user_path(user.id), :method => 'delete', class:"btn btn-danger"%>
+                            <% end %>
+                        <br><br>
                     </li>
                 <% end %>
             <% end %>
