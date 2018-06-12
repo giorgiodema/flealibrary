@@ -22392,3 +22392,67 @@ MailboxChannel is transmitting the subscription confirmation
 MailboxChannel is streaming from mailbox_
 Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-11 18:58:06 +0200
 MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-12 10:25:45 +0200
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 4]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (17.6ms)
+  Rendered home/welcome.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 310ms (Views: 254.4ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 10:25:46 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 10:25:46 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-12 10:57:38 +0200
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAd Load (3.9ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 4]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (16.0ms)
+  Rendered home/welcome.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 334ms (Views: 270.1ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 10:57:39 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 10:57:39 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/admin_panel" for 127.0.0.1 at 2018-06-12 10:57:41 +0200
+Started GET "/" for 127.0.0.1 at 2018-06-12 10:57:41 +0200
+Processing by HomeController#admin_panel as HTML
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 4]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (4.2ms)
+  Rendered home/welcome.html.erb within layouts/application (8.2ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/admin_panel.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id[0m
+Completed 200 OK in 111ms (Views: 96.6ms | ActiveRecord: 5.8ms)
+
+
+  Rendered home/admin_panel.html.erb within layouts/application (54.2ms)
+Completed 200 OK in 150ms (Views: 93.6ms | ActiveRecord: 24.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 10:57:41 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 10:57:42 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 10:57:42 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
