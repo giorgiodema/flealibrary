@@ -57,17 +57,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #cancancan -> ability
   def banned_user
     User.setRole(params[:id], User::ROLES[1])
-    redirect_to root_path
+    redirect_to admin_panel_path
   end
   
   def admin_user
     User.setRole(params[:id], User::ROLES[2])
-    redirect_to root_path
+    redirect_to admin_panel_path
   end
 
   def booklover_user
     User.setRole(params[:id], User::ROLES[0])
-    redirect_to root_path
+    redirect_to admin_panel_path
   end
 
   protected
