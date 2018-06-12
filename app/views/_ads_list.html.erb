@@ -37,9 +37,11 @@
                 <%end%>
                 <hr>
                 <h7 style="color:green"> Owner of the ad: </h7><%= link_to "#{owner.username}", profile_path(:id => owner.id)%><br>
-
-                <meta name="user_id" content="<%= owner.id %>">
-                <button type="button" class="btn btn-success start_chat">Chat</button>
+                
+                <%if current_user%>
+                    <meta name="user_id" content="<%= owner.id %>">
+                    <button id="start_chat" type="button" class="btn btn-success">Chat</button>
+                <%end%>
             <% end %>
 
             <% if owner == current_user && (view == "wish" || view == "gift") %>

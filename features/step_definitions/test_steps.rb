@@ -175,6 +175,7 @@ Then /^I should see admin button$/ do
 end 
 
 Then /^I should not see admin button$/ do
+    save_and_open_page
     page.has_no_button?('adminbutton')
 end 
 

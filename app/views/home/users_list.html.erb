@@ -7,17 +7,15 @@
     <h3>Users</h3> 
 
     <ul class="list-group">
-        <% @users.each do |user|%>
-            <li class="list-group-item d-flex  align-items-center">
-                <meta name="user_id" content="<%= user.id %>">
-                <%= image_tag(user.image.url, alt: 'Image',class: 'list_user_img') %>
-                <%= link_to "#{user.username}",profile_path(user.id) %>
-                <button class="btn btn-success start_chat" type="button">Chat</button>
-            </li>
-
-            
+        <% @users.order("name").each do |user|%>
+            <% if user.role != "superadmin"%>
+                <li class="list-group-item d-flex  align-items-center">
+                    <meta name="user_id" content="<%= user.id %>">
+                    <%= image_tag(user.image.url, alt: 'Image',class: 'list_user_img') %>
+                    <%= link_to "#{user.username}",profile_path(user.id) %>
+                    <button id="start_chat" type="button" class="btn btn-success">Chat</button>
+                </li>
+            <%end%>
         <% end %>
-
     </ul>
-  
 </div>

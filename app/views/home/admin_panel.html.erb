@@ -15,10 +15,12 @@
                         <% if can? :manage_user, user %>
                             <br>
                             Role: <%= user.role.capitalize%><br>
-                            <%= link_to "Admin user", admin_user_path(user.id), :method => 'post', class:"btn btn-warning"%>
-                            <%= link_to "Booklover user", booklover_user_path(user.id), :method => 'post',class:"btn btn-success"%>
-                            <%= link_to "Bann user", banned_user_path(user.id), :method => 'post',class:"btn btn-danger"%>
-                            <%= link_to "Delete user", admin_destroy_user_path(user.id), :method => 'delete',class:"btn btn-danger"%>
+                            <%= link_to "Admin user", admin_user_path(user.id), :method => 'post'%>
+                            <%= link_to "Booklover user", booklover_user_path(user.id), :method => 'post'%>
+                            <%= link_to "Bann user", banned_user_path(user.id), :method => 'post'%>
+                        <% end %>
+                        <% if can? :admin_destroy_user, user %>
+                            <%= link_to "Delete user", admin_destroy_user_path(user.id), :method => 'delete'%>
                         <% end %>
                     <br><br>
                     </li>
