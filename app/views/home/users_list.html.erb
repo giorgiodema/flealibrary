@@ -13,7 +13,7 @@
                     <meta name="user_id" content="<%= user.id %>">
                     <%= image_tag(user.image.url, alt: 'Image',class: 'list_user_img') %>
                     <%= link_to "#{user.username}",profile_path(user.id) %>
-                    <button id="start_chat" type="button" class="btn btn-success">Chat</button>
+                    <button  type="button" class="btn btn-success start_chat">Chat</button>
                 </li>
             <%end%>
         <% end %>
