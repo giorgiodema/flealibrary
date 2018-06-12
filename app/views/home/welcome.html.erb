@@ -2,8 +2,8 @@
 
 	<div class="col-md-6">
 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
-		<%= text_field :search, params[:search], placeholder: "Search Ads" %>
-		<%= submit_tag "Search" %>
+		<%= text_field :search, params[:search], placeholder: "Search Ads", id:"adsform"%>
+		<%= submit_tag "Search", id: "searchads" %>
 		<% end %>
 	</div>
 

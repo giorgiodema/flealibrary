@@ -1,10 +1,10 @@
 <!-- Mostra la wish list dell'utente che gli passo dal profilo -->
 
 <% if @id == current_user.id.to_s %>    <!-- se l'id passato e lo user corrispondono -->
-    <h3 class="wish_title"> My Wish List </h3>             <!-- , sono nel mio profilo -->
+    <h3 class="wish_title" id="Wish_Listpage"> My Wish List </h3>             <!-- , sono nel mio profilo -->
 <% else %>
     <% owner = User.find(@id).username %>
-    <h3 class="wish_title"><%= owner %>'s Wish List </h3>
+    <h3 class="wish_title" id="Wish_Listpage"><%= owner %>'s Wish List </h3>
 <% end %>
 
 <%= render partial: "./ads_list", locals: { ads: @wishes, view: "wish" } %>

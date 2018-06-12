@@ -1,10 +1,10 @@
 <!-- Mostra la gift list dell'utente che gli passo dal profilo -->
 
 <% if @id == current_user.id.to_s %>    <!-- se l'id passato e lo user corrispondono -->
-    <h3 class="gift_title"> My Gift List </h3>             <!-- , sono nel mio profilo -->
+    <h3 class="gift_title" id="Gift_Listpage"> My Gift List </h3>             <!-- , sono nel mio profilo -->
 <% else %>
     <% owner = User.find(@id).username %>
-    <h3 class="gift_title"><%= owner %>'s Gift List </h3>
+    <h3 class="gift_title" id="Gift_Listpage"><%= owner %>'s Gift List </h3>
 <% end %>
 
 <%= render partial: "./ads_list", locals: { ads: @gifts, view: "gift" } %>

@@ -2,7 +2,7 @@
 
 <h3 style="text-align:center"> My Favourite List </h3>        <!-- , sono nel mio profilo -->
 
-<div class="ad_container">
+<div class="ad_container" id= "Favourites_listpage">
 <% @favourites.each do |relation| %>
     <div class="ad_info">
         <% book = Ad.find(relation.ad_id) %>

@@ -1,6 +1,6 @@
 <!-- Mostra la lista di Libri trovati con google books -->
 
-<h3 class="results_title"> Books found </h3>
+<h3 class="results_title" id="books_result"> Books found </h3>
 
 <div class="book_container">
     <% books = JSON.parse(@res.body)['items'] %>

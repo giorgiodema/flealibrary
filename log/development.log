@@ -1804,3 +1804,477 @@ Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 09:49:56 +0200
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 MailboxChannel is transmitting the subscription confirmation
 MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-12 11:43:54 +0200
+  [1m[35m (23.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (34.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (113.2ms)
+  Rendered home/welcome.html.erb within layouts/application (122.0ms)
+Completed 200 OK in 782ms (Views: 708.9ms | ActiveRecord: 46.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 11:43:56 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 11:43:56 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 11:44:13 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-12 11:44:13 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered home/welcome.html.erb within layouts/application (186.8ms)
+Completed 500 Internal Server Error in 191ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `assert' for #<#<Class:0x00000006fce5f8>:0x00000003b00fd8>
+Did you mean?  asset_url
+               asset_path
+               assets_prefix
+               assets_prefix?
+               assets_prefix=
+               alert):
+    1: <div class="home-container center" id="homepage">
+    2: 
+    3: 	<div class="col-md-6">
+    4: 		<%= assert(false)%>
+    5: 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
+    6: 		<%= text_field :search, params[:search], placeholder: "Search Ads" %>
+    7: 		<%= submit_tag "Search" %>
+  
+app/views/home/welcome.html.erb:4:in `_app_views_home_welcome_html_erb__4192305151522257466_30871980'
+Started GET "/" for 127.0.0.1 at 2018-06-12 11:45:16 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered home/welcome.html.erb within layouts/application (201.1ms)
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 6.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `assert' for #<#<Class:0x007f06307c5730>:0x007f06320d76b0>
+Did you mean?  asset_url
+               asset_path
+               assets_prefix
+               assets_prefix?
+               assets_prefix=
+               alert):
+    1: <div class="home-container center" id="homepage">
+    2: 
+    3: 	<div class="col-md-6">
+    4: 		<%= assert(false)%>
+    5: 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
+    6: 		<%= text_field :search, params[:search], placeholder: "Search Ads" %>
+    7: 		<%= submit_tag "Search" %>
+  
+app/views/home/welcome.html.erb:4:in `_app_views_home_welcome_html_erb__4192305151522257466_69832279994620'
+Started GET "/" for 127.0.0.1 at 2018-06-12 11:45:39 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (1.9ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered home/welcome.html.erb within layouts/application (203.4ms)
+Completed 500 Internal Server Error in 234ms (ActiveRecord: 9.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `assert' for #<#<Class:0x007f1b3472ab18>:0x00000005e31b88>
+Did you mean?  asset_url
+               asset_path
+               assets_prefix
+               assets_prefix?
+               assets_prefix=
+               alert):
+    1: <div class="home-container center" id="homepage">
+    2: 
+    3: 	<div class="col-md-6">
+    4: 		<%= assert(false)%>
+    5: 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
+    6: 		<%= text_field :search, params[:search], placeholder: "Search Ads" %>
+    7: 		<%= submit_tag "Search" %>
+  
+app/views/home/welcome.html.erb:4:in `_app_views_home_welcome_html_erb__4403708542217903386_69877410389140'
+Started GET "/" for 127.0.0.1 at 2018-06-12 11:45:44 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (1.1ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered home/welcome.html.erb within layouts/application (174.0ms)
+Completed 500 Internal Server Error in 180ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `assert' for #<#<Class:0x007f1b3472ab18>:0x0000000412ebf8>
+Did you mean?  asset_url
+               asset_path
+               assets_prefix
+               assets_prefix?
+               assets_prefix=
+               alert):
+    1: <div class="home-container center" id="homepage">
+    2: 
+    3: 	<div class="col-md-6">
+    4: 		<%= assert(false)%>
+    5: 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
+    6: 		<%= text_field :search, params[:search], placeholder: "Search Ads" %>
+    7: 		<%= submit_tag "Search" %>
+  
+app/views/home/welcome.html.erb:4:in `_app_views_home_welcome_html_erb__4403708542217903386_34217020'
+Started GET "/" for 127.0.0.1 at 2018-06-12 11:45:46 +0200
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered home/welcome.html.erb within layouts/application (157.4ms)
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `assert' for #<#<Class:0x007f1b3472ab18>:0x00000003015c18>
+Did you mean?  asset_url
+               asset_path
+               assets_prefix
+               assets_prefix?
+               assets_prefix=
+               alert):
+    1: <div class="home-container center" id="homepage">
+    2: 
+    3: 	<div class="col-md-6">
+    4: 		<%= assert(false)%>
+    5: 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
+    6: 		<%= text_field :search, params[:search], placeholder: "Search Ads" %>
+    7: 		<%= submit_tag "Search" %>
+  
+app/views/home/welcome.html.erb:4:in `_app_views_home_welcome_html_erb__4403708542217903386_25213020'
+Started GET "/" for 127.0.0.1 at 2018-06-12 11:47:55 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.9ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered home/welcome.html.erb within layouts/application (214.5ms)
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 11.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `assert' for #<#<Class:0x007fcf84725550>:0x00000006ac03e0>
+Did you mean?  asset_url
+               asset_path
+               assets_prefix
+               assets_prefix?
+               assets_prefix=
+               alert):
+    1: <div class="home-container center" id="homepage">
+    2: 
+    3: 	<div class="col-md-6">
+    4: 		<%= assert(false)%>
+    5: 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
+    6: 		<%= text_field :search, params[:search], placeholder: "Search Ads" %>
+    7: 		<%= submit_tag "Search" %>
+  
+app/views/home/welcome.html.erb:4:in `_app_views_home_welcome_html_erb___2434339395257439197_70264628523440'
+Started GET "/" for 127.0.0.1 at 2018-06-12 11:49:51 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.9ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered home/welcome.html.erb within layouts/application (226.2ms)
+Completed 500 Internal Server Error in 257ms (ActiveRecord: 7.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `assert' for #<#<Class:0x007f1b008f88c0>:0x007f1b0090fae8>
+Did you mean?  asset_url
+               asset_path
+               assets_prefix
+               assets_prefix?
+               assets_prefix=
+               alert):
+    1: <div class="home-container center" id="homepage">
+    2: 
+    3: 	<div class="col-md-6">
+    4: 		<%= assert(false)%>
+    5: 		<%= form_tag(ads_list_path, :method => "get", id: "search-form", class: "form-group") do %>
+    6: 		<%= text_field :search, params[:search], placeholder: "Search Ads" %>
+    7: 		<%= submit_tag "Search" %>
+  
+app/views/home/welcome.html.erb:4:in `_app_views_home_welcome_html_erb___162184739082674511_69876975127400'
+Started GET "/" for 127.0.0.1 at 2018-06-12 13:06:16 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (1.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (98.1ms)
+  Rendered home/welcome.html.erb within layouts/application (106.7ms)
+Completed 200 OK in 476ms (Views: 430.6ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 13:06:17 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 13:06:17 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 13:06:20 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-12 13:06:20 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 147ms (Views: 144.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 13:06:21 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 13:06:21 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 13:06:26 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-12 13:06:26 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JgdIfTTWBM9AGtQWm53/DChPS7mRfRzb54WtV6IlRZKOxt/67TncPba10Djl6ghp6kz6mc+CuCtt4v8+991I8g==", "user"=>{"email"=>"vincenzo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (63.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (35.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-06-12 11:06:26.646370"], ["last_sign_in_at", "2018-06-10 08:17:24.288391"], ["sign_in_count", 7], ["updated_at", "2018-06-12 11:06:26.649425"], ["id", 3]]
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/3
+Completed 302 Found in 354ms (ActiveRecord: 114.3ms)
+
+
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-12 13:06:26 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (35.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (29.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (188.1ms)
+  Rendered home/_chats_index.html.erb (2.2ms)
+  Rendered home/profile.html.erb within layouts/application (202.1ms)
+Completed 200 OK in 300ms (Views: 210.7ms | ActiveRecord: 74.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 13:06:27 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 13:06:27 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 13:06:57 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=Dubliners&commit=Search" for 127.0.0.1 at 2018-06-12 13:06:57 +0200
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["Dubliners"], "commit"=>"Search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (161.1ms)
+Completed 200 OK in 905ms (Views: 215.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 13:06:59 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 13:06:59 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mAd Load (39.2ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-06-12 17:13:04 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 3]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (34.4ms)
+  Rendered home/welcome.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 529ms (Views: 445.9ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 17:13:08 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 17:13:08 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 17:13:08 +0200
+MailboxChannel is streaming from mailbox_
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 17:13:08 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 17:13:19 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-06-12 17:13:19 +0200
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (110.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title iLIKE'%%')[0m
+  Rendering home/ads_list.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (book_title iLIKE'%%')[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (13.2ms)
+  Rendered home/ads_list.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 206ms (Views: 90.2ms | ActiveRecord: 111.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 17:13:20 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 17:13:20 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 18:40:29 +0200
+MailboxChannel stopped streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 18:40:30 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-06-12 18:45:13 +0200
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 3]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (39.6ms)
+  Rendered home/welcome.html.erb within layouts/application (79.8ms)
+Completed 200 OK in 572ms (Views: 434.3ms | ActiveRecord: 59.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 18:45:15 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 18:45:15 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 18:45:25 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-12 18:45:25 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.9ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (370.1ms)
+  Rendered home/_chats_index.html.erb (2.1ms)
+  Rendered home/profile.html.erb within layouts/application (398.9ms)
+Completed 200 OK in 600ms (Views: 445.7ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 18:45:26 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 18:45:26 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-12 18:45:34 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (26.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (38.7ms)
+  Rendered ads/wish.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 114ms (Views: 80.7ms | ActiveRecord: 28.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 18:46:19 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-12 18:46:19 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (4.0ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (12.8ms)
+  Rendered ads/wish.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 94ms (Views: 84.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-12 18:46:20 +0200
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-12 18:46:20 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-06-12 19:06:53 +0200
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (8.3ms)
+  Rendered home/_chats_index.html.erb (1.0ms)
+  Rendered home/profile.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 60ms (Views: 52.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/profile/wish_list?id=3&list_type=0" for 127.0.0.1 at 2018-06-12 19:07:00 +0200
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (8.1ms)
+  Rendered ads/wish.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 77ms (Views: 71.0ms | ActiveRecord: 1.6ms)
+
+
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 11]]
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 11]]
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 11]]

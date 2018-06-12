@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
   require 'net/http'
   require 'json'
 
+  require "test/unit/assertions"
+  include Test::Unit::Assertions
+
+  require 'rubygems'
+  require 'selenium-webdriver'
+  require 'test/unit'
 end
