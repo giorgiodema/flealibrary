@@ -1,0 +1,1686 @@
+Started GET "/" for 192.168.1.73 at 2018-06-12 07:45:52 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (69.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (36.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (53.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (290.2ms)
+  Rendered home/welcome.html.erb within layouts/application (369.4ms)
+Completed 200 OK in 4527ms (Views: 4227.2ms | ActiveRecord: 200.0ms)
+
+
+Started GET "/cable" for 192.168.1.73 at 2018-06-12 07:46:01 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:46:02 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 192.168.1.73 at 2018-06-12 07:46:07 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (125.6ms)
+Completed 200 OK in 209ms (Views: 203.7ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:46:08 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.73 at 2018-06-12 07:46:08 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:46:08 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 192.168.1.73 at 2018-06-12 07:46:21 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9MxCzyXQeBG4j3+2ZUMiXPdcyLeSoNGfTkAZ4MX7uOVWkTxouEHFvfC/X4T3354zfEuvRO/CZTJ+lUdr+YYtwQ==", "user"=>{"email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (13.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "current_sign_in_ip" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-06-12 05:46:21.510925"], ["current_sign_in_ip", "192.168.1.73/32"], ["sign_in_count", 2], ["updated_at", "2018-06-12 05:46:21.512793"], ["id", 2]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://192.168.1.85:3000/users/profile/2
+Completed 302 Found in 238ms (ActiveRecord: 32.4ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.73 at 2018-06-12 07:46:21 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (25.3ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (18.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (115.2ms)
+  Rendered home/_chats_index.html.erb (1.3ms)
+  Rendered home/profile.html.erb within layouts/application (125.4ms)
+Completed 200 OK in 175ms (Views: 105.4ms | ActiveRecord: 57.2ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:46:21 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.73 at 2018-06-12 07:46:22 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:46:22 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/users/profile/2" for 192.168.1.73 at 2018-06-12 07:46:52 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (11.8ms)
+  Rendered home/_chats_index.html.erb (1.8ms)
+  Rendered home/profile.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 67ms (Views: 57.4ms | ActiveRecord: 3.5ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:46:53 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.73 at 2018-06-12 07:46:53 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:46:53 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/profile/wish_list?id=2&list_type=0" for 192.168.1.73 at 2018-06-12 07:46:58 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"2", "list_type"=>"0"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (2.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 2], ["list_type", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (7.8ms)
+  Rendered ads/wish.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 60ms (Views: 50.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.73 at 2018-06-12 07:47:00 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (11.2ms)
+  Rendered home/_chats_index.html.erb (1.5ms)
+  Rendered home/profile.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 64ms (Views: 54.1ms | ActiveRecord: 3.7ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:47:00 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.73 at 2018-06-12 07:47:00 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:47:00 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/profile/gift_list?id=2&list_type=1" for 192.168.1.73 at 2018-06-12 07:47:01 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#gift as HTML
+  Parameters: {"id"=>"2", "list_type"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/gift.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 2], ["list_type", 1]]
+  Rendered _ads_list.html.erb (2.3ms)
+  Rendered ads/gift.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 60ms (Views: 44.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 192.168.1.249 at 2018-06-12 07:49:10 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (6.2ms)
+  Rendered home/welcome.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 54ms (Views: 49.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:49:11 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:49:11 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users/sign_out" for 192.168.1.73 at 2018-06-12 07:49:17 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qBRSuAZrzM/3Wxg6CCtmFM+2pq0mrTheODCkSecqN63BFbQvFCEr6rGieMaQZyb29Cwhmzuf1aL8Tp46r7OsVg=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://192.168.1.85:3000/
+Completed 302 Found in 20ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 192.168.1.73 at 2018-06-12 07:49:17 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (6.3ms)
+  Rendered home/welcome.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 46ms (Views: 41.4ms | ActiveRecord: 0.9ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:49:17 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.73 at 2018-06-12 07:49:17 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:49:17 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 192.168.1.249 at 2018-06-12 07:49:27 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 55ms (Views: 52.9ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:49:27 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:49:27 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:49:27 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:49:28 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.73 at 2018-06-12 07:49:29 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:49:29 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 192.168.1.249 at 2018-06-12 07:49:43 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C18Bv7rVr9dwQGhBUFcj5mkjUzBIFu52N0ozHd9cyU33fRnYerxB4Z0lTjNVVgoW9gd2z5eg7OeA6+fSZHGLCw==", "user"=>{"email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-06-12 05:49:43.288950"], ["last_sign_in_at", "2018-06-12 05:46:21.510925"], ["current_sign_in_ip", "192.168.1.249/32"], ["last_sign_in_ip", "192.168.1.73/32"], ["sign_in_count", 3], ["updated_at", "2018-06-12 05:49:43.290067"], ["id", 2]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://192.168.1.85:3000/users/profile/2
+Completed 302 Found in 190ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:49:43 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (11.7ms)
+  Rendered home/_chats_index.html.erb (1.2ms)
+  Rendered home/profile.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 59ms (Views: 49.5ms | ActiveRecord: 3.7ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:49:43 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:49:43 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:49:43 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/profile/wish_list?id=2&list_type=0" for 192.168.1.249 at 2018-06-12 07:49:48 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"2", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 2], ["list_type", 0]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (4.0ms)
+  Rendered ads/wish.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 47ms (Views: 40.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:49:50 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (11.2ms)
+  Rendered home/_chats_index.html.erb (1.3ms)
+  Rendered home/profile.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 72ms (Views: 61.9ms | ActiveRecord: 3.7ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:49:50 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:49:50 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:49:50 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/" for 192.168.1.249 at 2018-06-12 07:50:32 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (4.8ms)
+  Rendered home/welcome.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 1141ms (Views: 51.1ms | ActiveRecord: 2.2ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:50:34 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:50:34 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:50:34 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=dante&commit=Search" for 192.168.1.249 at 2018-06-12 07:50:39 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["dante"], "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (15.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username iLIKE'%dante%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username iLIKE'%dante%')[0m
+  Rendered home/users_list.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 60ms (Views: 36.3ms | ActiveRecord: 16.5ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:50:39 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:50:39 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:50:39 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:50:52 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (11.8ms)
+  Rendered home/_chats_index.html.erb (1.3ms)
+  Rendered home/profile.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 65ms (Views: 54.8ms | ActiveRecord: 3.8ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:50:52 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:50:52 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:50:52 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started POST "/delete_chat" for 192.168.1.249 at 2018-06-12 07:50:55 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#delete_chat as JSON
+  Parameters: {"chat_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChat Load (2.3ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActionCable] Broadcasting to mailbox_2: {:type=>"delete_chat", :chat_id=>1}
+[ActionCable] Broadcasting to mailbox_3: {:type=>"delete_chat", :chat_id=>1}
+MailboxChannel transmitting {"type"=>"delete_chat", "chat_id"=>1} (via streamed from mailbox_2)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 2]]
+  [1m[35mSQL (3.0ms)[0m  [1m[31mDELETE FROM "chats" WHERE "chats"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 11.2ms)
+
+
+Started POST "/delete_chat" for 192.168.1.249 at 2018-06-12 07:50:56 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#delete_chat as JSON
+  Parameters: {"chat_id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActionCable] Broadcasting to mailbox_2: {:type=>"delete_chat", :chat_id=>2}
+[ActionCable] Broadcasting to mailbox_4: {:type=>"delete_chat", :chat_id=>2}
+MailboxChannel transmitting {"type"=>"delete_chat", "chat_id"=>2} (via streamed from mailbox_2)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 2]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 3]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 4]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 5]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "chats" WHERE "chats"."id" = $1[0m  [["id", 2]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/" for 192.168.1.249 at 2018-06-12 07:50:59 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (4.5ms)
+  Rendered home/welcome.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 672ms (Views: 55.1ms | ActiveRecord: 2.3ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:51:02 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:51:02 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:51:02 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=vincenzo&commit=Search" for 192.168.1.249 at 2018-06-12 07:51:07 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["vincenzo"], "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username iLIKE'%vincenzo%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username iLIKE'%vincenzo%')[0m
+  Rendered home/users_list.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 42ms (Views: 33.7ms | ActiveRecord: 1.9ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:51:07 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:51:07 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:51:07 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/users/profile/3" for 192.168.1.249 at 2018-06-12 07:51:18 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  Rendered home/profile.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 52ms (Views: 44.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:51:37 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  Rendered home/_chat.html.erb (1.5ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 61ms (Views: 53.0ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:51:37 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:51:40 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:51:40 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Finished "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:51:41 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.73 at 2018-06-12 07:51:41 +0200
+Cannot render console from 192.168.1.73! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.73 at 2018-06-12 07:51:41 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 192.168.1.89 at 2018-06-12 07:52:18 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (6.2ms)
+  Rendered home/welcome.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 45ms (Views: 40.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:52:20 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:20 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 192.168.1.89 at 2018-06-12 07:52:22 +0200
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:22 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+MailboxChannel stopped streaming from mailbox_
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:52:23 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:23 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:42 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/users/sign_in" for 192.168.1.89 at 2018-06-12 07:52:42 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bwFLK346941L8PI2pit9ij4PSyLb/iN0mhP/M6q/svqaK7Q1KUJ3HW/fuKUBz2+e1qregNckPis2k3kxuK7t7w==", "user"=>{"email"=>"vincenzo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "current_sign_in_ip" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-06-12 05:52:43.016903"], ["current_sign_in_ip", "192.168.1.89/32"], ["sign_in_count", 2], ["updated_at", "2018-06-12 05:52:43.018047"], ["id", 3]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://192.168.1.85:3000/users/profile/3
+Completed 302 Found in 203ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/users/profile/3" for 192.168.1.89 at 2018-06-12 07:52:43 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  Rendered home/_chat.html.erb (1.9ms)
+  Rendered home/_chats_index.html.erb (0.7ms)
+  Rendered home/profile.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 51ms (Views: 43.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:52:44 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:44 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:47 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/" for 192.168.1.89 at 2018-06-12 07:52:47 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (3.1ms)
+  Rendered home/welcome.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 508ms (Views: 41.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:52:48 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:48 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:54 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=giorgio&commit=Search" for 192.168.1.89 at 2018-06-12 07:52:54 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["giorgio"], "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username iLIKE'%giorgio%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username iLIKE'%giorgio%')[0m
+  Rendered home/users_list.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 52ms (Views: 44.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:52:55 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:52:55 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/" for 192.168.1.249 at 2018-06-12 07:54:12 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (5.1ms)
+  Rendered home/welcome.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 344ms (Views: 52.3ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:12 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:54:12 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:12 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 192.168.1.249 at 2018-06-12 07:54:20 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (4.6ms)
+  Rendered home/welcome.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 328ms (Views: 45.1ms | ActiveRecord: 2.2ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:20 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:54:20 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:20 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:54:21 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  Rendered home/_chat.html.erb (1.5ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 66ms (Views: 58.2ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:21 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:54:21 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:21 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=neanche+gli+dei&commit=Search" for 192.168.1.249 at 2018-06-12 07:54:27 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["neanche gli dei"], "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 1322ms (Views: 79.0ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:28 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:54:29 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:29 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=NONE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=NO_PAGES&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3DJ2X7HAAACAAJ%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=IgDKT069634&book%5Bid%5D%5Bid%5D=J2X7HAAACAAJ&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=false&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=NOT_FOR_SALE&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2FJ2X7HAAACAAJ&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Isaac+Asimov&book%5Bid%5D%5BvolumeInfo%5D%5BaverageRating%5D=3.0&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fbooks.google.com%2Fbooks%2Fabout%2FNeanche_gli_dei.html%3Fhl%3D%26id%3DJ2X7HAAACAAJ&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Fiction&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=preview-1.0.0&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DJ2X7HAAACAAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DJ2X7HAAACAAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=8804406836&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9788804406839&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DJ2X7HAAACAAJ%26dq%3Dneanche%2Bgli%2Bdei%26hl%3D%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=it&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=336&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DJ2X7HAAACAAJ%26dq%3Dneanche%2Bgli%2Bdei%26hl%3D%26cd%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=1995&book%5Bid%5D%5BvolumeInfo%5D%5BratingsCount%5D=3&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=Neanche+gli+dei&book%5Blist_type%5D=1" for 192.168.1.249 at 2018-06-12 07:54:34 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#create as HTML
+  Parameters: {"authenticity_token"=>"EA0/ek9Dh6J8PGZ2lOzjG8rRqjD3xzHs2XxozZT/Lb3FxlWWs0p2h0yN5t7l7ax5oOOJwljoIwCL88yxdIpFQg==", "book"=>{"id"=>{"accessInfo"=>{"accessViewStatus"=>"NONE", "country"=>"IT", "embeddable"=>"false", "epub"=>{"isAvailable"=>"false"}, "pdf"=>{"isAvailable"=>"false"}, "publicDomain"=>"false", "quoteSharingAllowed"=>"false", "textToSpeechPermission"=>"ALLOWED", "viewability"=>"NO_PAGES", "webReaderLink"=>"http://play.google.com/books/reader?id=J2X7HAAACAAJ&hl=&printsec=frontcover&source=gbs_api"}, "etag"=>"IgDKT069634", "id"=>"J2X7HAAACAAJ", "kind"=>"books#volume", "saleInfo"=>{"country"=>"IT", "isEbook"=>"false", "saleability"=>"NOT_FOR_SALE"}, "selfLink"=>"https://www.googleapis.com/books/v1/volumes/J2X7HAAACAAJ", "volumeInfo"=>{"allowAnonLogging"=>"false", "authors"=>["Isaac Asimov"], "averageRating"=>"3.0", "canonicalVolumeLink"=>"https://books.google.com/books/about/Neanche_gli_dei.html?hl=&id=J2X7HAAACAAJ", "categories"=>["Fiction"], "contentVersion"=>"preview-1.0.0", "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=J2X7HAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api", "thumbnail"=>"http://books.google.com/books/content?id=J2X7HAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"}, "industryIdentifiers"=>[{"identifier"=>"8804406836", "type"=>"ISBN_10"}, {"identifier"=>"9788804406839", "type"=>"ISBN_13"}], "infoLink"=>"http://books.google.it/books?id=J2X7HAAACAAJ&dq=neanche+gli+dei&hl=&source=gbs_api", "language"=>"it", "maturityRating"=>"NOT_MATURE", "pageCount"=>"336", "previewLink"=>"http://books.google.it/books?id=J2X7HAAACAAJ&dq=neanche+gli+dei&hl=&cd=1&source=gbs_api", "printType"=>"BOOK", "publishedDate"=>"1995", "ratingsCount"=>"3", "readingModes"=>{"image"=>"false", "text"=>"false"}, "title"=>"Neanche gli dei"}}, "list_type"=>"1"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."google_id" = $2 AND "ads"."list_type" = $3[0m  [["user_id", 2], ["google_id", "J2X7HAAACAAJ"], ["list_type", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "giorgio"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (27.5ms)[0m  [1m[32mINSERT INTO "ads" ("list_type", "book_title", "book_authors", "link_to_coverbook", "publisher", "identifier", "user_id", "created_at", "updated_at", "google_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["list_type", 1], ["book_title", "Neanche gli dei"], ["book_authors", "[\"Isaac Asimov\"]"], ["link_to_coverbook", "http://books.google.com/books/content?id=J2X7HAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"], ["publisher", "not specified"], ["identifier", "[\"ISBN_10\", \"8804406836\"]"], ["user_id", 2], ["created_at", "2018-06-12 05:54:34.157582"], ["updated_at", "2018-06-12 05:54:34.157582"], ["google_id", "J2X7HAAACAAJ"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://192.168.1.85:3000/users/profile/2
+[ActiveJob] Enqueued CreateNotificationsJob (Job ID: 94c41bfb-0e32-48fb-9c69-88f2db133105) to Async(default) with arguments: #<GlobalID:0x00007ff9368dbf80 @uri=#<URI::GID gid://flealibrary/Ad/5>>
+Completed 302 Found in 124ms (ActiveRecord: 32.2ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:54:34 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAd Load (2.6ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [94c41bfb-0e32-48fb-9c69-88f2db133105] Performing CreateNotificationsJob (Job ID: 94c41bfb-0e32-48fb-9c69-88f2db133105) from Async(default) with arguments: #<GlobalID:0x00007ff93650f3c0 @uri=#<URI::GID gid://flealibrary/Ad/5>>
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [94c41bfb-0e32-48fb-9c69-88f2db133105]   [1m[36mAd Load (1.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (LOWER(book_title) = 'neanche gli dei' AND id != 5)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [94c41bfb-0e32-48fb-9c69-88f2db133105] Performed CreateNotificationsJob (Job ID: 94c41bfb-0e32-48fb-9c69-88f2db133105) from Async(default) in 2.86ms
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  Rendered home/_chat.html.erb (1.6ms)
+  Rendered home/_chats_index.html.erb (0.5ms)
+  Rendered home/profile.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 50ms (Views: 40.9ms | ActiveRecord: 1.8ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:34 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:54:34 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:34 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/profile/gift_list?id=2&list_type=1" for 192.168.1.249 at 2018-06-12 07:54:36 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#gift as HTML
+  Parameters: {"id"=>"2", "list_type"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/gift.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 2], ["list_type", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (4.3ms)
+  Rendered ads/gift.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 49ms (Views: 40.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:54:39 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  Rendered home/_chat.html.erb (1.5ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 57ms (Views: 49.3ms | ActiveRecord: 1.3ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:39 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:54:39 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:54:39 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:55:50 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=giorgio&commit=Search" for 192.168.1.89 at 2018-06-12 07:55:51 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["giorgio"], "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username iLIKE'%giorgio%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username iLIKE'%giorgio%')[0m
+  Rendered home/users_list.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 43ms (Views: 35.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:55:51 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:55:51 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:55:54 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  Rendered home/_chat.html.erb (1.6ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 63ms (Views: 55.6ms | ActiveRecord: 1.6ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:55:54 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:55:55 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:55:55 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started POST "/create_chat" for 192.168.1.89 at 2018-06-12 07:56:00 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#create_chat as JSON
+  Parameters: {"guest_id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.3ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-12 05:56:00.213617"], ["updated_at", "2018-06-12 05:56:00.213617"], ["owner_id", 3], ["guest_id", 2]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_2: {:type=>"create_chat"}
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 12.5ms)
+
+
+MailboxChannel transmitting {"type"=>"create_chat"} (via streamed from mailbox_2)
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:56:00 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (3.1ms)
+  Rendered home/profile.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 61ms (Views: 52.5ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:56:00 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:56:00 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:56:00 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:56:48 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=giorgio&commit=Search" for 192.168.1.89 at 2018-06-12 07:56:48 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["giorgio"], "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username iLIKE'%giorgio%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username iLIKE'%giorgio%')[0m
+  Rendered home/users_list.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 50ms (Views: 42.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:56:49 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:56:49 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:56:53 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/" for 192.168.1.89 at 2018-06-12 07:56:53 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (2.9ms)
+  Rendered home/welcome.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 645ms (Views: 53.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:56:54 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:56:54 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:56:55 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/profile/3" for 192.168.1.89 at 2018-06-12 07:56:55 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (4.7ms)
+  Rendered home/profile.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 58ms (Views: 49.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:56:56 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:56:56 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/profile/wish_list?id=3&list_type=0" for 192.168.1.89 at 2018-06-12 07:57:02 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  Rendered _ads_list.html.erb (8.8ms)
+  Rendered ads/wish.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 55ms (Views: 48.4ms | ActiveRecord: 1.2ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:57:05 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/users/profile/3" for 192.168.1.89 at 2018-06-12 07:57:05 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (4.4ms)
+  Rendered home/profile.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 55ms (Views: 44.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:57:06 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:57:06 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:57:12 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=neanche+gli+dei&commit=Search" for 192.168.1.89 at 2018-06-12 07:57:12 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["neanche gli dei"], "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (52.5ms)
+Completed 200 OK in 711ms (Views: 94.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:57:14 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:57:14 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/profile/wish_list?id=2&list_type=0" for 192.168.1.249 at 2018-06-12 07:57:23 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"2", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 2], ["list_type", 0]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (5.5ms)
+  Rendered ads/wish.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 98ms (Views: 90.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:57:25 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (4.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (4.5ms)
+  Rendered home/profile.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 100ms (Views: 90.4ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:57:25 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:57:25 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:57:25 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:57:28 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=NONE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=NO_PAGES&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3DJ2X7HAAACAAJ%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=IgDKT069634&book%5Bid%5D%5Bid%5D=J2X7HAAACAAJ&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=false&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=NOT_FOR_SALE&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2FJ2X7HAAACAAJ&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Isaac+Asimov&book%5Bid%5D%5BvolumeInfo%5D%5BaverageRating%5D=3.0&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fbooks.google.com%2Fbooks%2Fabout%2FNeanche_gli_dei.html%3Fhl%3D%26id%3DJ2X7HAAACAAJ&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Fiction&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=preview-1.0.0&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DJ2X7HAAACAAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DJ2X7HAAACAAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=8804406836&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9788804406839&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DJ2X7HAAACAAJ%26dq%3Dneanche%2Bgli%2Bdei%26hl%3D%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=it&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=336&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DJ2X7HAAACAAJ%26dq%3Dneanche%2Bgli%2Bdei%26hl%3D%26cd%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=1995&book%5Bid%5D%5BvolumeInfo%5D%5BratingsCount%5D=3&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=Neanche+gli+dei&book%5Blist_type%5D=1" for 192.168.1.89 at 2018-06-12 07:57:28 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#create as HTML
+  Parameters: {"authenticity_token"=>"TUzIL/QnuiR0Z6WVZaPQi6+z7IOGcffIhGLXgP+jxtgVd5efigceGqLX9hF4YwG/gJfmWHThGburNFqQsqCwbA==", "book"=>{"id"=>{"accessInfo"=>{"accessViewStatus"=>"NONE", "country"=>"IT", "embeddable"=>"false", "epub"=>{"isAvailable"=>"false"}, "pdf"=>{"isAvailable"=>"false"}, "publicDomain"=>"false", "quoteSharingAllowed"=>"false", "textToSpeechPermission"=>"ALLOWED", "viewability"=>"NO_PAGES", "webReaderLink"=>"http://play.google.com/books/reader?id=J2X7HAAACAAJ&hl=&printsec=frontcover&source=gbs_api"}, "etag"=>"IgDKT069634", "id"=>"J2X7HAAACAAJ", "kind"=>"books#volume", "saleInfo"=>{"country"=>"IT", "isEbook"=>"false", "saleability"=>"NOT_FOR_SALE"}, "selfLink"=>"https://www.googleapis.com/books/v1/volumes/J2X7HAAACAAJ", "volumeInfo"=>{"allowAnonLogging"=>"false", "authors"=>["Isaac Asimov"], "averageRating"=>"3.0", "canonicalVolumeLink"=>"https://books.google.com/books/about/Neanche_gli_dei.html?hl=&id=J2X7HAAACAAJ", "categories"=>["Fiction"], "contentVersion"=>"preview-1.0.0", "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=J2X7HAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api", "thumbnail"=>"http://books.google.com/books/content?id=J2X7HAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"}, "industryIdentifiers"=>[{"identifier"=>"8804406836", "type"=>"ISBN_10"}, {"identifier"=>"9788804406839", "type"=>"ISBN_13"}], "infoLink"=>"http://books.google.it/books?id=J2X7HAAACAAJ&dq=neanche+gli+dei&hl=&source=gbs_api", "language"=>"it", "maturityRating"=>"NOT_MATURE", "pageCount"=>"336", "previewLink"=>"http://books.google.it/books?id=J2X7HAAACAAJ&dq=neanche+gli+dei&hl=&cd=1&source=gbs_api", "printType"=>"BOOK", "publishedDate"=>"1995", "ratingsCount"=>"3", "readingModes"=>{"image"=>"false", "text"=>"false"}, "title"=>"Neanche gli dei"}}, "list_type"=>"1"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."google_id" = $2 AND "ads"."list_type" = $3[0m  [["user_id", 3], ["google_id", "J2X7HAAACAAJ"], ["list_type", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "vincenzo"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ads" ("list_type", "book_title", "book_authors", "link_to_coverbook", "publisher", "identifier", "user_id", "created_at", "updated_at", "google_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["list_type", 1], ["book_title", "Neanche gli dei"], ["book_authors", "[\"Isaac Asimov\"]"], ["link_to_coverbook", "http://books.google.com/books/content?id=J2X7HAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"], ["publisher", "not specified"], ["identifier", "[\"ISBN_10\", \"8804406836\"]"], ["user_id", 3], ["created_at", "2018-06-12 05:57:28.239683"], ["updated_at", "2018-06-12 05:57:28.239683"], ["google_id", "J2X7HAAACAAJ"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://192.168.1.85:3000/users/profile/3
+[ActiveJob] Enqueued CreateNotificationsJob (Job ID: 1c6254d7-2a04-43ca-9e9b-35bd91d590d6) to Async(default) with arguments: #<GlobalID:0x00007ff930cf0540 @uri=#<URI::GID gid://flealibrary/Ad/6>>
+Completed 302 Found in 30ms (ActiveRecord: 11.9ms)
+
+
+  [1m[36mAd Load (1.1ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [1c6254d7-2a04-43ca-9e9b-35bd91d590d6] Performing CreateNotificationsJob (Job ID: 1c6254d7-2a04-43ca-9e9b-35bd91d590d6) from Async(default) with arguments: #<GlobalID:0x00007ff934ea37a8 @uri=#<URI::GID gid://flealibrary/Ad/6>>
+[ActiveJob] [CreateNotificationsJob] [1c6254d7-2a04-43ca-9e9b-35bd91d590d6]   [1m[36mAd Load (0.9ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (LOWER(book_title) = 'neanche gli dei' AND id != 6)[0m
+[ActiveJob] [CreateNotificationsJob] [1c6254d7-2a04-43ca-9e9b-35bd91d590d6] Performed CreateNotificationsJob (Job ID: 1c6254d7-2a04-43ca-9e9b-35bd91d590d6) from Async(default) in 2.49ms
+Started GET "/users/profile/3" for 192.168.1.89 at 2018-06-12 07:57:28 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (4.7ms)
+  Rendered home/profile.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 61ms (Views: 52.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:57:29 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:57:29 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/profile/gift_list?id=3&list_type=1" for 192.168.1.89 at 2018-06-12 07:57:40 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#gift as HTML
+  Parameters: {"id"=>"3", "list_type"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/gift.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (4.0ms)
+  Rendered ads/gift.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 56ms (Views: 48.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/profile/gift_list?id=2&list_type=1" for 192.168.1.249 at 2018-06-12 07:57:50 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#gift as HTML
+  Parameters: {"id"=>"2", "list_type"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/gift.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 2], ["list_type", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (3.6ms)
+  Rendered ads/gift.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 53ms (Views: 46.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:57:51 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (3.6ms)
+  Rendered home/profile.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 66ms (Views: 58.4ms | ActiveRecord: 2.1ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:57:51 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:57:51 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:57:51 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/profile/wish_list?id=2&list_type=0" for 192.168.1.249 at 2018-06-12 07:57:52 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"2", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 2], ["list_type", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (3.6ms)
+  Rendered ads/wish.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 63ms (Views: 56.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:57:55 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (3.2ms)
+  Rendered home/profile.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 62ms (Views: 53.7ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:57:55 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:57:55 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:57:55 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:00 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/users/profile/3" for 192.168.1.89 at 2018-06-12 07:58:00 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (4.8ms)
+  Rendered home/profile.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 60ms (Views: 51.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:58:00 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:00 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/profile/wish_list?id=3&list_type=0" for 192.168.1.89 at 2018-06-12 07:58:04 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"3", "list_type"=>"0"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 0]]
+  Rendered _ads_list.html.erb (2.1ms)
+  Rendered ads/wish.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 51ms (Views: 43.7ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:06 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/users/profile/3" for 192.168.1.89 at 2018-06-12 07:58:06 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (5.1ms)
+  Rendered home/profile.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 67ms (Views: 57.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:58:07 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:07 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started GET "/profile/gift_list?id=3&list_type=1" for 192.168.1.89 at 2018-06-12 07:58:10 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#gift as HTML
+  Parameters: {"id"=>"3", "list_type"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering ads/gift.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 3], ["list_type", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (3.7ms)
+  Rendered ads/gift.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 53ms (Views: 46.0ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:13 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/users/profile/3" for 192.168.1.89 at 2018-06-12 07:58:13 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.6ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (5.0ms)
+  Rendered home/profile.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 58ms (Views: 48.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:58:14 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:14 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:27 +0200
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/books_results?utf8=%E2%9C%93&search%5B%5D=la+fine+dell%27eternit%C3%A0&commit=Search" for 192.168.1.89 at 2018-06-12 07:58:27 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#books_results as HTML
+  Parameters: {"utf8"=>"✓", "search"=>["la fine dell'eternità"], "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/books_results.html.erb within layouts/application
+  Rendered home/books_results.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 797ms (Views: 82.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:58:29 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:29 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/profile/wish_list?id=2&list_type=0" for 192.168.1.249 at 2018-06-12 07:58:36 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#wish as HTML
+  Parameters: {"id"=>"2", "list_type"=>"0"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ads/wish.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."list_type" = $2[0m  [["user_id", 2], ["list_type", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (3.5ms)
+  Rendered ads/wish.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 44ms (Views: 37.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:58:38 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (2.8ms)
+  Rendered home/profile.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 68ms (Views: 59.5ms | ActiveRecord: 2.3ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:58:38 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:58:38 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:58:38 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:42 +0200
+MailboxChannel stopped streaming from mailbox_
+Started POST "/ads?book%5Bid%5D%5BaccessInfo%5D%5BaccessViewStatus%5D=NONE&book%5Bid%5D%5BaccessInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BaccessInfo%5D%5Bembeddable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bepub%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5Bpdf%5D%5BisAvailable%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BpublicDomain%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BquoteSharingAllowed%5D=false&book%5Bid%5D%5BaccessInfo%5D%5BtextToSpeechPermission%5D=ALLOWED&book%5Bid%5D%5BaccessInfo%5D%5Bviewability%5D=NO_PAGES&book%5Bid%5D%5BaccessInfo%5D%5BwebReaderLink%5D=http%3A%2F%2Fplay.google.com%2Fbooks%2Freader%3Fid%3DGL2pAAAACAAJ%26hl%3D%26printsec%3Dfrontcover%26source%3Dgbs_api&book%5Bid%5D%5Betag%5D=sSqNp%2Fa%2F078&book%5Bid%5D%5Bid%5D=GL2pAAAACAAJ&book%5Bid%5D%5Bkind%5D=books%23volume&book%5Bid%5D%5BsaleInfo%5D%5Bcountry%5D=IT&book%5Bid%5D%5BsaleInfo%5D%5BisEbook%5D=false&book%5Bid%5D%5BsaleInfo%5D%5Bsaleability%5D=NOT_FOR_SALE&book%5Bid%5D%5BselfLink%5D=https%3A%2F%2Fwww.googleapis.com%2Fbooks%2Fv1%2Fvolumes%2FGL2pAAAACAAJ&book%5Bid%5D%5BvolumeInfo%5D%5BallowAnonLogging%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Bauthors%5D%5B%5D=Isaac+Asimov&book%5Bid%5D%5BvolumeInfo%5D%5BaverageRating%5D=4.5&book%5Bid%5D%5BvolumeInfo%5D%5BcanonicalVolumeLink%5D=https%3A%2F%2Fbooks.google.com%2Fbooks%2Fabout%2FLa_fine_dell_eternit%25C3%25A0.html%3Fhl%3D%26id%3DGL2pAAAACAAJ&book%5Bid%5D%5BvolumeInfo%5D%5Bcategories%5D%5B%5D=Fiction&book%5Bid%5D%5BvolumeInfo%5D%5BcontentVersion%5D=preview-1.0.0&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5BsmallThumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DGL2pAAAACAAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BimageLinks%5D%5Bthumbnail%5D=http%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DGL2pAAAACAAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=8804414510&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_10&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Bidentifier%5D=9788804414513&book%5Bid%5D%5BvolumeInfo%5D%5BindustryIdentifiers%5D%5B%5D%5Btype%5D=ISBN_13&book%5Bid%5D%5BvolumeInfo%5D%5BinfoLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DGL2pAAAACAAJ%26dq%3Dla%2Bfine%2Bdell%2527eternit%25C3%25A0%26hl%3D%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5Blanguage%5D=it&book%5Bid%5D%5BvolumeInfo%5D%5BmaturityRating%5D=NOT_MATURE&book%5Bid%5D%5BvolumeInfo%5D%5BpageCount%5D=238&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsEpubBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpanelizationSummary%5D%5BcontainsImageBubbles%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BpreviewLink%5D=http%3A%2F%2Fbooks.google.it%2Fbooks%3Fid%3DGL2pAAAACAAJ%26dq%3Dla%2Bfine%2Bdell%2527eternit%25C3%25A0%26hl%3D%26cd%3D1%26source%3Dgbs_api&book%5Bid%5D%5BvolumeInfo%5D%5BprintType%5D=BOOK&book%5Bid%5D%5BvolumeInfo%5D%5BpublishedDate%5D=1996&book%5Bid%5D%5BvolumeInfo%5D%5Bpublisher%5D=Oscar+bestsellers&book%5Bid%5D%5BvolumeInfo%5D%5BratingsCount%5D=4&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Bimage%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5BreadingModes%5D%5Btext%5D=false&book%5Bid%5D%5BvolumeInfo%5D%5Btitle%5D=La+fine+dell%27eternit%C3%A0&book%5Blist_type%5D=1" for 192.168.1.89 at 2018-06-12 07:58:42 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdsController#create as HTML
+  Parameters: {"authenticity_token"=>"eWPrjSivo2ZkuWlwA5LoWczll+/ktf5lgygQl7VSKAUhWLQ9Vo8HWLIJOvQeUjlt48GdNBYlEBasfp2H+FFesQ==", "book"=>{"id"=>{"accessInfo"=>{"accessViewStatus"=>"NONE", "country"=>"IT", "embeddable"=>"false", "epub"=>{"isAvailable"=>"false"}, "pdf"=>{"isAvailable"=>"false"}, "publicDomain"=>"false", "quoteSharingAllowed"=>"false", "textToSpeechPermission"=>"ALLOWED", "viewability"=>"NO_PAGES", "webReaderLink"=>"http://play.google.com/books/reader?id=GL2pAAAACAAJ&hl=&printsec=frontcover&source=gbs_api"}, "etag"=>"sSqNp/a/078", "id"=>"GL2pAAAACAAJ", "kind"=>"books#volume", "saleInfo"=>{"country"=>"IT", "isEbook"=>"false", "saleability"=>"NOT_FOR_SALE"}, "selfLink"=>"https://www.googleapis.com/books/v1/volumes/GL2pAAAACAAJ", "volumeInfo"=>{"allowAnonLogging"=>"false", "authors"=>["Isaac Asimov"], "averageRating"=>"4.5", "canonicalVolumeLink"=>"https://books.google.com/books/about/La_fine_dell_eternit%C3%A0.html?hl=&id=GL2pAAAACAAJ", "categories"=>["Fiction"], "contentVersion"=>"preview-1.0.0", "imageLinks"=>{"smallThumbnail"=>"http://books.google.com/books/content?id=GL2pAAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api", "thumbnail"=>"http://books.google.com/books/content?id=GL2pAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"}, "industryIdentifiers"=>[{"identifier"=>"8804414510", "type"=>"ISBN_10"}, {"identifier"=>"9788804414513", "type"=>"ISBN_13"}], "infoLink"=>"http://books.google.it/books?id=GL2pAAAACAAJ&dq=la+fine+dell%27eternit%C3%A0&hl=&source=gbs_api", "language"=>"it", "maturityRating"=>"NOT_MATURE", "pageCount"=>"238", "panelizationSummary"=>{"containsEpubBubbles"=>"false", "containsImageBubbles"=>"false"}, "previewLink"=>"http://books.google.it/books?id=GL2pAAAACAAJ&dq=la+fine+dell%27eternit%C3%A0&hl=&cd=1&source=gbs_api", "printType"=>"BOOK", "publishedDate"=>"1996", "publisher"=>"Oscar bestsellers", "ratingsCount"=>"4", "readingModes"=>{"image"=>"false", "text"=>"false"}, "title"=>"La fine dell'eternità"}}, "list_type"=>"1"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1 AND "ads"."google_id" = $2 AND "ads"."list_type" = $3[0m  [["user_id", 3], ["google_id", "GL2pAAAACAAJ"], ["list_type", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "vincenzo"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (9.3ms)[0m  [1m[32mINSERT INTO "ads" ("list_type", "book_title", "book_authors", "link_to_coverbook", "publisher", "identifier", "user_id", "created_at", "updated_at", "google_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["list_type", 1], ["book_title", "La fine dell'eternità"], ["book_authors", "[\"Isaac Asimov\"]"], ["link_to_coverbook", "http://books.google.com/books/content?id=GL2pAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"], ["publisher", "Oscar bestsellers"], ["identifier", "[\"ISBN_10\", \"8804414510\"]"], ["user_id", 3], ["created_at", "2018-06-12 05:58:42.461308"], ["updated_at", "2018-06-12 05:58:42.461308"], ["google_id", "GL2pAAAACAAJ"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://192.168.1.85:3000/users/profile/3
+[ActiveJob] Enqueued CreateNotificationsJob (Job ID: 363dcdd7-b19f-405c-80ec-4f7c9238e6d0) to Async(default) with arguments: #<GlobalID:0x00007ff930356ca0 @uri=#<URI::GID gid://flealibrary/Ad/7>>
+Completed 302 Found in 30ms (ActiveRecord: 12.0ms)
+
+
+  [1m[36mAd Load (1.0ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0] Performing CreateNotificationsJob (Job ID: 363dcdd7-b19f-405c-80ec-4f7c9238e6d0) from Async(default) with arguments: #<GlobalID:0x00007ff9301d6268 @uri=#<URI::GID gid://flealibrary/Ad/7>>
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE (LOWER(book_title) = 'la fine dell''eternità' AND id != 7)[0m
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/users/profile/3" for 192.168.1.89 at 2018-06-12 07:58:42 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "notifications" ("created_at", "updated_at", "user_id", "ad_id", "displayed") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-12 05:58:42.510086"], ["updated_at", "2018-06-12 05:58:42.510086"], ["user_id", 3], ["ad_id", 4], ["displayed", 0]]
+  Rendering home/profile.html.erb within layouts/application
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChat Load (1.3ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Load (1.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (5.5ms)
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35mSQL (3.7ms)[0m  [1m[32mINSERT INTO "notifications" ("created_at", "updated_at", "user_id", "ad_id", "displayed") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-12 05:58:42.531190"], ["updated_at", "2018-06-12 05:58:42.531190"], ["user_id", 2], ["ad_id", 7], ["displayed", 0]]
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (7.6ms)
+  Rendered home/profile.html.erb within layouts/application (22.6ms)
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[36mUser Exists (11.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "vincenzo"], ["id", 3], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "notifications_counter" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["notifications_counter", 1], ["updated_at", "2018-06-12 05:58:42.561034"], ["id", 3]]
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35m (9.3ms)[0m  [1m[35mBEGIN[0m
+Completed 200 OK in 78ms (Views: 65.6ms | ActiveRecord: 5.2ms)
+
+
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "giorgio"], ["id", 2], ["LIMIT", 1]]
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "notifications_counter" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["notifications_counter", 1], ["updated_at", "2018-06-12 05:58:42.596684"], ["id", 2]]
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0]   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0] [ActionCable] Broadcasting to mailbox_3: {:type=>"new_notification"}
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0] [ActionCable] Broadcasting to mailbox_2: {:type=>"new_notification"}
+[ActiveJob] [CreateNotificationsJob] [363dcdd7-b19f-405c-80ec-4f7c9238e6d0] Performed CreateNotificationsJob (Job ID: 363dcdd7-b19f-405c-80ec-4f7c9238e6d0) from Async(default) in 120.97ms
+MailboxChannel transmitting {"type"=>"new_notification"} (via streamed from mailbox_2)
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 07:58:42 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  Rendered home/_chat.html.erb (3.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (3.1ms)
+  Rendered home/profile.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 66ms (Views: 56.0ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:58:42 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 07:58:42 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 07:58:42 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/cable" for 192.168.1.89 at 2018-06-12 07:58:43 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 07:58:43 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started POST "/send_message" for 192.168.1.89 at 2018-06-12 07:59:07 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"3", "text"=>"ciao giorgione"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "chat_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-12 05:59:07.778592"], ["updated_at", "2018-06-12 05:59:07.778592"], ["text", "ciao giorgione"], ["chat_id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_2: {:type=>"message", :chat_id=>3, :text=>"ciao giorgione"}
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 14.4ms)
+
+
+MailboxChannel transmitting {"type"=>"message", "chat_id"=>3, "text"=>"ciao giorgione"} (via streamed from mailbox_2)
+Started POST "/send_message" for 192.168.1.249 at 2018-06-12 07:59:19 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"3", "text"=>"ciao vincenzone"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChat Load (0.3ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "from", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-12 05:59:19.455689"], ["updated_at", "2018-06-12 05:59:19.455689"], ["text", "ciao vincenzone"], ["from", 1], ["chat_id", 3]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_3: {:type=>"message", :chat_id=>3, :text=>"ciao vincenzone"}
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 12.5ms)
+
+
+MailboxChannel transmitting {"type"=>"message", "chat_id"=>3, "text"=>"ciao vincenzone"} (via streamed from mailbox_3)
+Started POST "/send_message" for 192.168.1.249 at 2018-06-12 07:59:23 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"3", "text"=>"come va?"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "from", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-12 05:59:23.742291"], ["updated_at", "2018-06-12 05:59:23.742291"], ["text", "come va?"], ["from", 1], ["chat_id", 3]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_3: {:type=>"message", :chat_id=>3, :text=>"come va?"}
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 12.2ms)
+
+
+MailboxChannel transmitting {"type"=>"message", "chat_id"=>3, "text"=>"come va?"} (via streamed from mailbox_3)
+Started POST "/send_message" for 192.168.1.249 at 2018-06-12 07:59:30 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"3", "text"=>"ti piace questa app?"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "from", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-12 05:59:30.190169"], ["updated_at", "2018-06-12 05:59:30.190169"], ["text", "ti piace questa app?"], ["from", 1], ["chat_id", 3]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_3: {:type=>"message", :chat_id=>3, :text=>"ti piace questa app?"}
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 12.3ms)
+
+
+MailboxChannel transmitting {"type"=>"message", "chat_id"=>3, "text"=>"ti piace questa app?"} (via streamed from mailbox_3)
+Started POST "/send_message" for 192.168.1.89 at 2018-06-12 07:59:38 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"3", "text"=>"si sembra fatta bene"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "chat_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-12 05:59:38.180633"], ["updated_at", "2018-06-12 05:59:38.180633"], ["text", "si sembra fatta bene"], ["chat_id", 3]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_2: {:type=>"message", :chat_id=>3, :text=>"si sembra fatta bene"}
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 12.4ms)
+
+
+MailboxChannel transmitting {"type"=>"message", "chat_id"=>3, "text"=>"si sembra fatta bene"} (via streamed from mailbox_2)
+Started POST "/send_message" for 192.168.1.89 at 2018-06-12 07:59:44 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"3", "text"=>"la chat è fantastica"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "chat_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-12 05:59:44.625146"], ["updated_at", "2018-06-12 05:59:44.625146"], ["text", "la chat è fantastica"], ["chat_id", 3]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_2: {:type=>"message", :chat_id=>3, :text=>"la chat è fantastica"}
+Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 12.1ms)
+
+
+MailboxChannel transmitting {"type"=>"message", "chat_id"=>3, "text"=>"la chat è fantastica"} (via streamed from mailbox_2)
+Started POST "/send_message" for 192.168.1.89 at 2018-06-12 07:59:51 +0200
+Cannot render console from 192.168.1.89! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"3", "text"=>"nooo scorre anche da sola"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "chat_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-06-12 05:59:51.433283"], ["updated_at", "2018-06-12 05:59:51.433283"], ["text", "nooo scorre anche da sola"], ["chat_id", 3]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_2: {:type=>"message", :chat_id=>3, :text=>"nooo scorre anche da sola"}
+MailboxChannel transmitting {"type"=>"message", "chat_id"=>3, "text"=>"nooo scorre anche da sola"} (via streamed from mailbox_2)
+Completed 200 OK in 27ms (Views: 0.5ms | ActiveRecord: 12.1ms)
+
+
+Started POST "/send_message" for 192.168.1.249 at 2018-06-12 07:59:56 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"3", "text"=>"eh gia"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChat Load (0.3ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "from", "chat_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-06-12 05:59:56.608258"], ["updated_at", "2018-06-12 05:59:56.608258"], ["text", "eh gia"], ["from", 1], ["chat_id", 3]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_3: {:type=>"message", :chat_id=>3, :text=>"eh gia"}
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 11.8ms)
+
+
+MailboxChannel transmitting {"type"=>"message", "chat_id"=>3, "text"=>"eh gia"} (via streamed from mailbox_3)
+Started GET "/notifications" for 192.168.1.249 at 2018-06-12 08:00:05 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by NotificationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "notifications" SET "displayed" = $1, "updated_at" = $2 WHERE "notifications"."id" = $3[0m  [["displayed", 1], ["updated_at", "2018-06-12 06:00:05.526417"], ["id", 4]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "giorgio"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "notifications_counter" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["notifications_counter", 0], ["updated_at", "2018-06-12 06:00:05.545313"], ["id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (3.1ms)
+  Rendered _ads_list.html.erb (0.0ms)
+  Rendered notifications/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 83ms (Views: 45.8ms | ActiveRecord: 11.0ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:05 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 08:00:05 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:05 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/notifications" for 192.168.1.249 at 2018-06-12 08:00:09 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by NotificationsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.9ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT  "ads".* FROM "ads" WHERE "ads"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "giorgio"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering notifications/index.html.erb within layouts/application
+  Rendered _ads_list.html.erb (0.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (1.9ms)
+  Rendered notifications/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 73ms (Views: 54.1ms | ActiveRecord: 3.3ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:09 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 08:00:09 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:09 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile/2" for 192.168.1.249 at 2018-06-12 08:00:10 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 3]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (7.4ms)
+  Rendered home/_chats_index.html.erb (1.2ms)
+  Rendered home/profile.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 64ms (Views: 55.2ms | ActiveRecord: 2.8ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:10 +0200
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 08:00:10 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:10 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/admin_panel" for 192.168.1.249 at 2018-06-12 08:00:16 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#admin_panel as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/admin_panel.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY username[0m
+  Rendered home/admin_panel.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 72ms (Views: 56.9ms | ActiveRecord: 1.5ms)
+
+
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:16 +0200
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 192.168.1.249 at 2018-06-12 08:00:17 +0200
+Cannot render console from 192.168.1.249! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:17 +0200
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Finished "/cable/" [WebSocket] for 192.168.1.249 at 2018-06-12 08:00:41 +0200
+MailboxChannel stopped streaming from mailbox_
+Finished "/cable/" [WebSocket] for 192.168.1.89 at 2018-06-12 08:00:51 +0200
+MailboxChannel stopped streaming from mailbox_3
