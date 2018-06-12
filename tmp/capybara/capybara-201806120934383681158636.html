@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flealibrary</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="all" href="/assets/application-33ac8ff1f5b639055e95f500c813468d392302387e43906753a33b5de774a29c.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-019de1445b665f2a8ca6cd4293d67c25d322d7527e3f5a4d411f19dd029f27a9.js" data-turbolinks-track="reload"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="screen" href="https://bootswatch.com/4/sketchy/bootstrap.min.css" />
+  </head>
+
+  <body>
+
+  <div class="col-md-12 flash_container">
+      <div class="alert alert-dismissible alert-warning">No result found</div>
+  </div>
+
+  <h1 class="display-3 title">FLEA LIBRARY</h1>
+
+  <div class="col-md-12 topnav">
+    <form class="button_to" method="get" action="/"><input class="btn-lg btn-warning" type="submit" value="HOME" /></form>
+          <form class="button_to" method="get" action="/users/profile/427"><input class="btn-lg btn-success profile_btn" type="submit" value="USERNAME" /></form>
+          <form class="button_to" method="get" action="/notifications"><input class="btn-lg btn-outline-primary notifications_btn" id="notifications_btn" type="submit" value="Notifications: 0" /></form>
+          <form class="button_to" method="post" action="/users/sign_out"><input type="hidden" name="_method" value="delete" /><input class="btn-lg btn-danger logout_btn" id="logoutbutton" type="submit" value="Log out" /></form>
+  </div>
+
+  <div class="home-container center" id="homepage">
+
+	<div class="col-md-6">
+		<form id="search-form" class="form-group" action="/ads_list" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+		<input placeholder="Search Ads" type="text" name="search[]" id="search_" />
+		<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+</form>	</div>
+
+	<div class="col-md-6" id="searchuser">
+		<form id="search-form2" class="form-group" action="/users_list" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+		<input placeholder="Search User" id="textform" type="text" name="search[]" />
+		<input type="submit" name="commit" value="Search" id="searchbutton" data-disable-with="Search" />
+</form>	</div>
+
+	<h3>
+		Recent ads<br>
+	</h3>
+
+	<div class="ad_container">
+
+</div>
+
+</div>
+
+</body>
+</html>

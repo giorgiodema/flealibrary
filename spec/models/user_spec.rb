@@ -52,4 +52,11 @@ RSpec.describe User, type: :model do
     user2 = User.create(:name => "name2", :surname => "surname2", :username => "username2", :email => "email@test.it", :password => "minimo", :password_confirmation => "minimo", :radius => "30", :cap => "00015")
     expect(user2).not_to be_valid
   end
+
+  it "Invalid same username" do
+    user1 = User.create(:name => "name1", :surname => "surname1", :username => "username1", :email => "email1@test.it", :password => "minimo", :password_confirmation => "minimo", :radius => "30", :cap => "00015")
+    user2 = User.create(:name => "name2", :surname => "surname2", :username => "username1", :email => "email2@test.it", :password => "minimo", :password_confirmation => "minimo", :radius => "30", :cap => "00015")
+    expect(user2).not_to be_valid
+  end
+
 end

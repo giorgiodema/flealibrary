@@ -4,7 +4,7 @@ Feature: Admin
     so that I CAN DELETE AND PROMOTE USERS
 
 Scenario: Admin successful access
-    Given I exist as "admin"
+    Given I exist as "booklover"
 	When I login
     Then I should be signed in
     And I should see "Signed in successfully." message

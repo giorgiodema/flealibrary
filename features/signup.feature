@@ -12,5 +12,4 @@ Scenario: Successful signup
 Scenario: Failed signup
     Given I don't exist as "booklover"
     When I register as email, minimo
-    Then I should be in signup page
-    And I should see "errors" message
+    Then I should see "errors" message

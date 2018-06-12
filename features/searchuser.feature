@@ -6,6 +6,7 @@ Feature: SearchUser
 Scenario: Successful SearchUser
     Given I am logged in as other user
 	And I am in home page
+	And another user exists
 	When I search "name_test" user
 	Then I should be in users_list page
 	And I should see "name_test"

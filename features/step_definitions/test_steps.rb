@@ -18,17 +18,17 @@ def signup(email, password)
     click_button('Sign up registration')
 end
 
-def searchuser(name)
-    fill_in "Search User", :with => name
+def searchuser
+    fill_in "textform", :with => "name_test"
     click_button("searchbutton")
 end
 
 def create_user(role)
-    User.new(:name=>'name_test', :surname=>'surname_test', :username=>'username_test', :email=>'email@test.it', :password=>'password', :cap=>'00015', :radius=>'30', :role=>role).save!
+    User.create(:name=>'name_test', :surname=>'surname_test', :username=>'username_test', :email=>'email@test.it', :password=>'password', :cap=>'00015', :radius=>'30', :role=>role)
 end
 
 def create_another_user(role)
-    User.new(:name=>'name', :surname=>'surname', :username=>'username', :email=>'email@email.it', :password=>'password', :cap=>'00015', :radius=>'30', :role=>role).save!
+    User.create(:name=>'name', :surname=>'surname', :username=>'username', :email=>'email@email.it', :password=>'password', :cap=>'00015', :radius=>'30', :role=>role)
 end
 
 def find_user
@@ -58,7 +58,7 @@ end
 Given /^I am logged in as other user$/ do
     create_another_user("booklover")
     @user = find_another_user
-    login(@user.email, @user.password)
+    login(@user.email, 'password')
 end
 
 Given /^I am in (.+) page$/ do |page|
@@ -67,13 +67,17 @@ Given /^I am in (.+) page$/ do |page|
     end
 end
 
+Given /^another user exists$/ do
+    create_user('booklover')
+end
+
 #WHEN
 When /^I login$/ do
     @user = find_user
     if @user == nil
         login('mail@test.it', 'password')
     else 
-        login(@user.email, @user.password)
+        login(@user.email,'password')
     end
 end
 
@@ -83,7 +87,7 @@ When /^I register as (.+), (.+)$/ do |email, password|
 end
 
 When /^I search (.+) user$/ do |name|
-    searchuser(name)
+    searchuser
 end
 
 #THEN
@@ -108,5 +112,7 @@ Then /^I should be signed in$/ do
 end
 
 Then /^I should be in (.+) page$/ do |name|
-    page.has_content? name+"page"
+    save_and_open_page
+    id_page = '#'+name+'page'
+    find(id_page)
 end
