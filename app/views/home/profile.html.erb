@@ -40,7 +40,12 @@
     <div class="col-md-4 actions">
         <div class="list-group">
             <p class="list-group-item list-group-item-action active">
-                MY LIBRARY
+            <% if @user.id.to_s == current_user.id.to_s %>    <!-- se l'id passato e lo user corrispondono -->
+                MY LIBRARY                                    <!-- , sono nel mio profilo -->
+            <% else %>
+                <% owner = User.find(@user.id).username %>
+                <%= owner %>'s LIBRARY
+            <% end %>
             </p>
             <%if @user.id == current_user.id %>
                 <%= link_to "Favourite list", favourites_path, class:"list-group-item list-group-item-action"  %>
