@@ -42,7 +42,13 @@
         <%end%>
   </div>
 
-  <%= yield %>
+  <% if user.present? && user.role == "banned" %>
+    <div class="col-md-12 center">
+      <p class="text-danger">YOU ARE BANNED, YOU CAN DO NOTHING :) </p>
+    </div>
+  <% else %>
+    <%= yield %>
+  <% end %>
 
 </body>
 </html>

@@ -1,0 +1,15 @@
+I"(function() {
+  var hide_flash_container;
+
+  hide_flash_container = function() {
+    return $(".flash_container").hover(function() {
+      $(this).css("visibility", "hidden");
+    });
+  };
+
+  $(document).ready(function() {
+    hide_flash_container();
+  });
+
+}).call(this);
+:ET

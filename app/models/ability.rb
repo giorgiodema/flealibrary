@@ -13,6 +13,8 @@ class Ability
         cannot :admin_destroy_user, User, :role => "admin"
         cannot :admin_destroy_user, user, :id => user.id
         cannot :manage, User, :role => "superadmin"
+      elsif user.role == "banned"
+        cannot :manage, :all
       end
     end
     # Define abilities for the passed in user here. For example:
