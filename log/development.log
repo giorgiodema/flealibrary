@@ -14043,3 +14043,1193 @@ Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-30 17:29:16 +0100
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 MailboxChannel is transmitting the subscription confirmation
 MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:37:16 +0100
+  [1m[35m (6.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (4.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (134.2ms)
+  Rendered home/welcome.html.erb within layouts/application (148.2ms)
+Completed 200 OK in 611ms (Views: 540.6ms | ActiveRecord: 35.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:37:17 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:37:17 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:37:18 +0100
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 96ms (Views: 93.1ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:37:18 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:37:19 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:37:19 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:37:25 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+hCfdPtqNGPyTVQBTH0s4eZZSK71Ve44GfQGiTh43/+eyt64gOR/+GTzVCK9jbYUXLd/4L4p7vVZ8x26BJihGA==", "user"=>{"email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-10-31 07:37:25.880344"], ["last_sign_in_at", "2018-10-30 16:29:09.812147"], ["sign_in_count", 7], ["updated_at", "2018-10-31 07:37:25.881924"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/2
+Completed 302 Found in 188ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-10-31 08:37:25 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (3.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (1.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (78.0ms)
+  Rendered home/_chats_index.html.erb (3.2ms)
+  Rendered home/profile.html.erb within layouts/application (89.9ms)
+Completed 200 OK in 156ms (Views: 118.8ms | ActiveRecord: 21.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:37:26 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:37:26 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:37:26 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:37:28 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 78ms (Views: 72.0ms | ActiveRecord: 0.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:37:28 +0100
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:37:28 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:37:28 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users" for 127.0.0.1 at 2018-10-31 08:37:32 +0100
+Processing by Users::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SOj52UFSwzNt5d7LtvcFpf+dl89xwTCSru2unSXHFGgj4BlreSzpW57bmpNkCjNyALWhboZGrJTuDhih1Y2Kig=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mFavourite Load (1.8ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 4]]
+  [1m[36mNotification Load (2.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 4]]
+  [1m[35mSQL (2.4ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 4]]
+  [1m[36mFavourite Load (0.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 5]]
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 5]]
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 5]]
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mFavourite Load (0.5ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35mSQL (1.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 20.5ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_a229e37047" on table "chats"
+DETAIL:  Key (id)=(2) is still referenced from table "chats".
+: DELETE FROM "users" WHERE "users"."id" = $1):
+  
+app/controllers/users/registrations_controller.rb:33:in `destroy'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:37:33 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:40:23 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 145ms (Views: 90.8ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-10-31 08:40:29 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (2.3ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (1.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (70.0ms)
+  Rendered home/_chats_index.html.erb (2.1ms)
+  Rendered home/profile.html.erb within layouts/application (85.3ms)
+Completed 200 OK in 183ms (Views: 134.6ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:40:30 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:40:30 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:40:31 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 110ms (Views: 106.0ms | ActiveRecord: 0.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:40:31 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:40:31 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:40:31 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users" for 127.0.0.1 at 2018-10-31 08:40:35 +0100
+Processing by Users::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ESCxJl4EcF+p5db+HZE1uVUuZATdpjddxQ8onzKkMsZ6KFGUZnpaN1rbkqbPbANuqgZSpSohq1uF7J6jwu6sJA=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mFavourite Load (0.6ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 4]]
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 4]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 4]]
+  [1m[36mFavourite Load (0.7ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 5]]
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 5]]
+  [1m[35mSQL (2.7ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 5]]
+  [1m[36mNotification Load (0.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mFavourite Load (0.5ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 30.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column chats.user_id does not exist
+LINE 1: SELECT "chats".* FROM "chats" WHERE "chats"."user_id" = $1
+                                            ^
+HINT:  Perhaps you meant to reference the column "chats.owner_id".
+: SELECT "chats".* FROM "chats" WHERE "chats"."user_id" = $1):
+  
+app/controllers/users/registrations_controller.rb:33:in `destroy'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:40:36 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:40:40 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 114ms (Views: 108.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:40:43 +0100
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (5.8ms)
+  Rendered home/welcome.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 89ms (Views: 81.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:40:43 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:40:43 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:40:56 +0100
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:40:56 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-10-31 08:41:04 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (1.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (72.0ms)
+  Rendered home/_chats_index.html.erb (2.1ms)
+  Rendered home/profile.html.erb within layouts/application (405.7ms)
+Completed 200 OK in 575ms (Views: 480.7ms | ActiveRecord: 26.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:05 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:41:05 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:05 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:41:06 +0100
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAd Load (1.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 2]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _ads_list.html.erb (23.1ms)
+  Rendered home/welcome.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 111ms (Views: 85.5ms | ActiveRecord: 11.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:06 +0100
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:41:06 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:06 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-10-31 08:41:07 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.9ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 7]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (20.6ms)
+  Rendered home/_chats_index.html.erb (1.9ms)
+  Rendered home/profile.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 115ms (Views: 100.5ms | ActiveRecord: 6.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:07 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:41:07 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:07 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:41:08 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 106ms (Views: 98.4ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:08 +0100
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:41:08 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:08 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users" for 127.0.0.1 at 2018-10-31 08:41:11 +0100
+Processing by Users::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7ZSbXgnVkYnyu2L7bMQ1SoyNxK1z5trBBiSHizBQgLCGnHvsMau74QGFJqO+OQOdc6XyDIRhRsdGxzG3wBoeUg=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mFavourite Load (0.7ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 4]]
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 4]]
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 4]]
+  [1m[36mFavourite Load (0.4ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 5]]
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 5]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 5]]
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mFavourite Load (0.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 17.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column chats.user_id does not exist
+LINE 1: SELECT "chats".* FROM "chats" WHERE "chats"."user_id" = $1
+                                            ^
+HINT:  Perhaps you meant to reference the column "chats.owner_id".
+: SELECT "chats".* FROM "chats" WHERE "chats"."user_id" = $1):
+  
+app/controllers/users/registrations_controller.rb:33:in `destroy'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:41:12 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:45:08 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 153ms (Views: 94.2ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-10-31 08:45:09 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/_chat.html.erb (68.6ms)
+  Rendered home/_chats_index.html.erb (3.1ms)
+  Rendered home/profile.html.erb within layouts/application (85.4ms)
+Completed 200 OK in 166ms (Views: 125.4ms | ActiveRecord: 23.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:45:09 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:09 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_2
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:45:10 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 139ms (Views: 133.8ms | ActiveRecord: 0.9ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:11 +0100
+MailboxChannel stopped streaming from mailbox_2
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:45:11 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:11 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users" for 127.0.0.1 at 2018-10-31 08:45:15 +0100
+Processing by Users::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"54tEls6NYkz7mkGYmKvCt1xTJLgZWEQ8zvv+5F1eV2eMg6Qk9vNIJAikBcBKVvRgo3sSGe7f2DqOGEjYrRTJhQ=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 2 OR guest_id = 2)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 2]]
+  [1m[35mSQL (2.7ms)[0m  [1m[31mDELETE FROM "chats" WHERE "chats"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 7]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 10]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 11]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 12]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chats" WHERE "chats"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mFavourite Load (1.5ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 4]]
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 4]]
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 4]]
+  [1m[36mFavourite Load (0.5ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."ad_id" = $1[0m  [["ad_id", 5]]
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."ad_id" = $1[0m  [["ad_id", 5]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "ads" WHERE "ads"."id" = $1[0m  [["id", 5]]
+  [1m[36mNotification Load (1.2ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mFavourite Load (0.7ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+No template found for Users::RegistrationsController#destroy, rendering head :no_content
+Completed 204 No Content in 673ms (ActiveRecord: 34.7ms)
+
+
+Started GET "/users/profile/2" for 127.0.0.1 at 2018-10-31 08:45:27 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:45:27 +0100
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 88ms (Views: 83.2ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:27 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:45:27 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:27 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:45:45 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ltzHQ1SDJZvUGXa09gqQ7s0hTYgHVsIbGRQ+x1C8vIP91CfxbP0P8ycnMuwk96Y5Mgl7KfDRXh1Z94j7oPYiYQ==", "user"=>{"email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 15ms (ActiveRecord: 8.0ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ltzHQ1SDJZvUGXa09gqQ7s0hTYgHVsIbGRQ+x1C8vIP91CfxbP0P8ycnMuwk96Y5Mgl7KfDRXh1Z94j7oPYiYQ==", "user"=>{"email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 269ms (Views: 73.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:45:45 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:45 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:45:47 +0100
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 76ms (Views: 74.9ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:47 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:45:47 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:47 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-10-31 08:45:47 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 86ms (Views: 83.5ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:48 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:45:48 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:45:48 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-10-31 08:46:01 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0sA5v7OQrE6NCB6Yia3CEXgHbIigI148qNxxsaWZAxe5yNkNi+6GJn42WsBbUPTGhy9aKVekwjroP8eNVdOd9Q==", "user"=>{"name"=>"flavia", "surname"=>"monti", "username"=>"iaia", "cap"=>"00017", "radius"=>"5", "email"=>"flavia@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "iaia"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 245ms (Views: 65.0ms | ActiveRecord: 2.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:01 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:01 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:01 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:46:04 +0100
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 84ms (Views: 82.4ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:04 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:04 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:04 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:46:08 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"41ORp4QPNw5M61IujxskvoPzVsqiNMxYsRPN49j5IR6IW3EVvHEdZr/VFnZd5hJpfNtga1WzUF7x8HvfKLO//A==", "user"=>{"email"=>"flavia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-10-31 07:46:08.292073"], ["last_sign_in_at", "2018-10-30 16:24:22.944510"], ["sign_in_count", 3], ["updated_at", "2018-10-31 07:46:08.293222"], ["id", 7]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/7
+Completed 302 Found in 163ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/profile/7" for 127.0.0.1 at 2018-10-31 08:46:08 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 7 OR guest_id = 7)[0m
+  Rendered home/_chat.html.erb (4.8ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 84ms (Views: 66.7ms | ActiveRecord: 4.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:08 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:08 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:08 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-10-31 08:46:13 +0100
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3MY6gqGFYq/E8PRhtqb1d2dbu+e3KMg13L9p/1i51Lu3/ubow1K84/fJlh7VWqRlkDU2p6qiiDBDvCOjfiPOAw=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:46:13 +0100
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered _ads_list.html.erb (7.9ms)
+  Rendered home/welcome.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 92ms (Views: 77.2ms | ActiveRecord: 3.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:13 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:13 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:13 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-10-31 08:46:15 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 74ms (Views: 72.6ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:15 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:15 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:15 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-10-31 08:46:27 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XY2pEyVB9jU+Gx9ZEQaLCqEMynqQuFKlYXbPEYOE7rsdQFDwv5qKB520JjlZV0bAe4w3f3EL4r/F3VMbAhXNrw==", "user"=>{"name"=>"giorgio", "surname"=>"dema", "username"=>"gio", "cap"=>"00017", "radius"=>"5", "email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "gio"], ["LIMIT", 1]]
+  [1m[35mSQL (6.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "cap", "radius") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "giorgio"], ["surname", "dema"], ["username", "gio"], ["email", "giorgio@gmail.com"], ["encrypted_password", "$2a$11$1s.0fcNKr1w7/GcHW9zZD.D5uevk2tgicyUuj6Se.UFjc3DoUWc.y"], ["created_at", "2018-10-31 07:46:27.450041"], ["updated_at", "2018-10-31 07:46:27.450041"], ["cap", "00017"], ["radius", "5"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-10-31 07:46:27.459486"], ["last_sign_in_at", "2018-10-31 07:46:27.459486"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-10-31 07:46:27.460374"], ["id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/8
+Completed 302 Found in 177ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/users/profile/8" for 127.0.0.1 at 2018-10-31 08:46:27 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 8 OR guest_id = 8)[0m
+  Rendered home/_chat.html.erb (1.6ms)
+  Rendered home/_chats_index.html.erb (0.7ms)
+  Rendered home/profile.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 52ms (Views: 46.1ms | ActiveRecord: 1.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:27 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:27 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:27 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_8
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:46:31 +0100
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 8]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered _ads_list.html.erb (1.8ms)
+  Rendered home/welcome.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 51ms (Views: 43.9ms | ActiveRecord: 1.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:31 +0100
+MailboxChannel stopped streaming from mailbox_8
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:31 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:31 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/ads_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-10-31 08:46:33 +0100
+Processing by HomeController#ads_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "ads" WHERE (book_title iLIKE'%%')[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:46:33 +0100
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 8]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered _ads_list.html.erb (1.8ms)
+  Rendered home/welcome.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 49ms (Views: 42.0ms | ActiveRecord: 1.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:33 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:33 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:33 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-10-31 08:46:39 +0100
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username iLIKE'%%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username iLIKE'%%') ORDER BY name[0m
+  Rendered home/users_list.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 49ms (Views: 41.1ms | ActiveRecord: 3.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:40 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:40 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:40 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_8
+Started POST "/create_chat" for 127.0.0.1 at 2018-10-31 08:46:41 +0100
+Processing by ChatsController#create_chat as JSON
+  Parameters: {"guest_id"=>"7"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-10-31 07:46:41.527869"], ["updated_at", "2018-10-31 07:46:41.527869"], ["owner_id", 8], ["guest_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_7: {:type=>"create_chat"}
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/create_chat" for 127.0.0.1 at 2018-10-31 08:46:44 +0100
+Processing by ChatsController#create_chat as JSON
+  Parameters: {"guest_id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-10-31 07:46:44.056603"], ["updated_at", "2018-10-31 07:46:44.056603"], ["owner_id", 8], ["guest_id", 3]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_3: {:type=>"create_chat"}
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/profile/8" for 127.0.0.1 at 2018-10-31 08:46:46 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 8 OR guest_id = 8)[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 8]]
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 9]]
+  Rendered home/_chat.html.erb (11.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (8.8ms)
+  Rendered home/profile.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 76ms (Views: 66.5ms | ActiveRecord: 5.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:46 +0100
+MailboxChannel stopped streaming from mailbox_8
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:46 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:46 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_8
+Started POST "/send_message" for 127.0.0.1 at 2018-10-31 08:46:52 +0100
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"8", "text"=>"ciaoooo"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "chat_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-10-31 07:46:52.353130"], ["updated_at", "2018-10-31 07:46:52.353130"], ["text", "ciaoooo"], ["chat_id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_7: {:type=>"message", :chat_id=>8, :text=>"ciaoooo"}
+Completed 200 OK in 46ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/send_message" for 127.0.0.1 at 2018-10-31 08:46:55 +0100
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"9", "text"=>"ciaooooo"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "chat_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-10-31 07:46:55.608641"], ["updated_at", "2018-10-31 07:46:55.608641"], ["text", "ciaooooo"], ["chat_id", 9]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_3: {:type=>"message", :chat_id=>9, :text=>"ciaooooo"}
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:46:58 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 63ms (Views: 59.8ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:59 +0100
+MailboxChannel stopped streaming from mailbox_8
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:46:59 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:46:59 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users" for 127.0.0.1 at 2018-10-31 08:47:03 +0100
+Processing by Users::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SXHUpq/VlAmvsyDddvmm89GRcJI2zO7KvqkMXuw9KP4JvC1FNQ7oOwwcGb0+qGs5CxGNl9d/XtAaApBUbawL6g=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 8 OR guest_id = 8)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 8]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 13]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "chats" WHERE "chats"."id" = $1[0m  [["id", 8]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 9]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 14]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chats" WHERE "chats"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mFavourite Load (0.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 16.1ms)
+
+
+  
+NameError (undefined local variable or method `home_path' for #<Users::RegistrationsController:0x00007fa30c098a38>):
+  
+app/controllers/users/registrations_controller.rb:39:in `destroy'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:47:03 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:47:48 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Completed 401 Unauthorized in 11ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:47:48 +0100
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 79ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-10-31 08:47:52 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 76ms (Views: 75.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:47:52 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:47:52 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:47:54 +0100
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:47:54 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:47:54 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:47:54 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:48:01 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5C4drd8FNE0lGEK2mgn+QtJwmBPfPMazHmg3NWZtV6Sk4+RORd5If4a3e9bSWDOICPBlFj6Pdqm6w6s/5/x0sA==", "user"=>{"email"=>"vincenzo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincenzo@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2018-10-31 07:48:01.278588"], ["last_sign_in_at", "2018-10-31 07:48:01.278588"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2018-10-31 07:48:01.279904"], ["id", 3]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/3
+Completed 302 Found in 158ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/profile/3" for 127.0.0.1 at 2018-10-31 08:48:01 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 3 OR guest_id = 3)[0m
+  Rendered home/_chat.html.erb (5.9ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 70ms (Views: 56.9ms | ActiveRecord: 4.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:01 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:01 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:01 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_3
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-10-31 08:48:06 +0100
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VlzCA4R6AYCvE+ggSlyc4MnSmzGmkAbWXx4s+j3siq4b5GjbHRtdKoDAir14J50StvrPyT0TjMTLuWZ/ryJJUw=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:48:06 +0100
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.9ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered _ads_list.html.erb (8.0ms)
+  Rendered home/welcome.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 69ms (Views: 56.8ms | ActiveRecord: 4.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:06 +0100
+MailboxChannel stopped streaming from mailbox_3
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:07 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:07 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-10-31 08:48:08 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 76ms (Views: 74.6ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:08 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:08 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:08 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users" for 127.0.0.1 at 2018-10-31 08:48:24 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wqaMrjMQ72om4GOZfD/p9bGdsasMu9Zhm+Lu+ozFXkuHZ09FEqg08pGOjiHFXIjYWtcvMA6vm3F4OSvcV0BMsg==", "user"=>{"name"=>"gio", "surname"=>"dem", "username"=>"giogio", "cap"=>"00016", "radius"=>"5", "email"=>"giorgio@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giorgio@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "giogio"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "surname", "username", "email", "encrypted_password", "created_at", "updated_at", "cap", "radius") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "gio"], ["surname", "dem"], ["username", "giogio"], ["email", "giorgio@gmail.com"], ["encrypted_password", "$2a$11$DVbQDrPqdCl40ZHqbBJvI.6.Wl7cAtTzGJ6kgJ0xH/wuIthfQ4uY."], ["created_at", "2018-10-31 07:48:24.986071"], ["updated_at", "2018-10-31 07:48:24.986071"], ["cap", "00016"], ["radius", "5"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-10-31 07:48:24.989896"], ["last_sign_in_at", "2018-10-31 07:48:24.989896"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-10-31 07:48:24.990750"], ["id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/9
+Completed 302 Found in 164ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/users/profile/9" for 127.0.0.1 at 2018-10-31 08:48:25 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 9 OR guest_id = 9)[0m
+  Rendered home/_chat.html.erb (2.0ms)
+  Rendered home/_chats_index.html.erb (0.6ms)
+  Rendered home/profile.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 57ms (Views: 49.5ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:25 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:25 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:25 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_9
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:48:27 +0100
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE ("ads"."user_id" != $1)[0m  [["user_id", 9]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered _ads_list.html.erb (2.4ms)
+  Rendered home/welcome.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 55ms (Views: 47.6ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:27 +0100
+MailboxChannel stopped streaming from mailbox_9
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:27 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:27 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users_list?utf8=%E2%9C%93&search%5B%5D=&commit=Search" for 127.0.0.1 at 2018-10-31 08:48:28 +0100
+Processing by HomeController#users_list as HTML
+  Parameters: {"utf8"=>"✓", "search"=>[""], "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE (username iLIKE'%%')[0m
+  Rendering home/users_list.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username iLIKE'%%') ORDER BY name[0m
+  Rendered home/users_list.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 51ms (Views: 44.3ms | ActiveRecord: 1.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:28 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:29 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:29 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_9
+Started POST "/create_chat" for 127.0.0.1 at 2018-10-31 08:48:31 +0100
+Processing by ChatsController#create_chat as JSON
+  Parameters: {"guest_id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "chats" ("created_at", "updated_at", "owner_id", "guest_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-10-31 07:48:31.345649"], ["updated_at", "2018-10-31 07:48:31.345649"], ["owner_id", 9], ["guest_id", 3]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_3: {:type=>"create_chat"}
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users/profile/9" for 127.0.0.1 at 2018-10-31 08:48:34 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 9 OR guest_id = 9)[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 10]]
+  Rendered home/_chat.html.erb (10.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered home/_chats_index.html.erb (5.7ms)
+  Rendered home/profile.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 75ms (Views: 64.8ms | ActiveRecord: 4.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:34 +0100
+MailboxChannel stopped streaming from mailbox_9
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:34 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:34 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_9
+Started POST "/send_message" for 127.0.0.1 at 2018-10-31 08:48:38 +0100
+Processing by ChatsController#receive as JSON
+  Parameters: {"msg"=>{"chat_id"=>"10", "text"=>"prova"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mChat Load (0.9ms)[0m  [1m[34mSELECT  "chats".* FROM "chats" WHERE "chats"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("created_at", "updated_at", "text", "chat_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-10-31 07:48:38.789334"], ["updated_at", "2018-10-31 07:48:38.789334"], ["text", "prova"], ["chat_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to mailbox_3: {:type=>"message", :chat_id=>10, :text=>"prova"}
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-10-31 08:48:44 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 61ms (Views: 57.5ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:45 +0100
+MailboxChannel stopped streaming from mailbox_9
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:45 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:45 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users" for 127.0.0.1 at 2018-10-31 08:48:48 +0100
+Processing by Users::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YEL/79UbDa+cv7AuQM1MRS2PO/ekecZvhyK02Rev9xwlgzwE9KPWNyvRXZb5ri1oxsWlbKZti39k+XH/zCrl5Q=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 9 OR guest_id = 9)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."chat_id" = $1[0m  [["chat_id", 10]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = $1[0m  [["id", 15]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "chats" WHERE "chats"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mFavourite Load (0.4ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[35mSQL (1.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 36ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:48:48 +0100
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered _ads_list.html.erb (1.8ms)
+  Rendered home/welcome.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 51ms (Views: 46.4ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:48 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:48:48 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:48:48 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:50:42 +0100
+Processing by HomeController#welcome as HTML
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered _ads_list.html.erb (7.6ms)
+  Rendered home/welcome.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 69ms (Views: 58.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:50:43 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:50:43 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:50:44 +0100
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 108ms (Views: 68.0ms | ActiveRecord: 7.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:50:45 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:50:45 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:50:45 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-10-31 08:50:49 +0100
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OMae9dQ1js6XKUUSzadoS5UdBQTSEhWWyFcqtSUfEyV9B10e9Y1VViBHqKp0xAlmflebn9AGWIYrjO+T/poB3A==", "user"=>{"email"=>"flavia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "flavia@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-10-31 07:50:49.371969"], ["last_sign_in_at", "2018-10-31 07:46:08.292073"], ["sign_in_count", 4], ["updated_at", "2018-10-31 07:50:49.373038"], ["id", 7]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/profile/7
+Completed 302 Found in 167ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/profile/7" for 127.0.0.1 at 2018-10-31 08:50:49 +0100
+Processing by HomeController#profile as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering home/profile.html.erb within layouts/application
+  [1m[36mChat Load (0.5ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 7 OR guest_id = 7)[0m
+  Rendered home/_chat.html.erb (8.1ms)
+  Rendered home/_chats_index.html.erb (0.9ms)
+  Rendered home/profile.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 87ms (Views: 69.3ms | ActiveRecord: 4.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:50:49 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:50:49 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:50:49 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_
+Started DELETE "/users" for 127.0.0.1 at 2018-10-31 08:50:54 +0100
+Processing by Users::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GnGddZjPo5F993GKwRjmEvoEUimBHsGLF1TthB2dsUDM36OnC58p4gv/ytHfVWTSRTK4uGreDFckly1IFwjrwA=="}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mChat Load (0.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE (owner_id = 7 OR guest_id = 7)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mFavourite Load (0.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 41ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-31 08:50:54 +0100
+Processing by HomeController#welcome as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering home/welcome.html.erb within layouts/application
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  Rendered _ads_list.html.erb (5.0ms)
+  Rendered home/welcome.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 66ms (Views: 60.0ms | ActiveRecord: 1.2ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:50:54 +0100
+MailboxChannel stopped streaming from mailbox_
+Started GET "/cable" for 127.0.0.1 at 2018-10-31 08:50:54 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-10-31 08:50:54 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+MailboxChannel is transmitting the subscription confirmation
+MailboxChannel is streaming from mailbox_

@@ -45,6 +45,7 @@
   <% if user.present? && user.role == "banned" %>
     <div class="col-md-12 center">
       <p class="text-danger">YOU ARE BANNED, YOU CAN DO NOTHING :) </p>
+      <%= button_to "Cancel account", registration_path(User), data: { confirm: "Are you sure?" }, method: :delete , class:"btn btn-danger"%>
     </div>
   <% else %>
     <%= yield %>

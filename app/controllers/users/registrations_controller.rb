@@ -30,7 +30,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    super
+    chats = current_user.chats
+    chats.each do |c|
+      c.destroy
+    end
+    current_user.destroy
+    redirect_to root_path
   end
 
   def admin_destroy_user
