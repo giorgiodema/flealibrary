@@ -1,9 +1,9 @@
-Feature: Login
+Feature: SignIn
 	As a BOOKLOVER 
 	I want to LOG-IN WITH E-MAIL 
 	so that I CAN ACCESS TO MY PROFILE
 
-Scenario: Successfull login
+Scenario: Successfull sign in
 	Given I exist as "booklover"
 	And I am not signed in
 	When I sign in
@@ -11,7 +11,7 @@ Scenario: Successfull login
 	And I should be in profile page
 	And I should be signed in
 
-Scenario: Failed login
+Scenario: Failed sign in
 	Given I don't exist as "booklover"
 	And I am not signed in
 	When I sign in
