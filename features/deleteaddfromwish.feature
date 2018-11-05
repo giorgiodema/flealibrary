@@ -1,11 +1,11 @@
-Feature: DeleteAddFromWish
+Feature: DeleteaBookFromWishList
     As a BOOKLOVER
     I want to DELETE A BOOK FROM MY WISH LIST
     so that I CAN MODIFY MY WISH LIST
 
 Scenario: Delete a Book from Wish
     Given I exist as "booklover"
-    And I am logged in
+    And I am signed in
     And exist an ad
     And I am in profile page
     When I follow Wish list

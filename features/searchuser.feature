@@ -4,7 +4,7 @@ Feature: SearchUser
 	so that I CAN SEE HIS PROFILE
 
 Scenario: Successful SearchUser
-    Given I am logged in as other user
+    Given I am signed in as other user
 	And I am in home page
 	And another user exists
 	When I search "name_test" user
@@ -12,7 +12,7 @@ Scenario: Successful SearchUser
 	And I should see "name_test"
 
 Scenario: Unsuccessful SearchUser
-    Given I am logged in as other user
+    Given I am signed in as other user
     And I am in home page
     When I search "failed" user
     Then I should be in home page

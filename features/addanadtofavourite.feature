@@ -1,11 +1,11 @@
-Feature: Add a book to favourite
+Feature: AddanAdtoFavourite
     As a BOOKLOVER
     I want to ADD AN AD TO MY FAVORITES
     so that I CAN FIND IT SIMPLY
 
-Scenario: Add a Book to Favourite
+Scenario: Add an Ad to Favourite
     Given I exist as "booklover"
-    And I am logged in
+    And I am signed in
     And exist another ad
     And I am in home page
     When I search for ads

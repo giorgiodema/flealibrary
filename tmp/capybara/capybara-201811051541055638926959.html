@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flealibrary</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="all" href="/assets/application-dd26b33254f0e0c9da68b5c94423de4a11df0d3ebfa90ba4bdd43d9b96694c90.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-1b14f23bcf9cebf5a51229ac00fdef320cce55db12b765a1f54070006982870f.js" data-turbolinks-track="reload"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="screen" href="https://bootswatch.com/4/sketchy/bootstrap.min.css" />
+  </head>
+
+  <body>
+
+  <div class="col-md-12 flash_container">
+      <div class="alert alert-dismissible alert-success">Signed in successfully.</div>
+  </div>
+
+  <h1 class="display-3 title">FLEA LIBRARY</h1>
+
+  <div class="col-md-12 topnav">
+    <form class="button_to" method="get" action="/"><input class="btn-lg btn-warning" type="submit" value="HOME" /></form>
+          <form class="button_to" method="get" action="/users/profile/119"><input class="btn-lg btn-success profile_btn" type="submit" value="USERNAME_TEST" /></form>
+          <form class="button_to" method="get" action="/notifications"><input class="btn-lg btn-outline-primary notifications_btn" id="notifications_btn" type="submit" value="Notifications: 0" /></form>
+          <form class="button_to" method="post" action="/users/sign_out"><input type="hidden" name="_method" value="delete" /><input class="btn-lg btn-danger logout_btn" id="logoutbutton" type="submit" value="Log out" /></form>
+  </div>
+
+    <div id='profilepage'>
+<!-- IMPORTANTE per far funzionare i channels -->
+<meta name='userid' content="119">
+<!-- ######################################## -->
+
+     <!-- ho aggiunto un controllo perché nel caso di show_profile non passo le chat -->
+
+
+
+<div class="col-md-8 left_panel">
+
+    <div class="col-md-4 picture_box">
+        <img alt="Image" class="user_img" src="/assets/fallback/default-9edf194a00f1dcda7e15e43175301617516db9056902d19fc5f13b4e73afcec4.jpg" />
+    </div>
+
+
+
+    <div class="col-md-4 info_box">
+            <br><br>
+            Name: <small class="text-success">name_test<br></small>
+            Surname: <small class="text-success">surname_test<br></small>
+            Username: <small class="text-success">username_test<br></small>
+            Email: <small class="text-success">email@test.it<br></small>
+                Cap: <small class="text-success">00015<br></small>
+                Radius: <small class="text-success">30<br></small>
+            
+                <form class="button_to" method="get" action="/users/edit"><input class="btn-sm btn-warning" type="submit" value="Edit profile" /></form>
+  
+    </div>
+
+    <div class="col-md-4 map_box">
+        <img class="map_img" src="https://maps.googleapis.com/maps/api/staticmap?center=00015+italy&amp;size=200x200&amp;zoom=11&amp;key=AIzaSyDGDP6T-EYABI8GMdbuujMJKaCm37fyBss" alt="Staticmap?center=00015+italy&amp;size=200x200&amp;zoom=11&amp;key=aizasydgdp6t eyabi8gmdbuujmjkacm37fybss" />
+    </div>
+
+
+    <div class="col-md-4 actions">
+        <div class="list-group">
+            <p class="list-group-item list-group-item-action active">
+                <!-- se l'id passato e lo user corrispondono -->
+                MY LIBRARY                                    <!-- , sono nel mio profilo -->
+            </p>
+                <a class="list-group-item list-group-item-action" href="/favourites">Favourite list</a>
+             <!--non voglio mostrare i favoriti e la modifica del profilo delgi altri utenti -->
+            <a class="list-group-item list-group-item-action" href="/profile/wish_list?id=119&amp;list_type=0">Wish list</a>
+            <a class="list-group-item list-group-item-action" href="/profile/gift_list?id=119&amp;list_type=1">Gift list</a>
+
+        </div>
+    </div>
+
+    <div class="col-md-8 search_div">
+            <form id="search-form" class="form-group" action="/books_results" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input placeholder="Search Books" type="text" name="search[]" id="search_" />
+            <input type="submit" name="commit" value="Search" class="btn-sm btn-secondary my-2 my-sm-0" data-disable-with="Search" />
+</form>    </div>
+
+</div>
+
+
+<div class="col-md-4 right_panel">
+         <!-- ho aggiunto un controllo perché nel caso di show_profile non passo le chat -->
+
+<ul id=chats_list class="col-md-12 group-list chat_list">
+
+    <li class="list-group-item list-group-item-action active chat_list_title">
+        <h2> Chats </h2>
+    </li>
+
+
+    </ul>
+
+</div>
+
+</div>
+
+
+
+
+
+</body>
+</html>

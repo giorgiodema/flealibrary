@@ -5,7 +5,7 @@ Feature: AddABookToGift
 
 Scenario: Add a Book to Gift
     Given I exist as "booklover"
-    And I am logged in
+    And I am signed in
     And I am in books_results page
     When I follow Gift
     Then it should be in the gift ad database 

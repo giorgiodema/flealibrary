@@ -1,4 +1,4 @@
-def login(email, password)
+def signin(email, password)
     visit new_user_session_path
     fill_in "Email", :with => email
     fill_in "Password", :with => password
@@ -98,19 +98,19 @@ Given /^I don't exist as (.+)$/ do |role|
     @user = nil
 end
 
-Given /^I am not logged in$/ do
+Given /^I am not signed in$/ do
     page.has_button?('loginbutton')
 end
 
-Given /^I am logged in$/ do
+Given /^I am signed in$/ do
     @user = find_user
-    login(@user.email, 'password')
+    signin(@user.email, 'password')
 end
 
-Given /^I am logged in as other user$/ do
+Given /^I am signed in as other user$/ do
     create_another_user
     @user = find_another_user
-    login(@user.email, 'password')
+    signin(@user.email, 'password')
 end
 
 Given /^I am in (.+) page$/ do |page|
@@ -145,12 +145,12 @@ Given /^exist an ad$/ do
 end
 
 #WHEN
-When /^I login$/ do
+When /^I sign in$/ do
     @user = find_user
     if @user == nil
-        login('mail@test.it', 'password')
+        signin('mail@test.it', 'password')
     else 
-        login(@user.email,'password')
+        signin(@user.email,'password')
     end
 end
 
