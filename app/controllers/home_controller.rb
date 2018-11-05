@@ -37,7 +37,7 @@ class HomeController < ApplicationController
     end
 
     def admin_panel
-        if current_user.role == 'booklover'
+        if current_user.role == 'booklover' || current_user.role == 'banned'
             redirect_to root_path, :flash => { :error => "you haven't permission" }
         end
     end
